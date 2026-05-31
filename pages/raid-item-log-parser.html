@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raid Item Log Parser</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/parser.css" />
+</head>
+<body>
+  <header class="page-header">
+    <a href="../index.html" class="back">&#8592; Back</a>
+    <h1 style="font-size:1.1rem;">Raid Item Log Parser</h1>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button id="edit-targets-btn" class="btn-secondary" style="font-size:0.825rem;">&#9998; Edit Raid Targets</button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-sun">&#9728;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <h1>Raid Item Log Parser</h1>
+    <p class="description">Upload an EverQuest log file to extract and review loot entries by mob.</p>
+
+    <div id="upload-zone" class="upload-zone">
+      <div class="upload-icon">&#128196;</div>
+      <p class="upload-label">Click to select a log file</p>
+      <p class="upload-sub">or drag and drop an EverQuest <code>.txt</code> log file here</p>
+      <input type="file" id="file-input" accept=".txt" />
+    </div>
+
+    <div id="results-section" class="results-section hidden">
+      <div class="results-toolbar">
+        <div class="results-meta">
+          <span id="results-summary"></span>
+        </div>
+        <div class="toolbar-actions">
+          <button id="expand-all-btn" class="btn-secondary">&#9660; Expand all</button>
+          <button id="select-all-btn" class="btn-secondary">Select all</button>
+          <button id="deselect-all-btn" class="btn-secondary">Deselect all</button>
+          <button id="reset-btn" class="btn-secondary">&#8635; Load new file</button>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-label">Show:</span>
+        <div class="filter-pills" role="group" aria-label="Time filter">
+          <button class="filter-pill active" data-filter="all">All time</button>
+          <button class="filter-pill" data-filter="1h">Last 1 hr</button>
+          <button class="filter-pill" data-filter="8h">Last 8 hrs</button>
+          <button class="filter-pill" data-filter="24h">Last 24 hrs</button>
+          <button class="filter-pill" data-filter="custom">Custom&hellip;</button>
+        </div>
+        <div id="custom-range" class="custom-range hidden">
+          <label class="range-label">From
+            <input type="datetime-local" id="range-from" />
+          </label>
+          <span class="range-sep">&#8212;</span>
+          <label class="range-label">To
+            <input type="datetime-local" id="range-to" />
+          </label>
+        </div>
+      </div>
+
+      <ul id="mob-list" class="mob-list"></ul>
+    </div>
+
+    <div id="empty-state" class="placeholder-box hidden">
+      &#128269; No loot entries found in this log file.
+    </div>
+  </main>
+
+  <!-- ── Raid Targets Modal ─────────────────────────────────────────────── -->
+  <div id="targets-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Edit Raid Targets</h2>
+        <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-add-row">
+          <button class="btn-add" data-position="top">&#43; Add target</button>
+        </div>
+
+        <ul id="targets-list" class="targets-list"></ul>
+
+        <div class="modal-add-row">
+          <button class="btn-add" data-position="bottom">&#43; Add target</button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="modal-reset-defaults" class="btn-secondary">Reset to defaults</button>
+        <button id="modal-save" class="btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/raid-targets.js"></script>
+  <script src="../js/parser.js"></script>
+</body>
+</html>
