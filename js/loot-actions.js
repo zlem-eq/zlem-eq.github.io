@@ -4,13 +4,13 @@
     return name.trim().replace(/^(?:a|an|the) /i, '').toLowerCase();
   }
 
-  // Wrap text in a Discord code span, handling embedded backticks by switching
-  // to double-backtick delimiters (`` text ``) when needed.
+  // Wrap text in a Discord inline code span.
+  // Discord only supports single-backtick spans — double-backtick spans are NOT
+  // rendered as code. When the text contains a backtick we cannot use a code span
+  // at all; instead escape each backtick with \` so Discord shows it literally.
   function discordCode(text) {
     if (text.indexOf('`') !== -1) {
-      // Double-backtick delimiters require a space when text starts/ends with a backtick
-      var needsSpace = text.charAt(0) === '`' || text.charAt(text.length - 1) === '`';
-      return needsSpace ? '`` ' + text + ' ``' : '``' + text + '``';
+      return text.replace(/`/g, '\\`');
     }
     return '`' + text + '`';
   }
