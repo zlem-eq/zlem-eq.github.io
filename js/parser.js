@@ -226,28 +226,82 @@
   // Expose so the modal's Save button can trigger a re-filter without reloading the file
   window.reapplyFilter = applyFilter;
 
+  const SESSION_GAP_MS = 15 * 60 * 1000; // 15 minutes
+
   function groupByMob(entries) {
-    const mobs = new Map();
+    // 1. Bucket all entries by mob name (unsorted)
+    const rawGroups = new Map();
     entries.forEach(function (entry) {
-      if (!mobs.has(entry.mob)) mobs.set(entry.mob, { rows: new Map() });
-      const rows = mobs.get(entry.mob).rows;
-      // Key on item + looter so the same item looted by different people stays separate
-      const key = entry.item + '\x00' + entry.looter;
-      if (rows.has(key)) {
-        rows.get(key).qty += entry.qty;
-      } else {
-        rows.set(key, { looter: entry.looter, qty: entry.qty, item: entry.item, timestamp: entry.timestamp });
-      }
+      if (!rawGroups.has(entry.mob)) rawGroups.set(entry.mob, []);
+      rawGroups.get(entry.mob).push(entry);
     });
 
-    // Convert inner Maps to arrays and sort mobs alphabetically
-    const result = new Map();
-    [...mobs.entries()]
-      .sort(function (a, b) { return a[0].localeCompare(b[0]); })
-      .forEach(function (pair) {
-        result.set(pair[0], { entries: [...pair[1].rows.values()] });
+    // 2. For each mob, sort by date then split into sessions on gaps > 15 min
+    const sessions = [];
+    rawGroups.forEach(function (mobEntries, mobName) {
+      mobEntries.sort(function (a, b) { return a.date - b.date; });
+
+      const mobSessions = [];
+      let current = [mobEntries[0]];
+      for (let i = 1; i < mobEntries.length; i++) {
+        if (mobEntries[i].date - mobEntries[i - 1].date > SESSION_GAP_MS) {
+          mobSessions.push(current);
+          current = [mobEntries[i]];
+        } else {
+          current.push(mobEntries[i]);
+        }
+      }
+      mobSessions.push(current);
+
+      mobSessions.forEach(function (sessionEntries, idx) {
+        sessions.push({
+          mobName:       mobName,
+          sessionEntries: sessionEntries,
+          latestDate:    sessionEntries[sessionEntries.length - 1].date,
+          firstDate:     sessionEntries[0].date,
+          multiSession:  mobSessions.length > 1,
+        });
       });
+    });
+
+    // 3. Sort all sessions newest-first
+    sessions.sort(function (a, b) { return b.latestDate - a.latestDate; });
+
+    // 4. Build result Map — add a time label when the same mob appears more than once
+    const result = new Map();
+    sessions.forEach(function (session) {
+      let displayName = session.mobName;
+      if (session.multiSession) {
+        displayName += ' · ' + formatSessionLabel(session.firstDate);
+      }
+
+      // Aggregate rows within this session (item + looter key)
+      const rows = new Map();
+      session.sessionEntries.forEach(function (entry) {
+        const key = entry.item + '\x00' + entry.looter;
+        if (rows.has(key)) {
+          rows.get(key).qty += entry.qty;
+        } else {
+          rows.set(key, { looter: entry.looter, qty: entry.qty, item: entry.item, timestamp: entry.timestamp });
+        }
+      });
+
+      // Use a unique map key in case display names collide
+      let mapKey = displayName;
+      let n = 2;
+      while (result.has(mapKey)) { mapKey = displayName + ' (' + (n++) + ')'; }
+      result.set(mapKey, { entries: [...rows.values()] });
+    });
+
     return result;
+  }
+
+  function formatSessionLabel(date) {
+    // "May 31 21:35"
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const pad = function (n) { return String(n).padStart(2, '0'); };
+    return months[date.getMonth()] + ' ' + date.getDate() +
+           ' ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
   }
 
   // ── Helpers ────────────────────────────────────────────────────────────────
