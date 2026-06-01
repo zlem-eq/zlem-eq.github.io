@@ -136,7 +136,6 @@
     var checkedItems = getCheckedItems();
 
     // Build lookup: normalizedItemName → [{item, looter, mob}]
-    // Use an array per key in case the same item dropped from multiple mobs
     var raidMap = {};
     checkedItems.forEach(function (ci) {
       var key = normalizeItemName(ci.item);
@@ -153,71 +152,72 @@
     });
 
     var matched    = [];
-    var noDelivery = [];   // in paste, not in raid data
-    var usedKeys   = {};   // track which raid items were matched
+    var noDelivery = [];
 
     pastedEntries.forEach(function (entry) {
       var key  = normalizeItemName(entry.itemRaw);
       var hits = raidMap[key];
       if (hits && hits.length > 0) {
-        // Take first unused match; if all used, reuse last
         var hit = hits.find(function (h) { return !h._used; }) || hits[hits.length - 1];
         hit._used = true;
-        usedKeys[key] = true;
         matched.push({ entry: entry, looter: hit.looter, mob: hit.mob, item: hit.item });
       } else {
         noDelivery.push(entry);
       }
     });
 
-    // Raid items that were never matched to a pasted entry
-    var unassigned = checkedItems.filter(function (ci) {
-      return !ci._used;
+    var unassigned = checkedItems.filter(function (ci) { return !ci._used; });
+
+    // ── Group matched items by deliverer (looter), sorted alphabetically ─────
+    var byDeliverer = {};
+    matched.forEach(function (m) {
+      if (!byDeliverer[m.looter]) byDeliverer[m.looter] = [];
+      byDeliverer[m.looter].push(m);
+    });
+    var deliverers = Object.keys(byDeliverer).sort(function (a, b) {
+      return a.toLowerCase().localeCompare(b.toLowerCase());
     });
 
-    // ── Build output text ────────────────────────────────────────────────────
+    // ── Build Discord-formatted output ────────────────────────────────────────
     var lines = [];
-    var sep   = '═'.repeat(52);
-    var thin  = '─'.repeat(52);
+    var divider = '─'.repeat(40);
 
-    lines.push('LOOT DELIVERY LIST');
-    lines.push('Generated: ' + new Date().toLocaleString());
-    lines.push(sep);
+    lines.push('📦 **LOOT DELIVERY LIST**');
+    lines.push('*Generated: ' + new Date().toLocaleString() + '*');
     lines.push('');
 
-    if (matched.length > 0) {
-      matched.forEach(function (m) {
-        lines.push(m.entry.itemRaw + ' (' + m.entry.dkp + ' DKP)');
-        lines.push('  Winner  : ' + m.entry.winner);
-        lines.push('  Deliver : ' + m.looter + ' -> ' + m.entry.winner);
+    if (deliverers.length > 0) {
+      deliverers.forEach(function (deliverer) {
+        var items = byDeliverer[deliverer];
+        var label = items.length === 1 ? '1 delivery' : items.length + ' deliveries';
+        lines.push('**' + deliverer + '** — ' + label);
+        items.forEach(function (m) {
+          lines.push('> `' + m.entry.itemRaw + '` → **' + m.entry.winner + '**');
+        });
         lines.push('');
       });
     } else {
-      lines.push('(No matched items)');
+      lines.push('*(No matched items)*');
       lines.push('');
     }
 
     if (noDelivery.length > 0) {
-      lines.push(thin);
-      lines.push('⚠ NO DELIVERY PLAYER FOUND (' + noDelivery.length + ') — not in raid data:');
-      lines.push('');
+      lines.push(divider);
+      lines.push('⚠️ **No Delivery Player Found** (' + noDelivery.length + ')');
       noDelivery.forEach(function (e) {
-        lines.push('  ' + e.itemRaw + ' (' + e.dkp + ' DKP)  →  Winner: ' + e.winner);
+        lines.push('> `' + e.itemRaw + '` → **' + e.winner + '**');
       });
       lines.push('');
     }
 
     if (unassigned.length > 0) {
-      lines.push(thin);
-      lines.push('📋 RAID ITEMS NOT IN LOOT LIST (' + unassigned.length + '):');
-      lines.push('');
+      lines.push(divider);
+      lines.push('📋 **Unassigned Raid Items** (' + unassigned.length + ')');
       unassigned.forEach(function (ci) {
-        lines.push('  ' + ci.item + ' (looted by: ' + ci.looter + ')  [' + ci.mob + ']');
+        lines.push('> `' + ci.item + '` looted by **' + ci.looter + '** [' + ci.mob + ']');
       });
       lines.push('');
     }
-
-    lines.push(sep);
 
     // Clean up _used flags
     checkedItems.forEach(function (ci) { delete ci._used; });
