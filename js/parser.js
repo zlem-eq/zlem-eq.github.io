@@ -1,15 +1,6 @@
 (function () {
-  // Matches both wrapped and unwrapped loot line variants:
-  //   --Gindorf has looted a Chunk of Meat from a skeleton's corpse.--
-  //   Vicious has looted a Spell: Focus of Spirit from The Avatar of War's corpse.
-  const LOOT_RE = /^(?:--)?(.+?) (?:has|have) looted (\d+ )?(.+?) from (.+?)'s corpse\.(?:--)?$/;
-
-  // EQ log line timestamp: [Day Mon DD HH:MM:SS YYYY]
-  const LINE_RE = /^\[(\w{3} \w{3} \d{1,2} \d{2}:\d{2}:\d{2} \d{4})\] (.+)$/;
-
-  const MONTHS = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
-
-  const uploadZone    = document.getElementById('upload-zone');
+  const uploadZone          = document.getElementById('upload-zone');
+  const processingOverlay   = document.getElementById('processing-overlay');
   const fileInput     = document.getElementById('file-input');
   const resultsSection = document.getElementById('results-section');
   const emptyState    = document.getElementById('empty-state');
@@ -30,19 +21,28 @@
   let latestDate = null;
   let activeFilter = 'all';
 
-  // ── Drag-and-drop styling ──────────────────────────────────────────────────
+  // ── Drag-and-drop ──────────────────────────────────────────────────────────
+  // ── Drag-and-drop ──────────────────────────────────────────────────────────
+  // Block the browser's default "navigate to file" behavior for ANY drop on the
+  // document. Without this, dropping a file even slightly outside the upload
+  // zone causes a full-page navigation and the parse never completes.
+  document.addEventListener('dragover', function (e) { e.preventDefault(); });
+  document.addEventListener('drop', function (e) {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file && !uploadZone.classList.contains('hidden')) {
+      processFile(file);
+    }
+  });
+
+  // Upload-zone hover styling only (drop is handled at document level above)
   uploadZone.addEventListener('dragover', function (e) {
     e.preventDefault();
     uploadZone.classList.add('drag-over');
   });
   uploadZone.addEventListener('dragleave', function () {
     uploadZone.classList.remove('drag-over');
-  });
-  uploadZone.addEventListener('drop', function (e) {
-    e.preventDefault();
-    uploadZone.classList.remove('drag-over');
-    const file = e.dataTransfer.files[0];
-    if (file) processFile(file);
   });
 
   fileInput.addEventListener('change', function () {
@@ -60,6 +60,7 @@
   resetBtn.addEventListener('click', function () {
     resultsSection.classList.add('hidden');
     emptyState.classList.add('hidden');
+    processingOverlay.classList.add('hidden');
     uploadZone.classList.remove('hidden');
     mobList.innerHTML = '';
     fileInput.value = '';
@@ -119,18 +120,40 @@
 
   // ── File processing ────────────────────────────────────────────────────────
   let playerName = 'You';
+  let parseWorker = null;
+
+  const processingLabel = processingOverlay.querySelector('.processing-label');
 
   function extractPlayerName(filename) {
-    // eqlog_PlayerName_ServerName.txt  →  PlayerName
     const m = filename.match(/^eqlog_(.+?)_[^_]+\.txt$/i);
     return m ? m[1] : 'You';
   }
 
   function processFile(file) {
     playerName = extractPlayerName(file.name);
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      allEntries = parseLog(e.target.result);
+    uploadZone.classList.add('hidden');
+    resultsSection.classList.add('hidden');
+    emptyState.classList.add('hidden');
+    processingLabel.textContent = 'Parsing log file…';
+    processingOverlay.classList.remove('hidden');
+
+    // Terminate any in-flight worker before starting a new one
+    if (parseWorker) { parseWorker.terminate(); }
+    parseWorker = new Worker('../js/parse-worker.js');
+
+    parseWorker.onmessage = function (e) {
+      if (e.data.type === 'progress') {
+        processingLabel.textContent = 'Parsing log file… ' + e.data.pct + '%';
+        return;
+      }
+
+      // type === 'done'
+      // Dates arrive as numbers (serialised through postMessage) — restore them
+      allEntries = e.data.entries.map(function (entry) {
+        entry.date = new Date(entry.date);
+        return entry;
+      });
+
       latestDate = allEntries.length
         ? allEntries.reduce(function (max, entry) {
             return entry.date > max ? entry.date : max;
@@ -138,46 +161,29 @@
         : null;
 
       activeFilter = 'all';
+      allExpanded = false;
+      expandAllBtn.innerHTML = '&#9660; Expand all';
       setActivePill('all');
       customRange.classList.add('hidden');
+      processingOverlay.classList.add('hidden');
       applyFilter();
     };
-    reader.readAsText(file);
-  }
 
-  // ── Parsing ────────────────────────────────────────────────────────────────
-  function parseEQDate(raw) {
-    // "Wed May 27 15:08:29 2026"
-    const parts = raw.split(' ');
-    const mon  = MONTHS[parts[1]];
-    const day  = parseInt(parts[2], 10);
-    const year = parseInt(parts[4], 10);
-    const time = parts[3].split(':');
-    return new Date(year, mon, day, parseInt(time[0],10), parseInt(time[1],10), parseInt(time[2],10));
-  }
+    parseWorker.onerror = function (err) {
+      processingOverlay.classList.add('hidden');
+      uploadZone.classList.remove('hidden');
+      console.error('Parse worker error:', err);
+    };
 
-  function parseLog(text) {
-    const entries = [];
-    const lines = text.split('\n');
-    for (let i = 0; i < lines.length; i++) {
-      const lineMatch = lines[i].match(LINE_RE);
-      if (!lineMatch) continue;
-
-      const timestamp = lineMatch[1];
-      const body      = lineMatch[2].trim();
-      const lootMatch = body.match(LOOT_RE);
-      if (!lootMatch) continue;
-
-      entries.push({
-        looter:    lootMatch[1] === 'You' ? playerName : lootMatch[1],
-        qty:       lootMatch[2] ? parseInt(lootMatch[2].trim(), 10) : 1,
-        item:      normalizeItemName(lootMatch[3]),
-        mob:       normalizeMobName(lootMatch[4]),
-        timestamp: timestamp,
-        date:      parseEQDate(timestamp),
-      });
-    }
-    return entries;
+    // Read as ArrayBuffer and transfer ownership to the worker (zero-copy)
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      parseWorker.postMessage(
+        { buffer: e.target.result, playerName: playerName },
+        [e.target.result]   // transferable — avoids copying the buffer
+      );
+    };
+    reader.readAsArrayBuffer(file);
   }
 
   // ── Filtering & grouping ───────────────────────────────────────────────────
@@ -245,15 +251,6 @@
   }
 
   // ── Helpers ────────────────────────────────────────────────────────────────
-  function normalizeMobName(name) {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  }
-
-  // Strip leading articles so "a Bone Chips" and "Bone Chips" aggregate together.
-  // EQ omits the article in log lines when qty > 1.
-  function normalizeItemName(name) {
-    return name.replace(/^(?:a|an|the) /i, '');
-  }
 
   function formatTimestamp(raw) {
     // "Wed May 27 15:08:29 2026" → "May 27 15:08:29"
@@ -356,6 +353,7 @@
     const thead = document.createElement('thead');
     thead.innerHTML =
       '<tr>' +
+        '<th class="col-check"></th>' +
         '<th>Item</th>' +
         '<th>Qty</th>' +
         '<th>Looted by</th>' +
@@ -365,6 +363,15 @@
     const tbody = document.createElement('tbody');
     entries.forEach(function (entry) {
       const tr = document.createElement('tr');
+
+      const tdCheck = document.createElement('td');
+      tdCheck.className = 'col-check';
+      const rowCb = document.createElement('input');
+      rowCb.type = 'checkbox';
+      rowCb.className = 'loot-checkbox';
+      rowCb.checked = true;
+      rowCb.addEventListener('click', function (e) { e.stopPropagation(); });
+      tdCheck.appendChild(rowCb);
 
       const tdItem = document.createElement('td');
       tdItem.textContent = entry.item;
@@ -387,6 +394,7 @@
       tdTime.className = 'loot-timestamp';
       tdTime.textContent = formatTimestamp(entry.timestamp);
 
+      tr.appendChild(tdCheck);
       tr.appendChild(tdItem);
       tr.appendChild(tdQty);
       tr.appendChild(tdLooter);

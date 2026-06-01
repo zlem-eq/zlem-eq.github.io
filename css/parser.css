@@ -183,6 +183,20 @@
   font-size: 0.875rem;
 }
 
+.loot-table .col-check {
+  width: 2rem;
+  text-align: center;
+  padding-left: 0.75rem;
+  padding-right: 0;
+}
+
+.loot-checkbox {
+  accent-color: var(--accent);
+  cursor: pointer;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
 .loot-table th {
   text-align: left;
   padding: 0.5rem 1rem;
@@ -309,6 +323,37 @@
 .range-sep {
   color: var(--text-muted);
   font-size: 0.875rem;
+}
+
+/* ── Processing spinner ─────────────────────────────────────────────────────── */
+.processing-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.processing-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 /* ── Modal ─────────────────────────────────────────────────────────────────── */
@@ -483,4 +528,141 @@
 .btn-primary:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
+}
+
+/* ── Loot action buttons ─────────────────────────────────────────────────── */
+.loot-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.btn-action {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn-action:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+
+/* ── OpenDKP output box ──────────────────────────────────────────────────── */
+.output-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.output-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.output-box-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-copy {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-copy:hover {
+  background: var(--border);
+}
+
+.output-text {
+  margin: 0;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+/* ── Delivery modal specifics ────────────────────────────────────────────── */
+.modal-wide {
+  max-width: 680px;
+}
+
+.delivery-instructions {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.delivery-instructions code {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-size: 0.82rem;
+}
+
+.delivery-textarea {
+  width: 100%;
+  min-height: 200px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text);
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+
+.delivery-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.delivery-output-pre {
+  max-height: 420px;
+}
+
+.modal-close-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.modal-close-btn:hover {
+  background: var(--border);
 }
