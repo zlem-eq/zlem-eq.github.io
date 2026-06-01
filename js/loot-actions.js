@@ -71,7 +71,11 @@
       openDkpOutput.classList.remove('hidden');
       return;
     }
-    var str = items.map(function (i) { return i.item; }).join('|');
+    var parts = [];
+    items.forEach(function (i) {
+      for (var j = 0; j < i.qty; j++) parts.push(i.item);
+    });
+    var str = parts.join('|');
     openDkpText.textContent = str;
     openDkpOutput.classList.remove('hidden');
     openDkpOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
