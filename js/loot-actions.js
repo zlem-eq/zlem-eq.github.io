@@ -6,11 +6,11 @@
 
   // Wrap text in a Discord inline code span.
   // Discord only supports single-backtick spans — double-backtick spans are NOT
-  // rendered as code. When the text contains a backtick we cannot use a code span
-  // at all; instead escape each backtick with \` so Discord shows it literally.
+  // rendered as code. When the text contains a backtick we fall back to italic
+  // formatting (*text*) with the backtick escaped via \` so it displays literally.
   function discordCode(text) {
     if (text.indexOf('`') !== -1) {
-      return text.replace(/`/g, '\\`');
+      return '*' + text.replace(/`/g, '\\`') + '*';
     }
     return '`' + text + '`';
   }
