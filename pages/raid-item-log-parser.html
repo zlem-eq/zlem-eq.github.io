@@ -24,6 +24,11 @@
     <h1>Raid Item Log Parser</h1>
     <p class="description">Upload an EverQuest log file to extract and review loot entries by mob.</p>
 
+    <div id="processing-overlay" class="processing-overlay hidden">
+      <div class="spinner"></div>
+      <p class="processing-label">Parsing log file…</p>
+    </div>
+
     <div id="upload-zone" class="upload-zone">
       <div class="upload-icon">&#128196;</div>
       <p class="upload-label">Click to select a log file</p>
@@ -65,6 +70,19 @@
       </div>
 
       <ul id="mob-list" class="mob-list"></ul>
+
+      <div class="loot-actions">
+        <button id="gen-opendkp-btn" class="btn-action">&#128203; Generate OpenDKP Loot List</button>
+        <button id="gen-delivery-btn" class="btn-action">&#128230; Generate Loot Delivery List</button>
+      </div>
+
+      <div id="opendkp-output" class="output-box hidden">
+        <div class="output-box-header">
+          <span class="output-box-label">OpenDKP Loot String</span>
+          <button id="copy-opendkp-btn" class="btn-copy">&#128203; Copy</button>
+        </div>
+        <pre id="opendkp-text" class="output-text"></pre>
+      </div>
     </div>
 
     <div id="empty-state" class="placeholder-box hidden">
@@ -99,8 +117,51 @@
     </div>
   </div>
 
+  <!-- ── Loot Delivery Modal ───────────────────────────────────────────────── -->
+  <div id="delivery-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="delivery-modal-title">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h2 id="delivery-modal-title">Generate Loot Delivery List</h2>
+        <button id="delivery-modal-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="delivery-instructions">Paste loot entries below, one per line in the format:<br>
+          <code>Item Name;DKP Amount;Winner gratss</code></p>
+        <textarea id="delivery-paste" class="delivery-textarea" placeholder="Yelinak's Head;54;Lynuga gratss&#10;Sirran's Boots of Insanity;65;Doggafina gratss"></textarea>
+      </div>
+      <div class="modal-footer">
+        <span></span>
+        <div style="display:flex;gap:0.5rem;">
+          <button id="delivery-generate-btn" class="btn-primary">&#9654; Generate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Delivery Output Modal ─────────────────────────────────────────────── -->
+  <div id="delivery-output-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="delivery-output-title">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h2 id="delivery-output-title">Loot Delivery List</h2>
+        <button id="delivery-output-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="output-box-header" style="margin-bottom:0.5rem;">
+          <span class="output-box-label" id="delivery-output-summary"></span>
+          <button id="copy-delivery-btn" class="btn-copy">&#128203; Copy</button>
+        </div>
+        <pre id="delivery-output-text" class="output-text delivery-output-pre"></pre>
+      </div>
+      <div class="modal-footer">
+        <button id="delivery-output-back" class="btn-secondary">&#8592; Back</button>
+        <button id="delivery-output-close2" class="modal-close-btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script src="../js/theme.js"></script>
   <script src="../js/raid-targets.js"></script>
   <script src="../js/parser.js"></script>
+  <script src="../js/loot-actions.js"></script>
 </body>
 </html>
