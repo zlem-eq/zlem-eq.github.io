@@ -4,6 +4,22 @@
     return name.trim().replace(/^(?:a|an|the) /i, '').toLowerCase();
   }
 
+  // Wrap text in a Discord code span, handling embedded backticks by switching
+  // to double-backtick delimiters (`` text ``) when needed.
+  function discordCode(text) {
+    if (text.indexOf('`') !== -1) {
+      // Double-backtick delimiters require a space when text starts/ends with a backtick
+      var needsSpace = text.charAt(0) === '`' || text.charAt(text.length - 1) === '`';
+      return needsSpace ? '`` ' + text + ' ``' : '``' + text + '``';
+    }
+    return '`' + text + '`';
+  }
+
+  // Escape characters that break Discord markdown outside of code spans.
+  function discordEscape(text) {
+    return text.replace(/([*_~`\\|])/g, '\\$1');
+  }
+
   // Read every checked item from every checked mob out of the current DOM.
   // Returns [{mob, item, looter, qty}]
   function getCheckedItems() {
@@ -190,9 +206,9 @@
       deliverers.forEach(function (deliverer) {
         var items = byDeliverer[deliverer];
         var label = items.length === 1 ? '1 delivery' : items.length + ' deliveries';
-        lines.push('**' + deliverer + '** — ' + label);
+        lines.push('**' + discordEscape(deliverer) + '** — ' + label);
         items.forEach(function (m) {
-          lines.push('> `' + m.entry.itemRaw + '` → **' + m.entry.winner + '**');
+          lines.push('> ' + discordCode(m.entry.itemRaw) + ' → **' + discordEscape(m.entry.winner) + '**');
         });
         lines.push('');
       });
@@ -205,7 +221,7 @@
       lines.push(divider);
       lines.push('⚠️ **No Delivery Player Found** (' + noDelivery.length + ')');
       noDelivery.forEach(function (e) {
-        lines.push('> `' + e.itemRaw + '` → **' + e.winner + '**');
+        lines.push('> ' + discordCode(e.itemRaw) + ' → **' + discordEscape(e.winner) + '**');
       });
       lines.push('');
     }
@@ -214,7 +230,7 @@
       lines.push(divider);
       lines.push('📋 **Unassigned Raid Items** (' + unassigned.length + ')');
       unassigned.forEach(function (ci) {
-        lines.push('> `' + ci.item + '` looted by **' + ci.looter + '** [' + ci.mob + ']');
+        lines.push('> ' + discordCode(ci.item) + ' looted by **' + discordEscape(ci.looter) + '** [' + discordEscape(ci.mob) + ']');
       });
       lines.push('');
     }
