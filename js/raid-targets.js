@@ -4,7 +4,7 @@
 
   var DEFAULT_TARGETS = [
     "Kelorek`Dar","Gorenaire","Severilous","Venril Sathir","Trakanon",
-    "Cazic Thule","Talendor","Faydedar","Zlandicar","Dain Frostreaver IV",
+    "Cazic-Thule","Talendor","Faydedar","Zlandicar","Dain Frostreaver IV",
     "Derakor the Vindicator","King Tormax","Tunare","Lord Yelinak",
     "Velketor the Sorcerer","Wuoshi","Klandicar","Sontalak","The Itraer Vius",
     "Khati Sha the Twisted","Shei Vinitras","Grieg Veneficus",
