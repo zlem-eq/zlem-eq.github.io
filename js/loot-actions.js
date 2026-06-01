@@ -5,12 +5,12 @@
   }
 
   // Wrap text in a Discord inline code span.
-  // Discord only supports single-backtick spans — double-backtick spans are NOT
-  // rendered as code. When the text contains a backtick we fall back to italic
-  // formatting (*text*) with the backtick escaped via \` so it displays literally.
+  // When the text contains a backtick, use double-backtick delimiters with
+  // space padding: `` `item` `` — this is valid CommonMark and renders correctly
+  // in Discord, keeping the code-span appearance for all item names.
   function discordCode(text) {
     if (text.indexOf('`') !== -1) {
-      return '*' + text.replace(/`/g, '\\`') + '*';
+      return '`` ' + text + ' ``';
     }
     return '`' + text + '`';
   }
