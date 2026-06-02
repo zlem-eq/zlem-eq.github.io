@@ -31,6 +31,7 @@
   let mobPageSize   = 10;
   let openMobs      = new Set(); // displayNames of expanded mobs
   let selectedMobs  = new Set(); // displayNames of checked mobs
+  let excludedItems = new Set(); // normalised item names excluded by user
 
   // ── Drag-and-drop ──────────────────────────────────────────────────────────
   // ── Drag-and-drop ──────────────────────────────────────────────────────────
@@ -89,6 +90,7 @@
     currentMobs.clear();
     openMobs.clear();
     selectedMobs.clear();
+    excludedItems.clear();
     expandAllBtn.innerHTML = '&#9660; Expand all';
     setActivePill('all');
     customRange.classList.add('hidden');
@@ -249,6 +251,13 @@
       });
     }
 
+    // Remove user-excluded item names
+    if (excludedItems.size > 0) {
+      filtered = filtered.filter(function (e) {
+        return !excludedItems.has(e.item.toLowerCase());
+      });
+    }
+
     // Snapshot total loot count before raid-target filter for empty-state messaging
     var totalBeforeTargetFilter = filtered.length;
 
@@ -265,6 +274,12 @@
 
   // Expose so the modal's Save button can trigger a re-filter without reloading the file
   window.reapplyFilter = applyFilter;
+
+  // Exclude all entries for a given item name and immediately re-filter
+  window.excludeItem = function (itemName) {
+    excludedItems.add(itemName.toLowerCase());
+    applyFilter();
+  };
 
   // Expose checked loot data across all pages for loot-actions.js
   window.getCheckedLoot = function () {
@@ -497,6 +512,7 @@
         '<th>Qty</th>' +
         '<th>Looted by</th>' +
         '<th>Time</th>' +
+        '<th class="col-exclude"></th>' +
       '</tr>';
 
     const tbody = document.createElement('tbody');
@@ -533,11 +549,24 @@
       tdTime.className = 'loot-timestamp';
       tdTime.textContent = formatTimestamp(entry.timestamp);
 
+      const tdExclude = document.createElement('td');
+      tdExclude.className = 'col-exclude';
+      const excludeBtn = document.createElement('button');
+      excludeBtn.className = 'exclude-item-btn';
+      excludeBtn.title = 'Exclude all "' + entry.item + '" from loot lists';
+      excludeBtn.textContent = '✕';
+      excludeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.excludeItem(entry.item);
+      });
+      tdExclude.appendChild(excludeBtn);
+
       tr.appendChild(tdCheck);
       tr.appendChild(tdItem);
       tr.appendChild(tdQty);
       tr.appendChild(tdLooter);
       tr.appendChild(tdTime);
+      tr.appendChild(tdExclude);
       tbody.appendChild(tr);
     });
 
