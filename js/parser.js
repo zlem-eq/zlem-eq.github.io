@@ -405,7 +405,6 @@
     mobPage = 0;
     openMobs.clear();
     selectedMobs.clear();
-    mobs.forEach(function (_, name) { selectedMobs.add(name); });
 
     let totalItems = 0;
     mobs.forEach(function (data) { totalItems += data.entries.length; });
