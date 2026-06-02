@@ -20,27 +20,85 @@
     return text.replace(/([*_~`\\|])/g, '\\$1');
   }
 
-  // Read every checked item from every checked mob out of the current DOM.
-  // Returns [{mob, item, looter, qty}]
-  function getCheckedItems() {
-    var results = [];
-    document.querySelectorAll('.mob-entry').forEach(function (entry) {
-      var mobCb = entry.querySelector('.mob-checkbox');
-      if (!mobCb || !mobCb.checked) return;
-      var mobName = entry.querySelector('.mob-name').textContent.trim();
-      entry.querySelectorAll('.loot-table tbody tr').forEach(function (row) {
-        var rowCb = row.querySelector('.loot-checkbox');
-        if (!rowCb || !rowCb.checked) return;
-        var cells = row.cells;
-        results.push({
-          mob:    mobName,
-          item:   cells[1].textContent.trim(),
-          qty:    parseInt(cells[2].textContent.replace('x', '').trim(), 10) || 1,
-          looter: cells[3].textContent.trim()
-        });
-      });
+  // Split text into chunks of at most maxLen chars, breaking only at newlines.
+  function chunkByLines(text, maxLen) {
+    var lines   = text.split('\n');
+    var chunks  = [];
+    var current = '';
+    lines.forEach(function (line) {
+      var next = current ? current + '\n' + line : line;
+      if (next.length > maxLen && current !== '') {
+        chunks.push(current);
+        current = line;
+      } else {
+        current = next;
+      }
     });
-    return results;
+    if (current) chunks.push(current);
+    return chunks;
+  }
+
+  // Render one copy-able pre block per chunk into container.
+  function renderChunks(container, text, maxLen) {
+    container.innerHTML = '';
+    var chunks = chunkByLines(text, maxLen);
+    var total  = chunks.length;
+    chunks.forEach(function (chunk, i) {
+      var wrap = document.createElement('div');
+      wrap.className = 'chunk-block';
+
+      if (total > 1) {
+        var lbl = document.createElement('div');
+        lbl.className = 'chunk-label';
+        lbl.textContent = 'Part ' + (i + 1) + ' of ' + total;
+        wrap.appendChild(lbl);
+      }
+
+      var hdr = document.createElement('div');
+      hdr.className = 'output-box-header';
+
+      var charCount = document.createElement('span');
+      charCount.className = 'output-box-label';
+      charCount.textContent = chunk.length + ' chars';
+
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'btn-copy';
+      copyBtn.textContent = '📋 Copy';
+      (function (btn, txt) {
+        btn.addEventListener('click', function () { copyText(txt, btn); });
+      })(copyBtn, chunk);
+
+      hdr.appendChild(charCount);
+      hdr.appendChild(copyBtn);
+
+      var pre = document.createElement('pre');
+      pre.className = 'output-text delivery-output-pre';
+      pre.textContent = chunk;
+
+      wrap.appendChild(hdr);
+      wrap.appendChild(pre);
+      container.appendChild(wrap);
+    });
+  }
+
+  // Returns [{mob, item, looter, qty}] for all checked mobs+items across all pages.
+  // Uses window.getCheckedLoot (set by parser.js) for off-page mob state, then
+  // overlays per-item checkbox state from the currently visible DOM rows.
+  function getCheckedItems() {
+    // Build a set of unchecked item keys from visible DOM rows (item\0looter)
+    var uncheckedKeys = new Set();
+    document.querySelectorAll('.loot-table tbody tr').forEach(function (row) {
+      var rowCb = row.querySelector('.loot-checkbox');
+      if (rowCb && !rowCb.checked) {
+        var cells = row.cells;
+        uncheckedKeys.add(cells[1].textContent.trim() + '\x00' + cells[3].textContent.trim());
+      }
+    });
+
+    var base = window.getCheckedLoot ? window.getCheckedLoot() : [];
+    return base.filter(function (entry) {
+      return !uncheckedKeys.has(entry.item + '\x00' + entry.looter);
+    });
   }
 
   // ── Copy helper ────────────────────────────────────────────────────────────
@@ -94,13 +152,12 @@
   var deliveryPaste         = document.getElementById('delivery-paste');
   var deliveryGenerateBtn   = document.getElementById('delivery-generate-btn');
 
-  var deliveryOutputModal   = document.getElementById('delivery-output-modal');
-  var deliveryOutputClose   = document.getElementById('delivery-output-close');
-  var deliveryOutputClose2  = document.getElementById('delivery-output-close2');
-  var deliveryOutputBack    = document.getElementById('delivery-output-back');
-  var deliveryOutputText    = document.getElementById('delivery-output-text');
-  var deliveryOutputSummary = document.getElementById('delivery-output-summary');
-  var copyDeliveryBtn       = document.getElementById('copy-delivery-btn');
+  var deliveryOutputModal    = document.getElementById('delivery-output-modal');
+  var deliveryOutputClose    = document.getElementById('delivery-output-close');
+  var deliveryOutputClose2   = document.getElementById('delivery-output-close2');
+  var deliveryOutputBack     = document.getElementById('delivery-output-back');
+  var deliveryChunksContainer = document.getElementById('delivery-chunks-container');
+  var deliveryOutputSummary  = document.getElementById('delivery-output-summary');
 
   genDeliveryBtn.addEventListener('click', function () {
     deliveryPaste.value = '';
@@ -127,14 +184,10 @@
     if (!deliveryOutputModal.classList.contains('hidden')) closeModal(deliveryOutputModal);
   });
 
-  copyDeliveryBtn.addEventListener('click', function () {
-    copyText(deliveryOutputText.textContent, copyDeliveryBtn);
-  });
-
   deliveryGenerateBtn.addEventListener('click', function () {
     var output = generateDeliveryList(deliveryPaste.value.trim());
-    deliveryOutputText.textContent = output.text;
     deliveryOutputSummary.textContent = output.summary;
+    renderChunks(deliveryChunksContainer, output.text, 1900);
     closeModal(deliveryModal);
     openModal(deliveryOutputModal);
   });

@@ -1,15 +1,19 @@
 (function () {
   const uploadZone          = document.getElementById('upload-zone');
   const processingOverlay   = document.getElementById('processing-overlay');
-  const fileInput     = document.getElementById('file-input');
-  const resultsSection = document.getElementById('results-section');
-  const emptyState    = document.getElementById('empty-state');
-  const mobList       = document.getElementById('mob-list');
-  const resultsSummary = document.getElementById('results-summary');
-  const expandAllBtn  = document.getElementById('expand-all-btn');
-  const selectAllBtn  = document.getElementById('select-all-btn');
-  const deselectAllBtn = document.getElementById('deselect-all-btn');
-  const resetBtn      = document.getElementById('reset-btn');
+  const fileInput           = document.getElementById('file-input');
+  const resultsSection      = document.getElementById('results-section');
+  const emptyState          = document.getElementById('empty-state');
+  const mobList             = document.getElementById('mob-list');
+  const resultsSummary      = document.getElementById('results-summary');
+  const expandAllBtn        = document.getElementById('expand-all-btn');
+  const selectAllBtn        = document.getElementById('select-all-btn');
+  const deselectAllBtn      = document.getElementById('deselect-all-btn');
+  const resetBtn            = document.getElementById('reset-btn');
+  const mobPaginationBar    = document.getElementById('mob-pagination-bar');
+  const mobPagePrev         = document.getElementById('mob-page-prev');
+  const mobPageNext         = document.getElementById('mob-page-next');
+  const mobPageInfo         = document.getElementById('mob-page-info');
 
   let allExpanded = false;
   const customRange   = document.getElementById('custom-range');
@@ -20,6 +24,13 @@
   let allEntries = [];  // [{looter, qty, item, mob, timestamp, date}]
   let latestDate = null;
   let activeFilter = 'all';
+
+  // Mob list pagination + persistent selection/expansion state
+  let currentMobs   = new Map(); // full mobs map after filtering
+  let mobPage       = 0;
+  let mobPageSize   = 10;
+  let openMobs      = new Set(); // displayNames of expanded mobs
+  let selectedMobs  = new Set(); // displayNames of checked mobs
 
   // ── Drag-and-drop ──────────────────────────────────────────────────────────
   // ── Drag-and-drop ──────────────────────────────────────────────────────────
@@ -51,6 +62,11 @@
 
   expandAllBtn.addEventListener('click', function () {
     allExpanded = !allExpanded;
+    if (allExpanded) {
+      currentMobs.forEach(function (_, name) { openMobs.add(name); });
+    } else {
+      openMobs.clear();
+    }
     document.querySelectorAll('.mob-entry').forEach(function (entry) {
       entry.classList.toggle('open', allExpanded);
     });
@@ -61,6 +77,7 @@
     resultsSection.classList.add('hidden');
     emptyState.classList.add('hidden');
     processingOverlay.classList.add('hidden');
+    mobPaginationBar.classList.add('hidden');
     uploadZone.classList.remove('hidden');
     mobList.innerHTML = '';
     fileInput.value = '';
@@ -68,12 +85,17 @@
     latestDate = null;
     activeFilter = 'all';
     allExpanded = false;
+    mobPage = 0;
+    currentMobs.clear();
+    openMobs.clear();
+    selectedMobs.clear();
     expandAllBtn.innerHTML = '&#9660; Expand all';
     setActivePill('all');
     customRange.classList.add('hidden');
   });
 
   selectAllBtn.addEventListener('click', function () {
+    currentMobs.forEach(function (_, name) { selectedMobs.add(name); });
     document.querySelectorAll('.mob-checkbox').forEach(function (cb) {
       cb.checked = true;
       cb.closest('.mob-entry').classList.add('selected');
@@ -81,9 +103,27 @@
   });
 
   deselectAllBtn.addEventListener('click', function () {
+    selectedMobs.clear();
     document.querySelectorAll('.mob-checkbox').forEach(function (cb) {
       cb.checked = false;
       cb.closest('.mob-entry').classList.remove('selected');
+    });
+  });
+
+  // ── Mob list pagination ────────────────────────────────────────────────────
+  mobPagePrev.addEventListener('click', function () {
+    if (mobPage > 0) { mobPage--; renderMobPage(); }
+  });
+  mobPageNext.addEventListener('click', function () {
+    if (mobPage < Math.ceil(currentMobs.size / mobPageSize) - 1) { mobPage++; renderMobPage(); }
+  });
+  document.querySelectorAll('.mob-page-size-pill').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.mob-page-size-pill').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      mobPageSize = parseInt(btn.dataset.size, 10);
+      mobPage = 0;
+      renderMobPage();
     });
   });
 
@@ -226,6 +266,20 @@
   // Expose so the modal's Save button can trigger a re-filter without reloading the file
   window.reapplyFilter = applyFilter;
 
+  // Expose checked loot data across all pages for loot-actions.js
+  window.getCheckedLoot = function () {
+    var results = [];
+    currentMobs.forEach(function (data, mobName) {
+      if (!selectedMobs.has(mobName)) return;
+      data.entries.forEach(function (entry) {
+        // Find whether this row's item checkbox is checked in the DOM (current page)
+        // For off-page mobs assume all item rows checked (default state)
+        results.push({ mob: mobName, item: entry.item, qty: entry.qty, looter: entry.looter });
+      });
+    });
+    return results;
+  };
+
   const SESSION_GAP_MS = 15 * 60 * 1000; // 15 minutes
 
   function groupByMob(entries) {
@@ -328,6 +382,7 @@
     expandAllBtn.innerHTML = '&#9660; Expand all';
 
     if (mobs.size === 0) {
+      mobPaginationBar.classList.add('hidden');
       if (totalBeforeTargetFilter > 0) {
         emptyState.innerHTML =
           '&#128269; No loot from raid targets found in this time window.<br>' +
@@ -335,11 +390,9 @@
           (totalBeforeTargetFilter === 1 ? 'entry was' : 'entries were') +
           ' filtered out. Check <b>Edit Raid Targets</b> if a mob is missing from the list.</span>';
       } else if (allEntries.length > 0) {
-        emptyState.innerHTML =
-          '&#128269; No loot entries match the selected time window.';
+        emptyState.innerHTML = '&#128269; No loot entries match the selected time window.';
       } else {
-        emptyState.innerHTML =
-          '&#128196; No loot entries found in this log file.';
+        emptyState.innerHTML = '&#128196; No loot entries found in this log file.';
       }
       emptyState.classList.remove('hidden');
       resultsSummary.textContent = '0 mobs · 0 loot entries';
@@ -347,17 +400,43 @@
       return;
     }
 
+    // Store full map and reset pagination state
+    currentMobs = mobs;
+    mobPage = 0;
+    openMobs.clear();
+    selectedMobs.clear();
+    mobs.forEach(function (_, name) { selectedMobs.add(name); });
+
     let totalItems = 0;
     mobs.forEach(function (data) { totalItems += data.entries.length; });
     resultsSummary.textContent =
       mobs.size + ' mob' + (mobs.size !== 1 ? 's' : '') +
       ' · ' + totalItems + ' loot ' + (totalItems !== 1 ? 'entries' : 'entry');
 
-    mobs.forEach(function (data, mobName) {
-      mobList.appendChild(buildMobEntry(mobName, data.entries));
+    resultsSection.classList.remove('hidden');
+    renderMobPage();
+  }
+
+  function renderMobPage() {
+    mobList.innerHTML = '';
+    const entries   = [...currentMobs.entries()];
+    const total     = entries.length;
+    const totalPages = Math.max(1, Math.ceil(total / mobPageSize));
+    if (mobPage >= totalPages) mobPage = totalPages - 1;
+
+    const start = mobPage * mobPageSize;
+    const end   = Math.min(start + mobPageSize, total);
+
+    entries.slice(start, end).forEach(function (pair) {
+      mobList.appendChild(buildMobEntry(pair[0], pair[1].entries));
     });
 
-    resultsSection.classList.remove('hidden');
+    // Pagination bar: only show when there's more than one page
+    const multiPage = total > mobPageSize;
+    mobPaginationBar.classList.toggle('hidden', !multiPage);
+    mobPageInfo.textContent = 'Page ' + (mobPage + 1) + ' of ' + totalPages;
+    mobPagePrev.disabled = mobPage === 0;
+    mobPageNext.disabled = mobPage >= totalPages - 1;
   }
 
   function buildMobEntry(mobName, entries) {
@@ -371,9 +450,13 @@
     cb.type = 'checkbox';
     cb.className = 'mob-checkbox';
     cb.setAttribute('aria-label', 'Select ' + mobName);
+    cb.checked = selectedMobs.has(mobName);
+    if (cb.checked) li.classList.add('selected');
     cb.addEventListener('change', function (e) {
       e.stopPropagation();
       li.classList.toggle('selected', cb.checked);
+      if (cb.checked) selectedMobs.add(mobName);
+      else            selectedMobs.delete(mobName);
     });
 
     const nameEl = document.createElement('span');
@@ -393,9 +476,12 @@
     header.appendChild(countEl);
     header.appendChild(chevron);
 
+    if (openMobs.has(mobName)) li.classList.add('open');
     header.addEventListener('click', function (e) {
       if (e.target === cb) return;
       li.classList.toggle('open');
+      if (li.classList.contains('open')) openMobs.add(mobName);
+      else openMobs.delete(mobName);
     });
 
     const panel = document.createElement('div');

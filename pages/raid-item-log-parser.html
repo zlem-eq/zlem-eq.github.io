@@ -71,6 +71,22 @@
 
       <ul id="mob-list" class="mob-list"></ul>
 
+      <div id="mob-pagination-bar" class="pagination-bar hidden">
+        <div class="page-nav">
+          <button id="mob-page-prev" class="btn-secondary">&#8592; Prev</button>
+          <span id="mob-page-info" class="page-info"></span>
+          <button id="mob-page-next" class="btn-secondary">Next &#8594;</button>
+        </div>
+        <div class="page-size-wrap">
+          <span class="filter-label">Per page:</span>
+          <div class="filter-pills">
+            <button class="mob-page-size-pill active" data-size="10">10</button>
+            <button class="mob-page-size-pill" data-size="20">20</button>
+            <button class="mob-page-size-pill" data-size="50">50</button>
+          </div>
+        </div>
+      </div>
+
       <div class="loot-actions">
         <button id="gen-opendkp-btn" class="btn-action">&#128203; Generate OpenDKP Loot List</button>
         <button id="gen-delivery-btn" class="btn-action">&#128230; Generate Loot Delivery List</button>
@@ -146,11 +162,8 @@
         <button id="delivery-output-close" class="modal-close" aria-label="Close">&times;</button>
       </div>
       <div class="modal-body">
-        <div class="output-box-header" style="margin-bottom:0.5rem;">
-          <span class="output-box-label" id="delivery-output-summary"></span>
-          <button id="copy-delivery-btn" class="btn-copy">&#128203; Copy</button>
-        </div>
-        <pre id="delivery-output-text" class="output-text delivery-output-pre"></pre>
+        <p class="output-box-label" id="delivery-output-summary" style="margin-bottom:0.75rem;"></p>
+        <div id="delivery-chunks-container"></div>
       </div>
       <div class="modal-footer">
         <button id="delivery-output-back" class="btn-secondary">&#8592; Back</button>

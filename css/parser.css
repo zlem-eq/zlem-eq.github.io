@@ -325,6 +325,63 @@
   font-size: 0.875rem;
 }
 
+/* ── Pagination ──────────────────────────────────────────────────────────────── */
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.page-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.page-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.page-size-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-size-pill,
+.mob-page-size-pill {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.page-size-pill:hover,
+.mob-page-size-pill:hover {
+  background: var(--border);
+}
+
+.page-size-pill.active,
+.mob-page-size-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 /* ── Processing spinner ─────────────────────────────────────────────────────── */
 .processing-overlay {
   display: flex;
@@ -650,6 +707,25 @@
 
 .delivery-output-pre {
   max-height: 420px;
+}
+
+/* ── Delivery output chunks ──────────────────────────────────────────────── */
+.chunk-block {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.chunk-label {
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  border-bottom: 1px solid var(--border);
 }
 
 .modal-close-btn {
