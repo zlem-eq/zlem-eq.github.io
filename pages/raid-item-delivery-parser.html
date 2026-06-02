@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raid Item Delivery Parser</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/parser.css" />
+  <link rel="stylesheet" href="../css/delivery-parser.css" />
+</head>
+<body>
+  <header class="page-header">
+    <a href="../index.html" class="back">&#8592; Back</a>
+    <h1 style="font-size:1.1rem;">Raid Item Delivery Parser</h1>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <span class="icon-sun">&#9728;</span>
+      <span class="icon-moon">&#9790;</span>
+    </button>
+  </header>
+
+  <main class="page-content">
+    <h1>Raid Item Delivery Parser</h1>
+    <p class="description">Upload an EverQuest log file to extract item delivery confirmations.</p>
+
+    <div id="processing-overlay" class="processing-overlay hidden">
+      <div class="spinner"></div>
+      <p class="processing-label">Parsing log file…</p>
+    </div>
+
+    <div id="upload-zone" class="upload-zone">
+      <div class="upload-icon">&#128230;</div>
+      <p class="upload-label">Click to select a log file</p>
+      <p class="upload-sub">or drag and drop an EverQuest <code>.txt</code> log file here</p>
+      <input type="file" id="file-input" accept=".txt" />
+    </div>
+
+    <div id="results-section" class="results-section hidden">
+      <div class="results-toolbar">
+        <div class="results-meta">
+          <span id="results-summary"></span>
+        </div>
+        <div class="toolbar-actions">
+          <button id="select-all-btn" class="btn-secondary">Select all</button>
+          <button id="deselect-all-btn" class="btn-secondary">Deselect all</button>
+          <button id="reset-btn" class="btn-secondary">&#8635; Load new file</button>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-label">Show:</span>
+        <div class="filter-pills" role="group" aria-label="Time filter">
+          <button class="filter-pill active" data-filter="all">All time</button>
+          <button class="filter-pill" data-filter="1h">Last 1 hr</button>
+          <button class="filter-pill" data-filter="8h">Last 8 hrs</button>
+          <button class="filter-pill" data-filter="24h">Last 24 hrs</button>
+          <button class="filter-pill" data-filter="custom">Custom&hellip;</button>
+        </div>
+        <div id="custom-range" class="custom-range hidden">
+          <label class="range-label">From
+            <input type="datetime-local" id="range-from" />
+          </label>
+          <span class="range-sep">&#8212;</span>
+          <label class="range-label">To
+            <input type="datetime-local" id="range-to" />
+          </label>
+        </div>
+      </div>
+
+      <div id="delivery-table-wrap">
+        <table class="delivery-table" id="delivery-table">
+          <thead>
+            <tr>
+              <th class="col-check"></th>
+              <th>Item</th>
+              <th>Recipient</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="delivery-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="pagination-bar">
+        <div class="page-nav">
+          <button id="page-prev" class="btn-secondary">&#8592; Prev</button>
+          <span id="page-info" class="page-info"></span>
+          <button id="page-next" class="btn-secondary">Next &#8594;</button>
+        </div>
+        <div class="page-size-wrap">
+          <span class="filter-label">Per page:</span>
+          <div class="filter-pills">
+            <button class="page-size-pill active" data-size="20">20</button>
+            <button class="page-size-pill" data-size="50">50</button>
+            <button class="page-size-pill" data-size="100">100</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="loot-actions">
+        <button id="gen-delivery-list-btn" class="btn-action">&#128203; Generate</button>
+      </div>
+
+      <div id="delivery-output" class="output-box hidden">
+        <div class="output-box-header">
+          <span class="output-box-label">Discord Delivery List</span>
+          <button id="copy-delivery-list-btn" class="btn-copy">&#128203; Copy</button>
+        </div>
+        <pre id="delivery-output-text" class="output-text"></pre>
+      </div>
+    </div>
+
+    <div id="empty-state" class="placeholder-box hidden">
+      &#128269; No delivery confirmations found in this log file.
+    </div>
+  </main>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/delivery-parser.js"></script>
+</body>
+</html>
