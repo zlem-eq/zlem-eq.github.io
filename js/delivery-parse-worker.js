@@ -6,7 +6,7 @@
 //   [Fri May 29 13:35:54 2026] Nablea told you, 'I will deliver the Money (300p) to Digdug as soon as possible!'
 
 var LINE_RE     = /^\[(\w{3} \w{3} \d{1,2} \d{2}:\d{2}:\d{2} \d{4})\] (.+)$/;
-var DELIVERY_RE = /^(\w+) told you, '(I will deliver the (.+?) to (\w+) as soon as possible!)'/;
+var DELIVERY_RE = /^(.+?) told you, '(I will deliver the (.+?) to (\S+) as soon as possible!)'/;
 var MONTHS      = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
 
 function parseEQDate(raw) {

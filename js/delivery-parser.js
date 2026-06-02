@@ -21,6 +21,7 @@
   var customRange       = document.getElementById('custom-range');
   var rangeFrom         = document.getElementById('range-from');
   var rangeTo           = document.getElementById('range-to');
+  var raidLootFilter    = document.getElementById('raid-loot-filter');
 
   // ── State ──────────────────────────────────────────────────────────────────
   var allEntries      = [];
@@ -63,6 +64,7 @@
     checkedSet.clear();
     setActivePill('all');
     customRange.classList.add('hidden');
+    raidLootFilter.checked = true;
   });
 
   // ── Select / deselect all ──────────────────────────────────────────────────
@@ -94,6 +96,7 @@
   });
   rangeFrom.addEventListener('input', applyFilter);
   rangeTo.addEventListener('input', applyFilter);
+  raidLootFilter.addEventListener('change', applyFilter);
 
   function setActivePill(filter) {
     document.querySelectorAll('.filter-pill').forEach(function (p) {
@@ -211,6 +214,16 @@
         return true;
       });
     }
+
+    // Raid loot only filter
+    if (raidLootFilter.checked && window.RaidLootItems) {
+      filtered = filtered.filter(function (e) {
+        return window.RaidLootItems.has(e.item.replace(/^(?:a|an|the) /i, '').toLowerCase());
+      });
+    }
+
+    // Sort newest first
+    filtered = filtered.slice().sort(function (a, b) { return b.date - a.date; });
 
     filteredEntries = filtered;
     // Default all entries to checked
