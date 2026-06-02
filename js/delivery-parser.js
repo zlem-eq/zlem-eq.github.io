@@ -137,7 +137,7 @@
     lines.push('📦 **Delivery Confirmations**');
     lines.push('');
     checked.forEach(function (e) {
-      lines.push(discordCode(e.rawMessage));
+      lines.push(discordCode(e.rawLine || e.rawMessage));
     });
     deliveryOutputText.textContent = lines.join('\n');
     deliveryOutput.classList.remove('hidden');
