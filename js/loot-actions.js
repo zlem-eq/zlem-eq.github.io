@@ -178,7 +178,10 @@
       var key  = normalizeItemName(entry.itemRaw);
       var hits = raidMap[key];
       if (hits && hits.length > 0) {
-        var hit = hits.find(function (h) { return !h._used; }) || hits[hits.length - 1];
+        // Prefer a match where the winner already holds the item (self-delivery)
+        var hit = hits.find(function (h) { return !h._used && h.looter === entry.winner; })
+               || hits.find(function (h) { return !h._used; })
+               || hits[hits.length - 1];
         hit._used = true;
         matched.push({ entry: entry, looter: hit.looter, mob: hit.mob, item: hit.item });
       } else {
@@ -212,7 +215,11 @@
         var label = items.length === 1 ? '1 delivery' : items.length + ' deliveries';
         lines.push('**' + discordEscape(deliverer) + '** — ' + label);
         items.forEach(function (m) {
-          lines.push('> ' + discordCode(m.entry.itemRaw) + ' → **' + discordEscape(m.entry.winner) + '**');
+          var selfDelivery = m.looter === m.entry.winner;
+          var arrow = selfDelivery
+            ? '→ **' + discordEscape(m.entry.winner) + '** *(already has it)*'
+            : '→ **' + discordEscape(m.entry.winner) + '**';
+          lines.push('> ' + discordCode(m.entry.itemRaw) + ' ' + arrow);
         });
         lines.push('');
       });
