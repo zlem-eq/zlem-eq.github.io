@@ -56,7 +56,8 @@ self.onmessage = function (e) {
       item:      normalizeItemName(lootMatch[3]),
       mob:       normalizeMobName(lootMatch[4]),
       timestamp: lineMatch[1],
-      date:      parseEQDate(lineMatch[1])
+      date:      parseEQDate(lineMatch[1]),
+      rawLine:   lines[i]
     });
   }
 

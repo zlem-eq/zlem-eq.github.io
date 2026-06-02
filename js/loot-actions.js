@@ -20,60 +20,40 @@
     return text.replace(/([*_~`\\|])/g, '\\$1');
   }
 
-  // Split text into chunks of at most maxLen chars, breaking only at newlines.
-  function chunkByLines(text, maxLen) {
-    var lines   = text.split('\n');
-    var chunks  = [];
-    var current = '';
-    lines.forEach(function (line) {
-      var next = current ? current + '\n' + line : line;
-      if (next.length > maxLen && current !== '') {
-        chunks.push(current);
-        current = line;
-      } else {
-        current = next;
-      }
-    });
-    if (current) chunks.push(current);
-    return chunks;
-  }
-
-  // Render one copy-able pre block per chunk into container.
-  function renderChunks(container, text, maxLen) {
+  // Render one copy-able pre block per {label, text} entry into container.
+  function renderBlocks(container, blocks) {
     container.innerHTML = '';
-    var chunks = chunkByLines(text, maxLen);
-    var total  = chunks.length;
-    chunks.forEach(function (chunk, i) {
+    blocks.forEach(function (block) {
+      if (!block.text) return;
+
       var wrap = document.createElement('div');
       wrap.className = 'chunk-block';
 
-      if (total > 1) {
-        var lbl = document.createElement('div');
-        lbl.className = 'chunk-label';
-        lbl.textContent = 'Part ' + (i + 1) + ' of ' + total;
-        wrap.appendChild(lbl);
-      }
+      var lbl = document.createElement('div');
+      lbl.className = 'chunk-label';
+      lbl.textContent = block.label;
+      wrap.appendChild(lbl);
 
       var hdr = document.createElement('div');
       hdr.className = 'output-box-header';
 
       var charCount = document.createElement('span');
       charCount.className = 'output-box-label';
-      charCount.textContent = chunk.length + ' chars';
+      charCount.textContent = block.text.length + ' chars';
 
       var copyBtn = document.createElement('button');
       copyBtn.className = 'btn-copy';
       copyBtn.textContent = '📋 Copy';
       (function (btn, txt) {
         btn.addEventListener('click', function () { copyText(txt, btn); });
-      })(copyBtn, chunk);
+      })(copyBtn, block.text);
 
       hdr.appendChild(charCount);
       hdr.appendChild(copyBtn);
 
       var pre = document.createElement('pre');
       pre.className = 'output-text delivery-output-pre';
-      pre.textContent = chunk;
+      pre.textContent = block.text;
 
       wrap.appendChild(hdr);
       wrap.appendChild(pre);
@@ -187,7 +167,10 @@
   deliveryGenerateBtn.addEventListener('click', function () {
     var output = generateDeliveryList(deliveryPaste.value.trim());
     deliveryOutputSummary.textContent = output.summary;
-    renderChunks(deliveryChunksContainer, output.text, 1900);
+    renderBlocks(deliveryChunksContainer, [
+      { label: '✅ Matched Deliveries',   text: output.matchedText   },
+      { label: '❌ Unmatched Deliveries', text: output.unmatchedText },
+    ]);
     closeModal(deliveryModal);
     openModal(deliveryOutputModal);
   });
@@ -254,49 +237,56 @@
       return a.toLowerCase().localeCompare(b.toLowerCase());
     });
 
-    // ── Build Discord-formatted output ────────────────────────────────────────
-    var lines = [];
-    var divider = '─'.repeat(40);
+    // ── Build matched block ───────────────────────────────────────────────────
+    var matchedLines = [];
+    var timestamp = '*Generated: ' + new Date().toLocaleString() + '*';
 
-    lines.push('📦 **LOOT DELIVERY LIST**');
-    lines.push('*Generated: ' + new Date().toLocaleString() + '*');
-    lines.push('');
+    matchedLines.push('📦 **LOOT DELIVERY LIST**');
+    matchedLines.push(timestamp);
+    matchedLines.push('');
 
     if (deliverers.length > 0) {
       deliverers.forEach(function (deliverer) {
         var items = byDeliverer[deliverer];
         var label = items.length === 1 ? '1 delivery' : items.length + ' deliveries';
-        lines.push('**' + discordEscape(deliverer) + '** — ' + label);
+        matchedLines.push('**' + discordEscape(deliverer) + '** — ' + label);
         items.forEach(function (m) {
           var selfDelivery = m.looter === m.entry.winner;
           var arrow = selfDelivery
             ? '→ **' + discordEscape(m.entry.winner) + '** *(already has it)*'
             : '→ **' + discordEscape(m.entry.winner) + '**';
-          lines.push('> ' + discordCode(m.entry.itemRaw) + ' ' + arrow);
+          matchedLines.push('> ' + discordCode(m.entry.itemRaw) + ' ' + arrow);
         });
-        lines.push('');
+        matchedLines.push('');
       });
     } else {
-      lines.push('*(No matched items)*');
-      lines.push('');
+      matchedLines.push('*(No matched items)*');
+      matchedLines.push('');
+    }
+
+    // ── Build unmatched block ─────────────────────────────────────────────────
+    var unmatchedLines = [];
+
+    if (noDelivery.length > 0 || unassigned.length > 0) {
+      unmatchedLines.push('⚠️ **UNMATCHED DELIVERIES**');
+      unmatchedLines.push(timestamp);
+      unmatchedLines.push('');
     }
 
     if (noDelivery.length > 0) {
-      lines.push(divider);
-      lines.push('⚠️ **No Delivery Player Found** (' + noDelivery.length + ')');
+      unmatchedLines.push('**No Delivery Player Found** (' + noDelivery.length + ')');
       noDelivery.forEach(function (e) {
-        lines.push('> ' + discordCode(e.itemRaw) + ' → **' + discordEscape(e.winner) + '**');
+        unmatchedLines.push('> ' + discordCode(e.itemRaw) + ' → **' + discordEscape(e.winner) + '**');
       });
-      lines.push('');
+      unmatchedLines.push('');
     }
 
     if (unassigned.length > 0) {
-      lines.push(divider);
-      lines.push('📋 **Unassigned Raid Items** (' + unassigned.length + ')');
+      unmatchedLines.push('**Unassigned Raid Items** (' + unassigned.length + ')');
       unassigned.forEach(function (ci) {
-        lines.push('> ' + discordCode(ci.item) + ' looted by **' + discordEscape(ci.looter) + '** [' + discordEscape(ci.mob) + ']');
+        unmatchedLines.push('> ' + discordCode(ci.item) + ' looted by **' + discordEscape(ci.looter) + '** [' + discordEscape(ci.mob) + ']');
       });
-      lines.push('');
+      unmatchedLines.push('');
     }
 
     // Clean up _used flags
@@ -306,6 +296,10 @@
     if (noDelivery.length)  summary += ' · ' + noDelivery.length  + ' missing delivery player';
     if (unassigned.length)  summary += ' · ' + unassigned.length  + ' unassigned raid items';
 
-    return { text: lines.join('\n'), summary: summary };
+    return {
+      matchedText:   matchedLines.join('\n'),
+      unmatchedText: unmatchedLines.length > 0 ? unmatchedLines.join('\n') : '',
+      summary:       summary,
+    };
   }
 })();

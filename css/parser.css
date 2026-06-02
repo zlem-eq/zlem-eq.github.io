@@ -98,6 +98,26 @@
   background: var(--border);
 }
 
+/* Split sections (always-visible, above primary) */
+#split-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--border);
+}
+#split-sections.hidden { display: none; }
+
+.split-section-header {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted, #888);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
 /* Mob list */
 .mob-list {
   list-style: none;
@@ -263,6 +283,27 @@
 }
 
 /* Filter bar */
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text);
+  white-space: nowrap;
+}
+.filter-toggle input[type="checkbox"] {
+  width: 0.9rem;
+  height: 0.9rem;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+.filter-toggle--right {
+  margin-left: auto;
+}
+
 .filter-bar {
   display: flex;
   align-items: center;

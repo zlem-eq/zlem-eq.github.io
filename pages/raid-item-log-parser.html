@@ -33,7 +33,7 @@
       <div class="upload-icon">&#128196;</div>
       <p class="upload-label">Click to select a log file</p>
       <p class="upload-sub">or drag and drop an EverQuest <code>.txt</code> log file here</p>
-      <input type="file" id="file-input" accept=".txt" />
+      <input type="file" id="file-input" accept=".txt" multiple />
     </div>
 
     <div id="results-section" class="results-section hidden">
@@ -45,6 +45,9 @@
           <button id="expand-all-btn" class="btn-secondary">&#9660; Expand all</button>
           <button id="select-all-btn" class="btn-secondary">Select all</button>
           <button id="deselect-all-btn" class="btn-secondary">Deselect all</button>
+          <button id="extract-logs-btn" class="btn-secondary">&#8595; Extract logs</button>
+          <button id="add-split-btn" class="btn-secondary">&#43; Add split</button>
+          <input type="file" id="split-file-input" accept=".txt" style="display:none" />
           <button id="reset-btn" class="btn-secondary">&#8635; Load new file</button>
         </div>
       </div>
@@ -67,8 +70,15 @@
             <input type="datetime-local" id="range-to" />
           </label>
         </div>
+        <label class="filter-toggle filter-toggle--right">
+          <input type="checkbox" id="raid-loot-filter" checked />
+          Raid loot only
+        </label>
       </div>
 
+      <div id="split-sections" class="hidden"></div>
+
+      <div id="primary-section-header" class="split-section-header hidden"></div>
       <ul id="mob-list" class="mob-list"></ul>
 
       <div id="mob-pagination-bar" class="pagination-bar hidden">
@@ -174,6 +184,7 @@
 
   <script src="../js/theme.js"></script>
   <script src="../js/raid-targets.js"></script>
+  <script src="../js/raid-loot.js"></script>
   <script src="../js/parser.js"></script>
   <script src="../js/loot-actions.js"></script>
 </body>
