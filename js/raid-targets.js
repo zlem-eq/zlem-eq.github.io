@@ -24,7 +24,7 @@
     "Lord Kreizenn","Lord Vyemm","Cekenar","Dozekar the Cursed",
     "Dagarn the Destroyer","Jorlleag","Lendiniara the Keeper","Telkorenar",
     "Ikatiar the Venom","Gozzrem","Eashen of the Sky",
-    "Lord Doljonijiarnimorinar","The Statue of Rallos Zek", "Fright", "Dread", "Terror"
+    "Lord Doljonijiarnimorinar","The Statue of Rallos Zek","Fright","Dread","Terror"
   ];
 
   // ── Public API ─────────────────────────────────────────────────────────────
