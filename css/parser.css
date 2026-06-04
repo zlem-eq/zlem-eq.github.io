@@ -735,6 +735,44 @@ button:disabled {
   max-width: 680px;
 }
 
+.delivery-raid-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.delivery-raid-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.delivery-raid-select {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.delivery-raid-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.delivery-raid-refresh {
+  flex-shrink: 0;
+  padding: 0.45rem 0.6rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .delivery-instructions {
   font-size: 0.85rem;
   color: var(--text-muted);

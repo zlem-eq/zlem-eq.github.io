@@ -71,7 +71,7 @@
           </label>
         </div>
         <label class="filter-toggle filter-toggle--right">
-          <input type="checkbox" id="raid-loot-filter" checked />
+          <input type="checkbox" id="raid-loot-filter" />
           Raid loot only
         </label>
       </div>
@@ -151,6 +151,13 @@
         <button id="delivery-modal-close" class="modal-close" aria-label="Close">&times;</button>
       </div>
       <div class="modal-body">
+        <div class="delivery-raid-row">
+          <label for="delivery-raid-select" class="delivery-raid-label">Raid</label>
+          <select id="delivery-raid-select" class="delivery-raid-select">
+            <option value="">Loading raids…</option>
+          </select>
+          <button id="delivery-raid-refresh" class="btn-secondary delivery-raid-refresh" title="Refresh raids">&#8635;</button>
+        </div>
         <p class="delivery-instructions">Paste loot entries below, one per line in the format:<br>
           <code>Item Name;DKP Amount;Winner gratss</code></p>
         <textarea id="delivery-paste" class="delivery-textarea" placeholder="Yelinak's Head;54;Lynuga gratss&#10;Sirran's Boots of Insanity;65;Doggafina gratss"></textarea>

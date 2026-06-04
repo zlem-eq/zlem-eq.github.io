@@ -131,6 +131,8 @@
   var deliveryModalClose    = document.getElementById('delivery-modal-close');
   var deliveryPaste         = document.getElementById('delivery-paste');
   var deliveryGenerateBtn   = document.getElementById('delivery-generate-btn');
+  var deliveryRaidSelect    = document.getElementById('delivery-raid-select');
+  var deliveryRaidRefresh   = document.getElementById('delivery-raid-refresh');
 
   var deliveryOutputModal    = document.getElementById('delivery-output-modal');
   var deliveryOutputClose    = document.getElementById('delivery-output-close');
@@ -139,8 +141,106 @@
   var deliveryChunksContainer = document.getElementById('delivery-chunks-container');
   var deliveryOutputSummary  = document.getElementById('delivery-output-summary');
 
+  // ── Fetch raids from OpenDKP ───────────────────────────────────────────────
+  var raidsLoaded = false;
+
+  function fetchRaids(force) {
+    if (raidsLoaded && !force) return;
+    deliveryRaidSelect.innerHTML = '<option value="">Loading raids…</option>';
+    fetch('https://api.opendkp.com/clients/bt/raids?count=20')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        raidsLoaded = true;
+        var raids = Array.isArray(data) ? data : (data.raids || []);
+        deliveryRaidRefresh.disabled = false;
+        deliveryRaidRefresh.textContent = '↻';
+        deliveryRaidSelect.innerHTML = '<option value="">— Select a raid (optional) —</option>';
+        raids.forEach(function (raid) {
+          var opt = document.createElement('option');
+          opt.value = raid.RaidId || raid.Id || '';
+          var name = raid.Name || raid.RaidName || ('Raid ' + opt.value);
+          var dateStr = '';
+          if (raid.Timestamp) {
+            var d = new Date(raid.Timestamp);
+            dateStr = ' — ' + (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+          }
+          opt.textContent = name + dateStr;
+          deliveryRaidSelect.appendChild(opt);
+        });
+      })
+      .catch(function () {
+        raidsLoaded = false;
+        deliveryRaidSelect.innerHTML = '<option value="">— Unable to load raids —</option>';
+        deliveryRaidRefresh.disabled = false;
+        deliveryRaidRefresh.textContent = '↻';
+      });
+  }
+
+  deliveryRaidRefresh.addEventListener('click', function () {
+    raidsLoaded = false;
+    deliveryRaidRefresh.disabled = true;
+    deliveryRaidRefresh.textContent = '…';
+    fetchRaids(true);
+  });
+
+  // ── Fetch auctions and populate loot entries ───────────────────────────────
+  function fetchAuctionsForRaid(raidId) {
+    deliveryPaste.value = 'Loading auctions…';
+    deliveryPaste.disabled = true;
+
+    function fetchPage(page, accumulated) {
+      return fetch('https://api.opendkp.com/clients/bt/auctions?page=' + page)
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          var results = (data.BidResults || []).filter(function (a) {
+            return String(a.RaidId) === String(raidId);
+          });
+          accumulated = accumulated.concat(results);
+          if (data.TotalPages && page < data.TotalPages) {
+            return fetchPage(page + 1, accumulated);
+          }
+          return accumulated;
+        });
+    }
+
+    fetchPage(1, [])
+      .then(function (auctions) {
+        var lines = [];
+        auctions.forEach(function (auction) {
+          var itemName = auction.Item && auction.Item.Name ? auction.Item.Name : 'Unknown Item';
+          var qty = auction.ItemQuantity || 1;
+          var bids = (auction.Bids || []).slice().sort(function (a, b) { return b.Value - a.Value; });
+          var winners = bids.slice(0, qty);
+          winners.forEach(function (bid) {
+            lines.push(itemName + ';' + bid.Value + ';' + bid.CharacterName + ' gratss');
+          });
+        });
+        deliveryPaste.value = lines.join('\n');
+        deliveryPaste.disabled = false;
+        if (lines.length === 0) {
+          deliveryPaste.value = '';
+          deliveryPaste.placeholder = 'No auctions found for this raid.';
+        }
+      })
+      .catch(function () {
+        deliveryPaste.value = '';
+        deliveryPaste.disabled = false;
+        deliveryPaste.placeholder = 'Failed to load auctions.';
+      });
+  }
+
+  deliveryRaidSelect.addEventListener('change', function () {
+    var raidId = deliveryRaidSelect.value;
+    if (!raidId) {
+      deliveryPaste.value = '';
+      return;
+    }
+    fetchAuctionsForRaid(raidId);
+  });
+
   genDeliveryBtn.addEventListener('click', function () {
     deliveryPaste.value = '';
+    fetchRaids();
     openModal(deliveryModal);
     deliveryPaste.focus();
   });
