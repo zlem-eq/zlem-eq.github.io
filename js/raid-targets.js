@@ -25,7 +25,14 @@
     "Dagarn the Destroyer","Jorlleag","Lendiniara the Keeper","Telkorenar",
     "Ikatiar the Venom","Gozzrem","Eashen of the Sky",
     "Lord Doljonijiarnimorinar","The Statue of Rallos Zek","Fright","Dread","Terror",
-    "Vulak`Aerr", "Tukaarak the Warder"
+    "Vulak`Aerr", "Tukaarak the Warder", "Sevalak", "Zlexak",
+    "Ajorek the Crimson Fang", "Beldion Icewind", "Bryrym", "Carx`Vean",
+    "Cyndor Lightningfang", "Gra`Vloren", "Hsrek", "Kal`Vunar",
+    "Kalkar of the Maelstrom", "Kedrak", "Lurian", "Malteor Flamecaller",
+    "Mazrien", "Nir`Tan", "Quellod Earthspirit", "Vukuz",
+    "Vyldin Flamereaver", "Wel`Wnas", "Yrrindor Emerald Claw", "Zyerek Onyxblood",
+    "Casalen", "Essedera", "Grozzmel", "Krigara",
+    "Lepethida", "Midayor", "Tavekalem", "Ymmeln"
   ];
 
   // ── Public API ─────────────────────────────────────────────────────────────
