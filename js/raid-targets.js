@@ -25,7 +25,7 @@
     "Dagarn the Destroyer","Jorlleag","Lendiniara the Keeper","Telkorenar",
     "Ikatiar the Venom","Gozzrem","Eashen of the Sky",
     "Lord Doljonijiarnimorinar","The Statue of Rallos Zek","Fright","Dread","Terror",
-    "Vulak`Aerr"
+    "Vulak`Aerr", "Tukaarak the Warder"
   ];
 
   // ── Public API ─────────────────────────────────────────────────────────────
