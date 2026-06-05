@@ -257,7 +257,7 @@
       .then(function (data) {
         openDkpRaidsLoaded = true;
         var raids = Array.isArray(data) ? data : (data.raids || []);
-        openDkpRaidSelect.innerHTML = '<option value="">— Select a raid (optional) —</option>';
+        openDkpRaidSelect.innerHTML = '<option value="">— Select a raid —</option>';
         raids.forEach(function (raid) {
           var opt = document.createElement('option');
           opt.value = raid.RaidId || raid.Id || '';
@@ -473,7 +473,7 @@
 
   openDkpClientInput.addEventListener('input', function () {
     syncClientInputs(openDkpClientInput, deliveryClientInput);
-    openDkpRaidSelect.innerHTML = '<option value="">— Select a raid (optional) —</option>';
+    openDkpRaidSelect.innerHTML = '<option value="">— Select a raid —</option>';
   });
 
   var deliveryOutputModal    = document.getElementById('delivery-output-modal');
