@@ -730,6 +730,12 @@ button:disabled {
   overflow-y: auto;
 }
 
+/* ── OpenDKP loot string — 3-line scroll window ─────────────────────────── */
+#opendkp-text {
+  max-height: calc(3em * 1.55 + 2rem); /* 3 lines × line-height + top/bottom padding */
+  overflow-y: auto;
+}
+
 /* ── Delivery modal specifics ────────────────────────────────────────────── */
 .modal-wide {
   max-width: 680px;
@@ -811,6 +817,166 @@ button:disabled {
   max-height: 420px;
 }
 
+/* ── Collapsible panel ───────────────────────────────────────────────────── */
+.collapsible-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.collapsible-panel-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem;
+  background: var(--bg);
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.collapsible-panel-header:hover {
+  background: var(--border);
+}
+
+.collapsible-chevron {
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.collapsible-panel-header[aria-expanded="true"] .collapsible-chevron {
+  transform: rotate(90deg);
+}
+
+.collapsible-panel-body {
+  padding: 0.85rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface, var(--bg));
+}
+
+.opendkp-duration-input {
+  width: 100px;
+  flex: 0 0 auto;
+}
+
+.opendkp-client-input {
+  width: 200px;
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.auction-items-section {
+  margin-top: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.auction-items-header {
+  display: flex;
+  align-items: center;
+  padding: 0.45rem 0.65rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  border-radius: 6px 6px 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.auction-items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.5rem 0;
+  max-height: 35vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 0 0 6px 6px;
+}
+
+.auction-items-header {
+  justify-content: space-between;
+}
+
+.auction-select-next-btn {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+}
+
+.auction-items-select-all {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auction-items-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.82rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.auction-items-list li:last-child {
+  border-bottom: none;
+}
+
+.auction-item-name {
+  flex: 1;
+  color: var(--text);
+}
+
+.auction-item-blank {
+  pointer-events: none;
+}
+
+.auction-item-done {
+  opacity: 0.6;
+}
+
+.auction-item-done .auction-item-name {
+  text-decoration: line-through;
+}
+
+.auction-created-badge {
+  font-size: 0.72rem;
+  color: #4caf82;
+  white-space: nowrap;
+  margin-left: auto;
+  padding-left: 0.5rem;
+}
+
+.auction-item-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.05rem 0.45rem;
+  white-space: nowrap;
+}
+
+.create-auctions-status-row {
+  min-height: 1.2rem;
+  margin-top: 0.35rem;
+}
+
+.create-auctions-status {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.create-auctions-status.status-error   { color: #e05c5c; }
+.create-auctions-status.status-success { color: #4caf82; }
+
 /* ── Delivery output chunks ──────────────────────────────────────────────── */
 .chunk-block {
   border: 1px solid var(--border);
@@ -843,4 +1009,110 @@ button:disabled {
 
 .modal-close-btn:hover {
   background: var(--border);
+}
+
+/* ── OpenDKP Loot String popup — responsive layout ───────────────────────── */
+
+/* Modal base: fill viewport width on narrow screens */
+@media (max-width: 600px) {
+  .modal-backdrop {
+    padding: 0.5rem;
+    align-items: flex-end;        /* slide up from bottom on mobile */
+  }
+
+  .modal,
+  .modal-wide {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .modal-body {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .modal-header {
+    padding: 0.85rem 0.75rem 0.75rem;
+  }
+
+  .modal-footer {
+    padding: 0.75rem;
+  }
+
+  /* Stack each row vertically */
+  .delivery-raid-row {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.65rem;
+  }
+
+  /* Labels sit on their own line, full width */
+  .delivery-raid-label {
+    flex: 0 0 100%;
+    font-size: 0.8rem;
+  }
+
+  /* Inputs/selects fill remaining space but allow refresh button beside them */
+  .delivery-raid-select {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* Client subdomain input */
+  .opendkp-client-input {
+    width: auto;
+    flex: 1 1 auto;
+    text-align: left;
+  }
+
+  /* Duration input */
+  .opendkp-duration-input {
+    width: auto;
+    flex: 1 1 auto;
+  }
+
+  /* Refresh button stays compact */
+  .delivery-raid-refresh {
+    flex: 0 0 auto;
+  }
+
+  /* Create Auctions button full width */
+  #create-auctions-btn {
+    flex: 1 1 100%;
+  }
+
+  /* Item list taller on mobile to use available space */
+  .auction-items-list {
+    max-height: 30vh;
+  }
+
+  /* Collapsible panel header font */
+  .collapsible-panel-header {
+    font-size: 0.82rem;
+  }
+
+  /* OpenDKP loot string pre — taller on mobile */
+  #opendkp-text {
+    max-height: calc(4em * 1.55 + 2rem);
+  }
+}
+
+/* Mid-range: tablets / small laptops */
+@media (min-width: 601px) and (max-width: 900px) {
+  .modal-wide {
+    max-width: 90vw;
+  }
+
+  .delivery-raid-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .opendkp-client-input {
+    width: 140px;
+  }
+
+  .auction-items-list {
+    max-height: 32vh;
+  }
 }

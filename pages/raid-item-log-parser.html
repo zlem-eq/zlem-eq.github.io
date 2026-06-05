@@ -102,19 +102,76 @@
         <button id="gen-delivery-btn" class="btn-action">&#128230; Generate Loot Delivery List</button>
       </div>
 
-      <div id="opendkp-output" class="output-box hidden">
-        <div class="output-box-header">
-          <span class="output-box-label">OpenDKP Loot String</span>
-          <button id="copy-opendkp-btn" class="btn-copy">&#128203; Copy</button>
-        </div>
-        <pre id="opendkp-text" class="output-text"></pre>
-      </div>
     </div>
 
     <div id="empty-state" class="placeholder-box hidden">
       &#128269; No loot entries found in this log file.
     </div>
   </main>
+
+  <!-- ── OpenDKP Loot String Modal ────────────────────────────────────────── -->
+  <div id="opendkp-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="opendkp-modal-title">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h2 id="opendkp-modal-title">OpenDKP Loot String</h2>
+        <button id="opendkp-modal-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="collapsible-panel">
+          <button id="opendkp-auctions-toggle" class="collapsible-panel-header" aria-expanded="false">
+            <span>Create OpenDKP Auctions</span>
+            <span class="collapsible-chevron">&#9656;</span>
+          </button>
+          <div id="opendkp-auctions-body" class="collapsible-panel-body hidden">
+            <div class="delivery-raid-row">
+              <input type="text" id="opendkp-client-input" class="delivery-raid-select opendkp-client-input" value="bt" />
+              <span class="delivery-raid-label">.opendkp.com</span>
+            </div>
+            <div class="delivery-raid-row">
+              <label for="opendkp-raid-select" class="delivery-raid-label">Raid</label>
+              <select id="opendkp-raid-select" class="delivery-raid-select">
+                <option value="">Loading raids…</option>
+              </select>
+              <button id="opendkp-raid-refresh" class="btn-secondary delivery-raid-refresh" title="Refresh raids">&#8635;</button>
+            </div>
+            <div class="delivery-raid-row">
+              <label for="opendkp-username" class="delivery-raid-label">Username</label>
+              <input type="text" id="opendkp-username" class="delivery-raid-select" placeholder="OpenDKP username…" autocomplete="username" />
+              <label for="opendkp-password" class="delivery-raid-label">Password</label>
+              <input type="password" id="opendkp-password" class="delivery-raid-select" placeholder="OpenDKP password…" autocomplete="current-password" />
+            </div>
+            <div class="delivery-raid-row">
+              <label for="opendkp-duration" class="delivery-raid-label">Auction Duration</label>
+              <input type="number" id="opendkp-duration" class="delivery-raid-select opendkp-duration-input" value="2" min="0" step="1" placeholder="2" />
+              <button id="create-auctions-btn" class="btn-primary">&#127919; Create Auctions</button>
+            </div>
+            <div id="create-auctions-status-row" class="create-auctions-status-row">
+              <span id="create-auctions-status" class="create-auctions-status"></span>
+            </div>
+            <div class="auction-items-section">
+              <div class="auction-items-header">
+                <label class="auction-items-select-all">
+                  <input type="checkbox" id="auction-items-select-all" checked />
+                  <span>Items</span>
+                </label>
+                <button id="auction-select-next-btn" class="btn-secondary auction-select-next-btn">Select Next 10</button>
+              </div>
+              <ul id="auction-items-list" class="auction-items-list"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="output-box-header" style="margin-bottom:0.5rem;">
+          <span id="opendkp-text-label" class="output-box-label"></span>
+          <button id="copy-opendkp-btn" class="btn-copy">&#128203; Copy</button>
+        </div>
+        <pre id="opendkp-text" class="output-text"></pre>
+      </div>
+      <div class="modal-footer">
+        <span></span>
+        <button id="opendkp-modal-close2" class="btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ── Raid Targets Modal ─────────────────────────────────────────────── -->
   <div id="targets-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -151,6 +208,10 @@
         <button id="delivery-modal-close" class="modal-close" aria-label="Close">&times;</button>
       </div>
       <div class="modal-body">
+        <div class="delivery-raid-row">
+          <input type="text" id="delivery-client-input" class="delivery-raid-select opendkp-client-input" value="bt" />
+          <span class="delivery-raid-label">.opendkp.com</span>
+        </div>
         <div class="delivery-raid-row">
           <label for="delivery-raid-select" class="delivery-raid-label">Raid</label>
           <select id="delivery-raid-select" class="delivery-raid-select">

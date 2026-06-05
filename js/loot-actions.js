@@ -97,30 +97,354 @@
   // ════════════════════════════════════════════════════════════════════════════
   // 1. GENERATE OPENDKP LOOT LIST
   // ════════════════════════════════════════════════════════════════════════════
-  var genOpenDkpBtn  = document.getElementById('gen-opendkp-btn');
-  var openDkpOutput  = document.getElementById('opendkp-output');
-  var openDkpText    = document.getElementById('opendkp-text');
-  var copyOpenDkpBtn = document.getElementById('copy-opendkp-btn');
+  var genOpenDkpBtn       = document.getElementById('gen-opendkp-btn');
+  var openDkpModal        = document.getElementById('opendkp-modal');
+  var openDkpModalClose   = document.getElementById('opendkp-modal-close');
+  var openDkpModalClose2  = document.getElementById('opendkp-modal-close2');
+  var openDkpText         = document.getElementById('opendkp-text');
+  var openDkpTextLabel    = document.getElementById('opendkp-text-label');
+  var copyOpenDkpBtn      = document.getElementById('copy-opendkp-btn');
+  var auctionsToggle       = document.getElementById('opendkp-auctions-toggle');
+  var auctionsBody         = document.getElementById('opendkp-auctions-body');
+  var openDkpRaidSelect    = document.getElementById('opendkp-raid-select');
+  var openDkpRaidRefresh   = document.getElementById('opendkp-raid-refresh');
+  var openDkpDuration        = document.getElementById('opendkp-duration');
+  var openDkpUsername        = document.getElementById('opendkp-username');
+  var auctionItemsList       = document.getElementById('auction-items-list');
+  var auctionItemsSelectAll  = document.getElementById('auction-items-select-all');
+  var auctionSelectNextBtn   = document.getElementById('auction-select-next-btn');
+  var openDkpPassword      = document.getElementById('opendkp-password');
+  var createAuctionsBtn    = document.getElementById('create-auctions-btn');
+  var createAuctionsStatus = document.getElementById('create-auctions-status');
+
+  var openDkpWebClientId   = null;
+  var openDkpClientInput   = document.getElementById('opendkp-client-input');
+
+  function buildAuctionItemsList(lootString) {
+    var counts = {};
+    var order  = [];
+    (lootString || '').split('|').forEach(function (name) {
+      name = name.trim();
+      if (!name || name.charAt(0) === '(') return;
+      if (!counts[name]) { counts[name] = 0; order.push(name); }
+      counts[name]++;
+    });
+
+    auctionItemsList.innerHTML = '';
+    order.forEach(function (name) {
+      var li = document.createElement('li');
+
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.className = 'auction-item-cb';
+      cb.checked = false;
+      cb.addEventListener('change', syncSelectAll);
+
+      var nameSpan = document.createElement('span');
+      nameSpan.className = 'auction-item-name';
+      nameSpan.textContent = name;
+
+      var countSpan = document.createElement('span');
+      countSpan.className = 'auction-item-count';
+      countSpan.textContent = '×' + counts[name];
+
+      li.appendChild(cb);
+      li.appendChild(nameSpan);
+      li.appendChild(countSpan);
+      auctionItemsList.appendChild(li);
+    });
+
+    auctionItemsSelectAll.checked = false;
+    auctionItemsSelectAll.indeterminate = false;
+  }
+
+  function syncSelectAll() {
+    var all  = auctionItemsList.querySelectorAll('.auction-item-cb');
+    var checked = auctionItemsList.querySelectorAll('.auction-item-cb:checked');
+    auctionItemsSelectAll.checked       = checked.length === all.length;
+    auctionItemsSelectAll.indeterminate = checked.length > 0 && checked.length < all.length;
+  }
+
+  auctionSelectNextBtn.addEventListener('click', function () {
+    // Deselect all first, then check the next 10 available (not disabled, not already auctioned)
+    var available = Array.from(auctionItemsList.querySelectorAll('li')).filter(function (li) {
+      var cb = li.querySelector('.auction-item-cb');
+      return cb && !cb.disabled;
+    });
+    available.forEach(function (li) {
+      li.querySelector('.auction-item-cb').checked = false;
+    });
+    available.slice(0, 10).forEach(function (li) {
+      li.querySelector('.auction-item-cb').checked = true;
+    });
+    syncSelectAll();
+  });
+
+  auctionItemsSelectAll.addEventListener('change', function () {
+    auctionItemsList.querySelectorAll('.auction-item-cb').forEach(function (cb) {
+      cb.checked = auctionItemsSelectAll.checked;
+    });
+    auctionItemsSelectAll.indeterminate = false;
+  });
 
   genOpenDkpBtn.addEventListener('click', function () {
     var items = getCheckedItems();
     if (items.length === 0) {
       openDkpText.textContent = '(No checked items found — select at least one mob and item.)';
-      openDkpOutput.classList.remove('hidden');
-      return;
+      openDkpTextLabel.textContent = '';
+    } else {
+      var parts = [];
+      items.forEach(function (i) {
+        for (var j = 0; j < i.qty; j++) parts.push(i.item);
+      });
+      var str = parts.join('|');
+      openDkpText.textContent = str;
+      openDkpTextLabel.textContent = parts.length + ' item' + (parts.length !== 1 ? 's' : '');
     }
-    var parts = [];
-    items.forEach(function (i) {
-      for (var j = 0; j < i.qty; j++) parts.push(i.item);
-    });
-    var str = parts.join('|');
-    openDkpText.textContent = str;
-    openDkpOutput.classList.remove('hidden');
-    openDkpOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    buildAuctionItemsList(openDkpText.textContent);
+    openModal(openDkpModal);
+  });
+
+  openDkpModalClose.addEventListener('click',  function () { closeModal(openDkpModal); });
+  openDkpModalClose2.addEventListener('click', function () { closeModal(openDkpModal); });
+  openDkpModal.addEventListener('click', function (e) { if (e.target === openDkpModal) closeModal(openDkpModal); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !openDkpModal.classList.contains('hidden')) closeModal(openDkpModal);
   });
 
   copyOpenDkpBtn.addEventListener('click', function () {
     copyText(openDkpText.textContent, copyOpenDkpBtn);
+  });
+
+  // ── Create OpenDKP Auctions collapsible panel ──────────────────────────────
+  var openDkpRaidsLoaded = false;
+
+  auctionsToggle.addEventListener('click', function () {
+    var expanded = auctionsToggle.getAttribute('aria-expanded') === 'true';
+    auctionsToggle.setAttribute('aria-expanded', String(!expanded));
+    auctionsBody.classList.toggle('hidden', expanded);
+    if (!expanded) {
+      if (!openDkpRaidsLoaded) fetchOpenDkpRaids();
+      if (!openDkpWebClientId) fetchWebClientId();
+    }
+  });
+
+  function fetchWebClientId() {
+    return fetch('https://api.opendkp.com/clients/' + getOpenDkpClient())
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        openDkpWebClientId = data.WebClientId || null;
+        return openDkpWebClientId;
+      });
+  }
+
+  function ensureWebClientId() {
+    if (openDkpWebClientId) return Promise.resolve(openDkpWebClientId);
+    return fetchWebClientId().then(function (id) {
+      if (!id) throw new Error('Could not load client config from OpenDKP.');
+      return id;
+    });
+  }
+
+  function fetchOpenDkpRaids(force) {
+    if (openDkpRaidsLoaded && !force) return;
+    openDkpRaidSelect.innerHTML = '<option value="">Loading raids…</option>';
+    openDkpRaidRefresh.disabled = true;
+    openDkpRaidRefresh.textContent = '…';
+    fetch('https://api.opendkp.com/clients/' + getOpenDkpClient() + '/raids?count=20')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        openDkpRaidsLoaded = true;
+        var raids = Array.isArray(data) ? data : (data.raids || []);
+        openDkpRaidSelect.innerHTML = '<option value="">— Select a raid (optional) —</option>';
+        raids.forEach(function (raid) {
+          var opt = document.createElement('option');
+          opt.value = raid.RaidId || raid.Id || '';
+          var name = raid.Name || raid.RaidName || ('Raid ' + opt.value);
+          var dateStr = '';
+          if (raid.Timestamp) {
+            var d = new Date(raid.Timestamp);
+            dateStr = ' — ' + (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+          }
+          opt.textContent = name + dateStr;
+          openDkpRaidSelect.appendChild(opt);
+        });
+        openDkpRaidRefresh.disabled = false;
+        openDkpRaidRefresh.textContent = '↻';
+      })
+      .catch(function () {
+        openDkpRaidsLoaded = false;
+        openDkpRaidSelect.innerHTML = '<option value="">— Unable to load raids —</option>';
+        openDkpRaidRefresh.disabled = false;
+        openDkpRaidRefresh.textContent = '↻';
+      });
+  }
+
+  openDkpRaidRefresh.addEventListener('click', function () {
+    openDkpRaidsLoaded = false;
+    fetchOpenDkpRaids(true);
+  });
+
+  // ── Create Auctions button ─────────────────────────────────────────────────
+  function setAuctionStatus(msg, type) {
+    createAuctionsStatus.textContent = msg;
+    createAuctionsStatus.className = 'create-auctions-status' + (type ? ' status-' + type : '');
+  }
+
+  createAuctionsBtn.addEventListener('click', function () {
+    var lootString = openDkpText.textContent.trim();
+    var raidId     = openDkpRaidSelect.value;
+    var username   = openDkpUsername.value.trim();
+    var password   = openDkpPassword.value;
+
+    if (!lootString || lootString.charAt(0) === '(') {
+      return setAuctionStatus('No loot string to create auctions from.', 'error');
+    }
+    if (!raidId) {
+      return setAuctionStatus('Please select a raid first.', 'error');
+    }
+    if (!username || !password) {
+      return setAuctionStatus('Please enter your username and password.', 'error');
+    }
+
+    // Build item counts from checked list items only
+    var checkedNames = new Set();
+    auctionItemsList.querySelectorAll('li').forEach(function (li) {
+      var cb = li.querySelector('.auction-item-cb');
+      if (cb && cb.checked && !cb.disabled) {
+        checkedNames.add(li.querySelector('.auction-item-name').textContent);
+      }
+    });
+
+    var itemCounts = {};
+    lootString.split('|').forEach(function (name) {
+      name = name.trim();
+      if (!name || !checkedNames.has(name)) return;
+      itemCounts[name] = (itemCounts[name] || 0) + 1;
+    });
+    var uniqueNames = Object.keys(itemCounts);
+
+    setAuctionStatus('Loading client config…', '');
+    createAuctionsBtn.disabled = true;
+
+    // Step 1 — Ensure WebClientId is loaded
+    ensureWebClientId()
+      .then(function (webClientId) {
+        // Step 2 — Get auth token from Cognito
+        setAuctionStatus('Signing in…', '');
+        return fetch('https://cognito-idp.us-east-2.amazonaws.com/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-amz-json-1.1',
+            'X-Amz-Target': 'AWSCognitoIdentityProviderService.InitiateAuth'
+          },
+          body: JSON.stringify({
+            AuthFlow: 'USER_PASSWORD_AUTH',
+            ClientId: webClientId,
+            AuthParameters: { USERNAME: username, PASSWORD: password }
+          })
+        });
+      })
+      .then(function (res) {
+        if (!res.ok) return res.json().then(function (e) { throw new Error(e.message || 'Login failed (' + res.status + ')'); });
+        return res.json();
+      })
+      .then(function (authData) {
+        var idToken = authData.AuthenticationResult && authData.AuthenticationResult.IdToken;
+        if (!idToken) throw new Error('Login succeeded but no ID token returned.');
+
+        setAuctionStatus('Searching items…', '');
+
+        // Step 3 — Item Search POST
+        return fetch('https://api.opendkp.com/items', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(uniqueNames)
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error('Item search failed (' + res.status + ')');
+            return res.json();
+          })
+          .then(function (itemResults) {
+            var itemMap = {};
+            itemResults.forEach(function (item) {
+              itemMap[(item.ItemName || '').toLowerCase()] = item;
+            });
+
+            var auctions = [];
+            uniqueNames.forEach(function (name) {
+              var found = itemMap[name.toLowerCase()];
+              if (!found) return;
+              var id = found.ItemID || found.ItemId || 0;
+              auctions.push({
+                BidType:        'Open',
+                MinimumBid:     5,
+                MaximumBid:     0,
+                Duration:       parseInt(openDkpDuration.value, 10) || 2,
+                ItemQuantity:   itemCounts[name],
+                ItemId:         id,
+                AllowDeletes:   true,
+                Item: {
+                  ItemId:     id,
+                  Name:       found.ItemName,
+                  GameItemId: found.GameItemId || id,
+                  IdGame:     0
+                },
+                RaidId: parseInt(raidId, 10)
+              });
+            });
+
+            if (auctions.length === 0) {
+              throw new Error('No items could be matched — check the loot string.');
+            }
+
+            setAuctionStatus('Creating ' + auctions.length + ' auction' + (auctions.length !== 1 ? 's' : '') + '…', '');
+
+            // Step 4 — Create Auction PUT
+            var submittedNames = auctions.map(function (a) { return a.Item.Name; });
+            var auctionsBody = JSON.stringify(auctions);
+            return fetch('https://api.opendkp.com/clients/' + getOpenDkpClient() + '/auctions', {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': String(new TextEncoder().encode(auctionsBody).length),
+                'Authorization': 'Bearer ' + idToken
+              },
+              body: auctionsBody
+            }).then(function (res) { return { res: res, submittedNames: submittedNames }; });
+          });
+      })
+      .then(function (payload) {
+        var res = payload.res, submittedNames = payload.submittedNames;
+        if (!res.ok) return res.text().then(function (t) { throw new Error('Create auctions failed (' + res.status + '): ' + t); });
+        return res.json().then(function (result) { return { result: result, submittedNames: submittedNames }; });
+      })
+      .then(function (payload) {
+        var count = Array.isArray(payload.result) ? payload.result.length : '?';
+        setAuctionStatus('✓ ' + count + ' auction' + (count !== 1 ? 's' : '') + ' created successfully.', 'success');
+        createAuctionsBtn.disabled = false;
+
+        // Mark submitted items in the list
+        var submittedSet = new Set(payload.submittedNames.map(function (n) { return n.toLowerCase(); }));
+        auctionItemsList.querySelectorAll('li').forEach(function (li) {
+          var nameEl = li.querySelector('.auction-item-name');
+          if (!nameEl || !submittedSet.has(nameEl.textContent.toLowerCase())) return;
+          var cb = li.querySelector('.auction-item-cb');
+          if (cb) { cb.disabled = true; cb.checked = true; }
+          if (!li.querySelector('.auction-created-badge')) {
+            var badge = document.createElement('span');
+            badge.className = 'auction-created-badge';
+            badge.textContent = '✓ Auction created';
+            li.appendChild(badge);
+          }
+          li.classList.add('auction-item-done');
+        });
+      })
+      .catch(function (err) {
+        setAuctionStatus(err.message || 'An error occurred.', 'error');
+        createAuctionsBtn.disabled = false;
+      });
   });
 
   // ════════════════════════════════════════════════════════════════════════════
@@ -133,6 +457,24 @@
   var deliveryGenerateBtn   = document.getElementById('delivery-generate-btn');
   var deliveryRaidSelect    = document.getElementById('delivery-raid-select');
   var deliveryRaidRefresh   = document.getElementById('delivery-raid-refresh');
+  var deliveryClientInput   = document.getElementById('delivery-client-input');
+
+  // ── Sync client inputs between both popups ─────────────────────────────────
+  function syncClientInputs(source, target) {
+    target.value = source.value;
+    openDkpWebClientId = null;
+    raidsLoaded = false;
+    openDkpRaidsLoaded = false;
+  }
+
+  deliveryClientInput.addEventListener('input', function () {
+    syncClientInputs(deliveryClientInput, openDkpClientInput);
+  });
+
+  openDkpClientInput.addEventListener('input', function () {
+    syncClientInputs(openDkpClientInput, deliveryClientInput);
+    openDkpRaidSelect.innerHTML = '<option value="">— Select a raid (optional) —</option>';
+  });
 
   var deliveryOutputModal    = document.getElementById('delivery-output-modal');
   var deliveryOutputClose    = document.getElementById('delivery-output-close');
@@ -141,13 +483,21 @@
   var deliveryChunksContainer = document.getElementById('delivery-chunks-container');
   var deliveryOutputSummary  = document.getElementById('delivery-output-summary');
 
+  // ── OpenDKP config ─────────────────────────────────────────────────────────
+  var openDkpClient = 'bt';
+
+  function getOpenDkpClient() {
+    var input = document.getElementById('opendkp-client-input');
+    return (input && input.value.trim()) || openDkpClient;
+  }
+
   // ── Fetch raids from OpenDKP ───────────────────────────────────────────────
   var raidsLoaded = false;
 
   function fetchRaids(force) {
     if (raidsLoaded && !force) return;
     deliveryRaidSelect.innerHTML = '<option value="">Loading raids…</option>';
-    fetch('https://api.opendkp.com/clients/bt/raids?count=20')
+    fetch('https://api.opendkp.com/clients/' + getOpenDkpClient() + '/raids?count=20')
       .then(function (res) { return res.json(); })
       .then(function (data) {
         raidsLoaded = true;
@@ -189,7 +539,7 @@
     deliveryPaste.disabled = true;
 
     function fetchPage(page, accumulated) {
-      return fetch('https://api.opendkp.com/clients/bt/auctions?page=' + page)
+      return fetch('https://api.opendkp.com/clients/' + getOpenDkpClient() + '/auctions?page=' + page)
         .then(function (res) { return res.json(); })
         .then(function (data) {
           var results = (data.BidResults || []).filter(function (a) {
