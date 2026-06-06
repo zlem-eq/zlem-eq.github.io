@@ -35,6 +35,7 @@
     "Lepethida", "Midayor", "Tavekalem", "Ymmeln"
   ];
 
+
   // ── Public API ─────────────────────────────────────────────────────────────
   // Returns current targets as a Set of lowercase strings for fast lookup
   window.RaidTargets = {
