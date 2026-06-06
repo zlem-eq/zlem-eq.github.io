@@ -43,8 +43,13 @@
       var stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         var parsed = JSON.parse(stored);
-        // Fall back to defaults if stored list was accidentally saved empty
-        return parsed.length > 0 ? parsed : DEFAULT_TARGETS.slice();
+        if (parsed.length === 0) return DEFAULT_TARGETS.slice();
+        // Append any default targets that aren't already in the stored list
+        var storedLower = parsed.map(function (t) { return t.toLowerCase(); });
+        DEFAULT_TARGETS.forEach(function (t) {
+          if (storedLower.indexOf(t.toLowerCase()) === -1) parsed.push(t);
+        });
+        return parsed;
       }
       return DEFAULT_TARGETS.slice();
     },
