@@ -419,13 +419,13 @@
 
     // Rebuild currentMobs (primary + splits) for select-all / extract / getCheckedLoot
     currentMobs = new Map();
-    primaryGrouped.forEach(function (data, displayName) {
-      currentMobs.set('0|' + displayName, { entries: data.entries, rawEntries: data.rawEntries, displayName: displayName, splitIdx: 0 });
+    primaryGrouped.forEach(function (data, mapKey) {
+      currentMobs.set('0|' + mapKey, { entries: data.entries, rawEntries: data.rawEntries, displayName: data.displayName, sessionLabel: data.sessionLabel, firstDate: data.firstDate, splitIdx: 0 });
     });
     splitGroups.forEach(function (group) {
-      group.mobs.forEach(function (data, displayName) {
-        var key = group.splitIdx + '|' + displayName;
-        currentMobs.set(key, { entries: data.entries, rawEntries: data.rawEntries, displayName: displayName, splitIdx: group.splitIdx });
+      group.mobs.forEach(function (data, mapKey) {
+        var key = group.splitIdx + '|' + mapKey;
+        currentMobs.set(key, { entries: data.entries, rawEntries: data.rawEntries, displayName: data.displayName, sessionLabel: data.sessionLabel, firstDate: data.firstDate, splitIdx: group.splitIdx });
       });
     });
 
@@ -493,10 +493,8 @@
 
     const result = new Map();
     sessions.forEach(function (session) {
-      let displayName = session.mobName;
-      if (session.multiSession) {
-        displayName += ' · ' + formatSessionLabel(session.firstDate);
-      }
+      const displayName = session.mobName;
+      const sessionLabel = formatSessionLabel(session.firstDate);
 
       const rows = new Map();
       session.sessionEntries.forEach(function (entry) {
@@ -508,10 +506,10 @@
         }
       });
 
-      let mapKey = displayName;
+      let mapKey = displayName + (sessionLabel ? ' · ' + sessionLabel : '');
       let n = 2;
-      while (result.has(mapKey)) { mapKey = displayName + ' (' + (n++) + ')'; }
-      result.set(mapKey, { entries: [...rows.values()], rawEntries: session.sessionEntries });
+      while (result.has(mapKey)) { mapKey = displayName + (sessionLabel ? ' · ' + sessionLabel : '') + ' (' + (n++) + ')'; }
+      result.set(mapKey, { entries: [...rows.values()], rawEntries: session.sessionEntries, displayName: displayName, sessionLabel: sessionLabel, firstDate: session.firstDate });
     });
 
     return result;
@@ -522,6 +520,27 @@
     const pad = function (n) { return String(n).padStart(2, '0'); };
     return months[date.getMonth()] + ' ' + date.getDate() +
            ' ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
+  }
+
+  function formatDateLabel(date) {
+    const days   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return days[date.getDay()] + ', ' + months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+  }
+
+  function dateDayKey(date) {
+    return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+  }
+
+  function buildDateDivider(label) {
+    const li = document.createElement('li');
+    li.className = 'date-divider';
+    li.setAttribute('aria-hidden', 'true');
+    const span = document.createElement('span');
+    span.className = 'date-divider-label';
+    span.textContent = label;
+    li.appendChild(span);
+    return li;
   }
 
   // ── Helpers ────────────────────────────────────────────────────────────────
@@ -555,9 +574,15 @@
 
       var ul = document.createElement('ul');
       ul.className = 'mob-list';
-      group.mobs.forEach(function (data, displayName) {
-        var key = group.splitIdx + '|' + displayName;
-        ul.appendChild(buildMobEntry(key, displayName, data.entries, group.playerName));
+      var currentDayKey = null;
+      group.mobs.forEach(function (data, mapKey) {
+        var key = group.splitIdx + '|' + mapKey;
+        var dayKey = data.firstDate ? dateDayKey(data.firstDate) : null;
+        if (dayKey && dayKey !== currentDayKey) {
+          currentDayKey = dayKey;
+          ul.appendChild(buildDateDivider(formatDateLabel(data.firstDate)));
+        }
+        ul.appendChild(buildMobEntry(key, data.displayName, data.sessionLabel, data.entries, group.playerName));
       });
       section.appendChild(ul);
       splitSections.appendChild(section);
@@ -621,11 +646,17 @@
     const start = mobPage * mobPageSize;
     const end   = Math.min(start + mobPageSize, total);
 
+    var currentDayKey = null;
     entries.slice(start, end).forEach(function (pair) {
       var key  = pair[0];
       var data = pair[1];
       var playerName = allSplits[0] ? allSplits[0].playerName : 'You';
-      mobList.appendChild(buildMobEntry(key, data.displayName, data.entries, playerName));
+      var dayKey = data.firstDate ? dateDayKey(data.firstDate) : null;
+      if (dayKey && dayKey !== currentDayKey) {
+        currentDayKey = dayKey;
+        mobList.appendChild(buildDateDivider(formatDateLabel(data.firstDate)));
+      }
+      mobList.appendChild(buildMobEntry(key, data.displayName, data.sessionLabel, data.entries, playerName));
     });
 
     const multiPage = total > mobPageSize;
@@ -635,7 +666,7 @@
     mobPageNext.disabled = mobPage >= totalPages - 1;
   }
 
-  function buildMobEntry(key, mobName, entries, playerName) {
+  function buildMobEntry(key, mobName, sessionLabel, entries, playerName) {
     const li = document.createElement('li');
     li.className = 'mob-entry';
     li.dataset.mobKey = key;
@@ -660,6 +691,10 @@
     nameEl.className = 'mob-name';
     nameEl.textContent = mobName;
 
+    const sessionEl = document.createElement('span');
+    sessionEl.className = 'mob-session-label';
+    sessionEl.textContent = sessionLabel || '';
+
     const countEl = document.createElement('span');
     countEl.className = 'mob-count';
     countEl.textContent = entries.length + ' item' + (entries.length !== 1 ? 's' : '');
@@ -670,6 +705,7 @@
 
     header.appendChild(cb);
     header.appendChild(nameEl);
+    header.appendChild(sessionEl);
     header.appendChild(countEl);
     header.appendChild(chevron);
 

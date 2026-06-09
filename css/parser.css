@@ -139,7 +139,8 @@
 }
 
 .mob-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1rem 2fr 1fr 5rem auto;
   align-items: center;
   gap: 0.75rem;
   padding: 0.85rem 1rem;
@@ -160,9 +161,13 @@
 }
 
 .mob-name {
-  flex: 1;
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+.mob-session-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .mob-count {
@@ -171,6 +176,7 @@
   background: var(--bg);
   padding: 0.15em 0.55em;
   border-radius: 999px;
+  text-align: center;
   border: 1px solid var(--border);
 }
 
@@ -183,6 +189,32 @@
 
 .mob-entry.open .mob-chevron {
   transform: rotate(90deg);
+}
+
+/* Date dividers */
+.date-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0 0.25rem;
+  list-style: none;
+}
+
+.date-divider::before,
+.date-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.date-divider-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 /* Loot table */
