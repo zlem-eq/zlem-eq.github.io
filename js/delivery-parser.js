@@ -137,10 +137,11 @@
     lines.push('📦✅ **Delivery Confirmations**');
     lines.push('');
     checked.forEach(function (e, i) {
-      if (i > 0) lines.push('');
       if (e.entryType === 'offered') {
+        if (i > 0 && checked[i - 1].entryType !== 'offered') lines.push('');
         lines.push(discordCode(e.rawLine));
         lines.push(discordCode(e.completeRawLine));
+        if (i < checked.length - 1) lines.push('');
       } else {
         lines.push(discordCode(e.rawLine || e.rawMessage));
       }
