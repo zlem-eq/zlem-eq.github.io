@@ -233,9 +233,8 @@
     filtered = filtered.slice().sort(function (a, b) { return b.date - a.date; });
 
     filteredEntries = filtered;
-    // Default all entries to checked
+    // Default all entries to unchecked
     checkedSet.clear();
-    filteredEntries.forEach(function (_, i) { checkedSet.add(i); });
     currentPage = 0;
     deliveryOutput.classList.add('hidden');
     renderResults();
