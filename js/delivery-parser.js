@@ -64,7 +64,7 @@
     checkedSet.clear();
     setActivePill('all');
     customRange.classList.add('hidden');
-    raidLootFilter.checked = true;
+    raidLootFilter.checked = false;
   });
 
   // ── Select / deselect all ──────────────────────────────────────────────────
@@ -134,10 +134,16 @@
       return;
     }
     var lines = [];
-    lines.push('📦 **Delivery Confirmations**');
+    lines.push('📦✅ **Delivery Confirmations**');
     lines.push('');
-    checked.forEach(function (e) {
-      lines.push(discordCode(e.rawLine || e.rawMessage));
+    checked.forEach(function (e, i) {
+      if (i > 0) lines.push('');
+      if (e.entryType === 'offered') {
+        lines.push(discordCode(e.rawLine));
+        lines.push(discordCode(e.completeRawLine));
+      } else {
+        lines.push(discordCode(e.rawLine || e.rawMessage));
+      }
     });
     deliveryOutputText.textContent = lines.join('\n');
     deliveryOutput.classList.remove('hidden');
@@ -215,9 +221,10 @@
       });
     }
 
-    // Raid loot only filter
+    // Raid loot only filter (only applies to entries that carry an item name)
     if (raidLootFilter.checked && window.RaidLootItems) {
       filtered = filtered.filter(function (e) {
+        if (!e.item) return true; // trade_complete entries have no item — always include
         return window.RaidLootItems.has(e.item.replace(/^(?:a|an|the) /i, '').toLowerCase());
       });
     }
@@ -289,11 +296,14 @@
       });
       tdCb.appendChild(cb);
 
-      var tdItem = document.createElement('td');
-      tdItem.textContent = entry.item;
+      var tdType = document.createElement('td');
+      tdType.className = 'col-type';
+      tdType.textContent = entry.entryType === 'delivery' ? 'Parcel' : 'Trade';
 
-      var tdTo = document.createElement('td');
-      tdTo.textContent = entry.recipient;
+      var tdItem = document.createElement('td');
+      var tdTo   = document.createElement('td');
+      tdItem.textContent = entry.item;
+      tdTo.textContent   = entry.recipient;
 
       var tdTime = document.createElement('td');
       tdTime.className = 'loot-timestamp';
@@ -302,6 +312,7 @@
       tr.appendChild(tdCb);
       tr.appendChild(tdItem);
       tr.appendChild(tdTo);
+      tr.appendChild(tdType);
       tr.appendChild(tdTime);
       tbody.appendChild(tr);
     });

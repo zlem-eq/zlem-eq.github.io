@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raid Item Delivered Parser</title>
+  <title>Raid Item Delivery Confirmations</title>
   <link rel="icon" type="image/x-icon" href="../favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
@@ -15,7 +15,7 @@
 <body>
   <header class="page-header">
     <a href="../index.html" class="back">&#8592; Back</a>
-    <h1 style="font-size:1.1rem;">Raid Item Delivered Parser</h1>
+    <h1 style="font-size:1.1rem;">Raid Item Delivery Confirmations</h1>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
       <span class="icon-sun">&#9728;</span>
       <span class="icon-moon">&#9790;</span>
@@ -23,7 +23,7 @@
   </header>
 
   <main class="page-content">
-    <h1>Raid Item Delivered Parser</h1>
+    <h1>Raid Item Delivery Confirmations</h1>
     <p class="description">Upload an EverQuest log file to extract item delivery confirmations.</p>
 
     <div id="processing-overlay" class="processing-overlay hidden">
@@ -69,7 +69,7 @@
           </label>
         </div>
         <label class="filter-toggle filter-toggle--right">
-          <input type="checkbox" id="raid-loot-filter" checked />
+          <input type="checkbox" id="raid-loot-filter" />
           Raid loot only
         </label>
       </div>
@@ -81,6 +81,7 @@
               <th class="col-check"></th>
               <th>Item</th>
               <th>Recipient</th>
+              <th>Type</th>
               <th>Time</th>
             </tr>
           </thead>
