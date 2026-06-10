@@ -279,8 +279,28 @@
     var page  = filteredEntries.slice(start, end);
 
     tbody.innerHTML = '';
+    var lastDayKey = null;
     page.forEach(function (entry, localIdx) {
       var globalIdx = start + localIdx;
+      var dayKey = entry.date.getFullYear() + '-' + entry.date.getMonth() + '-' + entry.date.getDate();
+      if (dayKey !== lastDayKey) {
+        lastDayKey = dayKey;
+        var dividerTr = document.createElement('tr');
+        dividerTr.className = 'date-divider-row';
+        var dividerTd = document.createElement('td');
+        dividerTd.colSpan = 5;
+        dividerTd.style.padding = '0 1rem';
+        var dividerDiv = document.createElement('div');
+        dividerDiv.className = 'date-divider';
+        dividerDiv.setAttribute('aria-hidden', 'true');
+        var dividerSpan = document.createElement('span');
+        dividerSpan.className = 'date-divider-label';
+        dividerSpan.textContent = formatDateLabel(entry.date);
+        dividerDiv.appendChild(dividerSpan);
+        dividerTd.appendChild(dividerDiv);
+        dividerTr.appendChild(dividerTd);
+        tbody.appendChild(dividerTr);
+      }
       var tr = document.createElement('tr');
 
       var tdCb = document.createElement('td');
@@ -330,6 +350,12 @@
   }
 
   // ── Helpers ────────────────────────────────────────────────────────────────
+  function formatDateLabel(date) {
+    var days   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return days[date.getDay()] + ', ' + months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+  }
+
   function formatTimestamp(raw) {
     var p = raw.split(' ');
     return p[1] + ' ' + p[2] + ' ' + p[3];
