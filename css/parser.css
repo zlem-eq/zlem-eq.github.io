@@ -239,23 +239,56 @@
   width: 2rem;
   text-align: center;
   padding: 0 0.4rem 0 0;
+  vertical-align: middle;
 }
 
 .exclude-item-btn {
   background: none;
-  border: none;
+  border: 1px solid var(--text-muted);
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   cursor: pointer;
-  padding: 0.2rem 0.35rem;
+  padding: 0.15rem 0.45rem;
   border-radius: 4px;
   line-height: 1;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  position: relative;
 }
 
 .exclude-item-btn:hover {
   color: #e05252;
+  border-color: #e05252;
   background: rgba(224, 82, 82, 0.12);
+}
+
+.exclude-item-btn[data-tooltip] {
+  position: relative;
+}
+
+.exclude-item-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  width: max-content;
+  max-width: 260px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0s;
+  z-index: 100;
+}
+
+.exclude-item-btn[data-tooltip]:hover::after {
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .loot-table .col-check {

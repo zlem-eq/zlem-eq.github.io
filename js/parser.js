@@ -819,8 +819,8 @@
       tdExclude.className = 'col-exclude';
       const excludeBtn = document.createElement('button');
       excludeBtn.className = 'exclude-item-btn';
-      excludeBtn.title = 'Exclude all "' + entry.item + '" from loot lists';
-      excludeBtn.textContent = '✕';
+      excludeBtn.setAttribute('data-tooltip', 'Remove ALL occurrences of this item name from ALL raid targets! *To see them again refresh or reload the log file.');
+      excludeBtn.textContent = 'Remove';
       excludeBtn.addEventListener('click', function (e) {
         e.stopPropagation();
         window.excludeItem(entry.item);
