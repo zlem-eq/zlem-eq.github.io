@@ -1,0 +1,1181 @@
+Shield of Elders;5;Andraxi gratss
+Yunnb's Earring;300;Spanx gratss
+Robe of the Azure Sky;175;Grey gratss
+Viik's Pauldrons of Pain;355;Ochay gratss
+Sal`Varae's Robe of Darkness;875;Fourk gratss
+Robe of Inspiration;31;Cebaz gratss
+Hobart's War Helmet;105;Zatan gratss
+Halo of the Enlightened;20;Blesscle gratss
+Gharn's Rock of Smashing;725;Hehateme gratss
+Feeliux's Cord of Velocity;300;Baneful gratss
+Eye of Cazic-Thule;205;Tweeker gratss
+Brain of Cazic-Thule;250;Foreverburning gratss
+Yelinak's Talisman;40;Treijhen gratss
+Braid of Golden Hair;5;Moosic gratss
+Wrist Guard of Thunder;0;ROT gratss
+Petrified Heartwood Flamberge;0;ROT gratss
+Braid of Golden Hair;5;Pepe gratss
+Boots of the Storm;40;Void gratss
+Crown of the Kromzek Kings;40;Flyfly gratss
+Essence of Nature;175;Zorsha gratss
+King Tormax's Head;80;Halyk gratss
+King Tormax's Head;75;Zorsha gratss
+Sap Encrusted Branch;5;Blesscle gratss
+Ring of Lightning;65;Mojoh gratss
+Yelinak's Head;100;Warthx gratss
+Yelinak's Talisman;35;Doggafina gratss
+Craslith;0;ROT gratss
+Braid of Golden Hair;5;Bikn gratss
+Braid of Golden Hair;5;Nikez gratss
+Dragon's Eye Sage Ring;105;Doggafina gratss
+Dragons Blood Earring;15;Nikez gratss
+Dragons Blood Earring;15;Avice gratss
+Fist of Nature;0;ROT gratss
+Girdle of Living Thorns;150;Void gratss
+Girdle of Living Thorns;150;Epto gratss
+Melodic Breastplate;0;ROT gratss
+Silver Moon Chest Wraps;5;Honoka gratss
+Soul Defiler;0;ROT gratss
+Yelinak's Head;50;Doggafina gratss
+Yelinak's Head;40;Aerodru gratss
+Yelinak's Talisman;30;Baneful gratss
+Yelinak's Talisman;25;Shdow gratss
+Tyro's Manuscript;25;Necrotix gratss
+Tenuous Dragonscale Slippers;0;ROT gratss
+Staff of the Elder Claws;5;Doggafina gratss
+Smolder;5;Grey gratss
+Despondent Shroud;120;Pepe gratss
+Eye of Zeixshi-Kar;25;Glizzy gratss
+Thunderstone;5;Nikez gratss
+Shield of Midnight;24;Zatan gratss
+Chestplate of Fiery Might;25;Lachmar gratss
+Chestplate of Fiery Might;10;Game gratss
+Great Spear of Dawn;5;Angelfeeties gratss
+Green Resistance Stone;5;Palindrome gratss
+Shield of the Clawed Guardian;0;ROT gratss
+Salindrite Dagger;20;Ammo gratss
+Shroud of Longevity;575;Onetwothree gratss
+Shroud of Longevity;560;Agesz gratss
+Dragon Skin Bracelet;30;Agesz gratss
+Lungi of the Forbidden;75;Fungwoo gratss
+Sightless Velium Eye;50;Borodo gratss
+Sightless Velium Eye;45;Aakadarr gratss
+Sledge of Smashing;5;Dags gratss
+Spinning Orb of Confusion;25;Fungwoo gratss
+Tvenken's Slippers of Silence;25;Upgrayedd gratss
+Vyemm's Fang;5;Suggs gratss
+Vyemm's Left Eye;25;Gandles gratss
+Dragon Spine Staff;0;ROT gratss
+Shroud of Veeshan;300;Aerodru gratss
+Robe of the Azure Sky;150;Palindrome gratss
+Robe of the Azure Sky;130;Upgrayedd gratss
+Robe of the Azure Sky;125;Premier gratss
+Veridix's Shortsword;5;Game gratss
+Yelinak's Talisman;15;Smoelfen gratss
+Yelinak's Talisman;10;Nikez gratss
+Yelinak's Talisman;10;Infidell gratss
+Yelinak's Head;25;Zain gratss
+Yelinak's Head;20;Arbys gratss
+White Dragon Scale Sash;5;Frostycheeks gratss
+The Horn of Hsagra;0;ROT gratss
+Soul Defiler;5;Zain gratss
+Sacrifice;5;Arbys gratss
+Sacrifice;5;Gindorf gratss
+Ring of Lightning;5;Reefah gratss
+Ring of Destruction;400;Void gratss
+Flayed Barbarian Skin Leggings;0;ROT gratss
+King Tormax's Head;15;Ammo gratss
+King Tormax's Head;10;Zain gratss
+Dragons Blood Earring;15;Suggs gratss
+Dragons Blood Earring;10;Zain gratss
+Dragons Blood Earring;10;Homeydclown gratss
+Dragon's Eye Sage Ring;15;Frostycheeks gratss
+Craslith;0;ROT gratss
+Ayill's Aged Stone Shield;5;Gindorf gratss
+Solist's Earring of Insight;150;Shadowflame gratss
+Yelinak's Talisman;85;Zain gratss
+Yelinak's Head;100;Reefah gratss
+Sal`Varae's Robe of Darkness;800;Borodo gratss
+Rowyl's Metal Armguards;203;Aerodru gratss
+Pauldrons of Ferocity;30;Homeydclown gratss
+Jaelen's Katana;30;Nikez gratss
+Halo of the Enlightened;30;Arbys gratss
+Camii's Bracer of Vigor;255;Carpet gratss
+Brother Xave's Headband;350;Slistak gratss
+Yelinak's Talisman;50;Slistak gratss
+Fist of Nature;10;Onetwothree gratss
+Fist of Nature;5;Honoka gratss
+Wrist Guard of Thunder;0;ROT gratss
+Velium Encrusted Gauntlets;5;Zurgzurg gratss
+Massive Heartwood Thorn;0;ROT gratss
+Yelinak's Head;110;Yeetus gratss
+Very Large Coin Purse;5;Ellohime gratss
+Soul Defiler;0;ROT gratss
+Robe of Inspiration;60;Foreverburning gratss
+Nature's Melody;5;Smoelfen gratss
+King Tormax's Head;100;Frostycheeks gratss
+Dragons Tear Earring;50;Avenue gratss
+Dragon's Eye Sage Ring;15;Fourk gratss
+Bile Etched Obsidian Choker;80;Tetra gratss
+Braid of Golden Hair;5;Smoelfen gratss
+Boots of the Storm;40;Carpet gratss
+Boots of the Storm;35;Game gratss
+Pauldrons of Ferocity;15;Yeetus gratss
+Pauldrons of Ferocity;10;Judah gratss
+Flayed Barbarian Hide Mask;5;Vicious gratss
+Selo's Drums of the March;0;ROT gratss
+Aegis of Ice;5;Taquito gratss
+Silver Bracelet of Speed;855;Avice gratss
+Silver Bracelet of Speed;850;Porco gratss
+Blackstar, Mace of Night;200;Blesscle gratss
+Dragons Tear Earring;55;Roukuko gratss
+Smolder;0;ROT gratss
+The Horn of Hsagra;0;ROT gratss
+Girdle of Dark Power;70;Frampton gratss
+Blue Resistance Stone;0;ROT gratss
+Harla Dar's Talisman;100;Aerodru gratss
+Bracelet of the Sky;95;Upgrayedd gratss
+Bracelet of the Sky;90;Frampton gratss
+Tyro's Manuscript;85;Glizzy gratss
+Besmirched Mask of Conception;10;Moosic gratss
+Whitestone Shield;15;Avice gratss
+Dragon Scaled Mask;5;Shadowflame gratss
+Dragon Scaled Mask;5;Foreverburning gratss
+Fascia Secundae;100;Aerodru gratss
+Fedora Secundae;70;Premier gratss
+Writ of Dragonkind;10;Phil gratss
+White Resistance Stone;15;Hehateme gratss
+White Resistance Stone;10;Uprise gratss
+Clawed Guardian Bracer;50;Frampton gratss
+Boots of the Ancients;10;Theomars gratss
+Chestplate of Fiery Might;10;Shaaggy gratss
+Staff of the Silent Star;449;Vinsanity gratss
+Yelinak's Talisman;55;Zatan gratss
+Yelinak's Talisman;50;Jhelora gratss
+Sap Encrusted Branch;5;Dped gratss
+Braid of Golden Hair;5;Leseul gratss
+Velium Encrusted Gauntlets;50;Moosic gratss
+Ring of Lightning;75;Glizzy gratss
+Petrified Heartwood Flamberge;5;Zugsta gratss
+Massive Heartwood Thorn;5;Zurgzurg gratss
+Outrider's Taming Whip;0;ROT gratss
+Feeliux's Cord of Velocity;390;Clawgrip gratss
+Crown of the Kromzek Kings;75;Foreverburning gratss
+Ayill's Aged Stone Shield;15;Halyk gratss
+Boots of the Storm;55;Galachwar gratss
+Mask of the Dragon Slayer;120;Jhelora gratss
+Golden Leaf Earring;200;Borodo gratss
+Dragon's Eye Sage Ring;30;Blesscle gratss
+King Tormax's Head;105;Blesscle gratss
+Solist's Earring of Insight;210;Tweeker gratss
+Solist's Earring of Insight;205;Reefah gratss
+Yakatizma's Shield of Crafting;315;Savory gratss
+Yelinak's Head;110;Zugsta gratss
+Yelinak's Head;105;Tarheels gratss
+Tolan's Longsword of the Glade;150;Shante gratss
+True Mithril Breastplate;5;Zatan gratss
+Lance of Thunder;0;ROT gratss
+Mask of the Sky;0;ROT gratss
+Cloak of the Sky;15;Aakadarr gratss
+Frostreaver's Embroidered Cloak;225;Lizzy gratss
+Dain Frostreaver's Head;175;Onetwothree gratss
+Dain Frostreaver's Head;160;Bikn gratss
+Helmet of Rallos Zek;0;ROT gratss
+Ring of Destruction;375;Jorious gratss
+Ring of Destruction;360;Merle gratss
+Ring of Lightning;75;Colonclysm gratss
+Ring of Lightning;75;Necrotix gratss
+Yelinak's Head;100;Frostycheeks gratss
+King Tormax's Head;85;Smoelfen gratss
+King Tormax's Head;80;Inconell gratss
+Boots of the Storm;5;Zatan gratss
+Boots of the Storm;5;Homeydclown gratss
+White Dragon Scale Sash;30;Laurel gratss
+White Dragon Scale Sash;25;Doobez gratss
+Wrist Guard of Thunder;5;Honoka gratss
+Crown of the Kromzek Kings;135;Greks gratss
+Cloak of Silver Eyes;5;Shante gratss
+Cloak of Silver Eyes;5;Jhelora gratss
+Sap Encrusted Branch;5;Andraxi gratss
+Ssra's Bloodstone Eyepatch;300;Dags gratss
+Valtron's Necklace of Wonder;569;Grey gratss
+Sirran's Boots of Insanity;60;Randall gratss
+Tri-Plated Golden Hackle Hammer;40;Nikez gratss
+Frostreaver's Embroidered Cloak;317;Spren gratss
+First Brood Talisman;15;Galachwar gratss
+First Brood Talisman;15;Aerodru gratss
+Cowl of Mortality;40;Fungwoo gratss
+Dain Frostreaver's Head;260;Lyrica gratss
+Sal`Varae's Robe of Darkness;794;Vinsanity gratss
+Maclaer's Boots of Silence;225;Jhelora gratss
+Girdle of Living Thorns;150;Gandles gratss
+Girdle of Living Thorns;140;Avenue gratss
+Essence of Nature;180;Cedux gratss
+Braid of Golden Hair;10;Ammo gratss
+Gaudralek, Sword of the Sky;5;Nikez gratss
+Silver Whip of Rage;5;Game gratss
+Vyemm's Fang;25;Zatan gratss
+Silver Bracelet of Rage;30;Lynuga gratss
+Sledge of Smashing;100;Yeetus gratss
+Chestplate of Vindication;80;Lyrica gratss
+Chestplate of Vindication;70;Gandles gratss
+Crystallized Sulfur;0;ROT gratss
+Eye of Cazic-Thule;225;Savory gratss
+Halo of the Enlightened;105;Remede gratss
+Massive Heartwood Thorn;5;Jaygee gratss
+King Tormax's Head;125;Bikn gratss
+Girdle of Living Thorns;200;Andro gratss
+Golden Leaf Earring;250;Frostycheeks gratss
+Golden Leaf Earring;230;Flyfly gratss
+Golden Leaf Earring;225;Doobez gratss
+Cloak of the Fearsome;45;Hehateme gratss
+Bile Etched Obsidian Choker;50;Jhelora gratss
+Ring of Destruction;400;Greks gratss
+Ring of Destruction;385;Infidell gratss
+Yelinak's Talisman;15;Gandles gratss
+Helmet of Rallos Zek;0;ROT gratss
+Yelinak's Head;100;Palindrome gratss
+Robe of Inspiration;5;Reefah gratss
+Robe of Inspiration;5;Cedux gratss
+Halo of the Enlightened;50;Etoh gratss
+Brain of Cazic-Thule;210;Etoh gratss
+Brain of Cazic-Thule;200;Palindrome gratss
+Onyx Chain Leggings;50;Roukuko gratss
+Sprinkler of the Spirits;40;Upgrayedd gratss
+Onyx Chain Leggings;50;Doobez gratss
+Donal's Chestplate of Mourning;35;Laurel gratss
+Cobalt Greaves;35;Baneful gratss
+Blood Ember Greaves;0;ROT gratss
+Deepwater Breastplate;5;Draber gratss
+McVaxius` Horn of War;5;Moosic gratss
+Deepwater Greaves;5;Dags gratss
+Grey Suede Boots;200;Honoka gratss
+Grey Suede Boots;195;Psychedelics gratss
+Grey Suede Boots;195;Dped gratss
+Sprinkler of Suffering;5;Andraxi gratss
+Sprinkler of Suffering;5;Taquito gratss
+War Bow of Rallos Zek;10;Ochay gratss
+Yelinak's Talisman;30;Hehateme gratss
+Yelinak's Head;110;Galachwar gratss
+Yelinak's Head;105;Merle gratss
+Flayed Barbarian Skin Leggings;5;Sethorn gratss
+Ring of Destruction;450;Baneful gratss
+Flayed Barbarian Hide Mask;5;Leseul gratss
+Flayed Barbarian Hide Mask;5;Shubarb gratss
+Mask of the Dragon Slayer;45;Merle gratss
+Mask of the Dragon Slayer;45;Angelfeeties gratss
+Helmet of Rallos Zek;0;ROT gratss
+Blade of Carnage;0;ROT gratss
+Hammer of the Dragonborn;0;ROT gratss
+Singing Steel Greaves;5;Moosic gratss
+Shroud of Veeshan;160;Etoh gratss
+Robe of the Azure Sky;210;Roukuko gratss
+Robe of the Azure Sky;205;Coma gratss
+Crown of Rile;65;Uprise gratss
+Waters of Impenetrable Aura;0;ROT gratss
+Elder Spiritist's Greaves;0;ROT gratss
+Cobalt Greaves;65;Tetra gratss
+McVaxius` Horn of War;5;Leseul gratss
+Ancient Shissar Gauntlet;25;Cebaz gratss
+Ancient Shissar Gauntlet;25;Cedux gratss
+Selo`s Drums of the March;0;ROT gratss
+Cloak of Flames;65;Tetra gratss
+Blood Ember Greaves;0;ROT gratss
+Tolan's Darkwood Greaves;0;ROT gratss
+Mrylokar's Greaves;5;Shdow gratss
+Diamond Encrusted Staff;0;ROT gratss
+Singing Steel Breastplate;5;Moosic gratss
+Jaundiced Bone Greaves;0;ROT gratss
+Blood Ember Breastplate;0;ROT gratss
+Deepwater Breastplate;0;ROT gratss
+Gharn's Rock of Smashing;550;Onetwothree gratss
+Dragon Claw Main Gauche;0;ROT gratss
+Spell: Plainsight;0;ROT gratss
+Krono;170;Pepe gratss
+Fist of Nature;90;Hehateme gratss
+Cowl of Mortality;20;Beatinyadown gratss
+Dragons Blood Earring;20;Shdow gratss
+Tobrin's Mystical Eyepatch;35;Upgrayedd gratss
+Velium Encrusted Gauntlets;20;Jhelora gratss
+Cracked Claw of Zlandicar;5;Shdow gratss
+First Brood Talisman;20;Glizzy gratss
+Petrified Heartwood Flamberge;0;ROT gratss
+Golden Leaf Earring;300;Doggafina gratss
+Fist of Nature;182;Slistak gratss
+Bladesman's Breastplate;0;ROT gratss
+War Bow of Rallos Zek;5;Ammo gratss
+War Bow of Rallos Zek;5;Shante gratss
+Sorcerer's Robe;0;ROT gratss
+Girdle of Living Thorns;255;Carpet gratss
+Rowyl's Metal Armguards;280;Precept gratss
+Maclaer's Boots of Silence;215;Jaygee gratss
+Feeliux's Cord of Velocity;450;Game gratss
+Crown of the Kromzek Kings;150;Frampton gratss
+Crown of the Kromzek Kings;110;Hehateme gratss
+King Tormax's Head;75;Valars gratss
+King Tormax's Head;70;Etoh gratss
+Sal`Varae's Robe of Darkness;750;Tarheels gratss
+Wrist Guard of Thunder;0;ROT gratss
+Valtron's Necklace of Wonder;355;Evanrok gratss
+White Dragon Scale Sash;35;Vadia gratss
+White Dragon Scale Sash;30;Blesscle gratss
+Helmet of Rallos Zek;0;ROT gratss
+Gloves of Stability;20;Frampton gratss
+Dain Frostreaver's Head;280;Movevlonk gratss
+Zlandicar's Talisman;15;Fungwoo gratss
+Lendiniara's Talisman;10;Halyk gratss
+Frostreaver's Embroidered Cloak;175;Hotfudge gratss
+Frostreaver's Embroidered Cloak;160;Movevlonk gratss
+Frostreaver's Embroidered Cloak;155;Borodo gratss
+Frakadar's Talisman;15;Divi gratss
+Yelinak's Talisman;80;Sethorn gratss
+Yelinak's Head;140;Ammo gratss
+Sacrifice;5;Tarheels gratss
+Petrified Heartwood Flamberge;5;Lyrica gratss
+Nature's Melody;5;Palindrome gratss
+Helmet of Rallos Zek;5;Tetra gratss
+Flayed Barbarian Hide Mask;5;Roukuko gratss
+Dragons Tear Earring;80;Frampton gratss
+Dragons Blood Earring;20;Hehateme gratss
+Braid of Golden Hair;5;Palindrome gratss
+Ayill's Aged Stone Shield;5;Uprise gratss
+Soul Defiler;5;Zatan gratss
+Essence of Nature;350;Tweeker gratss
+Essence of Nature;330;Mojoh gratss
+War Bow of Rallos Zek;5;Tetra gratss
+War Bow of Rallos Zek;5;Epto gratss
+War Bow of Rallos Zek;5;Nikez gratss
+Sap Encrusted Branch;5;Fistyskank gratss
+Yelinak's Talisman;80;Frampton gratss
+Golden Leaf Earring;355;Lizzy gratss
+Fist of Nature;180;Psychedelics gratss
+Essence of Nature;205;Vinsanity gratss
+Dragons Blood Earring;25;Zatan gratss
+Yelinak's Head;135;Avenue gratss
+Nature's Melody;5;Avenue gratss
+Girdle of Living Thorns;300;Pepe gratss
+Girdle of Living Thorns;250;Lachmar gratss
+Massive Heartwood Thorn;0;ROT gratss
+The Horn of Hsagra;5;Nikez gratss
+Yelinak's Talisman;85;Chainboltz gratss
+Yelinak's Head;115;Fourk gratss
+King Tormax's Head;80;Andraxi gratss
+Crown of the Kromzek Kings;80;Chainboltz gratss
+White Dragon Scale Sash;75;Arbys gratss
+Ring of Destruction;405;Atiesh gratss
+Ring of Destruction;405;himlop gratss
+Flayed Barbarian Hide Mask;15;Moosic gratss
+Flayed Barbarian Hide Mask;10;Pris gratss
+Blade of Carnage;0;ROT gratss
+Braid of Golden Hair;5;Clawgrip gratss
+Cloak of the Fearsome;60;Chainboltz gratss
+Cloak of the Fearsome;55;Zatan gratss
+Essence of Nature;325;Tripwiz gratss
+Essence of Nature;325;Foreverburning gratss
+Brain of Cazic-Thule;206;Mini gratss
+Yelinak's Talisman;75;Drix gratss
+Yelinak's Head;100;Lyle gratss
+Massive Heartwood Thorn;0;ROT gratss
+War Bow of Rallos Zek;10;Galachwar gratss
+Yelinak's Talisman;95;Onetwothree gratss
+Very Large Coin Purse;5;Vinsanity gratss
+Petrified Heartwood Flamberge;30;Zatan gratss
+Ring of Destruction;385;Homeydclown gratss
+Outrider's Taming Whip;0;ROT gratss
+Mask of the Dragon Slayer;163;Grey gratss
+Golden Leaf Earring;450;Andraxi gratss
+Braid of Golden Hair;10;Homeydclown gratss
+Dragon's Eye Sage Ring;20;Glizzy gratss
+Dragons Blood Earring;25;Beatinyadown gratss
+Dragons Blood Earring;25;Agesz gratss
+Helmet of Rallos Zek;5;Galachwar gratss
+Yelinak's Head;125;Zorsha gratss
+Yelinak's Head;115;Movevlonk gratss
+Dain Frostreaver's Head;225;Suggs gratss
+Cowl of Mortality;45;Honoka gratss
+Cowl of Mortality;40;Zukk gratss
+Harla Dar's Talisman;130;Movevlonk gratss
+Harla Dar's Talisman;125;Lizzy gratss
+Wrist Guard of Thunder;5;Slistak gratss
+White Dragon Scale Sash;35;Andraxi gratss
+Velium Encrusted Gauntlets;50;Zukk gratss
+Sap Encrusted Branch;5;Aiaa gratss
+Sap Encrusted Branch;5;Slistak gratss
+Ring of Lightning;60;Tripwiz gratss
+Crown of the Kromzek Kings;75;Onetwothree gratss
+Nature's Melody;5;Uprise gratss
+Nature's Melody;5;Pris gratss
+Nature's Melody;5;Leseul gratss
+Massive Heartwood Thorn;5;Shubarb gratss
+King Tormax's Head;105;Zerkov gratss
+King Tormax's Head;100;Coma gratss
+King Tormax's Head;100;Proflex gratss
+Essence of Nature;400;Valthar gratss
+Chestplate of Stability;10;Laurel gratss
+Shard of Hsagra's Talisman;0;ROT gratss
+Runed Fang Necklace;15;Homeydclown gratss
+Noctivagant Breastplate;0;ROT gratss
+Axe of the Kromzek Kings;0;ROT gratss
+Legacy of Tyro;0;ROT gratss
+Staff of the Elder Claws;0;ROT gratss
+Shield of Thorns;0;ROT gratss
+Boots of the Vindicator;15;Pepe gratss
+Resplendent Robe;5;Merle gratss
+Resplendent Robe;5;Happybear gratss
+Gloves of Temperantia;0;ROT gratss
+Harla Dar's Talisman;100;Zukk gratss
+Robe of Conjuration;5;Glizzy gratss
+Dragon Scaled Mask;15;Glizzy gratss
+Dragon Scaled Mask;5;Happybear gratss
+Dragon Scaled Mask;5;Proflex gratss
+Yelinak's Talisman;75;Impa gratss
+Silver Bracelet of Speed;600;Beatinyadown gratss
+Yelinak's Head;110;Game gratss
+White Resistance Stone;10;Cedux gratss
+Bone-Clasped Girdle;85;Cebaz gratss
+Cloak of the Fearsome;45;Zukk gratss
+Dragons Blood Earring;30;Zukk gratss
+Fist of Pummeling Prowess;5;Psychedelics gratss
+Wrist Guard of Thunder;5;Fungwoo gratss
+Dragon Scaled Mask;55;Merle gratss
+Flayed Barbarian Skin Leggings;0;ROT gratss
+Amulet of Necropotence;175;Doobez gratss
+Bone-Clasped Girdle;150;Necrotix gratss
+Sorcerer's Robe;0;ROT gratss
+Sapphire Necklace;5;himlop gratss
+Sap Encrusted Branch;10;Fungwoo gratss
+Petrified Heartwood Flamberge;40;Dags gratss
+Halo of the Enlightened;35;Spanx gratss
+Eye of Cazic-Thule;150;Andro gratss
+Assassin's Chestguard;0;ROT gratss
+Cloak of the Fearsome;45;Agesz gratss
+Cloak of the Fearsome;45;Ammo gratss
+Essence of Nature;350;Serveous gratss
+Massive Heartwood Thorn;0;ROT gratss
+Golden Leaf Earring;450;Andro gratss
+Chestplate of Stability;45;Spanx gratss
+Krono;115;Laurel gratss
+War Bow of Rallos Zek;5;Clawgrip gratss
+Silver Moon Chest Wraps;10;Fungwoo gratss
+Sap Encrusted Branch;13;Taquito gratss
+Ring of Destruction;350;Porco gratss
+Nature's Melody;30;Frampton gratss
+King Tormax's Head;105;Arbys gratss
+Flayed Barbarian Hide Mask;5;Palindrome gratss
+Fist of Nature;255;Dped gratss
+Flayed Barbarian Skin Leggings;5;Cobrakai gratss
+Essence of Nature;425;Spren gratss
+Essence of Nature;400;Lyle gratss
+Chestplate of Stability;46;Aiaa gratss
+Shard of Hsagra's Talisman;0;ROT gratss
+Bracelet of the Sky;177;Ellohime gratss
+Helmet of Rallos Zek;0;ROT gratss
+Bracelet of the Sky;222;Doggafina gratss
+Flayed Barbarian Skin Leggings;5;Fungwoo gratss
+Helmet of Rallos Zek;5;Nikez gratss
+Solist's Earring of Insight;115;Movevlonk gratss
+Sal`Varae's Robe of Darkness;700;Arbys gratss
+Flayed Barbarian Hide Mask;15;Uprise gratss
+Feeliux's Cord of Velocity;370;Porco gratss
+Do`Vassir's Gauntlets of Might;350;himlop gratss
+Akkirus' Mask of Warfare;399;Tava gratss
+Ring of Lightning;50;Randall gratss
+Nature's Melody;50;Moosic gratss
+Massive Heartwood Thorn;0;ROT gratss
+Golden Leaf Earring;295;Taquito gratss
+Crown of the Kromzek Kings;115;Randall gratss
+Girdle of Living Thorns;272;Cedux gratss
+Braid of Golden Hair;5;Baneful gratss
+King Tormax's Head;75;himlop gratss
+King Tormax's Head;70;Valthar gratss
+Yelinak's Head;200;Dags gratss
+Wrist Guard of Thunder;20;Hehateme gratss
+Fist of Nature;200;Doobez gratss
+Crown of the Kromzek Kings;100;Gandles gratss
+Cloak of the Fearsome;25;Grey gratss
+Braid of Golden Hair;30;Game gratss
+Bile Etched Obsidian Choker;70;Grey gratss
+Bile Etched Obsidian Choker;60;Beatinyadown gratss
+Eye of Cazic-Thule;150;Lyle gratss
+King Tormax's Head;130;Andro gratss
+Helmet of Rallos Zek;35;Warthx gratss
+Helmet of Rallos Zek;30;Ochay gratss
+Massive Heartwood Thorn;5;Zukk gratss
+Petrified Heartwood Flamberge;30;Zerkov gratss
+White Dragon Scale Sash;80;Tava gratss
+White Dragon Scale Sash;65;Spanx gratss
+White Dragon Scale Sash;65;Lizzy gratss
+Ring of Destruction;455;Carpet gratss
+Gloves of Temperantia;10;Flyfly gratss
+Eye of Tjudawos;50;Etoh gratss
+Clawed Coat of Tyro;50;Zukk gratss
+White Resistance Stone;5;Lyle gratss
+White Resistance Stone;5;Shdow gratss
+White Resistance Stone;5;Fourk gratss
+Blue Resistance Stone;5;Frampton gratss
+Bracelet of the Deep Sea;223;Upgrayedd gratss
+Helm of the Deep Sea;30;Avenue gratss
+Greaves of the Deep Sea;100;Warthx gratss
+Siren Song, Dagger of the Sea;20;Moosic gratss
+White Resistance Stone;20;Gandles gratss
+White Resistance Stone;15;Palindrome gratss
+Writ of Dragonkind;15;Tripwiz gratss
+Tenuous Dragonscale Slippers;5;Valthar gratss
+Surreptitious Brooch;400;Lyle gratss
+Besmirched Mask of Conception;10;Pris gratss
+Lungi of the Forbidden;45;Agesz gratss
+Legacy of Tyro;5;Jorious gratss
+Legacy of Tyro;5;Dags gratss
+Fedora Secundae;5;Valthar gratss
+Eye of Tjudawos;35;Zerkov gratss
+Tenuous Dragonscale Slippers;25;Glizzy gratss
+Fascia Secundae;65;Doggafina gratss
+Fascia Secundae;65;Taquito gratss
+Fascia Secundae;60;Aiaa gratss
+Vyemm's Right Eye;30;Tweeker gratss
+Silver Bracelet of Rage;65;Warthx gratss
+Vyemm's Left Eye;50;Avenue gratss
+Clawed Coat of Tyro;50;Warthx gratss
+Eye of Vyskudra;15;Chainboltz gratss
+Tri-Plated Golden Hackle Hammer;30;Avenue gratss
+Onyx Chain Sleeves;100;Phil gratss
+Dain Frostreaver's Head;205;Shdow gratss
+Cloak of the Sky;70;Phil gratss
+Shield of the Clawed Guardian;5;Judah gratss
+Shroud of Longevity;375;Dped gratss
+Shield of the Clawed Guardian;10;Lachmar gratss
+Salindrite Dagger;15;Roukuko gratss
+Tri-Plated Golden Hackle Hammer;40;Zerkov gratss
+Tri-Plated Golden Hackle Hammer;35;Chainboltz gratss
+Massive Dragonclaw Shard;5;Judah gratss
+Mask of Superiority;55;Zukk gratss
+Lendiniara's Talisman;50;Moosic gratss
+Frostreaver's Embroidered Cloak;250;himlop gratss
+Frostreaver's Embroidered Cloak;250;Fourk gratss
+Dain Frostreaver's Head;225;Greks gratss
+Robe of Inspiration;50;Colonclysm gratss
+Sirran's Boots of Insanity;140;Tweeker gratss
+Harla Dar's Talisman;175;Ellohime gratss
+Dragon Scaled Mask;5;Feleena gratss
+Silver Bracelet of Speed;655;Evanrok gratss
+Serrated Dragon Tooth;500;Suggs gratss
+Silver Charm of Tranquility;555;Colonclysm gratss
+Salindrite Dagger;15;Shdow gratss
+Ancient Wyvern Hide Leggings;35;Avenue gratss
+Girdle of Living Thorns;200;Dags gratss
+Massive Heartwood Thorn;0;ROT gratss
+Hobart's War Helmet;100;Lyrica gratss
+Gharn's Rock of Smashing;655;Agesz gratss
+Essence of Nature;350;Vindaven gratss
+Braid of Golden Hair;5;Shante gratss
+Akkirus' Mask of Warfare;345;Epto gratss
+Petrified Heartwood Flamberge;25;Zain gratss
+Petrified Heartwood Flamberge;20;Jorious gratss
+Grotesque Girdle;40;Randall gratss
+Zombie Flesh Bracer;35;Reefah gratss
+Amulet of Necropotence;80;Grey gratss
+Amulet of Necropotence;75;Tripwiz gratss
+Ssra's Bloodstone Eyepatch;190;Flyfly gratss
+Solist's Earring of Insight;105;Randall gratss
+Sap Encrusted Branch;30;Borodo gratss
+Nature's Melody;5;Roukuko gratss
+Bone-Clasped Girdle;0;ROT gratss
+Very Large Coin Purse;5;Theomars gratss
+Sap Encrusted Branch;5;Honoka gratss
+Robe of Inspiration;45;Movevlonk gratss
+Noctivagant Breastplate;5;Jorious gratss
+King Tormax's Head;95;Chevy gratss
+Halo of the Enlightened;10;Aiaa gratss
+Golden Leaf Earring;400;Coma gratss
+Golden Leaf Earring;350;Aiaa gratss
+Eye of Cazic-Thule;120;Spren gratss
+Dragon's Eye Sage Ring;20;Chevy gratss
+Dragon's Eye Sage Ring;15;Tarheels gratss
+Celestial Essence Robe;15;Movevlonk gratss
+Bestial Tunic;5;Treijhen gratss
+Dragons Blood Earring;55;Dped gratss
+Girdle of Living Thorns;270;Merle gratss
+Yelinak's Talisman;100;Bayne gratss
+Yelinak's Head;85;Suggs gratss
+Robe of Inspiration;45;Necrotix gratss
+Assassin's Chestguard;0;ROT gratss
+Ring of the Frozen Flame;55;Pepe gratss
+First Brood Talisman;75;Etoh gratss
+Cowl of Mortality;130;Jhelora gratss
+Cowl of Mortality;125;Moosic gratss
+Cloak of the Falling Stars;65;Psychedelics gratss
+Breastplate of Eradication;300;Carpet gratss
+Frostreaver's Embroidered Cloak;430;Reefah gratss
+Frostreaver's Embroidered Cloak;430;Lilpinecone gratss
+Dragons Blood Earring;60;Tetra gratss
+Dragons Blood Earring;55;Hotfudge gratss
+Dragons Tear Earring;35;Hotfudge gratss
+Brain of Cazic-Thule;280;Reefah gratss
+Brain of Cazic-Thule;275;Shadowflame gratss
+Maclaer's Boots of Silence;100;Palindrome gratss
+Flayed Barbarian Skin Leggings;0;ROT gratss
+Yelinak's Head;230;Hotfudge gratss
+Yakatizma's Shield of Crafting;350;Tarheels gratss
+Solist's Earring of Insight;100;Tripwiz gratss
+Sacrifice;5;Etoh gratss
+Rowyl's Metal Armguards;250;Tava gratss
+Wrist Guard of Thunder;25;Onetwothree gratss
+Kelsiferous' Armband of Artistry;255;Cedux gratss
+Velium Encrusted Gauntlets;60;Pepe gratss
+Palladius' Axe of Slaughter;500;Lyrica gratss
+Crown of the Kromzek Kings;80;Zatan gratss
+Akkirus' Mask of Warfare;380;Clawgrip gratss
+Akkirus' Mask of Warfare;375;Avice gratss
+King Tormax's Head;120;Palindrome gratss
+King Tormax's Head;110;Tripwiz gratss
+Feeliux's Cord of Velocity;350;Ochay gratss
+Jaelen's Katana;10;Zukk gratss
+Jaelen's Katana;5;Game gratss
+Jaelen's Katana;5;Clawgrip gratss
+Vyrinn's Earring of Insanity;400;Infidell gratss
+Valtron's Necklace of Wonder;325;Shadowflame gratss
+Tolan's Longsword of the Glade;200;Jhelora gratss
+Ssra's Bloodstone Eyepatch;100;Lachmar gratss
+Sirran's Boots of Insanity;215;Serveous gratss
+Sirran's Boots of Insanity;210;Chevy gratss
+Crystasia's Crystal Ring;445;Infidell gratss
+Crystasia's Crystal Ring;440;Atiesh gratss
+Do`Vassir's Gauntlets of Might;415;Tava gratss
+Do`Vassir's Gauntlets of Might;410;Zatan gratss
+Do`Vassir's Gauntlets of Might;405;Lizzy gratss
+Blade of Carnage;5;Game gratss
+Axe of the Kromzek Kings;0;ROT gratss
+Ancient: Master of Death;0;ROT gratss
+Blue Resistance Stone;20;Palindrome gratss
+Mask of Tinkering;205;Treijhen gratss
+Cloak of the Falling Stars;110;Avenue gratss
+Breastplate of Eradication;200;Porco gratss
+Tri-Plated Golden Hackle Hammer;65;Tetra gratss
+Tri-Plated Golden Hackle Hammer;60;Infidell gratss
+Shield of Thorns;5;Chevy gratss
+Boots of the Ancients;50;Moosic gratss
+Smolder;5;Ammo gratss
+Thunderstone;50;Dags gratss
+Sky Watcher's Monocle;405;Laurel gratss
+Shield of Dragonkind;35;Coma gratss
+Mask of Fall;90;Borodo gratss
+Rocksmasher;5;Game gratss
+Nevederia's Right Eye;30;Flyfly gratss
+Legacy of Tyro;45;Bayne gratss
+Bracchium Secundae;15;Borodo gratss
+Clawed Coat of Tyro;50;Dags gratss
+Amulet of the Storm;5;Doggafina gratss
+Beldron's Vambraces of Impiety;20;Tetra gratss
+Beldron's Vambraces of Impiety;20;Lachmar gratss
+Heritage of Secundae;95;Etoh gratss
+Besmirched Mask of Conception;65;Treijhen gratss
+Besmirched Mask of Conception;60;Roukuko gratss
+Dain Frostreaver's Head;305;Psychedelics gratss
+Dain Frostreaver's Head;300;Hotfudge gratss
+Dain Frostreaver's Head;300;Angelfeeties gratss
+Girdle of Dark Power;255;Zain gratss
+Girdle of Dark Power;250;Zain gratss
+Silver Mask of the Slayer;653;Theomars gratss
+Silver Charm of Tranquility;600;Lachmar gratss
+Ring of Destruction;450;Aerodru gratss
+Nature's Melody;30;Treijhen gratss
+Massive Heartwood Thorn;5;Greks gratss
+Golden Leaf Earring;450;Savory gratss
+Flayed Barbarian Hide Mask;55;Shdow gratss
+Essence of Nature;350;Movevlonk gratss
+Essence of Nature;350;Melz gratss
+Vambraces of Discontent;20;Zatan gratss
+Staff of the Silent Star;125;Lyle gratss
+Staff of the Silent Star;115;Reefah gratss
+Bone-Clasped Girdle;65;Mojoh gratss
+Crimson Robe of Alendine;10;Bikn gratss
+Crimson Robe of Alendine;5;Vraquil gratss
+Crimson Robe of Alendine;5;Vinsanity gratss
+Crimson Robe of Alendine;5;Tripwiz gratss
+Zombie Flesh Bracer;40;Serveous gratss
+Zombie Flesh Bracer;40;Movevlonk gratss
+Grotesque Girdle;45;Taquito gratss
+Grotesque Girdle;40;Bikn gratss
+Amulet of Necropotence;60;Ochay gratss
+Fearsome Shield;5;Jorious gratss
+Ring of Lightning;100;Vraquil gratss
+War Bow of Rallos Zek;5;Demoness gratss
+White Dragon Scale Sash;55;Aiaa gratss
+White Dragon Scale Sash;50;Phil gratss
+White Dragon Scale Sash;45;Valars gratss
+White Dragon Scale Sash;40;Coma gratss
+Ring of Destruction;350;Shaaggy gratss
+King Tormax's Head;120;Taquito gratss
+King Tormax's Head;120;Necrotix gratss
+Helmet of Rallos Zek;50;Zukk gratss
+Helmet of Rallos Zek;45;Game gratss
+Flayed Barbarian Hide Mask;20;Frampton gratss
+Crown of the Kromzek Kings;70;Jhelora gratss
+Boots of the Storm;115;Zain gratss
+Soul Leech, Dark Sword of Blood;0;ROT gratss
+Wrist Guard of Thunder;5;Doobez gratss
+Axe of the Kromzek Kings;0;ROT gratss
+War Bow of Rallos Zek;5;Warthx gratss
+The Horn of Hsagra;5;Homeydclown gratss
+Velium Encrusted Gauntlets;35;Homeydclown gratss
+Helmet of Rallos Zek;40;Epto gratss
+Ring of Destruction;425;Avice gratss
+King Tormax's Head;155;Shdow gratss
+King Tormax's Head;150;Doggafina gratss
+King Tormax's Head;125;Shadowflame gratss
+Flayed Barbarian Skin Leggings;0;ROT gratss
+Flayed Barbarian Hide Mask;130;Gandles gratss
+Boots of the Storm;90;Lyrica gratss
+Boots of the Storm;85;Gandles gratss
+Boots of the Storm;80;Avice gratss
+Silver Bracelet of Speed;700;Lachmar gratss
+Shovel of the Harvest;25;Game gratss
+Unopenable Box;35;Phil gratss
+Velketor's Spell Book;25;Cedux gratss
+Circlet of Silver Skies;35;Reefah gratss
+Boots of Bladecalling;10;Vraquil gratss
+Bone Bracelet of Condemnation;5;Zorsha gratss
+Harla Dar's Talisman;120;Randall gratss
+Smolder;10;Zukk gratss
+Lungi of the Forbidden;130;himlop gratss
+Fascia Secundae;90;Spanx gratss
+Dowel of the Secundarum;20;Raelon gratss
+Despondent Shroud;10;Moosic gratss
+Despondent Shroud;5;Theomars gratss
+Clawed Coat of Tyro;60;Tetra gratss
+Clawed Coat of Tyro;55;Demoness gratss
+Clandestine Veil of M`Rata;20;Shdow gratss
+Clandestine Veil of M`Rata;15;Moosic gratss
+Chestplate of Fiery Might;40;Zukk gratss
+Boots of the Dead Dream;175;Mini gratss
+Verlekarnorm's Horn of Disaster;15;Gandles gratss
+Dawncaller, Blade of the Morning;5;Dags gratss
+Dawncaller, Blade of the Morning;5;Bayne gratss
+Wurmscale Fistwraps;20;Hehateme gratss
+Tvenken's Slippers of Silence;60;Frostycheeks gratss
+Tvenken's Slippers of Silence;55;Raelon gratss
+Tvenken's Slippers of Silence;46;Melz gratss
+Tvenken's Slippers of Silence;42;Flyfly gratss
+Dragonspine Rapier;5;Shdow gratss
+Red Resistance Stone;5;Bayne gratss
+Dragon Scaled Mask;25;Kizaru gratss
+Dragon Scaled Mask;25;Melz gratss
+Dragon Scaled Mask;25;Vraquil gratss
+Staff of the Elder Claws;25;Taquito gratss
+Staff of the Elder Claws;5;Frostycheeks gratss
+Flayed Barbarian Skin Leggings;5;Hehateme gratss
+Flayed Barbarian Skin Leggings;5;Onetwothree gratss
+Swiftblade of Zek;25;Zain gratss
+Swiftblade of Zek;25;Homeydclown gratss
+Ancient Wyvern Hide Leggings;75;Lachmar gratss
+Ring of Destruction;365;Clawgrip gratss
+Vyrinn's Earring of Insanity;311;Atiesh gratss
+Yakatizma's Shield of Crafting;325;Doggafina gratss
+Maclaer's Boots of Silence;140;Avenue gratss
+Kelsiferous' Armband of Artistry;170;Kizaru gratss
+Helmet of Rallos Zek;60;Baneful gratss
+Flayed Barbarian Hide Mask;60;Greks gratss
+Do`Vassir's Gauntlets of Might;275;Pris gratss
+Very Large Coin Purse;5;Cedux gratss
+Mask of the Dragon Slayer;80;Borodo gratss
+Eye of Cazic-Thule;150;Movevlonk gratss
+Dragons Blood Earring;30;Frampton gratss
+Dragon's Eye Sage Ring;25;Taquito gratss
+Celestial Essence Robe;20;Valthar gratss
+Brain of Cazic-Thule;150;Lilpinecone gratss
+Yelinak's Talisman;60;Doobez gratss
+Yelinak's Talisman;55;Dags gratss
+Yelinak's Head;45;Lachmar gratss
+Yelinak's Head;45;Greks gratss
+Yelinak's Head;40;Pepe gratss
+Dagarn's Tail;10;Warthx gratss
+White Resistance Stone;30;Frampton gratss
+White Resistance Stone;25;Doobez gratss
+Bile Etched Obsidian Choker;30;Carpet gratss
+Bow of the Destroyer;5;Game gratss
+White Resistance Stone;15;Colonclysm gratss
+White Resistance Stone;15;Doggafina gratss
+Halo of the Enlightened;5;Taquito gratss
+Sap Encrusted Branch;10;Theomars gratss
+King Tormax's Head;111;Mojoh gratss
+Girdle of Living Thorns;111;Colonclysm gratss
+Fist of Nature;205;himlop gratss
+Eye of Cazic-Thule;201;Doggafina gratss
+Essence of Nature;400;Fourk gratss
+Crown of the Kromzek Kings;80;Lachmar gratss
+Brain of Cazic-Thule;150;Borodo gratss
+Braid of Golden Hair;10;Greks gratss
+Shield of Fury;5;Zatan gratss
+Tri-Plated Golden Hackle Hammer;20;Lachmar gratss
+Grotesque Girdle;30;Reefah gratss
+White Dragon Scale Sash;90;Borodo gratss
+The Horn of Hsagra;5;Game gratss
+Petrified Heartwood Flamberge;460;Impa gratss
+Massive Heartwood Thorn;5;Shdow gratss
+King Tormax's Head;112;Suggs gratss
+Golden Leaf Earring;225;Tarheels gratss
+Golden Leaf Earring;215;Chevy gratss
+Girdle of Living Thorns;300;Atiesh gratss
+Axe of the Kromzek Kings;5;Game gratss
+Boots of the Storm;85;Tunedout gratss
+Boots of the Storm;80;Warthx gratss
+Resplendent Robe;0;ROT gratss
+Sorcerer's Robe;0;ROT gratss
+Smolder;20;Pepe gratss
+Smolder;15;Demoness gratss
+Silver Chains;100;Aerodru gratss
+Silver Chains;90;Flyfly gratss
+Shining Metallic Pantaloons;75;Mini gratss
+Shining Metallic Pantaloons;60;Ellohime gratss
+Ancient Wurm Hide Greaves;185;Lynuga gratss
+Ancient Wurm Hide Greaves;180;Epto gratss
+Crown of Resilience;30;Agesz gratss
+Blydreln's Bane;0;ROT gratss
+Green Resistance Stone;5;Palindrome gratss
+Green Resistance Stone;5;Pepe gratss
+Helm of the Deep Sea;20;Tetra gratss
+Greaves of the Deep Sea;150;Bayne gratss
+Siren Song, Dagger of the Sea;5;Roukuko gratss
+Shroud of Longevity;355;Chainboltz gratss
+Shroud of Longevity;350;Slistak gratss
+Wurm Claw Pauldrons;35;Glizzy gratss
+Wurm Claw Pauldrons;10;Avice gratss
+Sledge of Smashing;50;Lachmar gratss
+Boots of the Destroyer;50;himlop gratss
+Silver Bracelet of Rage;50;Shdow gratss
+Nevederia's Left Eye;180;Hotfudge gratss
+Staff of the Morning Dew;50;Glizzy gratss
+Staff of the Morning Dew;50;Proflex gratss
+Blue Resistance Stone;5;Shdow gratss
+Dainty Gloves;15;Proflex gratss
+Bow of the Destroyer;10;Jaygee gratss
+Bow of the Destroyer;5;Avice gratss
+Bow of the Destroyer;5;Jhelora gratss
+Cloak of Thorns;225;Clawgrip gratss
+Cloak of Thorns;220;Atiesh gratss
+Shining Metallic Pantaloons;75;Glizzy gratss
+Windraider's Belt;75;Jorious gratss
+Smolder;10;Theomars gratss
+Vyemm's Right Eye;85;Angelfeeties gratss
+Boots of Superiority;75;Zorsha gratss
+Gloves of Stability;20;Lilpinecone gratss
+Mask of Superiority;45;Carpet gratss
+Mask of Superiority;40;Atiesh gratss
+Dain Frostreaver's Head;250;Slistak gratss
+Dain Frostreaver's Head;225;Grey gratss
+Robe of Inspiration;90;Serveous gratss
+Pauldrons of Ferocity;20;Lyrica gratss
+Cloak of the Fearsome;35;Doobez gratss
+Halo of the Enlightened;120;Coma gratss
+Halo of the Enlightened;85;Andro gratss
+Bile Etched Obsidian Choker;95;Chainboltz gratss
+Eye of Cazic-Thule;150;Phil gratss
+Eye of Cazic-Thule;150;Reefah gratss
+Eye of Cazic-Thule;144;Ellohime gratss
+War Bow of Rallos Zek;20;Homeydclown gratss
+King Tormax's Head;101;Grey gratss
+Halo of the Enlightened;45;Andraxi gratss
+Flayed Barbarian Skin Leggings;5;Psychedelics gratss
+Flayed Barbarian Hide Mask;31;Suggs gratss
+Helmet of Rallos Zek;35;Homeydclown gratss
+Helmet of Rallos Zek;30;Avice gratss
+Eye of Cazic-Thule;200;Lilpinecone gratss
+Robe of Inspiration;100;Raelon gratss
+Robe of Inspiration;85;Proflex gratss
+Shard of Hsagra's Talisman;0;ROT gratss
+Abashi's Rod of Disempowerment;380;Ellohime gratss
+Feeliux's Cord of Velocity;200;Infidell gratss
+Soul Defiler;5;Void gratss
+Yelinak's Head;110;Zerkov gratss
+Yelinak's Head;105;Borodo gratss
+Yelinak's Head;105;Grey gratss
+Dragons Tear Earring;60;Frostycheeks gratss
+Hobart's War Helmet;70;Void gratss
+Gharn's Rock of Smashing;400;Doobez gratss
+Do`Vassir's Gauntlets of Might;250;Suggs gratss
+Dragons Blood Earring;15;Frampton gratss
+Dragons Blood Earring;11;Psychedelics gratss
+Crystasia's Crystal Ring;285;Lizzy gratss
+Crystasia's Crystal Ring;280;Ellohime gratss
+Craslith;0;ROT gratss
+Akkirus' Mask of Warfare;285;Porco gratss
+Outrider's Taming Whip;0;ROT gratss
+Yelinak's Talisman;0;ROT gratss
+Valtron's Necklace of Wonder;300;Cedux gratss
+Viik's Pauldrons of Pain;210;Zatan gratss
+Ssra's Bloodstone Eyepatch;200;Mini gratss
+Solist's Earring of Insight;253;Colonclysm gratss
+Sirran's Boots of Insanity;125;Shiroe gratss
+Sap Encrusted Branch;40;himlop gratss
+Nature's Melody;105;Pepe gratss
+Sal`Varae's Robe of Darkness;551;Shadowflame gratss
+Sal`Varae's Robe of Darkness;550;Vindaven gratss
+Braid of Golden Hair;25;Pris gratss
+Braid of Golden Hair;10;Roukuko gratss
+Do`Vassir's Gauntlets of Might;355;Chainboltz gratss
+Do`Vassir's Gauntlets of Might;350;Angelfeeties gratss
+Girdle of Living Thorns;205;Bayne gratss
+Jaelen's Katana;55;Demoness gratss
+Yakatizma's Shield of Crafting;200;Aerodru gratss
+Vyemm's Fang;25;Frampton gratss
+Vyemm's Fang;20;himlop gratss
+Ring of the Frozen Flame;15;Borodo gratss
+Mask of the Sky;10;Avice gratss
+Mask of the Sky;10;Angelfeeties gratss
+Twisted Steel Gauntlets;5;Demoness gratss
+Ring of Winter;15;Kizaru gratss
+Dain Frostreaver's Head;205;Agesz gratss
+Breastplate of Superiority;20;Angelfeeties gratss
+Silver Girdle of Stability;15;Frostycheeks gratss
+Gloves of Stability;5;Avice gratss
+Ring of Relkententinar;5;Theomars gratss
+Vyemm's Right Eye;55;Precept gratss
+Dragonrib Club;15;Psychedelics gratss
+Dragonrib Club;15;Dped gratss
+Frostwrath;50;Bayne gratss
+Mithril Boots;10;Frampton gratss
+Shawl of Perception;90;Flyfly gratss
+Shawl of Perception;85;Zorsha gratss
+Mithril Gauntlets;5;Dags gratss
+Ancient Wurm Hide Greaves;175;Zatan gratss
+Ancient Wurm Hide Greaves;170;Ochay gratss
+Dagarn's Tail;0;ROT gratss
+Whitestone Shield;5;Infidell gratss
+Amulet of the Dreadgazer;40;Kizaru gratss
+Reaper's Ring;15;Kizaru gratss
+Wurm Claw Pauldrons;50;Doobez gratss
+Wurm Claw Pauldrons;45;Precept gratss
+Wurm Claw Pauldrons;45;Dped gratss
+Crown of the Kromzek Kings;80;Frostycheeks gratss
+Nature's Melody;265;Gandles gratss
+Shining Metallic Pantaloons;80;Zorsha gratss
+Shining Metallic Pantaloons;80;Foreverburning gratss
+Shining Metallic Pantaloons;80;Vinsanity gratss
+Shining Metallic Pantaloons;80;Cedux gratss
+Boots of the Dead Dream;225;Vinsanity gratss
+White Dragon Scale Sash;100;Flyfly gratss
+Ring of Lightning;65;Foreverburning gratss
+Ring of Lightning;65;Proflex gratss
+Petrified Heartwood Flamberge;325;Hotfudge gratss
+Girdle of Living Thorns;205;Chainboltz gratss
+King Tormax's Head;80;Borodo gratss
+Essence of Nature;400;Reefah gratss
+White Dragonscale Cloak;120;Aerodru gratss
+White Dragonscale Cloak;110;Shaaggy gratss
+White Dragonscale Cloak;110;Tripwiz gratss
+White Dragonscale Cloak;110;Vinsanity gratss
+Vambraces of Discontent;25;Frampton gratss
+Vambraces of Discontent;5;Palindrome gratss
+King Tormax's Head;80;Reefah gratss
+King Tormax's Head;75;Fourk gratss
+King Tormax's Head;75;Cedux gratss
+Halo of the Enlightened;20;Precept gratss
+Halo of the Enlightened;15;Vadia gratss
+Boots of the Storm;25;Smoelfen gratss
+Wrist Guard of Thunder;0;ROT gratss
+War Bow of Rallos Zek;10;Theomars gratss
+Yelinak's Head;50;Cedux gratss
+Wrist Guard of Thunder;5;Beatinyadown gratss
+War Bow of Rallos Zek;10;Jhelora gratss
+Velium Encrusted Gauntlets;20;Gandles gratss
+King Tormax's Head;200;Stankie gratss
+Helmet of Rallos Zek;30;Infidell gratss
+Cloak of the Fearsome;25;Smoelfen gratss
+Brain of Cazic-Thule;121;Aerodru gratss
+Robe of Inspiration;120;Shiroe gratss
+Eye of Cazic-Thule;125;Fourk gratss
+Eye of Cazic-Thule;120;himlop gratss
+Brain of Cazic-Thule;221;Movevlonk gratss
+Grotesque Girdle;55;Vraquil gratss
+Zombie Flesh Bracer;45;Necrotix gratss
+Amulet of Necropotence;80;Doggafina gratss
+Amulet of Necropotence;75;himlop gratss
+Amulet of Necropotence;75;Baneful gratss
+Bone-Clasped Girdle;70;Chevy gratss
+Bone-Clasped Girdle;60;Doggafina gratss
+Yelinak's Head;55;Theomars gratss
+Soul Defiler;10;Hotfudge gratss
+Flayed Barbarian Skin Leggings;15;Agesz gratss
+Flayed Barbarian Hide Mask;10;Jaygee gratss
+Flayed Barbarian Hide Mask;10;Smoelfen gratss
+Dragons Blood Earring;30;Theomars gratss
+Dragons Blood Earring;25;Pepe gratss
+Dragon's Eye Sage Ring;25;Andraxi gratss
+White Dragon Scale Sash;55;Precept gratss
+Ring of Lightning;45;Shiroe gratss
+Flayed Barbarian Skin Leggings;5;Slistak gratss
+The Horn of Hsagra;10;Tetra gratss
+The Horn of Hsagra;5;Jaygee gratss
+Axe of the Kromzek Kings;5;Tetra gratss
+King Tormax's Head;60;Theomars gratss
+Ring of Destruction;350;Colonclysm gratss
+Ring of Destruction;350;Hotfudge gratss
+Hate Crystal;30;Shiroe gratss
+Ancient Wyvern Hide Sleeves;45;Theomars gratss
+Transparent Eyepatch;10;Doggafina gratss
+Necklace of Nightstalking;5;Dped gratss
+Mask of Venom;15;Bayne gratss
+Cloak of Venom;10;Ellohime gratss
+Dragons Tear Earring;50;Frostycheeks gratss
+Chestplate of Vindication;60;Atiesh gratss
+Abashi's Rod of Disempowerment;300;Lynuga gratss
+Tobrin's Mystical Eyepatch;50;Proflex gratss
+Grey Suede Boots;105;Agesz gratss
+Left Eye of Xygoz;45;Cedux gratss
+Poisoned Mantle;5;Zerkov gratss
+Tolan's Darkwood Breastplate;5;Grey gratss
+Mrylokar's Breastplate;5;Suggs gratss
+Jaundiced Bone Breastplate;15;Upgrayedd gratss
+Tolan's Darkwood Greaves;5;Grey gratss
+Shield of Elders;20;Tava gratss
+Shield of Elders;15;Hotfudge gratss
+Shissar Nullifier Staff;5;Shiroe gratss
+Shissar Nullifier Staff;5;Cedux gratss
+Shroud of Veeshan;373;Laurel gratss
+Shroud of Veeshan;130;Coma gratss
+Donal's Leggings of Mourning;10;Precept gratss
+Katana of Endurance;0;ROT gratss
+Blood Orchid Katana;15;Clawgrip gratss
+Veridix's Shortsword;5;Porco gratss
+McVaxius` Horn of War;10;Pepe gratss
+Blackstone Maul;5;Weebackshots gratss
+Bo Staff of Trorsmang;5;Agesz gratss
+Ykeshan Broad Axe;0;ROT gratss
+Nightfall;0;ROT gratss
+Selo`s Drums of the March;5;Pris gratss
+Robe of Adversity;20;Kizaru gratss
+Robe of Adversity;10;Ellohime gratss
+Robe of Adversity;5;Vinsanity gratss
+Wrist Guard of Thunder;30;Dped gratss
+The Horn of Hsagra;5;Grey gratss
+The Horn of Hsagra;5;Carpet gratss
+The Horn of Hsagra;5;Infidell gratss
+The Horn of Hsagra;5;Porco gratss
+Ring of Lightning;110;Zain gratss
+Crown of the Kromzek Kings;55;himlop gratss
+King Tormax's Head;105;Vindaven gratss
+King Tormax's Head;105;Lizzy gratss
+King Tormax's Head;100;Tava gratss
+Boots of the Storm;40;Epto gratss
+Boots of the Storm;40;Baneful gratss
+Cloak of Crystalline Waters;100;Zain gratss
+Harla Dar's Talisman;120;Fourk gratss
+War Bow of Rallos Zek;10;Carpet gratss
+Sap Encrusted Branch;26;Chainboltz gratss
+Robe of the Bonecaster;10;Ellohime gratss
+Petrified Heartwood Flamberge;205;Angelfeeties gratss
+Nature's Melody;52;Tunedout gratss
+Flayed Barbarian Hide Mask;10;Pepe gratss
+Massive Heartwood Thorn;5;Suggs gratss
+Flayed Barbarian Skin Leggings;45;Beatinyadown gratss
+Braid of Golden Hair;15;Grey gratss
+Bestial Tunic;0;ROT gratss
+Crystasia's Crystal Ring;319;Mini gratss
+Yelinak's Head;30;himlop gratss
+Sal`Varae's Robe of Darkness;435;Savory gratss
+Pauldrons of Ferocity;15;Hotfudge gratss
+Pauldrons of Ferocity;10;Bayne gratss
+Jaelen's Katana;70;Carpet gratss
+Hobart's War Helmet;75;Bayne gratss
+Gharn's Rock of Smashing;250;Beatinyadown gratss
+Eye of Cazic-Thule;80;Colonclysm gratss
+Dragons Blood Earring;21;Chainboltz gratss
+Camii's Bracer of Vigor;105;Atiesh gratss
+Bone-Clasped Girdle;21;Premier gratss
+Grotesque Girdle;5;Stankie gratss
+Amulet of Necropotence;60;Premier gratss
+Amulet of Necropotence;55;Atiesh gratss
+Amulet of Necropotence;55;Avenue gratss
+Flayed Barbarian Skin Leggings;75;Doobez gratss
+Helmet of Rallos Zek;35;Porco gratss
+Axe of the Kromzek Kings;5;Zerkov gratss
+King Tormax's Head;80;Tarheels gratss
+Boots of the Storm;45;Infidell gratss
+Boots of the Storm;40;Bayne gratss
+Boots of the Storm;30;Porco gratss
+Helmet of Rallos Zek;35;Atiesh gratss
+Flayed Barbarian Skin Leggings;100;Dped gratss
+Flayed Barbarian Hide Mask;40;Avenue gratss
+Bone-Clasped Girdle;31;Aerodru gratss
+Bone-Clasped Girdle;26;Serveous gratss
+White Dragon Scale Sash;45;Gindorf gratss
+Sap Encrusted Branch;45;Beatinyadown gratss
+Melodic Breastplate;10;Pepe gratss
+Golden Leaf Earring;105;Gindorf gratss
+Golden Leaf Earring;100;Aerodru gratss
+Fist of Nature;80;Agesz gratss
+Essence of Nature;325;Colonclysm gratss
+Assassin's Chestguard;5;Suggs gratss
+True Mithril Breastplate;10;Clawgrip gratss
+Swiftblade of Zek;5;Infidell gratss
+Swiftblade of Zek;5;Ochay gratss
+Pauldrons of Blight;5;Angelfeeties gratss
+Lance of Thunder;5;Hotfudge gratss
+Iron Scroll of War;35;Stankie gratss
+Hammer of Battle;5;Jhelora gratss
+Circlet of Suffering;5;Angelfeeties gratss
+Black Rock Maul of Crushing;0;ROT gratss
+King Tormax's Head;85;Cedux gratss
+King Tormax's Head;80;Laurel gratss
+King Tormax's Head;80;Lilpinecone gratss
+Vyrinn's Earring of Insanity;165;Clawgrip gratss
+Velium Encrusted Gauntlets;15;Infidell gratss
+Solist's Earring of Insight;40;Lyle gratss
+Sirran's Boots of Insanity;30;Ellohime gratss
+Ring of Lightning;45;Serveous gratss
+Hobart's War Helmet;85;Hotfudge gratss
+Do`Vassir's Gauntlets of Might;160;Shdow gratss
+The Horn of Hsagra;5;Baneful gratss
+The Horn of Hsagra;5;Jhelora gratss
+The Horn of Hsagra;5;Suggs gratss
+Boots of the Storm;40;Atiesh gratss
+Boots of the Storm;35;Clawgrip gratss
+Yelinak's Head;54;Lynuga gratss
+Sirran's Boots of Insanity;65;Doggafina gratss
+Sal`Varae's Robe of Darkness;200;Spren gratss
+Pauldrons of Ferocity;15;Lachmar gratss
+Maclaer's Boots of Silence;55;Suggs gratss
+Kelsiferous' Armband of Artistry;65;Spren gratss
+Halo of the Enlightened;15;Laurel gratss
+Eye of Cazic-Thule;60;Vinsanity gratss
+Brother Xave's Headband;115;Psychedelics gratss
+Sacrifice;5;Vadia gratss
+Bile Etched Obsidian Choker;22;Atiesh gratss
+Dragon's Eye Sage Ring;10;Serveous gratss
+Dragons Blood Earring;10;Pepe gratss
+Yelinak's Head;9;Necrotix gratss
+War Bow of Rallos Zek;5;Baneful gratss
+War Bow of Rallos Zek;5;Porco gratss
+War Bow of Rallos Zek;5;Grey gratss
+Viik's Pauldrons of Pain;75;Clawgrip gratss
+Velium Encrusted Gauntlets;30;Atiesh gratss
+Velium Encrusted Gauntlets;30;Shaaggy gratss
+Valtron's Necklace of Wonder;105;Clawgrip gratss
+The Horn of Hsagra;5;Theomars gratss
+Soul Defiler;10;Jorious gratss
+Soul Defiler;10;Angelfeeties gratss
+Sal`Varae's Robe of Darkness;330;himlop gratss
+Pauldrons of Ferocity;20;Zain gratss
+Pauldrons of Ferocity;15;Shaaggy gratss
+Maclaer's Boots of Silence;25;Grey gratss
+King Tormax's Head;70;Straxus gratss
+King Tormax's Head;65;Spren gratss
+Dain Frostreaver's Head;47;Mini gratss
+Crown of the Kromzek Kings;80;Merle gratss
+Chestplate of Vindication;15;Baneful gratss
+Song: Composition of Ervaj;0;ROT gratss
+King Tormax's Head;90;Gindorf gratss
+King Tormax's Head;80;Colonizer gratss
+Ring of Destruction;332;Mini gratss
+Wrist Guard of Thunder;21;Chainboltz gratss
+Wrist Guard of Thunder;20;Psychedelics gratss
+War Bow of Rallos Zek;25;Atiesh gratss
+Velium Encrusted Gauntlets;35;Bayne gratss
+Velium Encrusted Gauntlets;30;Clawgrip gratss
+Ring of Lightning;30;Melz gratss
+Bone-Clasped Girdle;30;Zorsha gratss
+Bone-Clasped Girdle;28;Ellohime gratss
+Bone-Clasped Girdle;23;Vinsanity gratss
+Amulet of Necropotence;22;Spren gratss
+Helmet of Rallos Zek;50;Clawgrip gratss
+Helmet of Rallos Zek;45;Atiesh gratss

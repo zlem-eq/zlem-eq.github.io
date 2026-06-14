@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guild Potions</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/guild-potions.css" />
+</head>
+<body>
+  <header class="page-header guild-potions-header">
+    <a href="../index.html" class="back">&#8592; Back</a>
+    <h1 class="guild-potions-title">Guild Potions</h1>
+    <div class="header-right">
+      <button id="add-maker-btn" class="add-maker-btn" style="display:none;">+ Add Maker</button>
+      <button id="mode-toggle" class="mode-toggle mode-toggle--header" data-mode="buyer">
+        <span class="mode-switch-to">Switch to</span>
+        <span class="mode-icon">&#9874;&#65039;</span>
+        <span class="mode-label">Maker mode</span>
+      </button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-sun">&#9728;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <h1 id="view-title">Potion Orders</h1>
+    <p class="description">All current guild potion orders, newest first.</p>
+
+    <button class="new-order-btn" id="new-order-btn">+ New Order</button>
+
+    <div class="order-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="unassigned">Unassigned</button>
+      <button class="filter-btn" data-filter="assigned">Assigned</button>
+      <button class="filter-btn" data-filter="complete">Complete</button>
+    </div>
+
+    <div class="order-list-header">
+      <span></span>
+      <span>Player</span>
+      <span>Ordered</span>
+      <span>Status</span>
+      <span>Assigned To</span>
+      <span>Assigned On</span>
+      <span>Stacks</span>
+      <span></span>
+    </div>
+    <div class="order-list" id="order-list">
+      <div class="order-empty">Loading orders…</div>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <!-- Order Adjusted Warning Modal -->
+  <div id="warning-modal" class="modal-overlay" style="display:none;">
+    <div class="modal modal--narrow">
+      <div class="modal-header warning-modal-header">
+        <span>&#9888; Order Adjusted</span>
+        <button class="modal-close" id="warning-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body" id="warning-modal-body"></div>
+      <div class="modal-footer">
+        <button class="modal-place-btn" id="warning-modal-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Order Modal -->
+  <div id="new-order-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <span>New Potion Order</span>
+        <button class="modal-close" id="modal-close">&#10005;</button>
+      </div>
+      <div class="modal-player-field">
+        <label for="modal-player-name">Character Name</label>
+        <input type="text" id="modal-player-name" placeholder="Enter your character name" autocomplete="off" />
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer">
+        <span class="modal-total">Total: <strong id="modal-total-count">0</strong> stacks</span>
+        <button class="modal-place-btn" id="modal-place-btn">Place Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assign Maker Modal -->
+  <div id="assign-modal" class="modal-overlay" style="display:none;">
+    <div class="modal modal--narrow">
+      <div class="modal-header">
+        <span>Assign Maker</span>
+        <button class="modal-close" id="assign-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body" id="assign-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Manage Makers Modal -->
+  <div id="makers-modal" class="modal-overlay" style="display:none;">
+    <div class="modal modal--narrow">
+      <div class="modal-header">
+        <span>Manage Makers</span>
+        <button class="modal-close" id="makers-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body" id="makers-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getFirestore, collection, addDoc, deleteDoc, doc, updateDoc,
+      onSnapshot, query, orderBy, where, getDocs, serverTimestamp,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    // ── Firebase init ──────────────────────────────────────────
+    const app = initializeApp({
+      apiKey: 'AIzaSyCmB3wHICxm3jS6J25R55dR2Mrp06IqBBM',
+      authDomain: 'everquest-guild-potions.firebaseapp.com',
+      projectId: 'everquest-guild-potions',
+      storageBucket: 'everquest-guild-potions.firebasestorage.app',
+      messagingSenderId: '63090909940',
+      appId: '1:63090909940:web:64a03f0f76970beeae74a1',
+    });
+    const db = getFirestore(app);
+
+    // ── Potion catalog ─────────────────────────────────────────
+    const POTION_CATALOG = [
+      {
+        name: 'Awareness (Less Mana Cost in School)',
+        maxPerPotion: 5,
+        headerColor: '#007a7a', rowColor: '#009f9f', textColor: '#fff',
+        potions: ['Heat Awareness 3','Cold Awareness 3','Poison Awareness 3','Benefit Awareness 3','Magic Awareness 3','Disease Awareness 3'],
+      },
+      {
+        name: 'Resists / Cures',
+        maxPerPotion: 5,
+        headerColor: '#6a1f8a', rowColor: '#8e3ab0', textColor: '#fff',
+        potions: ['Minor Potion of Cold (Fire)','Minor Potion of Heat (Cold)','Minor Null Potion (Magic)','Minor Potion of Antibody (Disease)','Minor Potion of Purity (Poison)',"Kithar's Disease Treatment (Cure)","Ethira's Poison Antidote (Cure)",'Elixir of Divine Endurance (10allres)'],
+      },
+      {
+        name: 'Stat Increases',
+        maxPerPotion: 5,
+        headerColor: '#b85c00', rowColor: '#e07000', textColor: '#fff',
+        potions: ['Potion of Power (STR/DEX)','Potion of Vigor (STR/AGI)','Potion of Stability (STR/STAM)','Potion of Cohesion (DEX/STAM)','Potion of Accuracy (DEX/AGI)','Potion of Adroitness (STAM/AGI)'],
+      },
+      {
+        name: 'Teleports',
+        maxPerPotion: 1,
+        headerColor: '#1a5fa8', rowColor: '#2478cc', textColor: '#fff',
+        potions: ['Gate Potion','Frost Potion (Everfrost)','Field of Bone Potion','Potion of the Swamp - Innothule Sw.','Potion of Twilight Mists (Luclin)'],
+      },
+      {
+        name: 'LV 60 Distillates',
+        maxPerPotion: 5,
+        headerColor: '#1a7a35', rowColor: '#239948', textColor: '#fff',
+        potions: ['Celestial Healing Distillate','Divine Healing Distillate','Distillate of Clarity','Distillate of Alacrity - Haste','Distillate of Spirituality (Luclin)'],
+      },
+      {
+        name: 'Misc',
+        maxPerPotion: 5,
+        headerColor: '#b8980a', rowColor: '#d4b00e', textColor: '#000',
+        potions: [
+          { name: 'Greater Concentration Potion', max: 5 },
+          { name: 'Blood of the Wolf (SoW)', max: 5 },
+          { name: 'Potion of Unlife Awareness (IVU)', max: 5 },
+          { name: "Kilva's Skin of Flame (DS)", max: 5 },
+          { name: "Ant's Potion (Shrink)", max: 2 },
+          { name: 'Army Ant Potion (GroupShrink)', max: 2 },
+          { name: 'Potion of Antiweight (Levitate)', max: 5 },
+          { name: 'Potion of Greater Rejuvenation', max: 5 },
+        ],
+      },
+    ];
+
+    // ── Config ─────────────────────────────────────────────────
+    const ORDER_COOLDOWN_DAYS = 10;
+
+    // ── State ──────────────────────────────────────────────────
+    const PAGE_SIZE = 20;
+    let allOrders = [];
+    let allMakers = [];   // [{ id, name }]
+    let currentFilter = 'all';
+    let currentPage = 1;
+    let currentMode = 'buyer';
+    let pendingAssignOrderId = null;
+
+    // ── Helpers ────────────────────────────────────────────────
+    function fmtDate(d) {
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+    function filtered() {
+      if (currentFilter === 'all') return allOrders;
+      return allOrders.filter(o => o.status === currentFilter);
+    }
+    function badgeHtml(status) {
+      const labels = { unassigned: 'Unassigned', assigned: 'Assigned', complete: 'Complete' };
+      return `<span class="order-badge badge-${status}">${labels[status]}</span>`;
+    }
+
+    // ── Render orders ──────────────────────────────────────────
+    function renderOrders() {
+      const orders = filtered();
+      const totalPages = Math.max(1, Math.ceil(orders.length / PAGE_SIZE));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const slice = orders.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+      const list = document.getElementById('order-list');
+
+      if (slice.length === 0) {
+        list.innerHTML = '<div class="order-empty">No orders found.</div>';
+      } else {
+        list.innerHTML = slice.map(o => {
+          const assignedCell = o.assignedTo
+            ? o.assignedTo
+            : currentMode === 'maker'
+              ? `<button class="assign-btn" data-order-id="${o.id}">Assign</button>`
+              : '—';
+          return `
+            <div class="order-panel" data-status="${o.status}" data-id="${o.id}">
+              <div class="order-summary">
+                <span class="order-chevron">&#9654;</span>
+                <span class="order-player">${o.player}</span>
+                <span class="order-date">${fmtDate(o.orderDate)}</span>
+                <span>${badgeHtml(o.status)}</span>
+                <span class="order-assigned">${assignedCell}</span>
+                <span class="order-assigned-date">${o.assignedDate ? fmtDate(o.assignedDate) : '—'}</span>
+                <span class="order-stack-count">${o.totalStacks} stack${o.totalStacks !== 1 ? 's' : ''}</span>
+                <span>${currentMode === 'maker' && o.status === 'assigned' ? `<button class="complete-btn" data-order-id="${o.id}">Complete</button>` : ''}</span>
+              </div>
+              <div class="order-details">
+                <ul class="potion-list">
+                  ${o.potions.map(p => `
+                    <li class="potion-row">
+                      <span class="potion-name">${p.name}</span>
+                      <span class="potion-stacks">${p.stacks} stack${p.stacks !== 1 ? 's' : ''}</span>
+                    </li>`).join('')}
+                </ul>
+              </div>
+            </div>`;
+        }).join('');
+
+        list.querySelectorAll('.order-summary').forEach(s => {
+          s.addEventListener('click', e => {
+            if (e.target.closest('.assign-btn')) return;
+            s.closest('.order-panel').classList.toggle('open');
+          });
+        });
+
+        list.querySelectorAll('.assign-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
+            e.stopPropagation();
+            pendingAssignOrderId = btn.dataset.orderId;
+            openAssignModal();
+          });
+        });
+
+        list.querySelectorAll('.complete-btn').forEach(btn => {
+          btn.addEventListener('click', async e => {
+            e.stopPropagation();
+            btn.disabled = true;
+            btn.textContent = '…';
+            await updateDoc(doc(db, 'orders', btn.dataset.orderId), { status: 'complete' });
+          });
+        });
+      }
+
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+      const pg = document.getElementById('pagination');
+      if (totalPages <= 1) { pg.innerHTML = ''; return; }
+
+      const orders = filtered();
+      const start = (currentPage - 1) * PAGE_SIZE + 1;
+      const end = Math.min(currentPage * PAGE_SIZE, orders.length);
+
+      let html = `<button class="page-btn" id="pg-prev" ${currentPage === 1 ? 'disabled' : ''}>&#8592;</button>`;
+      for (let p = 1; p <= totalPages; p++) {
+        if (p === 1 || p === totalPages || Math.abs(p - currentPage) <= 2)
+          html += `<button class="page-btn ${p === currentPage ? 'active' : ''}" data-page="${p}">${p}</button>`;
+        else if (Math.abs(p - currentPage) === 3)
+          html += `<span class="page-info">…</span>`;
+      }
+      html += `<button class="page-btn" id="pg-next" ${currentPage === totalPages ? 'disabled' : ''}>&#8594;</button>
+               <span class="page-info">${start}–${end} of ${orders.length}</span>`;
+
+      pg.innerHTML = html;
+      pg.querySelector('#pg-prev').addEventListener('click', () => { currentPage--; renderOrders(); });
+      pg.querySelector('#pg-next').addEventListener('click', () => { currentPage++; renderOrders(); });
+      pg.querySelectorAll('[data-page]').forEach(btn => {
+        btn.addEventListener('click', () => { currentPage = +btn.dataset.page; renderOrders(); });
+      });
+    }
+
+    // ── Assign Maker modal ─────────────────────────────────────
+    function openAssignModal() {
+      const body = document.getElementById('assign-modal-body');
+      if (allMakers.length === 0) {
+        body.innerHTML = '<div class="order-empty">No makers added yet.</div>';
+      } else {
+        body.innerHTML = allMakers.map(m => `
+          <button class="maker-pick-btn" data-maker-name="${m.name}">${m.name}</button>
+        `).join('');
+        body.querySelectorAll('.maker-pick-btn').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            await updateDoc(doc(db, 'orders', pendingAssignOrderId), {
+              assignedTo: btn.dataset.makerName,
+              assignedAt: serverTimestamp(),
+              status: 'assigned',
+            });
+            closeAssignModal();
+          });
+        });
+      }
+      document.getElementById('assign-modal').style.display = 'flex';
+    }
+
+    function closeAssignModal() {
+      document.getElementById('assign-modal').style.display = 'none';
+      pendingAssignOrderId = null;
+    }
+
+    document.getElementById('assign-modal-close').addEventListener('click', closeAssignModal);
+    document.getElementById('assign-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeAssignModal();
+    });
+
+    // ── Manage Makers modal ────────────────────────────────────
+    function buildMakersModal() {
+      const body = document.getElementById('makers-modal-body');
+      body.innerHTML = '';
+
+      const addBtn = (position) => {
+        const btn = document.createElement('button');
+        btn.className = 'makers-add-btn';
+        btn.textContent = '+ Add Player';
+        btn.addEventListener('click', () => showAddMakerInput(body, position));
+        return btn;
+      };
+
+      body.appendChild(addBtn('top'));
+
+      if (allMakers.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'order-empty';
+        empty.textContent = 'No makers added yet.';
+        body.appendChild(empty);
+      } else {
+        allMakers.forEach(m => {
+          const row = document.createElement('div');
+          row.className = 'maker-row';
+          row.innerHTML = `
+            <span class="maker-name">${m.name}</span>
+            <button class="maker-delete-btn" data-id="${m.id}" aria-label="Remove ${m.name}">&#128465;</button>`;
+          row.querySelector('.maker-delete-btn').addEventListener('click', async () => {
+            await deleteDoc(doc(db, 'makers', m.id));
+          });
+          body.appendChild(row);
+        });
+      }
+
+      body.appendChild(addBtn('bottom'));
+    }
+
+    function showAddMakerInput(body, position) {
+      if (body.querySelector('.maker-add-form')) return;
+      const form = document.createElement('div');
+      form.className = 'maker-add-form';
+      form.innerHTML = `
+        <input type="text" class="maker-add-input" placeholder="Character name" autocomplete="off" />
+        <button class="maker-confirm-btn">Add</button>
+        <button class="maker-cancel-btn">Cancel</button>`;
+
+      const addBtns = body.querySelectorAll('.makers-add-btn');
+      const refBtn = position === 'top' ? addBtns[0] : addBtns[addBtns.length - 1];
+      body.insertBefore(form, refBtn.nextSibling);
+
+      const input = form.querySelector('.maker-add-input');
+      input.focus();
+
+      form.querySelector('.maker-confirm-btn').addEventListener('click', async () => {
+        const name = input.value.trim();
+        if (!name) { input.focus(); return; }
+        await addDoc(collection(db, 'makers'), { name, createdAt: serverTimestamp() });
+        form.remove();
+      });
+      form.querySelector('.maker-cancel-btn').addEventListener('click', () => form.remove());
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') form.querySelector('.maker-confirm-btn').click();
+        if (e.key === 'Escape') form.remove();
+      });
+    }
+
+    function openMakersModal() {
+      buildMakersModal();
+      document.getElementById('makers-modal').style.display = 'flex';
+    }
+
+    function closeMakersModal() {
+      document.getElementById('makers-modal').style.display = 'none';
+    }
+
+    document.getElementById('add-maker-btn').addEventListener('click', openMakersModal);
+    document.getElementById('makers-modal-close').addEventListener('click', closeMakersModal);
+    document.getElementById('makers-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeMakersModal();
+    });
+
+    // ── Firestore: orders ──────────────────────────────────────
+    onSnapshot(
+      query(collection(db, 'orders'), orderBy('orderedAt', 'desc')),
+      snapshot => {
+        allOrders = snapshot.docs.map(d => {
+          const data = d.data();
+          const potions = data.potions ?? [];
+          return {
+            id: d.id,
+            player: data.playerName,
+            orderDate: data.orderedAt?.toDate() ?? new Date(),
+            status: data.status,
+            assignedTo: data.assignedTo ?? null,
+            assignedDate: data.assignedAt?.toDate() ?? null,
+            potions,
+            totalStacks: potions.reduce((s, p) => s + p.stacks, 0),
+          };
+        });
+        renderOrders();
+      },
+      err => {
+        console.error('Firestore orders error:', err);
+        document.getElementById('order-list').innerHTML =
+          '<div class="order-empty">Failed to load orders.</div>';
+      }
+    );
+
+    // ── Firestore: makers ──────────────────────────────────────
+    onSnapshot(
+      query(collection(db, 'makers'), orderBy('name')),
+      snapshot => {
+        allMakers = snapshot.docs.map(d => ({ id: d.id, name: d.data().name }));
+        if (document.getElementById('makers-modal').style.display === 'flex') buildMakersModal();
+      }
+    );
+
+    // ── New Order modal ────────────────────────────────────────
+    const orderCounts = {};
+    function potionKey(catName, potionName) { return `${catName}::${potionName}`; }
+
+    function updateTotal() {
+      const total = Object.values(orderCounts).reduce((s, v) => s + v, 0);
+      document.getElementById('modal-total-count').textContent = total;
+    }
+
+    function buildModalBody() {
+      const body = document.getElementById('modal-body');
+      body.innerHTML = '';
+      POTION_CATALOG.forEach(cat => {
+        const header = document.createElement('div');
+        header.className = 'modal-cat-header';
+        header.style.background = cat.headerColor;
+        header.style.color = cat.textColor;
+        header.textContent = `${cat.name} [${cat.maxPerPotion} Max${cat.maxPerPotion === 1 ? '' : ' per potion'}]`;
+        body.appendChild(header);
+
+        cat.potions.forEach(p => {
+          const potionName = typeof p === 'string' ? p : p.name;
+          const max = typeof p === 'object' ? p.max : cat.maxPerPotion;
+          const key = potionKey(cat.name, potionName);
+          if (!(key in orderCounts)) orderCounts[key] = 0;
+
+          const row = document.createElement('div');
+          row.className = 'modal-potion-row';
+          row.style.background = cat.rowColor;
+          row.style.color = cat.textColor;
+          row.innerHTML = `
+            <span class="modal-potion-name">${potionName}</span>
+            <div class="modal-potion-controls">
+              <button class="qty-btn qty-minus">−</button>
+              <span class="qty-count">${orderCounts[key]}</span>
+              <button class="qty-btn qty-plus">+</button>
+              <button class="qty-max">Max</button>
+            </div>`;
+          row.querySelector('.qty-minus').addEventListener('click', () => {
+            if (orderCounts[key] > 0) { orderCounts[key]--; row.querySelector('.qty-count').textContent = orderCounts[key]; updateTotal(); }
+          });
+          row.querySelector('.qty-plus').addEventListener('click', () => {
+            if (orderCounts[key] < max) { orderCounts[key]++; row.querySelector('.qty-count').textContent = orderCounts[key]; updateTotal(); }
+          });
+          row.querySelector('.qty-max').addEventListener('click', () => {
+            orderCounts[key] = max; row.querySelector('.qty-count').textContent = max; updateTotal();
+          });
+          body.appendChild(row);
+        });
+      });
+    }
+
+    function openNewOrderModal() {
+      Object.keys(orderCounts).forEach(k => orderCounts[k] = 0);
+      document.getElementById('modal-player-name').value = '';
+      buildModalBody();
+      updateTotal();
+      document.getElementById('new-order-modal').style.display = 'flex';
+      document.getElementById('modal-player-name').focus();
+    }
+
+    function closeNewOrderModal() {
+      document.getElementById('new-order-modal').style.display = 'none';
+    }
+
+    document.getElementById('new-order-btn').addEventListener('click', openNewOrderModal);
+    document.getElementById('modal-close').addEventListener('click', closeNewOrderModal);
+    document.getElementById('new-order-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeNewOrderModal();
+    });
+    document.getElementById('modal-player-name').addEventListener('input', () => {
+      document.getElementById('modal-player-name').classList.remove('input-error');
+    });
+
+    // ── Order limit helpers ────────────────────────────────────
+    function getPotionMax(potionName) {
+      for (const cat of POTION_CATALOG) {
+        for (const p of cat.potions) {
+          const name = typeof p === 'string' ? p : p.name;
+          const max  = typeof p === 'object'  ? p.max : cat.maxPerPotion;
+          if (name === potionName) return max;
+        }
+      }
+      return 5;
+    }
+
+    async function fetchRecentPlayerOrders(playerName) {
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - ORDER_COOLDOWN_DAYS);
+      const snap = await getDocs(
+        query(collection(db, 'orders'), where('orderedAt', '>=', cutoff))
+      );
+      return snap.docs
+        .map(d => d.data())
+        .filter(d => d.playerName === playerName);
+    }
+
+    function applyLimits(potions, recentOrders) {
+      const adjustments = [];
+      const allowed = [];
+
+      for (const potion of potions) {
+        const max = getPotionMax(potion.name);
+        const alreadyOrdered = recentOrders.reduce((sum, order) => {
+          return sum + (order.potions ?? [])
+            .filter(p => p.name === potion.name)
+            .reduce((s, p) => s + p.stacks, 0);
+        }, 0);
+        const remaining = Math.max(0, max - alreadyOrdered);
+
+        if (remaining === 0) {
+          adjustments.push({ name: potion.name, requested: potion.stacks, allowed: 0 });
+        } else if (remaining < potion.stacks) {
+          adjustments.push({ name: potion.name, requested: potion.stacks, allowed: remaining });
+          allowed.push({ ...potion, stacks: remaining });
+        } else {
+          allowed.push(potion);
+        }
+      }
+
+      return { allowed, adjustments };
+    }
+
+    // ── Warning modal ──────────────────────────────────────────
+    function showWarningModal(adjustments) {
+      const body = document.getElementById('warning-modal-body');
+      const removed  = adjustments.filter(a => a.allowed === 0);
+      const reduced  = adjustments.filter(a => a.allowed > 0);
+
+      let html = `<p class="warning-intro">Some potions were adjusted because you have reached your limit within the last <strong>${ORDER_COOLDOWN_DAYS} days</strong>.</p>`;
+
+      if (reduced.length) {
+        html += `<p class="warning-section-label">Reduced</p><ul class="warning-list">`;
+        reduced.forEach(a => {
+          html += `<li><span class="warning-potion-name">${a.name}</span><span class="warning-change">${a.requested} → ${a.allowed} stack${a.allowed !== 1 ? 's' : ''}</span></li>`;
+        });
+        html += `</ul>`;
+      }
+
+      if (removed.length) {
+        html += `<p class="warning-section-label">Removed (limit reached)</p><ul class="warning-list">`;
+        removed.forEach(a => {
+          html += `<li><span class="warning-potion-name">${a.name}</span><span class="warning-change removed">${a.requested} stack${a.requested !== 1 ? 's' : ''} removed</span></li>`;
+        });
+        html += `</ul>`;
+      }
+
+      body.innerHTML = html;
+      document.getElementById('warning-modal').style.display = 'flex';
+    }
+
+    function closeWarningModal() {
+      document.getElementById('warning-modal').style.display = 'none';
+    }
+
+    document.getElementById('warning-modal-close').addEventListener('click', closeWarningModal);
+    document.getElementById('warning-modal-ok').addEventListener('click', closeWarningModal);
+    document.getElementById('warning-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeWarningModal();
+    });
+
+    // ── Place Order handler ────────────────────────────────────
+    document.getElementById('modal-place-btn').addEventListener('click', async () => {
+      const playerName = document.getElementById('modal-player-name').value.trim();
+      if (!playerName) {
+        document.getElementById('modal-player-name').focus();
+        document.getElementById('modal-player-name').classList.add('input-error');
+        return;
+      }
+
+      const selected = [];
+      POTION_CATALOG.forEach(cat => {
+        cat.potions.forEach(p => {
+          const potionName = typeof p === 'string' ? p : p.name;
+          const key = potionKey(cat.name, potionName);
+          if (orderCounts[key] > 0)
+            selected.push({ name: potionName, category: cat.name, stacks: orderCounts[key] });
+        });
+      });
+      if (selected.length === 0) { alert('Add at least one stack before placing an order.'); return; }
+
+      const placeBtn = document.getElementById('modal-place-btn');
+      placeBtn.disabled = true;
+      placeBtn.textContent = 'Checking limits…';
+
+      try {
+        const recentOrders = await fetchRecentPlayerOrders(playerName);
+        const { allowed, adjustments } = applyLimits(selected, recentOrders);
+
+        if (allowed.length === 0) {
+          placeBtn.disabled = false;
+          placeBtn.textContent = 'Place Order';
+          closeNewOrderModal();
+          showWarningModal(adjustments);
+          return;
+        }
+
+        placeBtn.textContent = 'Placing…';
+        await addDoc(collection(db, 'orders'), {
+          playerName, orderedAt: serverTimestamp(),
+          status: 'unassigned', assignedTo: null, assignedAt: null, potions: allowed,
+        });
+
+        closeNewOrderModal();
+        if (adjustments.length > 0) showWarningModal(adjustments);
+      } catch (err) {
+        console.error('Failed to place order:', err);
+        alert('Failed to place order. Please try again.');
+      } finally {
+        placeBtn.disabled = false;
+        placeBtn.textContent = 'Place Order';
+      }
+    });
+
+    // ── Filter buttons ─────────────────────────────────────────
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        currentPage = 1;
+        renderOrders();
+      });
+    });
+
+    // ── Mode toggle ────────────────────────────────────────────
+    const modeBtn = document.getElementById('mode-toggle');
+    modeBtn.addEventListener('click', () => {
+      const isBuyer = currentMode === 'buyer';
+      currentMode = isBuyer ? 'maker' : 'buyer';
+      modeBtn.dataset.mode = currentMode;
+      modeBtn.querySelector('.mode-icon').textContent = isBuyer ? '🛒' : '⚒️';
+      modeBtn.querySelector('.mode-label').textContent = isBuyer ? 'Buyer mode' : 'Maker mode';
+      document.getElementById('new-order-btn').style.display = isBuyer ? 'none' : '';
+      document.getElementById('add-maker-btn').style.display = isBuyer ? '' : 'none';
+      renderOrders();
+    });
+  </script>
+</body>
+</html>
