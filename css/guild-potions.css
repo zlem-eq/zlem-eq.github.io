@@ -53,10 +53,48 @@
   color: #fff;
 }
 
+/* ── Dropdown filters ── */
+.order-dropdowns {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.dropdown-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.dropdown-field select {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.dropdown-field select:focus,
+.dropdown-field select:hover {
+  border-color: var(--accent);
+}
+
 /* ── Order list ── */
 .order-list-header {
   display: grid;
-  grid-template-columns: 1.5rem 1fr 110px 110px 140px 110px 80px 90px;
+  grid-template-columns: 1.5rem 130px 110px 110px 130px 110px 80px 90px;
   gap: 0.75rem;
   padding: 0.4rem 1rem;
   font-size: 0.75rem;
@@ -97,7 +135,7 @@
 
 .order-summary {
   display: grid;
-  grid-template-columns: 1.5rem 1fr 110px 110px 140px 110px 80px 90px;
+  grid-template-columns: 1.5rem 130px 110px 110px 130px 110px 80px 90px;
   align-items: center;
   gap: 0.75rem;
   padding: 0.85rem 1rem;
@@ -122,13 +160,24 @@
 .order-player {
   font-weight: 600;
   font-size: 0.95rem;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .order-date,
-.order-assigned,
 .order-assigned-date {
   font-size: 0.8rem;
   color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.order-assigned {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 

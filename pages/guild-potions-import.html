@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guild Potions — Bulk Import</title>
+  <style>
+    body { font-family: monospace; padding: 2rem; background: #111; color: #eee; }
+    h1 { color: #4af; }
+    #log { white-space: pre-wrap; font-size: 0.85rem; line-height: 1.5; }
+    .ok  { color: #4f4; }
+    .warn{ color: #fa4; }
+    .err { color: #f44; }
+    button { padding: 0.5rem 1.5rem; font-size: 1rem; margin-right: 1rem; cursor: pointer; }
+    #run-btn  { background: #2a6; color: #fff; border: none; border-radius: 4px; }
+    #dry-btn  { background: #46a; color: #fff; border: none; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Guild Potions — Bulk CSV Import</h1>
+  <p>Imports one order per ready player from the Bloodthirst Potions purchasing sheet.<br>
+     Quantities are capped at each potion's per-category max. Players marked not-ready are skipped.</p>
+  <button id="dry-btn">Dry Run (no writes)</button>
+  <button id="run-btn">Import to Firestore</button>
+  <hr>
+  <div id="log"></div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getFirestore, collection, addDoc, serverTimestamp,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    const app = initializeApp({
+      apiKey: 'AIzaSyCmB3wHICxm3jS6J25R55dR2Mrp06IqBBM',
+      authDomain: 'everquest-guild-potions.firebaseapp.com',
+      projectId: 'everquest-guild-potions',
+      storageBucket: 'everquest-guild-potions.firebasestorage.app',
+      messagingSenderId: '63090909940',
+      appId: '1:63090909940:web:64a03f0f76970beeae74a1',
+    });
+    const db = getFirestore(app);
+
+    // ── Raw CSV (paste full sheet contents here) ───────────────
+    // Players start at CSV column index 3.
+    // Top half = stack quantities; bottom half = cost calculations (ignored).
+    // Only rows in POTION_ROWS (below) are used.
+    const CSV = `"The numbers on this sheet are for STACKS of potions, not individual
+
+","Potion Maker active on your order:
+[DO NOT TOUCH UNLESS A POT MAKER]",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Who do you want this order to be parcelled to? --->,,Jorious,Avice,Mini,Galachwar,Porco,Leseul,Aerodru,Palindrome,Chainboltz,Glizzy,himlop,Slistak,pris,Andraxi,Aakadarr,Grey,Oaden,Borodo,Moosic,Zorsha,Lachmar,hehateme,TAVA,Dped,Void,Jadawins,Suggs,Proflex,Dags,frostycheeks,reefah,Warthx,Spren,Pepe,,,,,,,,,,,,,,,,,,,,,,,,
+,Check this box if you're finished ordering and ready for the potion maker to do their work,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+"Awareness (Less Mana Cost in School)
+
+[5 Max Order]",Heat Awareness 3,,0,0,5,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,5,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Cold Awareness 3,,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Poison Awareness 3,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Benefit Awareness 3,,0,0,0,0,0,0,2,5,0,0,0,0,2,5,5,0,0,3,0,0,0,0,5,0,0,0,0,5,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Magic Awareness 3,,0,0,5,0,0,0,2,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Disease Awareness 3,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Resists / Cures
+
+[5 Max Order]",Minor Potion of Cold (Fire),,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Minor Potion of Heat (Cold),,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Minor Null Potion (Magic),,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,4,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Minor Potion of Antibody (Disease),,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Minor Potion of Purity (Poison),,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Kithar's Disease Treatment (Cure),,0,0,5,0,0,0,0,0,0,0,0,5,3,0,0,0,0,2,0,0,0,5,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Ethira's Poison Antidote (Cure),,0,0,5,0,0,0,0,0,0,0,0,5,3,0,0,0,0,2,0,0,0,5,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Elixir of Divine Endurance (10allres),,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Stat Increases
+
+[5 Max Order]",Potion of Power (STR/DEX),50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Vigor (STR/AGI),50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Stability (STR/STAM),50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Cohesion (DEX/STAM),50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Accuracy (DEX/AGI),50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Adroitness (STAM/AGI),50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Teleports [1 Max],Gate Potion ,1500,1,1,1,1,1,1,0,1,1,0,1,1,1,0,0,1,0,0,1,1,2,1,0,1,1,1,1,0,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Frost Potion (Everfrost) ,1750,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Field of Bone Potion ,1300,0,0,1,0,5,1,0,1,1,0,1,0,1,0,0,1,1,0,1,1,2,1,0,0,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of the Swamp - Innothule Sw.,1500,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Twilight Mists (Luclin),475,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"LV 60 Distillates
+
+[5 Max]",Celestial Healing Distillate ,10,5,0,5,5,5,5,5,5,5,5,5,5,5,5,0,5,5,0,5,0,5,5,4,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Divine Healing Distillate ,10,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,5,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Distillate of Clarity ,10,0,0,0,0,0,0,5,5,0,5,0,0,2,0,5,5,5,5,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Distillate of Alacrity - Haste,40,0,2,0,0,2,0,0,0,5,0,0,0,2,0,0,5,0,0,5,2,0,5,0,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Distillate of Spirituality (Luclin),n/a,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Misc
+
+
+Shrink Pots are [2 Max]
+Everything else [5 Max]",Greater Concentration Potion,20,0,0,0,0,0,0,0,5,0,5,0,0,5,0,0,0,5,5,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Blood of the Wolf (SoW),30,0,0,0,0,1,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,4,0,4,0,1,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Unlife Awareness (IVU),40,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Kilva's Skin of Flame (DS),150,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Ant's Potion (Shrink) [2 Max],110,2,0,0,0,0,2,0,2,2,2,0,2,0,0,2,2,0,2,2,0,0,2,0,2,2,2,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Army Ant Potion (GroupShrink) [2 Max],250,2,2,2,2,2,2,0,2,2,0,0,2,2,2,0,2,0,2,2,0,2,2,2,0,2,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Antiweight (Levitate),130,0,0,0,0,0,0,0,0,0,0,0,5,0,0,5,0,0,0,0,0,4,5,0,0,0,0,0,0,5,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+,Potion of Greater Rejuvenation,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0`;
+
+    // ── Potion catalog with max-per-stack rules ─────────────────
+    // Each entry: [csvPotionName, maxStacks, canonicalName?]
+    // canonicalName overrides csvPotionName if the catalog uses a different spelling.
+    const POTION_RULES = [
+      // Awareness [5 Max]
+      { csv: 'Heat Awareness 3',                          max: 5 },
+      { csv: 'Cold Awareness 3',                          max: 5 },
+      { csv: 'Poison Awareness 3',                        max: 5 },
+      { csv: 'Benefit Awareness 3',                       max: 5 },
+      { csv: 'Magic Awareness 3',                         max: 5 },
+      { csv: 'Disease Awareness 3',                       max: 5 },
+      // Resists / Cures [5 Max]
+      { csv: 'Minor Potion of Cold (Fire)',                max: 5 },
+      { csv: 'Minor Potion of Heat (Cold)',                max: 5 },
+      { csv: 'Minor Null Potion (Magic)',                  max: 5 },
+      { csv: 'Minor Potion of Antibody (Disease)',         max: 5 },
+      { csv: 'Minor Potion of Purity (Poison)',            max: 5 },
+      { csv: "Kithar's Disease Treatment (Cure)",          max: 5 },
+      { csv: "Ethira's Poison Antidote (Cure)",            max: 5 },
+      { csv: 'Elixir of Divine Endurance (10allres)',      max: 5 },
+      // Stat Increases [5 Max]
+      { csv: 'Potion of Power (STR/DEX)',                  max: 5 },
+      { csv: 'Potion of Vigor (STR/AGI)',                  max: 5 },
+      { csv: 'Potion of Stability (STR/STAM)',             max: 5 },
+      { csv: 'Potion of Cohesion (DEX/STAM)',              max: 5 },
+      { csv: 'Potion of Accuracy (DEX/AGI)',               max: 5 },
+      { csv: 'Potion of Adroitness (STAM/AGI)',            max: 5 },
+      // Teleports [1 Max]
+      { csv: 'Gate Potion',                                max: 1, canonical: 'Gate Potion' },
+      { csv: 'Frost Potion (Everfrost)',                   max: 1, canonical: 'Frost Potion (Everfrost)' },
+      { csv: 'Field of Bone Potion',                       max: 1, canonical: 'Field of Bone Potion' },
+      { csv: 'Potion of the Swamp - Innothule Sw.',        max: 1 },
+      { csv: 'Potion of Twilight Mists (Luclin)',          max: 1 },
+      // LV 60 Distillates [5 Max]
+      { csv: 'Celestial Healing Distillate',               max: 5, canonical: 'Celestial Healing Distillate' },
+      { csv: 'Divine Healing Distillate',                  max: 5, canonical: 'Divine Healing Distillate' },
+      { csv: 'Distillate of Clarity',                      max: 5, canonical: 'Distillate of Clarity' },
+      { csv: 'Distillate of Alacrity - Haste',             max: 5, canonical: 'Distillate of Alacrity - Haste' },
+      { csv: 'Distillate of Spirituality (Luclin)',         max: 5 },
+      // Misc — shrink pots [2 Max], rest [5 Max]
+      { csv: 'Greater Concentration Potion',               max: 5 },
+      { csv: 'Blood of the Wolf (SoW)',                    max: 5 },
+      { csv: 'Potion of Unlife Awareness (IVU)',           max: 5 },
+      { csv: "Kilva's Skin of Flame (DS)",                 max: 5 },
+      { csv: "Ant's Potion (Shrink)",                      max: 2, canonical: "Ant's Potion (Shrink)" },
+      { csv: 'Army Ant Potion (GroupShrink)',               max: 2, canonical: 'Army Ant Potion (GroupShrink)' },
+      { csv: 'Potion of Antiweight (Levitate)',             max: 5 },
+      { csv: 'Potion of Greater Rejuvenation',             max: 5 },
+    ];
+
+    // Build a lookup: trimmed-csv-name → { max, canonical }
+    const RULES_MAP = new Map(
+      POTION_RULES.map(r => [r.csv.trim(), { max: r.max, canonical: (r.canonical ?? r.csv).trim() }])
+    );
+
+    // ── CSV parser (handles RFC-4180 quoted fields) ─────────────
+    function parseCSV(text) {
+      const rows = [];
+      let row = [], field = '', inQ = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (inQ) {
+          if (c === '"') {
+            if (text[i + 1] === '"') { field += '"'; i++; }
+            else inQ = false;
+          } else {
+            field += c;
+          }
+        } else if (c === '"') {
+          inQ = true;
+        } else if (c === ',') {
+          row.push(field); field = '';
+        } else if (c === '\n') {
+          row.push(field); field = '';
+          rows.push(row); row = [];
+        } else if (c !== '\r') {
+          field += c;
+        }
+      }
+      row.push(field);
+      if (row.some(f => f !== '')) rows.push(row);
+      return rows;
+    }
+
+    function buildOrders() {
+      const rows = parseCSV(CSV);
+      const log = [];
+      const adjustments = [];
+
+      // Find player name row and ready row
+      const playerRow  = rows.find(r => r[1]?.includes('parcelled'));
+      const readyRow   = rows.find(r => r[1]?.includes('finished ordering'));
+      if (!playerRow || !readyRow) throw new Error('Could not find player/ready rows in CSV');
+
+      // Players start at column index 3
+      const players = [];
+      for (let i = 3; i < playerRow.length; i++) {
+        const name = playerRow[i].trim();
+        if (!name) break;
+        const ready = readyRow[i]?.trim().toUpperCase() === 'TRUE';
+        players.push({ name, ready, idx: i });
+      }
+
+      log.push(`Found ${players.length} players. Ready: ${players.filter(p => p.ready).length}`);
+      players.filter(p => !p.ready).forEach(p => log.push(`  ⚠ SKIPPING ${p.name} (not ready)`));
+
+      // Initialize per-player potion arrays
+      const orders = {};
+      players.filter(p => p.ready).forEach(p => { orders[p.name] = []; });
+
+      // Find and process each potion row
+      for (const row of rows) {
+        const rawName = (row[1] ?? '').trim();
+        if (!rawName) continue;
+
+        // Strip suffixes like " [2 Max]" from the name for lookup
+        const lookupName = rawName.replace(/\s*\[.*?\]/g, '').trim();
+        const rule = RULES_MAP.get(lookupName);
+        if (!rule) continue;
+
+        players.filter(p => p.ready).forEach(p => {
+          const raw = parseInt(row[p.idx] ?? '0', 10) || 0;
+          if (raw === 0) return;
+          const stacks = Math.min(raw, rule.max);
+          if (stacks !== raw) {
+            adjustments.push(`  ✂ ${p.name} — ${rule.canonical}: ${raw} → ${stacks} (max ${rule.max})`);
+          }
+          orders[p.name].push({ name: rule.canonical, stacks });
+        });
+      }
+
+      if (adjustments.length) {
+        log.push(`\nAdjusted ${adjustments.length} over-max quantities:`);
+        adjustments.forEach(a => log.push(a));
+      }
+
+      // Filter out players with zero items
+      const result = Object.entries(orders)
+        .filter(([, potions]) => potions.length > 0)
+        .map(([playerName, potions]) => ({ playerName, potions }));
+
+      log.push(`\n${result.length} orders to import:`);
+      result.forEach(o => {
+        const total = o.potions.reduce((s, p) => s + p.stacks, 0);
+        log.push(`  ${o.playerName}: ${o.potions.length} lines, ${total} total stacks`);
+      });
+
+      return { orders: result, log };
+    }
+
+    // ── UI ─────────────────────────────────────────────────────
+    const logEl = document.getElementById('log');
+    function appendLog(msg, cls = '') {
+      const span = document.createElement('span');
+      if (cls) span.className = cls;
+      span.textContent = msg + '\n';
+      logEl.appendChild(span);
+    }
+
+    async function run(dryRun) {
+      logEl.innerHTML = '';
+      appendLog(`=== ${dryRun ? 'DRY RUN' : 'LIVE IMPORT'} — ${new Date().toLocaleString()} ===\n`);
+
+      let parsed;
+      try {
+        parsed = buildOrders();
+      } catch (e) {
+        appendLog('PARSE ERROR: ' + e.message, 'err');
+        return;
+      }
+
+      parsed.log.forEach(l => appendLog(l, l.startsWith('  ✂') ? 'warn' : l.startsWith('  ⚠') ? 'warn' : ''));
+
+      if (dryRun) {
+        appendLog('\nDry run complete — no writes performed.', 'ok');
+        return;
+      }
+
+      appendLog('\nWriting to Firestore…');
+      let ok = 0, fail = 0;
+      for (const order of parsed.orders) {
+        try {
+          const ref = await addDoc(collection(db, 'orders'), {
+            playerName: order.playerName,
+            orderedAt: serverTimestamp(),
+            status: 'unassigned',
+            assignedTo: null,
+            assignedAt: null,
+            potions: order.potions,
+          });
+          appendLog(`  ✓ ${order.playerName} → ${ref.id}`, 'ok');
+          ok++;
+        } catch (e) {
+          appendLog(`  ✗ ${order.playerName}: ${e.message}`, 'err');
+          fail++;
+        }
+      }
+      appendLog(`\nDone — ${ok} imported, ${fail} failed.`, fail ? 'err' : 'ok');
+    }
+
+    document.getElementById('dry-btn').addEventListener('click', () => run(true));
+    document.getElementById('run-btn').addEventListener('click', () => run(false));
+  </script>
+</body>
+</html>

@@ -42,6 +42,21 @@
       <button class="filter-btn" data-filter="complete">Complete</button>
     </div>
 
+    <div class="order-dropdowns">
+      <div class="dropdown-field">
+        <label for="filter-player">Player</label>
+        <select id="filter-player">
+          <option value="">All Players</option>
+        </select>
+      </div>
+      <div class="dropdown-field">
+        <label for="filter-assigned-to">Assigned To</label>
+        <select id="filter-assigned-to">
+          <option value="">All Makers</option>
+        </select>
+      </div>
+    </div>
+
     <div class="order-list-header">
       <span></span>
       <span>Player</span>
@@ -192,14 +207,33 @@
     let currentPage = 1;
     let currentMode = 'buyer';
     let pendingAssignOrderId = null;
+    let filterPlayer = '';
+    let filterAssignedTo = '';
 
     // ── Helpers ────────────────────────────────────────────────
     function fmtDate(d) {
       return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     }
     function filtered() {
-      if (currentFilter === 'all') return allOrders;
-      return allOrders.filter(o => o.status === currentFilter);
+      return allOrders.filter(o => {
+        if (currentFilter !== 'all' && o.status !== currentFilter) return false;
+        if (filterPlayer && o.player !== filterPlayer) return false;
+        if (filterAssignedTo && o.assignedTo !== filterAssignedTo) return false;
+        return true;
+      });
+    }
+
+    function rebuildDropdowns() {
+      const players    = [...new Set(allOrders.map(o => o.player))].sort();
+      const assignees  = [...new Set(allOrders.map(o => o.assignedTo).filter(Boolean))].sort();
+
+      const playerSel  = document.getElementById('filter-player');
+      const assignSel  = document.getElementById('filter-assigned-to');
+
+      playerSel.innerHTML  = '<option value="">All Players</option>'
+        + players.map(p  => `<option value="${p}"  ${filterPlayer     === p  ? 'selected' : ''}>${p}</option>`).join('');
+      assignSel.innerHTML  = '<option value="">All Makers</option>'
+        + assignees.map(a => `<option value="${a}" ${filterAssignedTo === a  ? 'selected' : ''}>${a}</option>`).join('');
     }
     function badgeHtml(status) {
       const labels = { unassigned: 'Unassigned', assigned: 'Assigned', complete: 'Complete' };
@@ -434,6 +468,7 @@
             totalStacks: potions.reduce((s, p) => s + p.stacks, 0),
           };
         });
+        rebuildDropdowns();
         renderOrders();
       },
       err => {
@@ -675,6 +710,18 @@
         currentPage = 1;
         renderOrders();
       });
+    });
+
+    document.getElementById('filter-player').addEventListener('change', e => {
+      filterPlayer = e.target.value;
+      currentPage = 1;
+      renderOrders();
+    });
+
+    document.getElementById('filter-assigned-to').addEventListener('change', e => {
+      filterAssignedTo = e.target.value;
+      currentPage = 1;
+      renderOrders();
     });
 
     // ── Mode toggle ────────────────────────────────────────────
