@@ -132,6 +132,22 @@
     </div>
   </div>
 
+  <!-- Already Assigned Info Modal -->
+  <div id="already-assigned-modal" class="modal-overlay" style="display:none;">
+    <div class="modal modal--narrow">
+      <div class="modal-header">
+        <span>&#8505; Order Already Assigned</span>
+        <button class="modal-close" id="already-assigned-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <p>This order was already assigned by someone else. Please refresh the page to see the latest orders.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-place-btn" id="already-assigned-modal-ok">Refresh Now</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Manage Makers Modal -->
   <div id="makers-modal" class="modal-overlay" style="display:none;">
     <div class="modal modal--narrow">
@@ -147,7 +163,7 @@
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import {
-      getFirestore, collection, addDoc, deleteDoc, doc, updateDoc,
+      getFirestore, collection, addDoc, deleteDoc, doc, getDoc, updateDoc,
       onSnapshot, query, orderBy, where, getDocs, serverTimestamp,
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
@@ -362,7 +378,14 @@
         `).join('');
         body.querySelectorAll('.maker-pick-btn').forEach(btn => {
           btn.addEventListener('click', async () => {
-            await updateDoc(doc(db, 'orders', pendingAssignOrderId), {
+            const orderRef = doc(db, 'orders', pendingAssignOrderId);
+            const snap = await getDoc(orderRef);
+            if (snap.exists() && snap.data().status !== 'unassigned') {
+              closeAssignModal();
+              document.getElementById('already-assigned-modal').style.display = 'flex';
+              return;
+            }
+            await updateDoc(orderRef, {
               assignedTo: btn.dataset.makerName,
               assignedAt: serverTimestamp(),
               status: 'assigned',
@@ -382,6 +405,18 @@
     document.getElementById('assign-modal-close').addEventListener('click', closeAssignModal);
     document.getElementById('assign-modal').addEventListener('click', e => {
       if (e.target === e.currentTarget) closeAssignModal();
+    });
+
+    function closeAlreadyAssignedModal() {
+      document.getElementById('already-assigned-modal').style.display = 'none';
+    }
+    document.getElementById('already-assigned-modal-close').addEventListener('click', closeAlreadyAssignedModal);
+    document.getElementById('already-assigned-modal-ok').addEventListener('click', () => {
+      closeAlreadyAssignedModal();
+      window.location.reload();
+    });
+    document.getElementById('already-assigned-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeAlreadyAssignedModal();
     });
 
     // ── Manage Makers modal ────────────────────────────────────
