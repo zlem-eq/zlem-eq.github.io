@@ -660,12 +660,26 @@
     var matched    = [];
     var noDelivery = [];
 
+    // Two-pass: first lock in self-delivery matches (winner == looter), then
+    // assign the remainder. This prevents a greedy first-pass from consuming
+    // a looter's own copy before their win entry is processed.
+    pastedEntries.forEach(function (entry) {
+      var key  = normalizeItemName(entry.itemRaw);
+      var hits = raidMap[key];
+      if (hits) {
+        var selfHit = hits.find(function (h) { return !h._used && h.looter === entry.winner; });
+        if (selfHit) {
+          selfHit._used = true;
+          entry._selfHit = selfHit;
+        }
+      }
+    });
+
     pastedEntries.forEach(function (entry) {
       var key  = normalizeItemName(entry.itemRaw);
       var hits = raidMap[key];
       if (hits && hits.length > 0) {
-        // Prefer a match where the winner already holds the item (self-delivery)
-        var hit = hits.find(function (h) { return !h._used && h.looter === entry.winner; })
+        var hit = entry._selfHit
                || hits.find(function (h) { return !h._used; })
                || hits[hits.length - 1];
         hit._used = true;
