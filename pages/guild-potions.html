@@ -581,7 +581,7 @@
       );
       return snap.docs
         .map(d => d.data())
-        .filter(d => d.playerName === playerName);
+        .filter(d => d.playerName?.trim().toLowerCase() === playerName.trim().toLowerCase());
     }
 
     function applyLimits(potions, recentOrders) {
