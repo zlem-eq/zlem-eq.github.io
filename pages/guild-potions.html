@@ -57,6 +57,10 @@
       </div>
     </div>
 
+    <div class="order-list-above">
+      <button id="gen-potion-list-btn" class="gen-potion-list-btn" style="display:none;">Generate Potion List</button>
+    </div>
+
     <div class="order-list-header">
       <span></span>
       <span>Player</span>
@@ -103,6 +107,17 @@
         <span class="modal-total">Total: <strong id="modal-total-count">0</strong> stacks</span>
         <button class="modal-place-btn" id="modal-place-btn">Place Order</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Potion List Modal -->
+  <div id="potion-list-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <span id="potion-list-modal-title">Potion List</span>
+        <button class="modal-close" id="potion-list-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body" id="potion-list-modal-body"></div>
     </div>
   </div>
 
@@ -268,7 +283,7 @@
                 <span class="order-assigned">${assignedCell}</span>
                 <span class="order-assigned-date">${o.assignedDate ? fmtDate(o.assignedDate) : '—'}</span>
                 <span class="order-stack-count">${o.totalStacks} stack${o.totalStacks !== 1 ? 's' : ''}</span>
-                <span>${currentMode === 'maker' && o.status === 'assigned' ? `<button class="complete-btn" data-order-id="${o.id}">Complete</button>` : ''}</span>
+                <span>${currentMode === 'maker' && o.status === 'assigned' ? `<button class="complete-btn" data-order-id="${o.id}">Mark Complete</button>` : ''}</span>
               </div>
               <div class="order-details">
                 <ul class="potion-list">
@@ -724,6 +739,69 @@
       renderOrders();
     });
 
+    // ── Potion List modal ──────────────────────────────────────
+    function openPotionListModal() {
+      const orders = filtered();
+      const totals = new Map();
+      orders.forEach(order => {
+        (order.potions ?? []).forEach(p => {
+          totals.set(p.name, (totals.get(p.name) ?? 0) + p.stacks);
+        });
+      });
+
+      const body = document.getElementById('potion-list-modal-body');
+      body.innerHTML = '';
+      let anyPotion = false;
+
+      POTION_CATALOG.forEach(cat => {
+        const potionNames = cat.potions.map(p => typeof p === 'string' ? p : p.name);
+        const catTotal = potionNames.reduce((s, n) => s + (totals.get(n) ?? 0), 0);
+        if (catTotal === 0) return;
+
+        const header = document.createElement('div');
+        header.className = 'modal-cat-header';
+        header.style.background = cat.headerColor;
+        header.style.color = cat.textColor;
+        header.textContent = cat.name;
+        body.appendChild(header);
+
+        potionNames.forEach(potionName => {
+          const count = totals.get(potionName) ?? 0;
+          if (count === 0) return;
+          anyPotion = true;
+
+          const row = document.createElement('div');
+          row.className = 'modal-potion-row';
+          row.style.background = cat.rowColor;
+          row.style.color = cat.textColor;
+          row.innerHTML = `
+            <span class="modal-potion-name">${potionName}</span>
+            <span class="potion-list-count">${count} stack${count !== 1 ? 's' : ''}</span>`;
+          body.appendChild(row);
+        });
+      });
+
+      if (!anyPotion) {
+        body.innerHTML = '<div class="order-empty">No potions in the current filtered orders.</div>';
+      }
+
+      const orderWord = orders.length === 1 ? 'order' : 'orders';
+      document.getElementById('potion-list-modal-title').textContent =
+        `Potion List — ${orders.length} ${orderWord}`;
+
+      document.getElementById('potion-list-modal').style.display = 'flex';
+    }
+
+    function closePotionListModal() {
+      document.getElementById('potion-list-modal').style.display = 'none';
+    }
+
+    document.getElementById('gen-potion-list-btn').addEventListener('click', openPotionListModal);
+    document.getElementById('potion-list-modal-close').addEventListener('click', closePotionListModal);
+    document.getElementById('potion-list-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closePotionListModal();
+    });
+
     // ── Mode toggle ────────────────────────────────────────────
     const modeBtn = document.getElementById('mode-toggle');
     modeBtn.addEventListener('click', () => {
@@ -734,6 +812,7 @@
       modeBtn.querySelector('.mode-label').textContent = isBuyer ? 'Buyer mode' : 'Maker mode';
       document.getElementById('new-order-btn').style.display = isBuyer ? 'none' : '';
       document.getElementById('add-maker-btn').style.display = isBuyer ? '' : 'none';
+      document.getElementById('gen-potion-list-btn').style.display = isBuyer ? '' : 'none';
       renderOrders();
     });
   </script>

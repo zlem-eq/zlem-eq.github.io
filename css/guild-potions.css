@@ -94,8 +94,8 @@
 /* ── Order list ── */
 .order-list-header {
   display: grid;
-  grid-template-columns: 1.5rem 130px 110px 110px 130px 110px 80px 90px;
-  gap: 0.75rem;
+  grid-template-columns: 1.5rem 130px 90px 90px 130px 110px 90px 90px;
+  gap: 0.35rem;
   padding: 0.4rem 1rem;
   font-size: 0.75rem;
   font-weight: 700;
@@ -135,9 +135,9 @@
 
 .order-summary {
   display: grid;
-  grid-template-columns: 1.5rem 130px 110px 110px 130px 110px 80px 90px;
+  grid-template-columns: 1.5rem 130px 90px 90px 130px 90px 65px 90px;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.35rem;
   padding: 0.85rem 1rem;
   cursor: pointer;
   user-select: none;
@@ -765,6 +765,41 @@
 
 .warning-change.removed {
   color: #dc2626;
+}
+
+/* ── Generate Potion List button ── */
+.order-list-above {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.gen-potion-list-btn {
+  padding: 0.35rem 0.85rem;
+  background: #6b7280;
+  border: 1px solid #6b7280;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.gen-potion-list-btn:hover {
+  background: #4b5563;
+  border-color: #4b5563;
+}
+
+/* ── Potion list count badge ── */
+.potion-list-count {
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.2rem 0.65rem;
+  border-radius: 1rem;
 }
 
 /* ── Empty state ── */
