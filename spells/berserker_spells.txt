@@ -1,0 +1,49 @@
+Line  606: 				<a href="spells.php?id=4937" data-eqrs="0">Corroded Axe</a>				</td>
+	Line  622: 				<a href="spells.php?id=5225" data-eqrs="0">Throw Stone</a>				</td>
+	Line  671: 				<a href="spells.php?id=4938" data-eqrs="0">Blunt Axe</a>				</td>
+	Line  687: 				<a href="spells.php?id=25060" data-eqrs="0">Elbow Strike</a>				</td>
+	Line  736: 				<a href="spells.php?id=4928" data-eqrs="0">Leg Strike</a>				</td>
+	Line  785: 				<a href="spells.php?id=4721" data-eqrs="0">Focused Will Discipline</a>				</td>
+	Line  801: 				<a href="spells.php?id=4939" data-eqrs="0">Steel Axe</a>				</td>
+	Line  850: 				<a href="spells.php?id=4940" data-eqrs="0">Bearded Axe</a>				</td>
+	Line  899: 				<a href="spells.php?id=4931" data-eqrs="0">Head Strike</a>				</td>
+	Line  948: 				<a href="spells.php?id=4941" data-eqrs="0">Mithril Axe</a>				</td>
+	Line  997: 				<a href="spells.php?id=4934" data-eqrs="0">Divertive Strike</a>				</td>
+	Line 1046: 				<a href="spells.php?id=4942" data-eqrs="0">Balanced War Axe</a>				</td>
+	Line 1095: 				<a href="spells.php?id=5027" data-eqrs="0">Battle Cry</a>				</td>
+	Line 1111: 				<a href="spells.php?id=4943" data-eqrs="0">Bonesplicer Axe</a>				</td>
+	Line 1127: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line 1176: 				<a href="spells.php?id=4929" data-eqrs="0">Leg Cut</a>				</td>
+	Line 1225: 				<a href="spells.php?id=4944" data-eqrs="0">Fleshtear Axe</a>				</td>
+	Line 1274: 				<a href="spells.php?id=4945" data-eqrs="0">Cold Steel Cleaving Axe</a>				</td>
+	Line 1290: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line 1306: 				<a href="spells.php?id=4932" data-eqrs="0">Head Pummel</a>				</td>
+	Line 1355: 				<a href="spells.php?id=4946" data-eqrs="0">Mithril Bloodaxe</a>				</td>
+	Line 1404: 				<a href="spells.php?id=4935" data-eqrs="0">Distracting Strike</a>				</td>
+	Line 1453: 				<a href="spells.php?id=4947" data-eqrs="0">Rage Axe</a>				</td>
+	Line 1469: 				<a href="spells.php?id=5028" data-eqrs="0">War Cry</a>				</td>
+	Line 1518: 				<a href="spells.php?id=5039" data-eqrs="0">Inspired Anger Discipline</a>				</td>
+	Line 1567: 				<a href="spells.php?id=5037" data-eqrs="0">Cleaving Rage Discipline</a>				</td>
+	Line 1583: 				<a href="spells.php?id=4930" data-eqrs="0">Leg Slice</a>				</td>
+	Line 1632: 				<a href="spells.php?id=8924" data-eqrs="0">Aura of Rage</a>				</td>
+	Line 1634: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8959" data-eqrs="0">Aura of Rage Effect</a> (PCIObBerS11L055AuraCritMel)<br>				<br>
+	Line 1648: 				<a href="spells.php?id=4948" data-eqrs="0">Bloodseeker's Axe</a>				</td>
+	Line 1697: 				<a href="spells.php?id=5040" data-eqrs="0">Reckless Discipline</a>				</td>
+	Line 1746: 				<a href="spells.php?id=5029" data-eqrs="0">Battle Cry of Dravel</a>				</td>
+	Line 1762: 				<a href="spells.php?id=5035" data-eqrs="0">Focused Fury Discipline</a>				</td>
+	Line 1811: 				<a href="spells.php?id=5041" data-eqrs="0">Blind Rage Discipline</a>				</td>
+	Line 1860: 				<a href="spells.php?id=5038" data-eqrs="0">Battle Focus Discipline</a>				</td>
+	Line 1909: 				<a href="spells.php?id=4949" data-eqrs="0">Battlerage Axe</a>				</td>
+	Line 1925: 				<a href="spells.php?id=5034" data-eqrs="0">Burning Rage Discipline</a>				</td>
+	Line 1941: 				<a href="spells.php?id=4933" data-eqrs="0">Head Crush</a>				</td>
+	Line 1990: 				<a href="spells.php?id=6754" data-eqrs="0">Rage Volley</a>				</td>
+	Line 2006: 				<a href="spells.php?id=5044" data-eqrs="0">Sprint Discipline</a>				</td>
+	Line 2055: 				<a href="spells.php?id=4687" data-eqrs="0">Healing Will Discipline</a>				</td>
+	Line 2071: 				<a href="spells.php?id=5042" data-eqrs="0">Indomitable Discipline</a>				</td>
+	Line 2120: 				<a href="spells.php?id=5030" data-eqrs="0">War Cry of Dravel</a>				</td>
+	Line 2169: 				<a href="spells.php?id=5032" data-eqrs="0">Ancient: Cry of Chaos</a>				</td>
+	Line 2185: 				<a href="spells.php?id=5031" data-eqrs="0">Battle Cry of the Mastruq</a>				</td>
+	Line 2201: 				<a href="spells.php?id=5043" data-eqrs="0">Cleaving Anger Discipline</a>				</td>
+	Line 2217: 				<a href="spells.php?id=4936" data-eqrs="0">Confusing Strike</a>				</td>
+	Line 2233: 				<a href="spells.php?id=4950" data-eqrs="0">Deathfury Axe</a>				</td>
+	Line 2249: 				<a href="spells.php?id=5107" data-eqrs="0">Tainted Axe of Hatred</a>				</td>

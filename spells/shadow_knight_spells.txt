@@ -1,0 +1,167 @@
+Line  606: 				<a href="spells.php?id=5012" data-eqrs="0">Spike of Disease</a>				</td>
+	Line  655: 				<a href="spells.php?id=221" data-eqrs="0">Sense the Dead</a>				</td>
+	Line  704: 				<a href="spells.php?id=342" data-eqrs="0">Locate Corpse</a>				</td>
+	Line  753: 				<a href="spells.php?id=235" data-eqrs="0">Invisibility Versus Undead</a>				</td>
+	Line  802: 				<a href="spells.php?id=340" data-eqrs="0">Disease Cloud</a>				</td>
+	Line  851: 				<a href="spells.php?id=343" data-eqrs="0">Siphon Strength</a>				</td>
+	Line  854: 				Recourse: <a href="spells.php?id=2463" data-eqrs="0">Siphon Strength Recourse</a><br>				<br>
+	Line  901: 				<a href="spells.php?id=491" data-eqrs="0">Leering Corpse</a>				</td>
+	Line  950: 				<a href="spells.php?id=341" data-eqrs="0">Lifetap</a>				</td>
+	Line  999: 				<a href="spells.php?id=2571" data-eqrs="0">Despair</a>				</td>
+	Line 1015: 				<a href="spells.php?id=347" data-eqrs="0">Numb the Dead</a>				</td>
+	Line 1064: 				<a href="spells.php?id=225" data-eqrs="0">Endure Cold</a>				</td>
+	Line 1113: 				<a href="spells.php?id=344" data-eqrs="0">Clinging Darkness</a>				</td>
+	Line 1162: 				<a href="spells.php?id=229" data-eqrs="0">Fear</a>				</td>
+	Line 1178: 				<a href="spells.php?id=2213" data-eqrs="0">Lesser Summon Corpse</a>				</td>
+	Line 1227: 				<a href="spells.php?id=354" data-eqrs="0">Shadow Step</a>				</td>
+	Line 1276: 				<a href="spells.php?id=351" data-eqrs="0">Bone Walk</a>				</td>
+	Line 1325: 				<a href="spells.php?id=502" data-eqrs="0">Lifespike</a>				</td>
+	Line 1341: 				<a href="spells.php?id=2572" data-eqrs="0">Scream of Hate</a>				</td>
+	Line 1344: 				Recourse: <a href="spells.php?id=2482" data-eqrs="0">Scream of Hate Recourse</a><br>				<br>
+	Line 1391: 				<a href="spells.php?id=346" data-eqrs="0">Grim Aura</a>				</td>
+	Line 1440: 				<a href="spells.php?id=352" data-eqrs="0">Deadeye</a>				</td>
+	Line 1489: 				<a href="spells.php?id=218" data-eqrs="0">Ward Undead</a>				</td>
+	Line 1538: 				<a href="spells.php?id=213" data-eqrs="0">Cure Disease</a>				</td>
+	Line 1554: 				<a href="spells.php?id=3583" data-eqrs="0">Tiny Companion</a>				</td>
+	Line 1603: 				<a href="spells.php?id=355" data-eqrs="0">Engulfing Darkness</a>				</td>
+	Line 1619: 				<a href="spells.php?id=209" data-eqrs="0">Spook the Dead</a>				</td>
+	Line 1668: 				<a href="spells.php?id=357" data-eqrs="0">Dark Empathy</a>				</td>
+	Line 1671: 				Recourse: <a href="spells.php?id=3650" data-eqrs="0">Dark Empathy Recourse</a><br>				<br>
+	Line 1718: 				<a href="spells.php?id=362" data-eqrs="0">Convoke Shadow</a>				</td>
+	Line 1734: 				<a href="spells.php?id=359" data-eqrs="0">Vampiric Embrace</a>				</td>
+	Line 1736: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=821" data-eqrs="0">Vampiric Embrace</a><br>				<br>
+	Line 1783: 				<a href="spells.php?id=2573" data-eqrs="0">Scream of Pain</a>				</td>
+	Line 1786: 				Recourse: <a href="spells.php?id=2483" data-eqrs="0">Scream of Pain Recourse</a><br>				<br>
+	Line 1833: 				<a href="spells.php?id=366" data-eqrs="0">Feign Death</a>				</td>
+	Line 1882: 				<a href="spells.php?id=226" data-eqrs="0">Endure Disease</a>				</td>
+	Line 1931: 				<a href="spells.php?id=363" data-eqrs="0">Wave of Enfeeblement</a>				</td>
+	Line 1980: 				<a href="spells.php?id=360" data-eqrs="0">Heat Blood</a>				</td>
+	Line 2029: 				<a href="spells.php?id=445" data-eqrs="0">Lifedraw</a>				</td>
+	Line 2045: 				<a href="spells.php?id=1289" data-eqrs="0">Strengthen Death</a>				</td>
+	Line 2094: 				<a href="spells.php?id=522" data-eqrs="0">Gather Shadows</a>				</td>
+	Line 2110: 				<a href="spells.php?id=492" data-eqrs="0">Restless Bones</a>				</td>
+	Line 2159: 				<a href="spells.php?id=236" data-eqrs="0">Shieldskin</a>				</td>
+	Line 2208: 				<a href="spells.php?id=4062" data-eqrs="0">Dark Temptation</a>				</td>
+	Line 2257: 				<a href="spells.php?id=1221" data-eqrs="0">Terror of Darkness</a>				</td>
+	Line 2306: 				<a href="spells.php?id=3561" data-eqrs="0">Spear of Disease</a>				</td>
+	Line 2355: 				<a href="spells.php?id=61" data-eqrs="0">Resist Cold</a>				</td>
+	Line 2371: 				<a href="spells.php?id=1457" data-eqrs="0">Shroud of Hate</a>				</td>
+	Line 2374: 				Recourse: <a href="spells.php?id=2470" data-eqrs="0">Shroud of Hate Recourse</a><br>				<br>
+	Line 2388: 				<a href="spells.php?id=3" data-eqrs="0">Summon Corpse</a>				</td>
+	Line 2437: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 2453: 				<a href="spells.php?id=367" data-eqrs="0">Heart Flutter</a>				</td>
+	Line 2502: 				<a href="spells.php?id=2574" data-eqrs="0">Scream of Death</a>				</td>
+	Line 2504: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2718" data-eqrs="0">Scream of Death Strike</a><br>				<br>
+	Line 2518: 				<a href="spells.php?id=370" data-eqrs="0">Shadow Vortex</a>				</td>
+	Line 2521: 				Recourse: <a href="spells.php?id=2465" data-eqrs="0">Shadow Vortex Recourse</a><br>				<br>
+	Line 2568: 				<a href="spells.php?id=440" data-eqrs="0">Animate Dead</a>				</td>
+	Line 2617: 				<a href="spells.php?id=233" data-eqrs="0">Expulse Undead</a>				</td>
+	Line 2633: 				<a href="spells.php?id=1225" data-eqrs="0">Voice of Darkness</a>				</td>
+	Line 2682: 				<a href="spells.php?id=90" data-eqrs="0">Shadow Sight</a>				</td>
+	Line 2731: 				<a href="spells.php?id=3686" data-eqrs="0">Blood of Pain</a>				</td>
+	Line 2780: 				<a href="spells.php?id=1222" data-eqrs="0">Terror of Shadows</a>				</td>
+	Line 2829: 				<a href="spells.php?id=127" data-eqrs="0">Invoke Fear</a>				</td>
+	Line 2878: 				<a href="spells.php?id=452" data-eqrs="0">Dooming Darkness</a>				</td>
+	Line 2927: 				<a href="spells.php?id=478" data-eqrs="0">Breath of the Dead</a>				</td>
+	Line 2943: 				<a href="spells.php?id=414" data-eqrs="0">Word of Spirit</a>				</td>
+	Line 2992: 				<a href="spells.php?id=441" data-eqrs="0">Summon Dead</a>				</td>
+	Line 3008: 				<a href="spells.php?id=1226" data-eqrs="0">Voice of Shadows</a>				</td>
+	Line 3057: 				<a href="spells.php?id=692" data-eqrs="0">Life Leech</a>				</td>
+	Line 3073: 				<a href="spells.php?id=4102" data-eqrs="0">Scythe of Darkness</a>				</td>
+	Line 3122: 				<a href="spells.php?id=3560" data-eqrs="0">Spear of Pain</a>				</td>
+	Line 3171: 				<a href="spells.php?id=117" data-eqrs="0">Dismiss Undead</a>				</td>
+	Line 3220: 				<a href="spells.php?id=199" data-eqrs="0">Harmshield</a>				</td>
+	Line 3236: 				<a href="spells.php?id=1458" data-eqrs="0">Shroud of Pain</a>				</td>
+	Line 3239: 				Recourse: <a href="spells.php?id=2471" data-eqrs="0">Shroud of Pain Recourse</a><br>				<br>
+	Line 3286: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line 3302: 				<a href="spells.php?id=446" data-eqrs="0">Siphon Life</a>				</td>
+	Line 3351: 				<a href="spells.php?id=2575" data-eqrs="0">Abduction of Strength</a>				</td>
+	Line 3354: 				Recourse: <a href="spells.php?id=2484" data-eqrs="0">Abduction of Strength Recourse</a><br>				<br>
+	Line 3368: 				<a href="spells.php?id=3685" data-eqrs="0">Comatose</a>				</td>
+	Line 3384: 				<a href="spells.php?id=442" data-eqrs="0">Malignant Dead</a>				</td>
+	Line 3400: 				<a href="spells.php?id=2576" data-eqrs="0">Mental Corruption</a>				</td>
+	Line 3402: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2717" data-eqrs="0">Mental Corruption Strike</a><br>				<br>
+	Line 3416: 				<a href="spells.php?id=448" data-eqrs="0">Rest the Dead</a>				</td>
+	Line 3432: 				<a href="spells.php?id=1285" data-eqrs="0">Summon Companion</a>				</td>
+	Line 3481: 				<a href="spells.php?id=451" data-eqrs="0">Boil Blood</a>				</td>
+	Line 3497: 				<a href="spells.php?id=1223" data-eqrs="0">Terror of Death</a>				</td>
+	Line 3546: 				<a href="spells.php?id=364" data-eqrs="0">Banshee Aura</a>				</td>
+	Line 3562: 				<a href="spells.php?id=4063" data-eqrs="0">Call of Darkness</a>				</td>
+	Line 3578: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line 3594: 				<a href="spells.php?id=59" data-eqrs="0">Panic the Dead</a>				</td>
+	Line 3610: 				<a href="spells.php?id=4103" data-eqrs="0">Scythe of Death</a>				</td>
+	Line 3626: 				<a href="spells.php?id=3562" data-eqrs="0">Spear of Plague</a>				</td>
+	Line 3642: 				<a href="spells.php?id=2577" data-eqrs="0">Torrent of Hate</a>				</td>
+	Line 3645: 				Recourse: <a href="spells.php?id=2485" data-eqrs="0">Torrent of Hate Recourse</a><br>				<br>
+	Line 3692: 				<a href="spells.php?id=1742" data-eqrs="0">Bobbing Corpse</a>				</td>
+	Line 3708: 				<a href="spells.php?id=662" data-eqrs="0">Expel Undead</a>				</td>
+	Line 3724: 				<a href="spells.php?id=1459" data-eqrs="0">Shroud of Death</a>				</td>
+	Line 3726: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=1471" data-eqrs="0">Shroud of Death Strike</a><br>				<br>
+	Line 3740: 				<a href="spells.php?id=1376" data-eqrs="0">Shroud of Undeath</a>				</td>
+	Line 3742: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=1471" data-eqrs="0">Shroud of Death Strike</a><br><b>2:</b> Cast <a href="spells.php?id=9492" data-eqrs="0">Icebone Skeletal Form</a> (v374)<br>				<br>
+	Line 3756: 				<a href="spells.php?id=524" data-eqrs="0">Spirit Tap</a>				</td>
+	Line 3772: 				<a href="spells.php?id=4520" data-eqrs="0">Unholy Aura Discipline</a>				</td>
+	Line 3788: 				<a href="spells.php?id=1227" data-eqrs="0">Voice of Death</a>				</td>
+	Line 3837: 				<a href="spells.php?id=7005" data-eqrs="0">Ichor Guard</a>				</td>
+	Line 3853: 				<a href="spells.php?id=6995" data-eqrs="0">Soulless Fear</a>				</td>
+	Line 3869: 				<a href="spells.php?id=393" data-eqrs="0">Steelskin</a>				</td>
+	Line 3885: 				<a href="spells.php?id=2578" data-eqrs="0">Torrent of Pain</a>				</td>
+	Line 3888: 				Recourse: <a href="spells.php?id=2486" data-eqrs="0">Torrent of Pain Recourse</a><br>				<br>
+	Line 3935: 				<a href="spells.php?id=1773" data-eqrs="0">Conjure Corpse</a>				</td>
+	Line 3951: 				<a href="spells.php?id=525" data-eqrs="0">Drain Spirit</a>				</td>
+	Line 3967: 				<a href="spells.php?id=6986" data-eqrs="0">Shadow Voice</a>				</td>
+	Line 3983: 				<a href="spells.php?id=454" data-eqrs="0">Vampiric Curse</a>				</td>
+	Line 4032: 				<a href="spells.php?id=495" data-eqrs="0">Cackling Bones</a>				</td>
+	Line 4048: 				<a href="spells.php?id=2892" data-eqrs="0">Deathly Temptation</a>				</td>
+	Line 4050: 				<br><b>1:</b> Cast <a href="spells.php?id=9492" data-eqrs="0">Icebone Skeletal Form</a> (v374)<br><b>2:</b> Increase Current Mana by 6 per Tick<br><b>4:</b> Ultravision<br><b>7:</b> Decrease Current Hit Points by 11 per Tick<br>				<br>
+	Line 4064: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 4080: 				<a href="spells.php?id=2579" data-eqrs="0">Torrent of Fatigue</a>				</td>
+	Line 4083: 				Recourse: <a href="spells.php?id=2487" data-eqrs="0">Torrent of Fatigue Recourse</a><br>				<br>
+	Line 4130: 				<a href="spells.php?id=453" data-eqrs="0">Cascading Darkness</a>				</td>
+	Line 4146: 				<a href="spells.php?id=4590" data-eqrs="0">Deflection Discipline</a>				</td>
+	Line 4162: 				<a href="spells.php?id=394" data-eqrs="0">Diamondskin</a>				</td>
+	Line 4178: 				<a href="spells.php?id=1224" data-eqrs="0">Terror of Terris</a>				</td>
+	Line 4227: 				<a href="spells.php?id=1508" data-eqrs="0">Asystole</a>				</td>
+	Line 4243: 				<a href="spells.php?id=661" data-eqrs="0">Augment Death</a>				</td>
+	Line 4259: 				<a href="spells.php?id=2580" data-eqrs="0">Cloak of the Akheva</a>				</td>
+	Line 4275: 				<a href="spells.php?id=1460" data-eqrs="0">Death Peace</a>				</td>
+	Line 4291: 				<a href="spells.php?id=447" data-eqrs="0">Drain Soul</a>				</td>
+	Line 4307: 				<a href="spells.php?id=4504" data-eqrs="0">Leechcurse Discipline</a>				</td>
+	Line 4323: 				<a href="spells.php?id=1228" data-eqrs="0">Voice of Terris</a>				</td>
+	Line 4372: 				<a href="spells.php?id=3406" data-eqrs="0">Aura of Darkness</a>				</td>
+	Line 4375: 				Recourse: <a href="spells.php?id=3407" data-eqrs="0">Aura of Darkness Recourse</a><br>				<br>
+	Line 4389: 				<a href="spells.php?id=3400" data-eqrs="0">Festering Darkness</a>				</td>
+	Line 4405: 				<a href="spells.php?id=6" data-eqrs="0">Ignite Blood</a>				</td>
+	Line 4421: 				<a href="spells.php?id=1411" data-eqrs="0">Improved Invisibility to Undead</a>				</td>
+	Line 4437: 				<a href="spells.php?id=6741" data-eqrs="0">Soul Guard</a>				</td>
+	Line 4453: 				<a href="spells.php?id=6996" data-eqrs="0">Soulless Panic</a>				</td>
+	Line 4502: 				<a href="spells.php?id=456" data-eqrs="0">Bond of Death</a>				</td>
+	Line 4518: 				<a href="spells.php?id=3428" data-eqrs="0">Deny Undead</a>				</td>
+	Line 4534: 				<a href="spells.php?id=6987" data-eqrs="0">Shadow Bellow</a>				</td>
+	Line 4550: 				<a href="spells.php?id=3401" data-eqrs="0">Touch of Volatis</a>				</td>
+	Line 4566: 				<a href="spells.php?id=3408" data-eqrs="0">Zevfeer's Bite</a>				</td>
+	Line 4569: 				Recourse: <a href="spells.php?id=3409" data-eqrs="0">Zevfeer's Bite Recourse</a><br>				<br>
+	Line 4616: 				<a href="spells.php?id=3403" data-eqrs="0">Aura of Pain</a>				</td>
+	Line 4619: 				Recourse: <a href="spells.php?id=3404" data-eqrs="0">Aura of Pain Recourse</a><br>				<br>
+	Line 4633: 				<a href="spells.php?id=3489" data-eqrs="0">Blood of Hate</a>				</td>
+	Line 4649: 				<a href="spells.php?id=3227" data-eqrs="0">Shroud of Chaos</a>				</td>
+	Line 4651: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=3228" data-eqrs="0">Shroud of Chaos Strike</a><br>				<br>
+	Line 4665: 				<a href="spells.php?id=3405" data-eqrs="0">Terror of Thule</a>				</td>
+	Line 4714: 				<a href="spells.php?id=1414" data-eqrs="0">Augmentation of Death</a>				</td>
+	Line 4730: 				<a href="spells.php?id=443" data-eqrs="0">Invoke Death</a>				</td>
+	Line 4746: 				<a href="spells.php?id=3488" data-eqrs="0">Pact of Hate</a>				</td>
+	Line 4748: 				<br><b>1:</b> Cast <a href="spells.php?id=9491" data-eqrs="0">Mottled Skeletal Form</a> (v374)<br><b>2:</b> Increase Current Mana by 15 per Tick<br><b>4:</b> Ultravision<br><b>7:</b> Decrease Current Hit Points by 22 per Tick<br>				<br>
+	Line 4762: 				<a href="spells.php?id=4101" data-eqrs="0">Scythe of Innoruuk</a>				</td>
+	Line 4778: 				<a href="spells.php?id=3491" data-eqrs="0">Spear of Decay</a>				</td>
+	Line 4827: 				<a href="spells.php?id=4982" data-eqrs="0">Ancient: Bite of Chaos</a>				</td>
+	Line 4830: 				Recourse: <a href="spells.php?id=4983" data-eqrs="0">Bite of Chaos Recourse</a><br>				<br>
+	Line 4844: 				<a href="spells.php?id=3411" data-eqrs="0">Aura of Hate</a>				</td>
+	Line 4847: 				Recourse: <a href="spells.php?id=3412" data-eqrs="0">Aura of Hate Recourse</a><br>				<br>
+	Line 4861: 				<a href="spells.php?id=4903" data-eqrs="0">Black Shroud</a>				</td>
+	Line 4863: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=4910" data-eqrs="0">Black Shroud Strike</a><br>				<br>
+	Line 4877: 				<a href="spells.php?id=3490" data-eqrs="0">Cloak of Luclin</a>				</td>
+	Line 4893: 				<a href="spells.php?id=4902" data-eqrs="0">Mental Horror</a>				</td>
+	Line 4895: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=4908" data-eqrs="0">Mental Horror Strike</a><br>				<br>
+	Line 4909: 				<a href="spells.php?id=4904" data-eqrs="0">Miasmic Spear</a>				</td>
+	Line 4925: 				<a href="spells.php?id=3413" data-eqrs="0">Touch of Innoruuk</a>				</td>
+	Line 4941: 				<a href="spells.php?id=3410" data-eqrs="0">Voice of Thule</a>				</td>

@@ -1,0 +1,28 @@
+Line  606: 				<a href="spells.php?id=17189" data-eqrs="0">Mercenary Taunt</a>				</td>
+	Line  622: 				<a href="spells.php?id=5225" data-eqrs="0">Throw Stone</a>				</td>
+	Line  671: 				<a href="spells.php?id=25060" data-eqrs="0">Elbow Strike</a>				</td>
+	Line  720: 				<a href="spells.php?id=4721" data-eqrs="0">Focused Will Discipline</a>				</td>
+	Line  769: 				<a href="spells.php?id=4608" data-eqrs="0">Provoke</a>				</td>
+	Line  818: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line  867: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line  916: 				<a href="spells.php?id=4681" data-eqrs="0">Bellow</a>				</td>
+	Line  932: 				<a href="spells.php?id=4503" data-eqrs="0">Evasive Discipline</a>				</td>
+	Line  981: 				<a href="spells.php?id=4672" data-eqrs="0">Charge Discipline</a>				</td>
+	Line 1030: 				<a href="spells.php?id=4514" data-eqrs="0">Mighty Strike Discipline</a>				</td>
+	Line 1079: 				<a href="spells.php?id=4499" data-eqrs="0">Defensive Discipline</a>				</td>
+	Line 1095: 				<a href="spells.php?id=8921" data-eqrs="0">Myrmidon's Aura</a>				</td>
+	Line 1097: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8935" data-eqrs="0">Myrmidon's Aura Effect</a> (PCIObWarS11L055AuraProcRate)<br>				<br>
+	Line 1144: 				<a href="spells.php?id=4682" data-eqrs="0">Berate</a>				</td>
+	Line 1160: 				<a href="spells.php?id=4674" data-eqrs="0">Furious Discipline</a>				</td>
+	Line 1209: 				<a href="spells.php?id=4501" data-eqrs="0">Precision Discipline</a>				</td>
+	Line 1258: 				<a href="spells.php?id=4675" data-eqrs="0">Fellstrike Discipline</a>				</td>
+	Line 1307: 				<a href="spells.php?id=4670" data-eqrs="0">Fortitude Discipline</a>				</td>
+	Line 1323: 				<a href="spells.php?id=17188" data-eqrs="0">Mercenary Area Taunt</a>				</td>
+	Line 1372: 				<a href="spells.php?id=4498" data-eqrs="0">Aggressive Discipline</a>				</td>
+	Line 1421: 				<a href="spells.php?id=4689" data-eqrs="0">Spirit of Rage Discipline</a>				</td>
+	Line 1437: 				<a href="spells.php?id=6750" data-eqrs="0">Whirlwind Blade</a>				</td>
+	Line 1486: 				<a href="spells.php?id=4687" data-eqrs="0">Healing Will Discipline</a>				</td>
+	Line 1502: 				<a href="spells.php?id=4697" data-eqrs="0">Incite</a>				</td>
+	Line 1551: 				<a href="spells.php?id=5016" data-eqrs="0">Ancient: Chaos Cry</a>				</td>
+	Line 1567: 				<a href="spells.php?id=5015" data-eqrs="0">Bellow of the Mastruq</a>				</td>
+	Line 1583: 				<a href="spells.php?id=4688" data-eqrs="0">Stonewall Discipline</a>				</td>

@@ -1,0 +1,22 @@
+Line  606: 				<a href="spells.php?id=5225" data-eqrs="0">Throw Stone</a>				</td>
+	Line  655: 				<a href="spells.php?id=25060" data-eqrs="0">Elbow Strike</a>				</td>
+	Line  704: 				<a href="spells.php?id=4721" data-eqrs="0">Focused Will Discipline</a>				</td>
+	Line  753: 				<a href="spells.php?id=4659" data-eqrs="0">Sneak Attack</a>				</td>
+	Line  802: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line  851: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line  900: 				<a href="spells.php?id=4685" data-eqrs="0">Thief's Vengeance</a>				</td>
+	Line  949: 				<a href="spells.php?id=4673" data-eqrs="0">Counterattack Discipline</a>				</td>
+	Line  998: 				<a href="spells.php?id=4505" data-eqrs="0">Deadeye Discipline</a>				</td>
+	Line 1047: 				<a href="spells.php?id=4515" data-eqrs="0">Nimble Discipline</a>				</td>
+	Line 1063: 				<a href="spells.php?id=8922" data-eqrs="0">Poison Spurs Trap</a>				</td>
+	Line 1065: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8936" data-eqrs="0">Poison Spurs</a> (PCIObRogS11L055TrapSpike)<br>				<br>
+	Line 1112: 				<a href="spells.php?id=4517" data-eqrs="0">Kinesthetics Discipline</a>				</td>
+	Line 1161: 				<a href="spells.php?id=4677" data-eqrs="0">Blinding Speed Discipline</a>				</td>
+	Line 1210: 				<a href="spells.php?id=4676" data-eqrs="0">Duelist Discipline</a>				</td>
+	Line 1259: 				<a href="spells.php?id=6751" data-eqrs="0">Rogue's Ploy</a>				</td>
+	Line 1308: 				<a href="spells.php?id=4686" data-eqrs="0">Assassin's Strike</a>				</td>
+	Line 1324: 				<a href="spells.php?id=4694" data-eqrs="0">Deadly Precision Discipline</a>				</td>
+	Line 1340: 				<a href="spells.php?id=4687" data-eqrs="0">Healing Will Discipline</a>				</td>
+	Line 1389: 				<a href="spells.php?id=5018" data-eqrs="0">Ancient: Chaos Strike</a>				</td>
+	Line 1405: 				<a href="spells.php?id=5017" data-eqrs="0">Kyv Strike</a>				</td>
+	Line 1421: 				<a href="spells.php?id=4695" data-eqrs="0">Twisted Chance Discipline</a>				</td>

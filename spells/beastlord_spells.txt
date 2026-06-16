@@ -1,0 +1,156 @@
+Line  606: 				<a href="spells.php?id=5011" data-eqrs="0">Salve</a>				</td>
+	Line  655: 				<a href="spells.php?id=238" data-eqrs="0">Sense Animals</a>				</td>
+	Line  704: 				<a href="spells.php?id=225" data-eqrs="0">Endure Cold</a>				</td>
+	Line  753: 				<a href="spells.php?id=213" data-eqrs="0">Cure Disease</a>				</td>
+	Line  802: 				<a href="spells.php?id=201" data-eqrs="0">Flash of Light</a>				</td>
+	Line  851: 				<a href="spells.php?id=200" data-eqrs="0">Minor Healing</a>				</td>
+	Line  900: 				<a href="spells.php?id=267" data-eqrs="0">Inner Fire</a>				</td>
+	Line  949: 				<a href="spells.php?id=2612" data-eqrs="0">Spirit of Sharik</a>				</td>
+	Line  998: 				<a href="spells.php?id=224" data-eqrs="0">Endure Fire</a>				</td>
+	Line 1014: 				<a href="spells.php?id=2611" data-eqrs="0">Sharik's Replenishing</a>				</td>
+	Line 1063: 				<a href="spells.php?id=274" data-eqrs="0">Scale Skin</a>				</td>
+	Line 1112: 				<a href="spells.php?id=271" data-eqrs="0">Fleeting Fury</a>				</td>
+	Line 1161: 				<a href="spells.php?id=2068" data-eqrs="0">Blast of Frost</a>				</td>
+	Line 1210: 				<a href="spells.php?id=203" data-eqrs="0">Cure Poison</a>				</td>
+	Line 1226: 				<a href="spells.php?id=2635" data-eqrs="0">Spirit of Lightning</a>				</td>
+	Line 1228: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2720" data-eqrs="0">Spirit of Lightning Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 1275: 				<a href="spells.php?id=75" data-eqrs="0">Sicken</a>				</td>
+	Line 1291: 				<a href="spells.php?id=40" data-eqrs="0">Strengthen</a>				</td>
+	Line 1340: 				<a href="spells.php?id=2613" data-eqrs="0">Keshuval's Rejuvenation</a>				</td>
+	Line 1356: 				<a href="spells.php?id=2633" data-eqrs="0">Spirit of Khaliz</a>				</td>
+	Line 1405: 				<a href="spells.php?id=276" data-eqrs="0">Serpent Sight</a>				</td>
+	Line 1454: 				<a href="spells.php?id=279" data-eqrs="0">Spirit of Bear</a>				</td>
+	Line 1470: 				<a href="spells.php?id=211" data-eqrs="0">Summon Drink</a>				</td>
+	Line 1519: 				<a href="spells.php?id=227" data-eqrs="0">Endure Poison</a>				</td>
+	Line 1535: 				<a href="spells.php?id=17" data-eqrs="0">Light Healing</a>				</td>
+	Line 1551: 				<a href="spells.php?id=2636" data-eqrs="0">Spirit of the Blizzard</a>				</td>
+	Line 1553: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2721" data-eqrs="0">Spirit of Blizzard Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 1600: 				<a href="spells.php?id=277" data-eqrs="0">Tainted Breath</a>				</td>
+	Line 1616: 				<a href="spells.php?id=3583" data-eqrs="0">Tiny Companion</a>				</td>
+	Line 1665: 				<a href="spells.php?id=270" data-eqrs="0">Drowsy</a>				</td>
+	Line 1714: 				<a href="spells.php?id=2614" data-eqrs="0">Spirit of Keshuval</a>				</td>
+	Line 1763: 				<a href="spells.php?id=226" data-eqrs="0">Endure Disease</a>				</td>
+	Line 1812: 				<a href="spells.php?id=345" data-eqrs="0">Shrink</a>				</td>
+	Line 1861: 				<a href="spells.php?id=278" data-eqrs="0">Spirit of Wolf</a>				</td>
+	Line 1910: 				<a href="spells.php?id=86" data-eqrs="0">Enduring Breath</a>				</td>
+	Line 1959: 				<a href="spells.php?id=282" data-eqrs="0">Spirit Strike</a>				</td>
+	Line 1975: 				<a href="spells.php?id=283" data-eqrs="0">Turtle Skin</a>				</td>
+	Line 2024: 				<a href="spells.php?id=2615" data-eqrs="0">Herikol's Soothing</a>				</td>
+	Line 2073: 				<a href="spells.php?id=12" data-eqrs="0">Healing</a>				</td>
+	Line 2089: 				<a href="spells.php?id=2637" data-eqrs="0">Spirit of Inferno</a>				</td>
+	Line 2091: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2722" data-eqrs="0">Spirit of Inferno Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 2105: 				<a href="spells.php?id=147" data-eqrs="0">Spirit Strength</a>				</td>
+	Line 2154: 				<a href="spells.php?id=79" data-eqrs="0">Spirit Sight</a>				</td>
+	Line 2170: 				<a href="spells.php?id=50" data-eqrs="0">Summon Food</a>				</td>
+	Line 2219: 				<a href="spells.php?id=2616" data-eqrs="0">Spirit of Herikol</a>				</td>
+	Line 2268: 				<a href="spells.php?id=1285" data-eqrs="0">Summon Companion</a>				</td>
+	Line 2317: 				<a href="spells.php?id=261" data-eqrs="0">Levitate</a>				</td>
+	Line 2366: 				<a href="spells.php?id=3568" data-eqrs="0">Ice Spear</a>				</td>
+	Line 2415: 				<a href="spells.php?id=228" data-eqrs="0">Endure Magic</a>				</td>
+	Line 2464: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 2480: 				<a href="spells.php?id=434" data-eqrs="0">Envenomed Breath</a>				</td>
+	Line 2529: 				<a href="spells.php?id=2617" data-eqrs="0">Yekan's Recovery</a>				</td>
+	Line 2578: 				<a href="spells.php?id=149" data-eqrs="0">Spirit of Ox</a>				</td>
+	Line 2594: 				<a href="spells.php?id=2619" data-eqrs="0">Yekan's Quickening</a>				</td>
+	Line 2643: 				<a href="spells.php?id=15" data-eqrs="0">Greater Healing</a>				</td>
+	Line 2659: 				<a href="spells.php?id=146" data-eqrs="0">Spirit of Monkey</a>				</td>
+	Line 2675: 				<a href="spells.php?id=2638" data-eqrs="0">Spirit of the Scorpion</a>				</td>
+	Line 2677: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2723" data-eqrs="0">Spirit of Scorpion Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 2724: 				<a href="spells.php?id=4054" data-eqrs="0">Spirit of the Shrew</a>				</td>
+	Line 2740: 				<a href="spells.php?id=2618" data-eqrs="0">Spirit of Yekan</a>				</td>
+	Line 2789: 				<a href="spells.php?id=3689" data-eqrs="0">Malaria</a>				</td>
+	Line 2838: 				<a href="spells.php?id=151" data-eqrs="0">Raging Strength</a>				</td>
+	Line 2854: 				<a href="spells.php?id=2176" data-eqrs="0">Spiritual Light</a>				</td>
+	Line 2903: 				<a href="spells.php?id=2178" data-eqrs="0">Spiritual Brawn</a>				</td>
+	Line 2952: 				<a href="spells.php?id=42" data-eqrs="0">Invisibility</a>				</td>
+	Line 3001: 				<a href="spells.php?id=162" data-eqrs="0">Listless Power</a>				</td>
+	Line 3017: 				<a href="spells.php?id=4055" data-eqrs="0">Pack Shrew</a>				</td>
+	Line 3066: 				<a href="spells.php?id=96" data-eqrs="0">Counteract Disease</a>				</td>
+	Line 3115: 				<a href="spells.php?id=2621" data-eqrs="0">Spirit of Kashek</a>				</td>
+	Line 3131: 				<a href="spells.php?id=2639" data-eqrs="0">Spirit of Vermin</a>				</td>
+	Line 3133: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2724" data-eqrs="0">Spirit of Vermin Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 3180: 				<a href="spells.php?id=308" data-eqrs="0">Frenzy</a>				</td>
+	Line 3196: 				<a href="spells.php?id=3569" data-eqrs="0">Frost Shard</a>				</td>
+	Line 3245: 				<a href="spells.php?id=649" data-eqrs="0">Protect</a>				</td>
+	Line 3261: 				<a href="spells.php?id=6874" data-eqrs="0">Spirit Salve</a>				</td>
+	Line 3310: 				<a href="spells.php?id=2620" data-eqrs="0">Vigor of Zehkes</a>				</td>
+	Line 3326: 				<a href="spells.php?id=4079" data-eqrs="0">Ward of Calliav</a>				</td>
+	Line 3375: 				<a href="spells.php?id=2634" data-eqrs="0">Sha's Lethargy</a>				</td>
+	Line 3424: 				<a href="spells.php?id=63" data-eqrs="0">Resist Disease</a>				</td>
+	Line 3440: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line 3456: 				<a href="spells.php?id=2640" data-eqrs="0">Spirit of Wind</a>				</td>
+	Line 3458: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2725" data-eqrs="0">Spirit of Wind Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 3472: 				<a href="spells.php?id=46" data-eqrs="0">Ultravision</a>				</td>
+	Line 3521: 				<a href="spells.php?id=2622" data-eqrs="0">Aid of Khurenz</a>				</td>
+	Line 3537: 				<a href="spells.php?id=3690" data-eqrs="0">Bond of the Wild</a>				</td>
+	Line 3540: 				Recourse: <a href="spells.php?id=3691" data-eqrs="0">Bond of the Wild Recourse</a><br>				<br>
+	Line 3554: 				<a href="spells.php?id=161" data-eqrs="0">Health</a>				</td>
+	Line 3570: 				<a href="spells.php?id=2177" data-eqrs="0">Spiritual Radiance</a>				</td>
+	Line 3586: 				<a href="spells.php?id=435" data-eqrs="0">Venom of the Snake</a>				</td>
+	Line 3635: 				<a href="spells.php?id=152" data-eqrs="0">Deftness</a>				</td>
+	Line 3651: 				<a href="spells.php?id=2641" data-eqrs="0">Spirit of the Storm</a>				</td>
+	Line 3653: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2726" data-eqrs="0">Spirit of Storm Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 3667: 				<a href="spells.php?id=167" data-eqrs="0">Talisman of Tnarg</a>				</td>
+	Line 3716: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line 3732: 				<a href="spells.php?id=153" data-eqrs="0">Furious Strength</a>				</td>
+	Line 3748: 				<a href="spells.php?id=3570" data-eqrs="0">Ice Shard</a>				</td>
+	Line 3764: 				<a href="spells.php?id=62" data-eqrs="0">Resist Poison</a>				</td>
+	Line 3780: 				<a href="spells.php?id=2623" data-eqrs="0">Spirit of Omakin</a>				</td>
+	Line 3796: 				<a href="spells.php?id=2890" data-eqrs="0">Spirit of Snow</a>				</td>
+	Line 3798: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2891" data-eqrs="0">Spirit of Snow Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 3845: 				<a href="spells.php?id=145" data-eqrs="0">Chloroplast</a>				</td>
+	Line 3861: 				<a href="spells.php?id=2625" data-eqrs="0">Omakin's Alacrity</a>				</td>
+	Line 3877: 				<a href="spells.php?id=4671" data-eqrs="0">Protective Spirit Discipline</a>				</td>
+	Line 3893: 				<a href="spells.php?id=2624" data-eqrs="0">Sha's Restoration</a>				</td>
+	Line 3942: 				<a href="spells.php?id=163" data-eqrs="0">Incapacitate</a>				</td>
+	Line 3958: 				<a href="spells.php?id=431" data-eqrs="0">Shifting Shield</a>				</td>
+	Line 3974: 				<a href="spells.php?id=2888" data-eqrs="0">Spirit of Flame</a>				</td>
+	Line 3976: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2889" data-eqrs="0">Spirit of Flame Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 3990: 				<a href="spells.php?id=2626" data-eqrs="0">Spirit of Zehkes</a>				</td>
+	Line 4039: 				<a href="spells.php?id=157" data-eqrs="0">Dexterity</a>				</td>
+	Line 4055: 				<a href="spells.php?id=158" data-eqrs="0">Stamina</a>				</td>
+	Line 4104: 				<a href="spells.php?id=4080" data-eqrs="0">Guard of Calliav</a>				</td>
+	Line 4120: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 4136: 				<a href="spells.php?id=2627" data-eqrs="0">Spirit of Khurenz</a>				</td>
+	Line 4152: 				<a href="spells.php?id=168" data-eqrs="0">Talisman of Altuna</a>				</td>
+	Line 4201: 				<a href="spells.php?id=510" data-eqrs="0">Blizzard Blast</a>				</td>
+	Line 4217: 				<a href="spells.php?id=1290" data-eqrs="0">Chloroblast</a>				</td>
+	Line 4233: 				<a href="spells.php?id=2628" data-eqrs="0">Sha's Ferocity</a>				</td>
+	Line 4249: 				<a href="spells.php?id=2629" data-eqrs="0">Spiritual Purity</a>				</td>
+	Line 4298: 				<a href="spells.php?id=170" data-eqrs="0">Alacrity</a>				</td>
+	Line 4314: 				<a href="spells.php?id=4678" data-eqrs="0">Bestial Fury Discipline</a>				</td>
+	Line 4330: 				<a href="spells.php?id=2941" data-eqrs="0">Savagery</a>				</td>
+	Line 4346: 				<a href="spells.php?id=2942" data-eqrs="0">Sha's Advantage</a>				</td>
+	Line 4362: 				<a href="spells.php?id=2631" data-eqrs="0">Spirit of Khati Sha</a>				</td>
+	Line 4378: 				<a href="spells.php?id=2630" data-eqrs="0">Spiritual Strength</a>				</td>
+	Line 4427: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 4443: 				<a href="spells.php?id=95" data-eqrs="0">Counteract Poison</a>				</td>
+	Line 4459: 				<a href="spells.php?id=6740" data-eqrs="0">Growl of the Leopard</a>				</td>
+	Line 4462: 				Recourse: <a href="spells.php?id=6747" data-eqrs="0">Growl of the Leopard</a><br>				<br>
+	Line 4476: 				<a href="spells.php?id=6747" data-eqrs="0">Growl of the Leopard</a>				</td>
+	Line 4492: 				<a href="spells.php?id=3455" data-eqrs="0">Healing of Sorsha</a>				</td>
+	Line 4508: 				<a href="spells.php?id=3454" data-eqrs="0">Infusion of Spirit</a>				</td>
+	Line 4524: 				<a href="spells.php?id=3492" data-eqrs="0">Scorpion Venom</a>				</td>
+	Line 4540: 				<a href="spells.php?id=1571" data-eqrs="0">Talisman of Shadoo</a>				</td>
+	Line 4589: 				<a href="spells.php?id=3457" data-eqrs="0">Spirit of Arag</a>				</td>
+	Line 4605: 				<a href="spells.php?id=3456" data-eqrs="0">Spiritual Vigor</a>				</td>
+	Line 4621: 				<a href="spells.php?id=1585" data-eqrs="0">Talisman of Kragg</a>				</td>
+	Line 4670: 				<a href="spells.php?id=98" data-eqrs="0">Abolish Disease</a>				</td>
+	Line 4686: 				<a href="spells.php?id=3458" data-eqrs="0">Arag's Celerity</a>				</td>
+	Line 4702: 				<a href="spells.php?id=171" data-eqrs="0">Celerity</a>				</td>
+	Line 4718: 				<a href="spells.php?id=3493" data-eqrs="0">Frost Spear</a>				</td>
+	Line 4734: 				<a href="spells.php?id=3459" data-eqrs="0">Spirit of Rellic</a>				</td>
+	Line 4736: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=3179" data-eqrs="0">Spirit of Rellic Strike</a> with 150% Rate Mod<br><b>2:</b> Increase Dexterity by 75<br>				<br>
+	Line 4750: 				<a href="spells.php?id=1570" data-eqrs="0">Talisman of Jasinth</a>				</td>
+	Line 4799: 				<a href="spells.php?id=4081" data-eqrs="0">Protection of Calliav</a>				</td>
+	Line 4815: 				<a href="spells.php?id=1568" data-eqrs="0">Regrowth</a>				</td>
+	Line 4831: 				<a href="spells.php?id=3461" data-eqrs="0">Spirit of Sorsha</a>				</td>
+	Line 4847: 				<a href="spells.php?id=3460" data-eqrs="0">Spiritual Dominion</a>				</td>
+	Line 4896: 				<a href="spells.php?id=1575" data-eqrs="0">Acumen</a>				</td>
+	Line 4912: 				<a href="spells.php?id=4972" data-eqrs="0">Ancient: Frozen Chaos</a>				</td>
+	Line 4928: 				<a href="spells.php?id=3463" data-eqrs="0">Ferocity</a>				</td>
+	Line 4944: 				<a href="spells.php?id=32" data-eqrs="0">Plague</a>				</td>
+	Line 4960: 				<a href="spells.php?id=3462" data-eqrs="0">Sha's Revenge</a>				</td>
+	Line 4976: 				<a href="spells.php?id=4876" data-eqrs="0">Trushar's Frost</a>				</td>
+	Line 4992: 				<a href="spells.php?id=4875" data-eqrs="0">Trushar's Mending</a>				</td>
+	Line 5008: 				<a href="spells.php?id=4874" data-eqrs="0">Turepta Blood</a>				</td>

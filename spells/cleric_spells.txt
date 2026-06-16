@@ -1,0 +1,292 @@
+Line  606: 				<a href="spells.php?id=202" data-eqrs="0">Courage</a>				</td>
+	Line  622: 				<a href="spells.php?id=203" data-eqrs="0">Cure Poison</a>				</td>
+	Line  638: 				<a href="spells.php?id=207" data-eqrs="0">Divine Aura</a>				</td>
+	Line  654: 				<a href="spells.php?id=201" data-eqrs="0">Flash of Light</a>				</td>
+	Line  670: 				<a href="spells.php?id=11" data-eqrs="0">Holy Armor</a>				</td>
+	Line  686: 				<a href="spells.php?id=208" data-eqrs="0">Lull</a>				</td>
+	Line  702: 				<a href="spells.php?id=200" data-eqrs="0">Minor Healing</a>				</td>
+	Line  718: 				<a href="spells.php?id=209" data-eqrs="0">Spook the Dead</a>				</td>
+	Line  734: 				<a href="spells.php?id=14" data-eqrs="0">Strike</a>				</td>
+	Line  750: 				<a href="spells.php?id=205" data-eqrs="0">True North</a>				</td>
+	Line  766: 				<a href="spells.php?id=210" data-eqrs="0">Yaulp</a>				</td>
+	Line  815: 				<a href="spells.php?id=215" data-eqrs="0">Reckless Strength</a>				</td>
+	Line  831: 				<a href="spells.php?id=216" data-eqrs="0">Stun</a>				</td>
+	Line  880: 				<a href="spells.php?id=212" data-eqrs="0">Cure Blindness</a>				</td>
+	Line  896: 				<a href="spells.php?id=211" data-eqrs="0">Summon Drink</a>				</td>
+	Line  945: 				<a href="spells.php?id=213" data-eqrs="0">Cure Disease</a>				</td>
+	Line  961: 				<a href="spells.php?id=17" data-eqrs="0">Light Healing</a>				</td>
+	Line  977: 				<a href="spells.php?id=218" data-eqrs="0">Ward Undead</a>				</td>
+	Line 1026: 				<a href="spells.php?id=560" data-eqrs="0">Furor</a>				</td>
+	Line 1042: 				<a href="spells.php?id=36" data-eqrs="0">Gate</a>				</td>
+	Line 1058: 				<a href="spells.php?id=501" data-eqrs="0">Soothe</a>				</td>
+	Line 1107: 				<a href="spells.php?id=227" data-eqrs="0">Endure Poison</a>				</td>
+	Line 1123: 				<a href="spells.php?id=229" data-eqrs="0">Fear</a>				</td>
+	Line 1139: 				<a href="spells.php?id=2501" data-eqrs="0">Sanctuary</a>				</td>
+	Line 1188: 				<a href="spells.php?id=219" data-eqrs="0">Center</a>				</td>
+	Line 1204: 				<a href="spells.php?id=223" data-eqrs="0">Hammer of Wrath</a>				</td>
+	Line 1220: 				<a href="spells.php?id=230" data-eqrs="0">Root</a>				</td>
+	Line 1269: 				<a href="spells.php?id=224" data-eqrs="0">Endure Fire</a>				</td>
+	Line 1285: 				<a href="spells.php?id=4056" data-eqrs="0">Remove Minor Curse</a>				</td>
+	Line 1301: 				<a href="spells.php?id=50" data-eqrs="0">Summon Food</a>				</td>
+	Line 1350: 				<a href="spells.php?id=221" data-eqrs="0">Sense the Dead</a>				</td>
+	Line 1366: 				<a href="spells.php?id=231" data-eqrs="0">Word of Pain</a>				</td>
+	Line 1415: 				<a href="spells.php?id=35" data-eqrs="0">Bind Affinity</a>				</td>
+	Line 1431: 				<a href="spells.php?id=12" data-eqrs="0">Healing</a>				</td>
+	Line 1447: 				<a href="spells.php?id=4258" data-eqrs="0">Iony's Lesser Augury</a>				</td>
+	Line 1496: 				<a href="spells.php?id=226" data-eqrs="0">Endure Disease</a>				</td>
+	Line 1512: 				<a href="spells.php?id=235" data-eqrs="0">Invisibility Versus Undead</a>				</td>
+	Line 1528: 				<a href="spells.php?id=485" data-eqrs="0">Symbol of Transal</a>				</td>
+	Line 1577: 				<a href="spells.php?id=234" data-eqrs="0">Halo of Light</a>				</td>
+	Line 1593: 				<a href="spells.php?id=2168" data-eqrs="0">Reanimation</a>				</td>
+	Line 1609: 				<a href="spells.php?id=232" data-eqrs="0">Sense Summoned</a>				</td>
+	Line 1658: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 1674: 				<a href="spells.php?id=225" data-eqrs="0">Endure Cold</a>				</td>
+	Line 1690: 				<a href="spells.php?id=233" data-eqrs="0">Expulse Undead</a>				</td>
+	Line 1739: 				<a href="spells.php?id=4282" data-eqrs="0">Iony's Lesser Cleansing</a>				</td>
+	Line 1755: 				<a href="spells.php?id=4270" data-eqrs="0">Iony's Lesser Exorcism</a>				</td>
+	Line 1771: 				<a href="spells.php?id=16" data-eqrs="0">Smite</a>				</td>
+	Line 1820: 				<a href="spells.php?id=3575" data-eqrs="0">Blessing of Piety</a>				</td>
+	Line 1822: 				<br><b>1:</b> Increase Spell Haste by 10%<br><b>2:</b> Limit Max Level: 39 (Lose 5% per Level)<br><b>3:</b> Limit Spell: Exclude <a href="spells.php?id=13" data-eqrs="0">Complete Heal</a><br><b>4:</b> Limit Min Casting Time: 3s<br><b>5:</b> Limit Effect: Exclude Current Hit Points Percent<br><b>6:</b> Limit Type: Exclude Combat Skills<br>				<br>
+	Line 1836: 				<a href="spells.php?id=47" data-eqrs="0">Calm</a>				</td>
+	Line 1852: 				<a href="spells.php?id=368" data-eqrs="0">Spirit Armor</a>				</td>
+	Line 1901: 				<a href="spells.php?id=228" data-eqrs="0">Endure Magic</a>				</td>
+	Line 1917: 				<a href="spells.php?id=123" data-eqrs="0">Holy Might</a>				</td>
+	Line 1933: 				<a href="spells.php?id=43" data-eqrs="0">Yaulp II</a>				</td>
+	Line 1982: 				<a href="spells.php?id=89" data-eqrs="0">Daring</a>				</td>
+	Line 1998: 				<a href="spells.php?id=248" data-eqrs="0">Ward Summoned</a>				</td>
+	Line 2047: 				<a href="spells.php?id=2169" data-eqrs="0">Reconstitution</a>				</td>
+	Line 2096: 				<a href="spells.php?id=2502" data-eqrs="0">Celestial Remedy</a>				</td>
+	Line 2112: 				<a href="spells.php?id=413" data-eqrs="0">Word of Shadow</a>				</td>
+	Line 2161: 				<a href="spells.php?id=15" data-eqrs="0">Greater Healing</a>				</td>
+	Line 2177: 				<a href="spells.php?id=37" data-eqrs="0">Hammer of Striking</a>				</td>
+	Line 2193: 				<a href="spells.php?id=4088" data-eqrs="0">Ward of Vie</a>				</td>
+	Line 2242: 				<a href="spells.php?id=126" data-eqrs="0">Inspire Fear</a>				</td>
+	Line 2258: 				<a href="spells.php?id=486" data-eqrs="0">Symbol of Ryltan</a>				</td>
+	Line 2274: 				<a href="spells.php?id=128" data-eqrs="0">Wave of Fear</a>				</td>
+	Line 2323: 				<a href="spells.php?id=244" data-eqrs="0">Bravery</a>				</td>
+	Line 2339: 				<a href="spells.php?id=95" data-eqrs="0">Counteract Poison</a>				</td>
+	Line 2355: 				<a href="spells.php?id=2170" data-eqrs="0">Reparation</a>				</td>
+	Line 2404: 				<a href="spells.php?id=117" data-eqrs="0">Dismiss Undead</a>				</td>
+	Line 2420: 				<a href="spells.php?id=4259" data-eqrs="0">Iony's Augury</a>				</td>
+	Line 2436: 				<a href="spells.php?id=4057" data-eqrs="0">Remove Lesser Curse</a>				</td>
+	Line 2485: 				<a href="spells.php?id=4283" data-eqrs="0">Iony's Cleansing</a>				</td>
+	Line 2501: 				<a href="spells.php?id=4271" data-eqrs="0">Iony's Exorcism</a>				</td>
+	Line 2550: 				<a href="spells.php?id=18" data-eqrs="0">Guard</a>				</td>
+	Line 2566: 				<a href="spells.php?id=2503" data-eqrs="0">Sermon of the Righteous</a>				</td>
+	Line 2615: 				<a href="spells.php?id=59" data-eqrs="0">Panic the Dead</a>				</td>
+	Line 2631: 				<a href="spells.php?id=414" data-eqrs="0">Word of Spirit</a>				</td>
+	Line 2680: 				<a href="spells.php?id=663" data-eqrs="0">Expulse Summoned</a>				</td>
+	Line 2696: 				<a href="spells.php?id=131" data-eqrs="0">Instill</a>				</td>
+	Line 2712: 				<a href="spells.php?id=391" data-eqrs="0">Revive</a>				</td>
+	Line 2761: 				<a href="spells.php?id=52" data-eqrs="0">Abundant Drink</a>				</td>
+	Line 2777: 				<a href="spells.php?id=96" data-eqrs="0">Counteract Disease</a>				</td>
+	Line 2826: 				<a href="spells.php?id=2175" data-eqrs="0">Celestial Health</a>				</td>
+	Line 2842: 				<a href="spells.php?id=130" data-eqrs="0">Divine Barrier</a>				</td>
+	Line 2858: 				<a href="spells.php?id=1885" data-eqrs="0">Imbue Amber</a>				</td>
+	Line 2874: 				<a href="spells.php?id=1894" data-eqrs="0">Imbue Black Pearl</a>				</td>
+	Line 2890: 				<a href="spells.php?id=1897" data-eqrs="0">Imbue Black Sapphire</a>				</td>
+	Line 2906: 				<a href="spells.php?id=1895" data-eqrs="0">Imbue Diamond</a>				</td>
+	Line 2922: 				<a href="spells.php?id=1888" data-eqrs="0">Imbue Emerald</a>				</td>
+	Line 2938: 				<a href="spells.php?id=1798" data-eqrs="0">Imbue Opal</a>				</td>
+	Line 2954: 				<a href="spells.php?id=1898" data-eqrs="0">Imbue Peridot</a>				</td>
+	Line 2970: 				<a href="spells.php?id=1800" data-eqrs="0">Imbue Plains Pebble</a>				</td>
+	Line 2986: 				<a href="spells.php?id=1896" data-eqrs="0">Imbue Rose Quartz</a>				</td>
+	Line 3002: 				<a href="spells.php?id=1887" data-eqrs="0">Imbue Ruby</a>				</td>
+	Line 3018: 				<a href="spells.php?id=1886" data-eqrs="0">Imbue Sapphire</a>				</td>
+	Line 3034: 				<a href="spells.php?id=1799" data-eqrs="0">Imbue Topaz</a>				</td>
+	Line 3050: 				<a href="spells.php?id=3994" data-eqrs="0">Mass Imbue Amber</a>				</td>
+	Line 3066: 				<a href="spells.php?id=3995" data-eqrs="0">Mass Imbue Black Pearl</a>				</td>
+	Line 3082: 				<a href="spells.php?id=3996" data-eqrs="0">Mass Imbue Black Sapphire</a>				</td>
+	Line 3098: 				<a href="spells.php?id=3997" data-eqrs="0">Mass Imbue Diamond</a>				</td>
+	Line 3114: 				<a href="spells.php?id=3998" data-eqrs="0">Mass Imbue Emerald</a>				</td>
+	Line 3130: 				<a href="spells.php?id=4002" data-eqrs="0">Mass Imbue Opal</a>				</td>
+	Line 3146: 				<a href="spells.php?id=4003" data-eqrs="0">Mass Imbue Peridot</a>				</td>
+	Line 3162: 				<a href="spells.php?id=4004" data-eqrs="0">Mass Imbue Plains Pebble</a>				</td>
+	Line 3178: 				<a href="spells.php?id=4005" data-eqrs="0">Mass Imbue Rose Quartz</a>				</td>
+	Line 3194: 				<a href="spells.php?id=4006" data-eqrs="0">Mass Imbue Ruby</a>				</td>
+	Line 3210: 				<a href="spells.php?id=4007" data-eqrs="0">Mass Imbue Sapphire</a>				</td>
+	Line 3226: 				<a href="spells.php?id=4008" data-eqrs="0">Mass Imbue Topaz</a>				</td>
+	Line 3242: 				<a href="spells.php?id=329" data-eqrs="0">Wrath</a>				</td>
+	Line 3291: 				<a href="spells.php?id=62" data-eqrs="0">Resist Poison</a>				</td>
+	Line 3307: 				<a href="spells.php?id=9" data-eqrs="0">Superior Healing</a>				</td>
+	Line 3323: 				<a href="spells.php?id=135" data-eqrs="0">Word of Health</a>				</td>
+	Line 3372: 				<a href="spells.php?id=124" data-eqrs="0">Force</a>				</td>
+	Line 3388: 				<a href="spells.php?id=504" data-eqrs="0">Frenzied Strength</a>				</td>
+	Line 3404: 				<a href="spells.php?id=487" data-eqrs="0">Symbol of Pinzarn</a>				</td>
+	Line 3453: 				<a href="spells.php?id=480" data-eqrs="0">Atone</a>				</td>
+	Line 3469: 				<a href="spells.php?id=2171" data-eqrs="0">Renewal</a>				</td>
+	Line 3485: 				<a href="spells.php?id=312" data-eqrs="0">Valor</a>				</td>
+	Line 3534: 				<a href="spells.php?id=53" data-eqrs="0">Abundant Food</a>				</td>
+	Line 3550: 				<a href="spells.php?id=662" data-eqrs="0">Expel Undead</a>				</td>
+	Line 3566: 				<a href="spells.php?id=4260" data-eqrs="0">Iony's Greater Augury</a>				</td>
+	Line 3582: 				<a href="spells.php?id=60" data-eqrs="0">Resist Fire</a>				</td>
+	Line 3631: 				<a href="spells.php?id=1445" data-eqrs="0">Armor of Protection</a>				</td>
+	Line 3647: 				<a href="spells.php?id=134" data-eqrs="0">Blinding Luminance</a>				</td>
+	Line 3663: 				<a href="spells.php?id=4284" data-eqrs="0">Iony's Greater Cleansing</a>				</td>
+	Line 3679: 				<a href="spells.php?id=4272" data-eqrs="0">Iony's Greater Exorcism</a>				</td>
+	Line 3695: 				<a href="spells.php?id=405" data-eqrs="0">Tremor</a>				</td>
+	Line 3744: 				<a href="spells.php?id=19" data-eqrs="0">Armor of Faith</a>				</td>
+	Line 3760: 				<a href="spells.php?id=3576" data-eqrs="0">Blessing of Faith</a>				</td>
+	Line 3762: 				<br><b>1:</b> Increase Spell Haste by 10%<br><b>2:</b> Limit Max Level: 61 (Lose 5% per Level)<br><b>3:</b> Limit Spell: Exclude <a href="spells.php?id=13" data-eqrs="0">Complete Heal</a><br><b>4:</b> Limit Min Casting Time: 3s<br><b>5:</b> Limit Effect: Exclude Current Hit Points Percent<br><b>6:</b> Limit Type: Exclude Combat Skills<br>				<br>
+	Line 3809: 				<a href="spells.php?id=127" data-eqrs="0">Invoke Fear</a>				</td>
+	Line 3825: 				<a href="spells.php?id=45" data-eqrs="0">Pacify</a>				</td>
+	Line 3841: 				<a href="spells.php?id=63" data-eqrs="0">Resist Disease</a>				</td>
+	Line 3890: 				<a href="spells.php?id=115" data-eqrs="0">Dismiss Summoned</a>				</td>
+	Line 3906: 				<a href="spells.php?id=388" data-eqrs="0">Resuscitate</a>				</td>
+	Line 3922: 				<a href="spells.php?id=1443" data-eqrs="0">Turning of the Unnatural</a>				</td>
+	Line 3971: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 3987: 				<a href="spells.php?id=2946" data-eqrs="0">Remove Curse</a>				</td>
+	Line 4003: 				<a href="spells.php?id=61" data-eqrs="0">Resist Cold</a>				</td>
+	Line 4052: 				<a href="spells.php?id=13" data-eqrs="0">Complete Heal</a>				</td>
+	Line 4068: 				<a href="spells.php?id=2504" data-eqrs="0">Sacred Word</a>				</td>
+	Line 4084: 				<a href="spells.php?id=415" data-eqrs="0">Word of Souls</a>				</td>
+	Line 4133: 				<a href="spells.php?id=4089" data-eqrs="0">Guard of Vie</a>				</td>
+	Line 4149: 				<a href="spells.php?id=675" data-eqrs="0">Hammer of Requital</a>				</td>
+	Line 4165: 				<a href="spells.php?id=3692" data-eqrs="0">Temperance</a>				</td>
+	Line 4214: 				<a href="spells.php?id=488" data-eqrs="0">Symbol of Naltron</a>				</td>
+	Line 4230: 				<a href="spells.php?id=44" data-eqrs="0">Yaulp III</a>				</td>
+	Line 4279: 				<a href="spells.php?id=314" data-eqrs="0">Resolution</a>				</td>
+	Line 4295: 				<a href="spells.php?id=2172" data-eqrs="0">Restoration</a>				</td>
+	Line 4344: 				<a href="spells.php?id=118" data-eqrs="0">Banish Undead</a>				</td>
+	Line 4360: 				<a href="spells.php?id=64" data-eqrs="0">Resist Magic</a>				</td>
+	Line 4409: 				<a href="spells.php?id=1444" data-eqrs="0">Celestial Healing</a>				</td>
+	Line 4425: 				<a href="spells.php?id=406" data-eqrs="0">Earthquake</a>				</td>
+	Line 4441: 				<a href="spells.php?id=53118" data-eqrs="0">Greater Mass Imbue Amber</a>				</td>
+	Line 4457: 				<a href="spells.php?id=53119" data-eqrs="0">Greater Mass Imbue Black Pearl</a>				</td>
+	Line 4473: 				<a href="spells.php?id=53120" data-eqrs="0">Greater Mass Imbue Black Sapphire</a>				</td>
+	Line 4489: 				<a href="spells.php?id=53121" data-eqrs="0">Greater Mass Imbue Diamond</a>				</td>
+	Line 4505: 				<a href="spells.php?id=53122" data-eqrs="0">Greater Mass Imbue Emerald</a>				</td>
+	Line 4521: 				<a href="spells.php?id=53126" data-eqrs="0">Greater Mass Imbue Opal</a>				</td>
+	Line 4537: 				<a href="spells.php?id=53127" data-eqrs="0">Greater Mass Imbue Peridot</a>				</td>
+	Line 4553: 				<a href="spells.php?id=53128" data-eqrs="0">Greater Mass Imbue Plains Pebble</a>				</td>
+	Line 4569: 				<a href="spells.php?id=53129" data-eqrs="0">Greater Mass Imbue Rose Quartz</a>				</td>
+	Line 4585: 				<a href="spells.php?id=53130" data-eqrs="0">Greater Mass Imbue Ruby</a>				</td>
+	Line 4601: 				<a href="spells.php?id=53131" data-eqrs="0">Greater Mass Imbue Sapphire</a>				</td>
+	Line 4617: 				<a href="spells.php?id=53132" data-eqrs="0">Greater Mass Imbue Topaz</a>				</td>
+	Line 4633: 				<a href="spells.php?id=672" data-eqrs="0">Retribution</a>				</td>
+	Line 4682: 				<a href="spells.php?id=4053" data-eqrs="0">Blessing of Temperance</a>				</td>
+	Line 4698: 				<a href="spells.php?id=6878" data-eqrs="0">Healing Light</a>				</td>
+	Line 4714: 				<a href="spells.php?id=20" data-eqrs="0">Shield of Words</a>				</td>
+	Line 4730: 				<a href="spells.php?id=136" data-eqrs="0">Word of Healing</a>				</td>
+	Line 4779: 				<a href="spells.php?id=132" data-eqrs="0">Immobilize</a>				</td>
+	Line 4795: 				<a href="spells.php?id=125" data-eqrs="0">Sound of Force</a>				</td>
+	Line 4844: 				<a href="spells.php?id=664" data-eqrs="0">Expel Summoned</a>				</td>
+	Line 4860: 				<a href="spells.php?id=392" data-eqrs="0">Resurrection</a>				</td>
+	Line 4909: 				<a href="spells.php?id=97" data-eqrs="0">Abolish Poison</a>				</td>
+	Line 4925: 				<a href="spells.php?id=1411" data-eqrs="0">Improved Invisibility to Undead</a>				</td>
+	Line 4974: 				<a href="spells.php?id=2505" data-eqrs="0">Armor of the Faithful</a>				</td>
+	Line 4990: 				<a href="spells.php?id=416" data-eqrs="0">Word Divine</a>				</td>
+	Line 5039: 				<a href="spells.php?id=6902" data-eqrs="0">Ward of the Divine</a>				</td>
+	Line 5041: 				<br><b>1:</b> Add Defensive Proc: <a href="spells.php?id=6904" data-eqrs="0">Ward of the Divine Parry</a> with 400% Rate Mod<br>				<br>
+	Line 5088: 				<a href="spells.php?id=1547" data-eqrs="0">Death Pact</a>				</td>
+	Line 5104: 				<a href="spells.php?id=1532" data-eqrs="0">Dread of Night</a>				</td>
+	Line 5120: 				<a href="spells.php?id=3693" data-eqrs="0">Pure Blood</a>				</td>
+	Line 5136: 				<a href="spells.php?id=1518" data-eqrs="0">Remedy</a>				</td>
+	Line 5152: 				<a href="spells.php?id=1726" data-eqrs="0">Sunskin</a>				</td>
+	Line 5201: 				<a href="spells.php?id=2506" data-eqrs="0">Epitaph of Life</a>				</td>
+	Line 5217: 				<a href="spells.php?id=21398" data-eqrs="0">Eradicate Poison</a>				</td>
+	Line 5233: 				<a href="spells.php?id=1536" data-eqrs="0">Heroic Bond</a>				</td>
+	Line 5249: 				<a href="spells.php?id=1538" data-eqrs="0">Heroic Bond</a>				</td>
+	Line 5265: 				<a href="spells.php?id=1533" data-eqrs="0">Heroism</a>				</td>
+	Line 5281: 				<a href="spells.php?id=1542" data-eqrs="0">Upheaval</a>				</td>
+	Line 5297: 				<a href="spells.php?id=1520" data-eqrs="0">Word of Vigor</a>				</td>
+	Line 5346: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 5362: 				<a href="spells.php?id=1519" data-eqrs="0">Divine Light</a>				</td>
+	Line 5378: 				<a href="spells.php?id=1534" data-eqrs="0">Yaulp IV</a>				</td>
+	Line 5427: 				<a href="spells.php?id=21400" data-eqrs="0">Eradicate Curse</a>				</td>
+	Line 5443: 				<a href="spells.php?id=2507" data-eqrs="0">Mark of Retribution</a>				</td>
+	Line 5459: 				<a href="spells.php?id=4090" data-eqrs="0">Protection of Vie</a>				</td>
+	Line 5475: 				<a href="spells.php?id=1543" data-eqrs="0">Reckoning</a>				</td>
+	Line 5491: 				<a href="spells.php?id=2880" data-eqrs="0">Remove Greater Curse</a>				</td>
+	Line 5507: 				<a href="spells.php?id=1535" data-eqrs="0">Symbol of Marzin</a>				</td>
+	Line 5523: 				<a href="spells.php?id=1721" data-eqrs="0">Unswerving Hammer of Faith</a>				</td>
+	Line 5572: 				<a href="spells.php?id=8928" data-eqrs="0">Aura of the Zealot</a>				</td>
+	Line 5574: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8940" data-eqrs="0">Aura of the Zealot Effect</a> (PCIObClrS11L055PiousAura)<br>				<br>
+	Line 5588: 				<a href="spells.php?id=1528" data-eqrs="0">Exile Undead</a>				</td>
+	Line 5604: 				<a href="spells.php?id=1539" data-eqrs="0">Fortitude</a>				</td>
+	Line 5620: 				<a href="spells.php?id=1446" data-eqrs="0">Stun Command</a>				</td>
+	Line 5636: 				<a href="spells.php?id=1541" data-eqrs="0">Wake of Tranquility</a>				</td>
+	Line 5685: 				<a href="spells.php?id=116" data-eqrs="0">Banish Summoned</a>				</td>
+	Line 5701: 				<a href="spells.php?id=6989" data-eqrs="0">Cower the Dead</a>				</td>
+	Line 5717: 				<a href="spells.php?id=2181" data-eqrs="0">Hammer of Judgment</a>				</td>
+	Line 5733: 				<a href="spells.php?id=2508" data-eqrs="0">Judgment</a>				</td>
+	Line 5749: 				<a href="spells.php?id=1548" data-eqrs="0">Mark of Karn</a>				</td>
+	Line 5765: 				<a href="spells.php?id=133" data-eqrs="0">Paralyzing Earth</a>				</td>
+	Line 5781: 				<a href="spells.php?id=1524" data-eqrs="0">Reviviscence</a>				</td>
+	Line 5797: 				<a href="spells.php?id=2326" data-eqrs="0">Yaulp V</a>				</td>
+	Line 5846: 				<a href="spells.php?id=1540" data-eqrs="0">Aegis</a>				</td>
+	Line 5862: 				<a href="spells.php?id=1537" data-eqrs="0">Bulwark of Faith</a>				</td>
+	Line 5878: 				<a href="spells.php?id=1527" data-eqrs="0">Trepidation</a>				</td>
+	Line 5894: 				<a href="spells.php?id=6903" data-eqrs="0">Ward of Rebuke</a>				</td>
+	Line 5896: 				<br><b>1:</b> Add Defensive Proc: <a href="spells.php?id=6905" data-eqrs="0">Ward of Rebuke Parry</a> with 400% Rate Mod<br>				<br>
+	Line 5910: 				<a href="spells.php?id=1521" data-eqrs="0">Word of Restoration</a>				</td>
+	Line 5959: 				<a href="spells.php?id=1525" data-eqrs="0">Antidote</a>				</td>
+	Line 5975: 				<a href="spells.php?id=2509" data-eqrs="0">Blessed Armor of the Risen</a>				</td>
+	Line 5991: 				<a href="spells.php?id=1544" data-eqrs="0">Enforced Reverence</a>				</td>
+	Line 6007: 				<a href="spells.php?id=21399" data-eqrs="0">Eradicate Disease</a>				</td>
+	Line 6023: 				<a href="spells.php?id=2182" data-eqrs="0">Ethereal Light</a>				</td>
+	Line 6039: 				<a href="spells.php?id=3135" data-eqrs="0">Hammer of Divinity</a>				</td>
+	Line 6055: 				<a href="spells.php?id=1774" data-eqrs="0">Naltron's Mark</a>				</td>
+	Line 6104: 				<a href="spells.php?id=1522" data-eqrs="0">Celestial Elixir</a>				</td>
+	Line 6120: 				<a href="spells.php?id=6977" data-eqrs="0">Deistic Voice</a>				</td>
+	Line 6136: 				<a href="spells.php?id=2462" data-eqrs="0">Ethereal Remedy</a>				</td>
+	Line 6152: 				<a href="spells.php?id=3592" data-eqrs="0">Imbue Valor</a>				</td>
+	Line 6168: 				<a href="spells.php?id=1545" data-eqrs="0">The Unspoken Word</a>				</td>
+	Line 6217: 				<a href="spells.php?id=1447" data-eqrs="0">Aegolism</a>				</td>
+	Line 6233: 				<a href="spells.php?id=2122" data-eqrs="0">Ancient: Gift of Aegolism</a>				</td>
+	Line 6249: 				<a href="spells.php?id=2109" data-eqrs="0">Ancient: High Priest's Bulwark</a>				</td>
+	Line 6265: 				<a href="spells.php?id=1530" data-eqrs="0">Banishment of Shadows</a>				</td>
+	Line 6281: 				<a href="spells.php?id=2510" data-eqrs="0">Blessing of Aegolism</a>				</td>
+	Line 6297: 				<a href="spells.php?id=1546" data-eqrs="0">Divine Intervention</a>				</td>
+	Line 6313: 				<a href="spells.php?id=2180" data-eqrs="0">Ethereal Elixir</a>				</td>
+	Line 6329: 				<a href="spells.php?id=3136" data-eqrs="0">Hammer of Souls</a>				</td>
+	Line 6345: 				<a href="spells.php?id=2893" data-eqrs="0">Marzin's Mark</a>				</td>
+	Line 6361: 				<a href="spells.php?id=1523" data-eqrs="0">Word of Redemption</a>				</td>
+	Line 6410: 				<a href="spells.php?id=6990" data-eqrs="0">Death's Despair</a>				</td>
+	Line 6426: 				<a href="spells.php?id=3296" data-eqrs="0">Faith</a>				</td>
+	Line 6442: 				<a href="spells.php?id=1342" data-eqrs="0">Larger Reviviscence</a>				</td>
+	Line 6458: 				<a href="spells.php?id=3465" data-eqrs="0">Supernal Remedy</a>				</td>
+	Line 6474: 				<a href="spells.php?id=3466" data-eqrs="0">Symbol of Kazad</a>				</td>
+	Line 6490: 				<a href="spells.php?id=3481" data-eqrs="0">Tarnation</a>				</td>
+	Line 6506: 				<a href="spells.php?id=3470" data-eqrs="0">Ward of Gallantry</a>				</td>
+	Line 6522: 				<a href="spells.php?id=6730" data-eqrs="0">Ward of Vengeance</a>				</td>
+	Line 6524: 				<br><b>1:</b> Add Defensive Proc: <a href="spells.php?id=6748" data-eqrs="0">Ward of Vengeance Parry</a> with 400% Rate Mod<br>				<br>
+	Line 6571: 				<a href="spells.php?id=3472" data-eqrs="0">Blessing of Reverence</a>				</td>
+	Line 6573: 				<br><b>1:</b> Increase Spell Haste by 10%<br><b>2:</b> Limit Max Level: 65 (Lose 5% per Level)<br><b>3:</b> Limit Spell: Exclude <a href="spells.php?id=13" data-eqrs="0">Complete Heal</a><br><b>4:</b> Limit Min Casting Time: 3s<br><b>5:</b> Limit Effect: Exclude Current Hit Points Percent<br><b>6:</b> Limit Type: Exclude Combat Skills<br>				<br>
+	Line 6587: 				<a href="spells.php?id=4091" data-eqrs="0">Bulwark of Vie</a>				</td>
+	Line 6603: 				<a href="spells.php?id=3476" data-eqrs="0">Condemnation</a>				</td>
+	Line 6619: 				<a href="spells.php?id=3195" data-eqrs="0">Greater Immobilize</a>				</td>
+	Line 6635: 				<a href="spells.php?id=3187" data-eqrs="0">Sermon of Penitence</a>				</td>
+	Line 6651: 				<a href="spells.php?id=3475" data-eqrs="0">Supernal Elixir</a>				</td>
+	Line 6667: 				<a href="spells.php?id=3467" data-eqrs="0">Virtue</a>				</td>
+	Line 6716: 				<a href="spells.php?id=6978" data-eqrs="0">Deistic Bellow</a>				</td>
+	Line 6732: 				<a href="spells.php?id=3478" data-eqrs="0">Hammer of Damnation</a>				</td>
+	Line 6748: 				<a href="spells.php?id=3047" data-eqrs="0">Kazad's Mark</a>				</td>
+	Line 6764: 				<a href="spells.php?id=9721" data-eqrs="0">Resist Corruption</a>				</td>
+	Line 6780: 				<a href="spells.php?id=9722" data-eqrs="0">Resist Corruption Rk. II</a>				</td>
+	Line 6796: 				<a href="spells.php?id=9723" data-eqrs="0">Resist Corruption Rk. III</a>				</td>
+	Line 6812: 				<a href="spells.php?id=3482" data-eqrs="0">Sound of Might</a>				</td>
+	Line 6828: 				<a href="spells.php?id=3480" data-eqrs="0">Supernal Light</a>				</td>
+	Line 6877: 				<a href="spells.php?id=4108" data-eqrs="0">Aura of Reverence</a>				</td>
+	Line 6879: 				<br><b>1:</b> Increase Spell Haste by 10%<br><b>2:</b> Limit Max Level: 65 (Lose 5% per Level)<br><b>3:</b> Limit Spell: Exclude <a href="spells.php?id=13" data-eqrs="0">Complete Heal</a><br><b>4:</b> Limit Min Casting Time: 3s<br><b>5:</b> Limit Effect: Exclude Current Hit Points Percent<br><b>6:</b> Limit Type: Exclude Combat Skills<br>				<br>
+	Line 6893: 				<a href="spells.php?id=3473" data-eqrs="0">Catastrophe</a>				</td>
+	Line 6909: 				<a href="spells.php?id=3468" data-eqrs="0">Destroy Undead</a>				</td>
+	Line 6925: 				<a href="spells.php?id=9794" data-eqrs="0">Expunge Corruption</a>				</td>
+	Line 6941: 				<a href="spells.php?id=9795" data-eqrs="0">Expunge Corruption Rk. II</a>				</td>
+	Line 6957: 				<a href="spells.php?id=9796" data-eqrs="0">Expunge Corruption Rk. III</a>				</td>
+	Line 6973: 				<a href="spells.php?id=3469" data-eqrs="0">Mark of Kings</a>				</td>
+	Line 6989: 				<a href="spells.php?id=3196" data-eqrs="0">Petrifying Earth</a>				</td>
+	Line 7005: 				<a href="spells.php?id=9791" data-eqrs="0">Shared Purity</a>				</td>
+	Line 7021: 				<a href="spells.php?id=9792" data-eqrs="0">Shared Purity Rk. II</a>				</td>
+	Line 7037: 				<a href="spells.php?id=9793" data-eqrs="0">Shared Purity Rk. III</a>				</td>
+	Line 7053: 				<a href="spells.php?id=3471" data-eqrs="0">Word of Replenishment</a>				</td>
+	Line 7102: 				<a href="spells.php?id=4973" data-eqrs="0">Ancient: Chaos Censure</a>				</td>
+	Line 7118: 				<a href="spells.php?id=3474" data-eqrs="0">Armor of the Zealot</a>				</td>
+	Line 7134: 				<a href="spells.php?id=3479" data-eqrs="0">Hand of Virtue</a>				</td>
+	Line 7150: 				<a href="spells.php?id=4882" data-eqrs="0">Holy Elixir</a>				</td>
+	Line 7166: 				<a href="spells.php?id=4880" data-eqrs="0">Holy Light</a>				</td>
+	Line 7182: 				<a href="spells.php?id=3477" data-eqrs="0">Mark of the Righteous</a>				</td>
+	Line 7198: 				<a href="spells.php?id=4881" data-eqrs="0">Order</a>				</td>
+	Line 7214: 				<a href="spells.php?id=3197" data-eqrs="0">Pacification</a>				</td>
+	Line 7230: 				<a href="spells.php?id=3464" data-eqrs="0">The Silent Command</a>				</td>
+	Line 7246: 				<a href="spells.php?id=3186" data-eqrs="0">Yaulp VI</a>				</td>

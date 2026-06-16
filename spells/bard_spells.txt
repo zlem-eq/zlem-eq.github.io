@@ -1,0 +1,153 @@
+Line  606: 				<a href="spells.php?id=700" data-eqrs="0">Chant of Battle</a>				</td>
+	Line  622: 				<a href="spells.php?id=22491" data-eqrs="0">Chant of Chaos</a>				</td>
+	Line  638: 				<a href="spells.php?id=22487" data-eqrs="0">Chant of Flame</a>				</td>
+	Line  654: 				<a href="spells.php?id=22488" data-eqrs="0">Chant of Frost</a>				</td>
+	Line  670: 				<a href="spells.php?id=22486" data-eqrs="0">Chant of Magic</a>				</td>
+	Line  686: 				<a href="spells.php?id=22490" data-eqrs="0">Chant of Plague</a>				</td>
+	Line  702: 				<a href="spells.php?id=22489" data-eqrs="0">Chant of Venom</a>				</td>
+	Line  751: 				<a href="spells.php?id=703" data-eqrs="0">Chords of Dissonance</a>				</td>
+	Line  800: 				<a href="spells.php?id=720" data-eqrs="0">Lyssa's Locating Lyric</a>				</td>
+	Line  849: 				<a href="spells.php?id=717" data-eqrs="0">Selo's Accelerando</a>				</td>
+	Line  898: 				<a href="spells.php?id=7" data-eqrs="0">Hymn of Restoration</a>				</td>
+	Line  947: 				<a href="spells.php?id=734" data-eqrs="0">Jonthan's Whistling Warsong</a>				</td>
+	Line  996: 				<a href="spells.php?id=728" data-eqrs="0">Kelin's Lugubrious Lament</a>				</td>
+	Line 1045: 				<a href="spells.php?id=710" data-eqrs="0">Elemental Rhythms</a>				</td>
+	Line 1061: 				<a href="spells.php?id=2601" data-eqrs="0">Magical Monologue</a>				</td>
+	Line 1110: 				<a href="spells.php?id=701" data-eqrs="0">Anthem de Arms</a>				</td>
+	Line 1159: 				<a href="spells.php?id=708" data-eqrs="0">Cinda's Charismatic Carillon</a>				</td>
+	Line 1208: 				<a href="spells.php?id=704" data-eqrs="0">Brusco's Boastful Bellow</a>				</td>
+	Line 1257: 				<a href="spells.php?id=711" data-eqrs="0">Purifying Rhythms</a>				</td>
+	Line 1306: 				<a href="spells.php?id=737" data-eqrs="0">Lyssa's Cataloging Libretto</a>				</td>
+	Line 1355: 				<a href="spells.php?id=724" data-eqrs="0">Kelin's Lucid Lullaby</a>				</td>
+	Line 1371: 				<a href="spells.php?id=2602" data-eqrs="0">Song of Sustenance</a>				</td>
+	Line 1420: 				<a href="spells.php?id=729" data-eqrs="0">Tarew's Aquatic Ayre</a>				</td>
+	Line 1469: 				<a href="spells.php?id=709" data-eqrs="0">Guardian Rhythms</a>				</td>
+	Line 1518: 				<a href="spells.php?id=730" data-eqrs="0">Denon's Disruptive Discord</a>				</td>
+	Line 1567: 				<a href="spells.php?id=719" data-eqrs="0">Shauri's Sonorous Clouding</a>				</td>
+	Line 1616: 				<a href="spells.php?id=1287" data-eqrs="0">Cassindra's Chant of Clarity</a>				</td>
+	Line 1632: 				<a href="spells.php?id=705" data-eqrs="0">Largo's Melodic Binding</a>				</td>
+	Line 1681: 				<a href="spells.php?id=739" data-eqrs="0">Melanie's Mellifluous Motion</a>				</td>
+	Line 1730: 				<a href="spells.php?id=727" data-eqrs="0">Alenia's Disenchanting Melody</a>				</td>
+	Line 1779: 				<a href="spells.php?id=738" data-eqrs="0">Selo's Consonant Chain</a>				</td>
+	Line 1828: 				<a href="spells.php?id=735" data-eqrs="0">Lyssa's Veracious Concord</a>				</td>
+	Line 1877: 				<a href="spells.php?id=712" data-eqrs="0">Psalm of Warmth</a>				</td>
+	Line 1893: 				<a href="spells.php?id=4395" data-eqrs="0">Selo's Rhythm of Speed</a>				</td>
+	Line 1942: 				<a href="spells.php?id=706" data-eqrs="0">Angstlich's Appalling Screech</a>				</td>
+	Line 1991: 				<a href="spells.php?id=725" data-eqrs="0">Solon's Song of the Sirens</a>				</td>
+	Line 2040: 				<a href="spells.php?id=741" data-eqrs="0">Crission's Pixie Strike</a>				</td>
+	Line 2089: 				<a href="spells.php?id=715" data-eqrs="0">Psalm of Vitality</a>				</td>
+	Line 2138: 				<a href="spells.php?id=2603" data-eqrs="0">Amplification</a>				</td>
+	Line 2154: 				<a href="spells.php?id=707" data-eqrs="0">Fufil's Curtailing Chant</a>				</td>
+	Line 2156: 				<br><b>1:</b> Decrease Current Hit Points by 40 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22486" data-eqrs="0">Chant of Magic</a> (v340)<br>				<br>
+	Line 2203: 				<a href="spells.php?id=718" data-eqrs="0">Agilmente's Aria of Eagles</a>				</td>
+	Line 2252: 				<a href="spells.php?id=723" data-eqrs="0">Cassindra's Chorus of Clarity</a>				</td>
+	Line 2301: 				<a href="spells.php?id=713" data-eqrs="0">Psalm of Cooling</a>				</td>
+	Line 2350: 				<a href="spells.php?id=1448" data-eqrs="0">Cantata of Soothing</a>				</td>
+	Line 2366: 				<a href="spells.php?id=721" data-eqrs="0">Lyssa's Solidarity of Vision</a>				</td>
+	Line 2415: 				<a href="spells.php?id=736" data-eqrs="0">Denon's Dissension</a>				</td>
+	Line 2464: 				<a href="spells.php?id=740" data-eqrs="0">Vilia's Verses of Celerity</a>				</td>
+	Line 2513: 				<a href="spells.php?id=716" data-eqrs="0">Psalm of Purity</a>				</td>
+	Line 2562: 				<a href="spells.php?id=743" data-eqrs="0">Tuyen's Chant of Flame</a>				</td>
+	Line 2564: 				<br><b>1:</b> Decrease Current Hit Points by 40 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22487" data-eqrs="0">Chant of Flame</a> (v340)<br>				<br>
+	Line 2611: 				<a href="spells.php?id=2604" data-eqrs="0">Katta's Song of Sword Dancing</a>				</td>
+	Line 2613: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2834" data-eqrs="0">Blade Dance</a><br><b>4:</b> Increase Dexterity by 40<br>				<br>
+	Line 2627: 				<a href="spells.php?id=750" data-eqrs="0">Solon's Bewitching Bravura</a>				</td>
+	Line 2676: 				<a href="spells.php?id=868" data-eqrs="0">Sionachie's Dreams</a>				</td>
+	Line 2692: 				<a href="spells.php?id=726" data-eqrs="0">Syvelian's Anti-Magic Aria</a>				</td>
+	Line 2741: 				<a href="spells.php?id=714" data-eqrs="0">Psalm of Mystic Shielding</a>				</td>
+	Line 2790: 				<a href="spells.php?id=702" data-eqrs="0">McVaxius' Berserker Crescendo</a>				</td>
+	Line 2806: 				<a href="spells.php?id=3567" data-eqrs="0">Tuyen's Chant of Disease</a>				</td>
+	Line 2808: 				<br><b>1:</b> Decrease Current Hit Points by 40 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22490" data-eqrs="0">Chant of Plague</a> (v340)<br>				<br>
+	Line 2855: 				<a href="spells.php?id=742" data-eqrs="0">Denon's Desperate Dirge</a>				</td>
+	Line 2904: 				<a href="spells.php?id=745" data-eqrs="0">Cassindra's Elegy</a>				</td>
+	Line 2953: 				<a href="spells.php?id=3682" data-eqrs="0">Aria of Asceticism</a>				</td>
+	Line 2969: 				<a href="spells.php?id=749" data-eqrs="0">Jonthan's Provocation</a>				</td>
+	Line 2985: 				<a href="spells.php?id=4083" data-eqrs="0">Rizlona's Embers</a>				</td>
+	Line 3034: 				<a href="spells.php?id=744" data-eqrs="0">Tuyen's Chant of Frost</a>				</td>
+	Line 3036: 				<br><b>1:</b> Decrease Current Hit Points by 40 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22488" data-eqrs="0">Chant of Frost</a> (v340)<br>				<br>
+	Line 3083: 				<a href="spells.php?id=748" data-eqrs="0">Niv's Melody of Preservation</a>				</td>
+	Line 3132: 				<a href="spells.php?id=746" data-eqrs="0">Selo's Chords of Cessation</a>				</td>
+	Line 3181: 				<a href="spells.php?id=2605" data-eqrs="0">Selo's Accelerating Chorus</a>				</td>
+	Line 3197: 				<a href="spells.php?id=1450" data-eqrs="0">Shield of Songs</a>				</td>
+	Line 3246: 				<a href="spells.php?id=1449" data-eqrs="0">Melody of Ervaj</a>				</td>
+	Line 3262: 				<a href="spells.php?id=3566" data-eqrs="0">Tuyen's Chant of Poison</a>				</td>
+	Line 3264: 				<br><b>1:</b> Decrease Current Hit Points by 40 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22489" data-eqrs="0">Chant of Venom</a> (v340)<br>				<br>
+	Line 3278: 				<a href="spells.php?id=747" data-eqrs="0">Verses of Victory</a>				</td>
+	Line 3327: 				<a href="spells.php?id=1751" data-eqrs="0">Largo's Assonant Binding</a>				</td>
+	Line 3343: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line 3359: 				<a href="spells.php?id=1750" data-eqrs="0">Selo's Song of Travel</a>				</td>
+	Line 3408: 				<a href="spells.php?id=3681" data-eqrs="0">Aria of Innocence</a>				</td>
+	Line 3424: 				<a href="spells.php?id=2606" data-eqrs="0">Battlecry of the Vah Shir</a>				</td>
+	Line 3440: 				<a href="spells.php?id=1752" data-eqrs="0">Nillipus' March of the Wee</a>				</td>
+	Line 3489: 				<a href="spells.php?id=4084" data-eqrs="0">Rizlona's Fire</a>				</td>
+	Line 3505: 				<a href="spells.php?id=1754" data-eqrs="0">Song of Dawn</a>				</td>
+	Line 3521: 				<a href="spells.php?id=1753" data-eqrs="0">Song of Twilight</a>				</td>
+	Line 3570: 				<a href="spells.php?id=2607" data-eqrs="0">Elemental Chorus</a>				</td>
+	Line 3586: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line 3602: 				<a href="spells.php?id=1758" data-eqrs="0">Selo's Assonant Strain</a>				</td>
+	Line 3618: 				<a href="spells.php?id=1757" data-eqrs="0">Vilia's Chorus of Celerity</a>				</td>
+	Line 3667: 				<a href="spells.php?id=8926" data-eqrs="0">Aura of Insight</a>				</td>
+	Line 3669: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8939" data-eqrs="0">Aura of Insight</a> (PCIObBrdS11L055AuraSpellDmg)<br>				<br>
+	Line 3683: 				<a href="spells.php?id=1747" data-eqrs="0">Brusco's Bombastic Bellow</a>				</td>
+	Line 3699: 				<a href="spells.php?id=1759" data-eqrs="0">Cantata of Replenishment</a>				</td>
+	Line 3715: 				<a href="spells.php?id=4516" data-eqrs="0">Deftdance Discipline</a>				</td>
+	Line 3731: 				<a href="spells.php?id=1451" data-eqrs="0">Occlusion of Sound</a>				</td>
+	Line 3780: 				<a href="spells.php?id=2608" data-eqrs="0">Purifying Chorus</a>				</td>
+	Line 3796: 				<a href="spells.php?id=1755" data-eqrs="0">Song of Highsun</a>				</td>
+	Line 3812: 				<a href="spells.php?id=1756" data-eqrs="0">Song of Midnight</a>				</td>
+	Line 3861: 				<a href="spells.php?id=1761" data-eqrs="0">Cassindra's Insipid Ditty</a>				</td>
+	Line 3877: 				<a href="spells.php?id=1760" data-eqrs="0">McVaxius' Rousing Rondo</a>				</td>
+	Line 3893: 				<a href="spells.php?id=50189" data-eqrs="0">Soothing Psalm of the Sunrise</a>				</td>
+	Line 3942: 				<a href="spells.php?id=2609" data-eqrs="0">Chorus of Replenishment</a>				</td>
+	Line 3958: 				<a href="spells.php?id=1100" data-eqrs="0">Dreams of Ayonae</a>				</td>
+	Line 3974: 				<a href="spells.php?id=1762" data-eqrs="0">Jonthan's Inspiration</a>				</td>
+	Line 3990: 				<a href="spells.php?id=1763" data-eqrs="0">Niv's Harmonic</a>				</td>
+	Line 4039: 				<a href="spells.php?id=1764" data-eqrs="0">Denon's Bereavement</a>				</td>
+	Line 4055: 				<a href="spells.php?id=1765" data-eqrs="0">Solon's Charismatic Concord</a>				</td>
+	Line 4104: 				<a href="spells.php?id=1196" data-eqrs="0">Ancient: Lcea's Lament</a>				</td>
+	Line 4120: 				<a href="spells.php?id=1197" data-eqrs="0">Ancient: Lullaby of Shadow</a>				</td>
+	Line 4136: 				<a href="spells.php?id=1748" data-eqrs="0">Angstlich's Assonance</a>				</td>
+	Line 4152: 				<a href="spells.php?id=1452" data-eqrs="0">Composition of Ervaj</a>				</td>
+	Line 4168: 				<a href="spells.php?id=2936" data-eqrs="0">Ervaj's Lost Composition</a>				</td>
+	Line 4184: 				<a href="spells.php?id=4210" data-eqrs="0">Fufil's Diminishing Dirge</a>				</td>
+	Line 4200: 				<a href="spells.php?id=1749" data-eqrs="0">Kazumi's Note of Preservation</a>				</td>
+	Line 4216: 				<a href="spells.php?id=4586" data-eqrs="0">Puretone Discipline</a>				</td>
+	Line 4232: 				<a href="spells.php?id=2610" data-eqrs="0">Warsong of the Vah Shir</a>				</td>
+	Line 4281: 				<a href="spells.php?id=3366" data-eqrs="0">Saryrn's Scream of Pain</a>				</td>
+	Line 4297: 				<a href="spells.php?id=3361" data-eqrs="0">Silent Song of Quellious</a>				</td>
+	Line 4313: 				<a href="spells.php?id=6734" data-eqrs="0">Song of the Storm</a>				</td>
+	Line 4315: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=6742" data-eqrs="0">Song of the Storm Strike</a> with 400% Rate Mod<br>				<br>
+	Line 4329: 				<a href="spells.php?id=3363" data-eqrs="0">Tuyen's Chant of the Plague</a>				</td>
+	Line 4331: 				<br><b>1:</b> Decrease Current Hit Points by 49 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22490" data-eqrs="0">Chant of Plague</a> (v340)<br>				<br>
+	Line 4378: 				<a href="spells.php?id=7001" data-eqrs="0">Angstlich's Echo of Terror</a>				</td>
+	Line 4394: 				<a href="spells.php?id=3030" data-eqrs="0">Dreams of Thule</a>				</td>
+	Line 4410: 				<a href="spells.php?id=3364" data-eqrs="0">Druzzil's Disillusionment</a>				</td>
+	Line 4426: 				<a href="spells.php?id=3365" data-eqrs="0">Melody of Mischief</a>				</td>
+	Line 4442: 				<a href="spells.php?id=3374" data-eqrs="0">Warsong of Zek</a>				</td>
+	Line 4458: 				<a href="spells.php?id=3651" data-eqrs="0">Wind of Marr</a>				</td>
+	Line 4507: 				<a href="spells.php?id=3368" data-eqrs="0">Psalm of Veeshan</a>				</td>
+	Line 4523: 				<a href="spells.php?id=3373" data-eqrs="0">Tuyen's Chant of Ice</a>				</td>
+	Line 4525: 				<br><b>1:</b> Decrease Current Hit Points by 49 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22488" data-eqrs="0">Chant of Frost</a> (v340)<br>				<br>
+	Line 4539: 				<a href="spells.php?id=3370" data-eqrs="0">Tuyen's Chant of Venom</a>				</td>
+	Line 4541: 				<br><b>1:</b> Decrease Current Hit Points by 49 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22489" data-eqrs="0">Chant of Venom</a> (v340)<br>				<br>
+	Line 4588: 				<a href="spells.php?id=3371" data-eqrs="0">Call of the Banshee</a>				</td>
+	Line 4604: 				<a href="spells.php?id=3372" data-eqrs="0">Chorus of Marr</a>				</td>
+	Line 4620: 				<a href="spells.php?id=3369" data-eqrs="0">Dreams of Terris</a>				</td>
+	Line 4636: 				<a href="spells.php?id=10446" data-eqrs="0">Minohten's Purifying Panpipes</a>				</td>
+	Line 4652: 				<a href="spells.php?id=10447" data-eqrs="0">Minohten's Purifying Panpipes Rk. II</a>				</td>
+	Line 4668: 				<a href="spells.php?id=10448" data-eqrs="0">Minohten's Purifying Panpipes Rk. III</a>				</td>
+	Line 4684: 				<a href="spells.php?id=3066" data-eqrs="0">Requiem of Time</a>				</td>
+	Line 4700: 				<a href="spells.php?id=3362" data-eqrs="0">Rizlona's Call of Flame</a>				</td>
+	Line 4749: 				<a href="spells.php?id=4971" data-eqrs="0">Ancient: Chaos Chant</a>				</td>
+	Line 4751: 				<br><b>1:</b> Decrease Current Hit Points by 51 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22491" data-eqrs="0">Chant of Chaos</a> (v340)<br>				<br>
+	Line 4765: 				<a href="spells.php?id=4112" data-eqrs="0">Call of the Muse</a>				</td>
+	Line 4781: 				<a href="spells.php?id=4873" data-eqrs="0">Dark Echo</a>				</td>
+	Line 4797: 				<a href="spells.php?id=4872" data-eqrs="0">Echo of the Trusik</a>				</td>
+	Line 4813: 				<a href="spells.php?id=3375" data-eqrs="0">Harmony of Sound</a>				</td>
+	Line 4829: 				<a href="spells.php?id=3376" data-eqrs="0">Lullaby of Morell</a>				</td>
+	Line 4845: 				<a href="spells.php?id=10458" data-eqrs="0">Staccato Rhythms</a>				</td>
+	Line 4861: 				<a href="spells.php?id=10459" data-eqrs="0">Staccato Rhythms Rk. II</a>				</td>
+	Line 4877: 				<a href="spells.php?id=10460" data-eqrs="0">Staccato Rhythms Rk. III</a>				</td>
+	Line 4893: 				<a href="spells.php?id=3367" data-eqrs="0">Tuyen's Chant of Fire</a>				</td>
+	Line 4895: 				<br><b>1:</b> Decrease Current Hit Points by 49 per Tick<br><b>4:</b> Cast <a href="spells.php?id=22487" data-eqrs="0">Chant of Flame</a> (v340)<br>				<br>
+	Line 4909: 				<a href="spells.php?id=4871" data-eqrs="0">War March of the Mastruq</a>				</td>

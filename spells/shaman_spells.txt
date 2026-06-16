@@ -1,0 +1,287 @@
+Line  606: 				<a href="spells.php?id=93" data-eqrs="0">Burst of Flame</a>				</td>
+	Line  622: 				<a href="spells.php?id=213" data-eqrs="0">Cure Disease</a>				</td>
+	Line  638: 				<a href="spells.php?id=266" data-eqrs="0">Dexterous Aura</a>				</td>
+	Line  654: 				<a href="spells.php?id=225" data-eqrs="0">Endure Cold</a>				</td>
+	Line  670: 				<a href="spells.php?id=201" data-eqrs="0">Flash of Light</a>				</td>
+	Line  686: 				<a href="spells.php?id=267" data-eqrs="0">Inner Fire</a>				</td>
+	Line  702: 				<a href="spells.php?id=200" data-eqrs="0">Minor Healing</a>				</td>
+	Line  718: 				<a href="spells.php?id=40" data-eqrs="0">Strengthen</a>				</td>
+	Line  734: 				<a href="spells.php?id=205" data-eqrs="0">True North</a>				</td>
+	Line  783: 				<a href="spells.php?id=203" data-eqrs="0">Cure Poison</a>				</td>
+	Line  799: 				<a href="spells.php?id=272" data-eqrs="0">Spirit Pouch</a>				</td>
+	Line  815: 				<a href="spells.php?id=211" data-eqrs="0">Summon Drink</a>				</td>
+	Line  864: 				<a href="spells.php?id=269" data-eqrs="0">Feet like Cat</a>				</td>
+	Line  880: 				<a href="spells.php?id=274" data-eqrs="0">Scale Skin</a>				</td>
+	Line  929: 				<a href="spells.php?id=271" data-eqrs="0">Fleeting Fury</a>				</td>
+	Line  945: 				<a href="spells.php?id=275" data-eqrs="0">Frost Rift</a>				</td>
+	Line  961: 				<a href="spells.php?id=75" data-eqrs="0">Sicken</a>				</td>
+	Line 1010: 				<a href="spells.php?id=270" data-eqrs="0">Drowsy</a>				</td>
+	Line 1026: 				<a href="spells.php?id=224" data-eqrs="0">Endure Fire</a>				</td>
+	Line 1042: 				<a href="spells.php?id=36" data-eqrs="0">Gate</a>				</td>
+	Line 1091: 				<a href="spells.php?id=276" data-eqrs="0">Serpent Sight</a>				</td>
+	Line 1107: 				<a href="spells.php?id=279" data-eqrs="0">Spirit of Bear</a>				</td>
+	Line 1123: 				<a href="spells.php?id=50" data-eqrs="0">Summon Food</a>				</td>
+	Line 1172: 				<a href="spells.php?id=212" data-eqrs="0">Cure Blindness</a>				</td>
+	Line 1188: 				<a href="spells.php?id=238" data-eqrs="0">Sense Animals</a>				</td>
+	Line 1204: 				<a href="spells.php?id=79" data-eqrs="0">Spirit Sight</a>				</td>
+	Line 1253: 				<a href="spells.php?id=226" data-eqrs="0">Endure Disease</a>				</td>
+	Line 1269: 				<a href="spells.php?id=277" data-eqrs="0">Tainted Breath</a>				</td>
+	Line 1285: 				<a href="spells.php?id=2521" data-eqrs="0">Talisman of the Beast</a>				</td>
+	Line 1334: 				<a href="spells.php?id=17" data-eqrs="0">Light Healing</a>				</td>
+	Line 1350: 				<a href="spells.php?id=4056" data-eqrs="0">Remove Minor Curse</a>				</td>
+	Line 1366: 				<a href="spells.php?id=278" data-eqrs="0">Spirit of Wolf</a>				</td>
+	Line 1415: 				<a href="spells.php?id=255" data-eqrs="0">Invisibility Versus Animals</a>				</td>
+	Line 1431: 				<a href="spells.php?id=261" data-eqrs="0">Levitate</a>				</td>
+	Line 1447: 				<a href="spells.php?id=284" data-eqrs="0">Spirit of Snake</a>				</td>
+	Line 1496: 				<a href="spells.php?id=280" data-eqrs="0">Burst of Strength</a>				</td>
+	Line 1512: 				<a href="spells.php?id=227" data-eqrs="0">Endure Poison</a>				</td>
+	Line 1528: 				<a href="spells.php?id=283" data-eqrs="0">Turtle Skin</a>				</td>
+	Line 1577: 				<a href="spells.php?id=281" data-eqrs="0">Disempower</a>				</td>
+	Line 1593: 				<a href="spells.php?id=86" data-eqrs="0">Enduring Breath</a>				</td>
+	Line 1609: 				<a href="spells.php?id=230" data-eqrs="0">Root</a>				</td>
+	Line 1658: 				<a href="spells.php?id=4261" data-eqrs="0">Reebo's Lesser Augury</a>				</td>
+	Line 1674: 				<a href="spells.php?id=505" data-eqrs="0">Walking Sleep</a>				</td>
+	Line 1723: 				<a href="spells.php?id=35" data-eqrs="0">Bind Affinity</a>				</td>
+	Line 1739: 				<a href="spells.php?id=4285" data-eqrs="0">Reebo's Lesser Cleansing</a>				</td>
+	Line 1755: 				<a href="spells.php?id=4273" data-eqrs="0">Reebo's Lesser Exorcism</a>				</td>
+	Line 1771: 				<a href="spells.php?id=282" data-eqrs="0">Spirit Strike</a>				</td>
+	Line 1820: 				<a href="spells.php?id=365" data-eqrs="0">Infectious Cloud</a>				</td>
+	Line 1836: 				<a href="spells.php?id=345" data-eqrs="0">Shrink</a>				</td>
+	Line 1885: 				<a href="spells.php?id=308" data-eqrs="0">Frenzy</a>				</td>
+	Line 1901: 				<a href="spells.php?id=2522" data-eqrs="0">Grow</a>				</td>
+	Line 1917: 				<a href="spells.php?id=3583" data-eqrs="0">Tiny Companion</a>				</td>
+	Line 1966: 				<a href="spells.php?id=526" data-eqrs="0">Insidious Fever</a>				</td>
+	Line 1982: 				<a href="spells.php?id=580" data-eqrs="0">Vision</a>				</td>
+	Line 2031: 				<a href="spells.php?id=110" data-eqrs="0">Malaise</a>				</td>
+	Line 2047: 				<a href="spells.php?id=148" data-eqrs="0">Spirit of Cat</a>				</td>
+	Line 2063: 				<a href="spells.php?id=147" data-eqrs="0">Spirit Strength</a>				</td>
+	Line 2112: 				<a href="spells.php?id=511" data-eqrs="0">Affliction</a>				</td>
+	Line 2128: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 2144: 				<a href="spells.php?id=228" data-eqrs="0">Endure Magic</a>				</td>
+	Line 2160: 				<a href="spells.php?id=12" data-eqrs="0">Healing</a>				</td>
+	Line 2209: 				<a href="spells.php?id=640" data-eqrs="0">Creeping Vision</a>				</td>
+	Line 2225: 				<a href="spells.php?id=649" data-eqrs="0">Protect</a>				</td>
+	Line 2274: 				<a href="spells.php?id=220" data-eqrs="0">Spirit of Cheetah</a>				</td>
+	Line 2290: 				<a href="spells.php?id=146" data-eqrs="0">Spirit of Monkey</a>				</td>
+	Line 2306: 				<a href="spells.php?id=149" data-eqrs="0">Spirit of Ox</a>				</td>
+	Line 2355: 				<a href="spells.php?id=96" data-eqrs="0">Counteract Disease</a>				</td>
+	Line 2371: 				<a href="spells.php?id=437" data-eqrs="0">Poison Storm</a>				</td>
+	Line 2387: 				<a href="spells.php?id=424" data-eqrs="0">Scale of Wolf</a>				</td>
+	Line 2436: 				<a href="spells.php?id=265" data-eqrs="0">Cannibalize</a>				</td>
+	Line 2452: 				<a href="spells.php?id=508" data-eqrs="0">Frost Strike</a>				</td>
+	Line 2468: 				<a href="spells.php?id=4262" data-eqrs="0">Reebo's Augury</a>				</td>
+	Line 2484: 				<a href="spells.php?id=144" data-eqrs="0">Regeneration</a>				</td>
+	Line 2533: 				<a href="spells.php?id=434" data-eqrs="0">Envenomed Breath</a>				</td>
+	Line 2549: 				<a href="spells.php?id=4286" data-eqrs="0">Reebo's Cleansing</a>				</td>
+	Line 2565: 				<a href="spells.php?id=4274" data-eqrs="0">Reebo's Exorcism</a>				</td>
+	Line 2581: 				<a href="spells.php?id=4057" data-eqrs="0">Remove Lesser Curse</a>				</td>
+	Line 2597: 				<a href="spells.php?id=61" data-eqrs="0">Resist Cold</a>				</td>
+	Line 2646: 				<a href="spells.php?id=245" data-eqrs="0">Befriend Animal</a>				</td>
+	Line 2662: 				<a href="spells.php?id=2523" data-eqrs="0">Form of the Bear</a>				</td>
+	Line 2678: 				<a href="spells.php?id=349" data-eqrs="0">Rising Dexterity</a>				</td>
+	Line 2727: 				<a href="spells.php?id=95" data-eqrs="0">Counteract Poison</a>				</td>
+	Line 2743: 				<a href="spells.php?id=39" data-eqrs="0">Quickness</a>				</td>
+	Line 2759: 				<a href="spells.php?id=46" data-eqrs="0">Ultravision</a>				</td>
+	Line 2808: 				<a href="spells.php?id=42" data-eqrs="0">Invisibility</a>				</td>
+	Line 2824: 				<a href="spells.php?id=60" data-eqrs="0">Resist Fire</a>				</td>
+	Line 2840: 				<a href="spells.php?id=506" data-eqrs="0">Tagar's Insects</a>				</td>
+	Line 2889: 				<a href="spells.php?id=150" data-eqrs="0">Alluring Aura</a>				</td>
+	Line 2905: 				<a href="spells.php?id=151" data-eqrs="0">Raging Strength</a>				</td>
+	Line 2954: 				<a href="spells.php?id=15" data-eqrs="0">Greater Healing</a>				</td>
+	Line 2970: 				<a href="spells.php?id=1885" data-eqrs="0">Imbue Amber</a>				</td>
+	Line 2986: 				<a href="spells.php?id=1895" data-eqrs="0">Imbue Diamond</a>				</td>
+	Line 3002: 				<a href="spells.php?id=1884" data-eqrs="0">Imbue Ivory</a>				</td>
+	Line 3018: 				<a href="spells.php?id=1891" data-eqrs="0">Imbue Jade</a>				</td>
+	Line 3034: 				<a href="spells.php?id=1886" data-eqrs="0">Imbue Sapphire</a>				</td>
+	Line 3050: 				<a href="spells.php?id=162" data-eqrs="0">Listless Power</a>				</td>
+	Line 3066: 				<a href="spells.php?id=3994" data-eqrs="0">Mass Imbue Amber</a>				</td>
+	Line 3082: 				<a href="spells.php?id=3997" data-eqrs="0">Mass Imbue Diamond</a>				</td>
+	Line 3098: 				<a href="spells.php?id=4000" data-eqrs="0">Mass Imbue Ivory</a>				</td>
+	Line 3114: 				<a href="spells.php?id=4001" data-eqrs="0">Mass Imbue Jade</a>				</td>
+	Line 3130: 				<a href="spells.php?id=4007" data-eqrs="0">Mass Imbue Sapphire</a>				</td>
+	Line 3146: 				<a href="spells.php?id=4054" data-eqrs="0">Spirit of the Shrew</a>				</td>
+	Line 3195: 				<a href="spells.php?id=326" data-eqrs="0">Fury</a>				</td>
+	Line 3211: 				<a href="spells.php?id=161" data-eqrs="0">Health</a>				</td>
+	Line 3227: 				<a href="spells.php?id=63" data-eqrs="0">Resist Disease</a>				</td>
+	Line 3276: 				<a href="spells.php?id=160" data-eqrs="0">Nimble</a>				</td>
+	Line 3292: 				<a href="spells.php?id=31" data-eqrs="0">Scourge</a>				</td>
+	Line 3308: 				<a href="spells.php?id=431" data-eqrs="0">Shifting Shield</a>				</td>
+	Line 3357: 				<a href="spells.php?id=260" data-eqrs="0">Charm Animals</a>				</td>
+	Line 3373: 				<a href="spells.php?id=164" data-eqrs="0">Companion Spirit</a>				</td>
+	Line 3389: 				<a href="spells.php?id=111" data-eqrs="0">Malaisement</a>				</td>
+	Line 3405: 				<a href="spells.php?id=167" data-eqrs="0">Talisman of Tnarg</a>				</td>
+	Line 3454: 				<a href="spells.php?id=131" data-eqrs="0">Instill</a>				</td>
+	Line 3470: 				<a href="spells.php?id=4263" data-eqrs="0">Reebo's Greater Augury</a>				</td>
+	Line 3486: 				<a href="spells.php?id=509" data-eqrs="0">Winter's Roar</a>				</td>
+	Line 3535: 				<a href="spells.php?id=4092" data-eqrs="0">Curse</a>				</td>
+	Line 3551: 				<a href="spells.php?id=4055" data-eqrs="0">Pack Shrew</a>				</td>
+	Line 3567: 				<a href="spells.php?id=4287" data-eqrs="0">Reebo's Greater Cleansing</a>				</td>
+	Line 3583: 				<a href="spells.php?id=4275" data-eqrs="0">Reebo's Greater Exorcism</a>				</td>
+	Line 3599: 				<a href="spells.php?id=1427" data-eqrs="0">Shock of the Tainted</a>				</td>
+	Line 3648: 				<a href="spells.php?id=62" data-eqrs="0">Resist Poison</a>				</td>
+	Line 3664: 				<a href="spells.php?id=1428" data-eqrs="0">Tumultuous Strength</a>				</td>
+	Line 3713: 				<a href="spells.php?id=384" data-eqrs="0">Assiduous Vision</a>				</td>
+	Line 3729: 				<a href="spells.php?id=438" data-eqrs="0">Gale of Poison</a>				</td>
+	Line 3745: 				<a href="spells.php?id=2524" data-eqrs="0">Spirit of Bih`Li</a>				</td>
+	Line 3794: 				<a href="spells.php?id=155" data-eqrs="0">Glamour</a>				</td>
+	Line 3810: 				<a href="spells.php?id=435" data-eqrs="0">Venom of the Snake</a>				</td>
+	Line 3826: 				<a href="spells.php?id=577" data-eqrs="0">Vigilant Spirit</a>				</td>
+	Line 3875: 				<a href="spells.php?id=754" data-eqrs="0">Cannibalize II</a>				</td>
+	Line 3891: 				<a href="spells.php?id=527" data-eqrs="0">Insidious Malady</a>				</td>
+	Line 3907: 				<a href="spells.php?id=2946" data-eqrs="0">Remove Curse</a>				</td>
+	Line 3923: 				<a href="spells.php?id=507" data-eqrs="0">Togor's Insects</a>				</td>
+	Line 3972: 				<a href="spells.php?id=134" data-eqrs="0">Blinding Luminance</a>				</td>
+	Line 3988: 				<a href="spells.php?id=145" data-eqrs="0">Chloroplast</a>				</td>
+	Line 4004: 				<a href="spells.php?id=152" data-eqrs="0">Deftness</a>				</td>
+	Line 4020: 				<a href="spells.php?id=153" data-eqrs="0">Furious Strength</a>				</td>
+	Line 4069: 				<a href="spells.php?id=6874" data-eqrs="0">Spirit Salve</a>				</td>
+	Line 4085: 				<a href="spells.php?id=1285" data-eqrs="0">Summon Companion</a>				</td>
+	Line 4101: 				<a href="spells.php?id=168" data-eqrs="0">Talisman of Altuna</a>				</td>
+	Line 4150: 				<a href="spells.php?id=154" data-eqrs="0">Agility</a>				</td>
+	Line 4166: 				<a href="spells.php?id=165" data-eqrs="0">Guardian Spirit</a>				</td>
+	Line 4182: 				<a href="spells.php?id=163" data-eqrs="0">Incapacitate</a>				</td>
+	Line 4231: 				<a href="spells.php?id=170" data-eqrs="0">Alacrity</a>				</td>
+	Line 4247: 				<a href="spells.php?id=1429" data-eqrs="0">Blast of Poison</a>				</td>
+	Line 4263: 				<a href="spells.php?id=389" data-eqrs="0">Guardian</a>				</td>
+	Line 4312: 				<a href="spells.php?id=4093" data-eqrs="0">Odium</a>				</td>
+	Line 4328: 				<a href="spells.php?id=64" data-eqrs="0">Resist Magic</a>				</td>
+	Line 4344: 				<a href="spells.php?id=158" data-eqrs="0">Stamina</a>				</td>
+	Line 4393: 				<a href="spells.php?id=510" data-eqrs="0">Blizzard Blast</a>				</td>
+	Line 4409: 				<a href="spells.php?id=53118" data-eqrs="0">Greater Mass Imbue Amber</a>				</td>
+	Line 4425: 				<a href="spells.php?id=53121" data-eqrs="0">Greater Mass Imbue Diamond</a>				</td>
+	Line 4441: 				<a href="spells.php?id=53124" data-eqrs="0">Greater Mass Imbue Ivory</a>				</td>
+	Line 4457: 				<a href="spells.php?id=53125" data-eqrs="0">Greater Mass Imbue Jade</a>				</td>
+	Line 4473: 				<a href="spells.php?id=53131" data-eqrs="0">Greater Mass Imbue Sapphire</a>				</td>
+	Line 4489: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 4505: 				<a href="spells.php?id=3694" data-eqrs="0">Stoicism</a>				</td>
+	Line 4554: 				<a href="spells.php?id=166" data-eqrs="0">Frenzied Spirit</a>				</td>
+	Line 4570: 				<a href="spells.php?id=337" data-eqrs="0">Rage</a>				</td>
+	Line 4586: 				<a href="spells.php?id=9" data-eqrs="0">Superior Healing</a>				</td>
+	Line 4635: 				<a href="spells.php?id=2525" data-eqrs="0">Harnessing of Spirit</a>				</td>
+	Line 4651: 				<a href="spells.php?id=159" data-eqrs="0">Strength</a>				</td>
+	Line 4700: 				<a href="spells.php?id=156" data-eqrs="0">Charisma</a>				</td>
+	Line 4716: 				<a href="spells.php?id=3573" data-eqrs="0">Shock of Venom</a>				</td>
+	Line 4765: 				<a href="spells.php?id=98" data-eqrs="0">Abolish Disease</a>				</td>
+	Line 4781: 				<a href="spells.php?id=157" data-eqrs="0">Dexterity</a>				</td>
+	Line 4797: 				<a href="spells.php?id=112" data-eqrs="0">Malosi</a>				</td>
+	Line 4846: 				<a href="spells.php?id=436" data-eqrs="0">Envenomed Bolt</a>				</td>
+	Line 4862: 				<a href="spells.php?id=3454" data-eqrs="0">Infusion of Spirit</a>				</td>
+	Line 4878: 				<a href="spells.php?id=32" data-eqrs="0">Plague</a>				</td>
+	Line 4927: 				<a href="spells.php?id=6877" data-eqrs="0">Kragg's Salve</a>				</td>
+	Line 4943: 				<a href="spells.php?id=6906" data-eqrs="0">Spirit of the Puma</a>				</td>
+	Line 4945: 				<br><b>5:</b> Add Melee Proc: <a href="spells.php?id=6908" data-eqrs="0">Puma Maw</a> with 400% Rate Mod<br>				<br>
+	Line 4959: 				<a href="spells.php?id=1430" data-eqrs="0">Spirit Quickening</a>				</td>
+	Line 4975: 				<a href="spells.php?id=1570" data-eqrs="0">Talisman of Jasinth</a>				</td>
+	Line 5024: 				<a href="spells.php?id=2881" data-eqrs="0">Everlasting Breath</a>				</td>
+	Line 5040: 				<a href="spells.php?id=132" data-eqrs="0">Immobilize</a>				</td>
+	Line 5056: 				<a href="spells.php?id=2894" data-eqrs="0">Levitation</a>				</td>
+	Line 5072: 				<a href="spells.php?id=1588" data-eqrs="0">Turgur's Insects</a>				</td>
+	Line 5121: 				<a href="spells.php?id=3842" data-eqrs="0">Blood of Nadox</a>				</td>
+	Line 5137: 				<a href="spells.php?id=2526" data-eqrs="0">Disinfecting Aura</a>				</td>
+	Line 5153: 				<a href="spells.php?id=21399" data-eqrs="0">Eradicate Disease</a>				</td>
+	Line 5169: 				<a href="spells.php?id=1573" data-eqrs="0">Insidious Decay</a>				</td>
+	Line 5185: 				<a href="spells.php?id=1819" data-eqrs="0">Primal Essence</a>				</td>
+	Line 5201: 				<a href="spells.php?id=1568" data-eqrs="0">Regrowth</a>				</td>
+	Line 5217: 				<a href="spells.php?id=1554" data-eqrs="0">Spirit of Scale</a>				</td>
+	Line 5266: 				<a href="spells.php?id=1592" data-eqrs="0">Cripple</a>				</td>
+	Line 5282: 				<a href="spells.php?id=1594" data-eqrs="0">Deliriously Nimble</a>				</td>
+	Line 5298: 				<a href="spells.php?id=1571" data-eqrs="0">Talisman of Shadoo</a>				</td>
+	Line 5347: 				<a href="spells.php?id=4094" data-eqrs="0">Anathema</a>				</td>
+	Line 5363: 				<a href="spells.php?id=3574" data-eqrs="0">Blast of Venom</a>				</td>
+	Line 5379: 				<a href="spells.php?id=1572" data-eqrs="0">Cannibalize III</a>				</td>
+	Line 5395: 				<a href="spells.php?id=21400" data-eqrs="0">Eradicate Curse</a>				</td>
+	Line 5411: 				<a href="spells.php?id=1586" data-eqrs="0">Ice Strike</a>				</td>
+	Line 5427: 				<a href="spells.php?id=2527" data-eqrs="0">Plague of Insects</a>				</td>
+	Line 5443: 				<a href="spells.php?id=2880" data-eqrs="0">Remove Greater Curse</a>				</td>
+	Line 5459: 				<a href="spells.php?id=1595" data-eqrs="0">Riotous Health</a>				</td>
+	Line 5475: 				<a href="spells.php?id=1584" data-eqrs="0">Shroud of the Spirits</a>				</td>
+	Line 5524: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 5540: 				<a href="spells.php?id=1290" data-eqrs="0">Chloroblast</a>				</td>
+	Line 5556: 				<a href="spells.php?id=1431" data-eqrs="0">Form of the Great Bear</a>				</td>
+	Line 5572: 				<a href="spells.php?id=8930" data-eqrs="0">Idol of Malo</a>				</td>
+	Line 5574: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8945" data-eqrs="0">Idol of Malo Effect</a> (PCIObShmS11L055TrapMala)<br>				<br>
+	Line 5588: 				<a href="spells.php?id=1574" data-eqrs="0">Spirit of the Howler</a>				</td>
+	Line 5604: 				<a href="spells.php?id=1585" data-eqrs="0">Talisman of Kragg</a>				</td>
+	Line 5620: 				<a href="spells.php?id=1587" data-eqrs="0">Torrent of Poison</a>				</td>
+	Line 5669: 				<a href="spells.php?id=1575" data-eqrs="0">Acumen</a>				</td>
+	Line 5685: 				<a href="spells.php?id=1590" data-eqrs="0">Bane of Nife</a>				</td>
+	Line 5701: 				<a href="spells.php?id=171" data-eqrs="0">Celerity</a>				</td>
+	Line 5717: 				<a href="spells.php?id=21398" data-eqrs="0">Eradicate Poison</a>				</td>
+	Line 5733: 				<a href="spells.php?id=133" data-eqrs="0">Paralyzing Earth</a>				</td>
+	Line 5749: 				<a href="spells.php?id=2528" data-eqrs="0">Regrowth of Dar Khura</a>				</td>
+	Line 5798: 				<a href="spells.php?id=3595" data-eqrs="0">Imbue Justice</a>				</td>
+	Line 5814: 				<a href="spells.php?id=1577" data-eqrs="0">Malosini</a>				</td>
+	Line 5830: 				<a href="spells.php?id=1593" data-eqrs="0">Maniacal Strength</a>				</td>
+	Line 5846: 				<a href="spells.php?id=6907" data-eqrs="0">Spirit of the Jaguar</a>				</td>
+	Line 5848: 				<br><b>5:</b> Add Melee Proc: <a href="spells.php?id=7232" data-eqrs="0">Jaguar Maw</a> with 400% Rate Mod<br>				<br>
+	Line 5862: 				<a href="spells.php?id=1580" data-eqrs="0">Talisman of the Brute</a>				</td>
+	Line 5878: 				<a href="spells.php?id=1579" data-eqrs="0">Talisman of the Cat</a>				</td>
+	Line 5927: 				<a href="spells.php?id=2886" data-eqrs="0">Acumen of Dar Khura</a>				</td>
+	Line 5943: 				<a href="spells.php?id=1332" data-eqrs="0">Cannibalize IV</a>				</td>
+	Line 5959: 				<a href="spells.php?id=3591" data-eqrs="0">Imbue Disease</a>				</td>
+	Line 5975: 				<a href="spells.php?id=2435" data-eqrs="0">Kragg's Mending</a>				</td>
+	Line 5991: 				<a href="spells.php?id=1596" data-eqrs="0">Mortal Deftness</a>				</td>
+	Line 6007: 				<a href="spells.php?id=2529" data-eqrs="0">Talisman of Epuration</a>				</td>
+	Line 6023: 				<a href="spells.php?id=1581" data-eqrs="0">Talisman of the Rhino</a>				</td>
+	Line 6039: 				<a href="spells.php?id=1582" data-eqrs="0">Talisman of the Serpent</a>				</td>
+	Line 6055: 				<a href="spells.php?id=1589" data-eqrs="0">Tigir's Insects</a>				</td>
+	Line 6104: 				<a href="spells.php?id=3593" data-eqrs="0">Imbue War</a>				</td>
+	Line 6120: 				<a href="spells.php?id=4589" data-eqrs="0">Incarnate Anew</a>				</td>
+	Line 6136: 				<a href="spells.php?id=1591" data-eqrs="0">Pox of Bertoxxulous</a>				</td>
+	Line 6152: 				<a href="spells.php?id=1583" data-eqrs="0">Talisman of the Raptor</a>				</td>
+	Line 6168: 				<a href="spells.php?id=1597" data-eqrs="0">Unfailing Reverence</a>				</td>
+	Line 6184: 				<a href="spells.php?id=1599" data-eqrs="0">Voice of the Berserker</a>				</td>
+	Line 6233: 				<a href="spells.php?id=2112" data-eqrs="0">Ancient: Feral Avatar</a>				</td>
+	Line 6249: 				<a href="spells.php?id=2113" data-eqrs="0">Ancient: Scourge of Nife</a>				</td>
+	Line 6265: 				<a href="spells.php?id=1598" data-eqrs="0">Avatar</a>				</td>
+	Line 6281: 				<a href="spells.php?id=1432" data-eqrs="0">Focus of Spirit</a>				</td>
+	Line 6297: 				<a href="spells.php?id=2530" data-eqrs="0">Khura's Focusing</a>				</td>
+	Line 6313: 				<a href="spells.php?id=1578" data-eqrs="0">Malo</a>				</td>
+	Line 6329: 				<a href="spells.php?id=1377" data-eqrs="0">Primal Avatar</a>				</td>
+	Line 6345: 				<a href="spells.php?id=1576" data-eqrs="0">Torpor</a>				</td>
+	Line 6394: 				<a href="spells.php?id=3378" data-eqrs="0">Agility of the Wrulan</a>				</td>
+	Line 6410: 				<a href="spells.php?id=3380" data-eqrs="0">Cloud of Grummus</a>				</td>
+	Line 6426: 				<a href="spells.php?id=3433" data-eqrs="0">Replenishment</a>				</td>
+	Line 6442: 				<a href="spells.php?id=3379" data-eqrs="0">Spear of Torment</a>				</td>
+	Line 6458: 				<a href="spells.php?id=6735" data-eqrs="0">Spirit of the Leopard</a>				</td>
+	Line 6460: 				<br><b>5:</b> Add Melee Proc: <a href="spells.php?id=6777" data-eqrs="0">Leopard Maw</a> with 400% Rate Mod<br>				<br>
+	Line 6474: 				<a href="spells.php?id=3377" data-eqrs="0">True Spirit</a>				</td>
+	Line 6523: 				<a href="spells.php?id=3381" data-eqrs="0">Ancestral Guard</a>				</td>
+	Line 6539: 				<a href="spells.php?id=9700" data-eqrs="0">Cure Corruption</a>				</td>
+	Line 6555: 				<a href="spells.php?id=9701" data-eqrs="0">Cure Corruption Rk. II</a>				</td>
+	Line 6571: 				<a href="spells.php?id=9702" data-eqrs="0">Cure Corruption Rk. III</a>				</td>
+	Line 6587: 				<a href="spells.php?id=3382" data-eqrs="0">Endurance of the Boar</a>				</td>
+	Line 6603: 				<a href="spells.php?id=3235" data-eqrs="0">Focus of Soul</a>				</td>
+	Line 6619: 				<a href="spells.php?id=3195" data-eqrs="0">Greater Immobilize</a>				</td>
+	Line 6635: 				<a href="spells.php?id=3384" data-eqrs="0">Talisman of the Tribunal</a>				</td>
+	Line 6651: 				<a href="spells.php?id=3383" data-eqrs="0">Talisman of the Wrulan</a>				</td>
+	Line 6667: 				<a href="spells.php?id=3233" data-eqrs="0">Tnarg's Mending</a>				</td>
+	Line 6716: 				<a href="spells.php?id=3441" data-eqrs="0">Blessing of Replenishment</a>				</td>
+	Line 6732: 				<a href="spells.php?id=3386" data-eqrs="0">Malicious Decay</a>				</td>
+	Line 6748: 				<a href="spells.php?id=3387" data-eqrs="0">Malosinia</a>				</td>
+	Line 6764: 				<a href="spells.php?id=3388" data-eqrs="0">Strength of the Diaku</a>				</td>
+	Line 6780: 				<a href="spells.php?id=172" data-eqrs="0">Swift Like the Wind</a>				</td>
+	Line 6796: 				<a href="spells.php?id=3389" data-eqrs="0">Talisman of the Boar</a>				</td>
+	Line 6812: 				<a href="spells.php?id=3385" data-eqrs="0">Tears of Saryrn</a>				</td>
+	Line 6861: 				<a href="spells.php?id=4095" data-eqrs="0">Bane</a>				</td>
+	Line 6877: 				<a href="spells.php?id=3394" data-eqrs="0">Breath of Ultor</a>				</td>
+	Line 6893: 				<a href="spells.php?id=9920" data-eqrs="0">Chant of the Napaea</a>				</td>
+	Line 6909: 				<a href="spells.php?id=9921" data-eqrs="0">Chant of the Napaea Rk. II</a>				</td>
+	Line 6925: 				<a href="spells.php?id=9922" data-eqrs="0">Chant of the Napaea Rk. III</a>				</td>
+	Line 6941: 				<a href="spells.php?id=3196" data-eqrs="0">Petrifying Earth</a>				</td>
+	Line 6957: 				<a href="spells.php?id=3391" data-eqrs="0">Talisman of Celerity</a>				</td>
+	Line 6973: 				<a href="spells.php?id=3392" data-eqrs="0">Talisman of the Diaku</a>				</td>
+	Line 6989: 				<a href="spells.php?id=3393" data-eqrs="0">Tiny Terror</a>				</td>
+	Line 7005: 				<a href="spells.php?id=3390" data-eqrs="0">Velium Strike</a>				</td>
+	Line 7054: 				<a href="spells.php?id=4979" data-eqrs="0">Ancient: Chaotic Pain</a>				</td>
+	Line 7070: 				<a href="spells.php?id=4900" data-eqrs="0">Balance of the Nihil</a>				</td>
+	Line 7086: 				<a href="spells.php?id=3396" data-eqrs="0">Blood of Saryrn</a>				</td>
+	Line 7102: 				<a href="spells.php?id=4899" data-eqrs="0">Breath of Trushar</a>				</td>
+	Line 7118: 				<a href="spells.php?id=4901" data-eqrs="0">Daluda's Mending</a>				</td>
+	Line 7134: 				<a href="spells.php?id=3399" data-eqrs="0">Ferine Avatar</a>				</td>
+	Line 7150: 				<a href="spells.php?id=3397" data-eqrs="0">Focus of the Seventh</a>				</td>
+	Line 7166: 				<a href="spells.php?id=3395" data-eqrs="0">Malos</a>				</td>
+	Line 7182: 				<a href="spells.php?id=3398" data-eqrs="0">Quiescence</a>				</td>
+	Line 7198: 				<a href="spells.php?id=10044" data-eqrs="0">Wishka's Favor</a>				</td>
+	Line 7214: 				<a href="spells.php?id=10045" data-eqrs="0">Wishka's Favor Rk. II</a>				</td>
+	Line 7230: 				<a href="spells.php?id=10046" data-eqrs="0">Wishka's Favor Rk. III</a>				</td>

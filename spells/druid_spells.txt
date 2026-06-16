@@ -1,0 +1,379 @@
+Line  606: 				<a href="spells.php?id=93" data-eqrs="0">Burst of Flame</a>				</td>
+	Line  622: 				<a href="spells.php?id=237" data-eqrs="0">Dance of the Fireflies</a>				</td>
+	Line  638: 				<a href="spells.php?id=224" data-eqrs="0">Endure Fire</a>				</td>
+	Line  654: 				<a href="spells.php?id=239" data-eqrs="0">Flame Lick</a>				</td>
+	Line  670: 				<a href="spells.php?id=240" data-eqrs="0">Lull Animal</a>				</td>
+	Line  686: 				<a href="spells.php?id=200" data-eqrs="0">Minor Healing</a>				</td>
+	Line  702: 				<a href="spells.php?id=241" data-eqrs="0">Panic Animal</a>				</td>
+	Line  718: 				<a href="spells.php?id=238" data-eqrs="0">Sense Animals</a>				</td>
+	Line  734: 				<a href="spells.php?id=26" data-eqrs="0">Skin like Wood</a>				</td>
+	Line  750: 				<a href="spells.php?id=242" data-eqrs="0">Snare</a>				</td>
+	Line  766: 				<a href="spells.php?id=2591" data-eqrs="0">Tangling Weeds</a>				</td>
+	Line  815: 				<a href="spells.php?id=249" data-eqrs="0">Grasping Roots</a>				</td>
+	Line  831: 				<a href="spells.php?id=248" data-eqrs="0">Ward Summoned</a>				</td>
+	Line  880: 				<a href="spells.php?id=92" data-eqrs="0">Burst of Fire</a>				</td>
+	Line  896: 				<a href="spells.php?id=253" data-eqrs="0">Whirling Wind</a>				</td>
+	Line  945: 				<a href="spells.php?id=247" data-eqrs="0">Camouflage</a>				</td>
+	Line  961: 				<a href="spells.php?id=213" data-eqrs="0">Cure Disease</a>				</td>
+	Line  977: 				<a href="spells.php?id=252" data-eqrs="0">Invoke Lightning</a>				</td>
+	Line 1026: 				<a href="spells.php?id=203" data-eqrs="0">Cure Poison</a>				</td>
+	Line 1042: 				<a href="spells.php?id=36" data-eqrs="0">Gate</a>				</td>
+	Line 1058: 				<a href="spells.php?id=250" data-eqrs="0">Harmony</a>				</td>
+	Line 1107: 				<a href="spells.php?id=86" data-eqrs="0">Enduring Breath</a>				</td>
+	Line 1123: 				<a href="spells.php?id=254" data-eqrs="0">Firefist</a>				</td>
+	Line 1139: 				<a href="spells.php?id=258" data-eqrs="0">Treeform</a>				</td>
+	Line 1188: 				<a href="spells.php?id=256" data-eqrs="0">Shield of Thistles</a>				</td>
+	Line 1204: 				<a href="spells.php?id=268" data-eqrs="0">Strength of Earth</a>				</td>
+	Line 1220: 				<a href="spells.php?id=515" data-eqrs="0">Thistlecoat</a>				</td>
+	Line 1269: 				<a href="spells.php?id=91" data-eqrs="0">Ignite</a>				</td>
+	Line 1285: 				<a href="spells.php?id=255" data-eqrs="0">Invisibility Versus Animals</a>				</td>
+	Line 1301: 				<a href="spells.php?id=4056" data-eqrs="0">Remove Minor Curse</a>				</td>
+	Line 1350: 				<a href="spells.php?id=225" data-eqrs="0">Endure Cold</a>				</td>
+	Line 1366: 				<a href="spells.php?id=17" data-eqrs="0">Light Healing</a>				</td>
+	Line 1382: 				<a href="spells.php?id=2511" data-eqrs="0">Protection of Wood</a>				</td>
+	Line 1398: 				<a href="spells.php?id=257" data-eqrs="0">Starshine</a>				</td>
+	Line 1447: 				<a href="spells.php?id=278" data-eqrs="0">Spirit of Wolf</a>				</td>
+	Line 1463: 				<a href="spells.php?id=264" data-eqrs="0">Stinging Swarm</a>				</td>
+	Line 1479: 				<a href="spells.php?id=211" data-eqrs="0">Summon Drink</a>				</td>
+	Line 1528: 				<a href="spells.php?id=234" data-eqrs="0">Halo of Light</a>				</td>
+	Line 1544: 				<a href="spells.php?id=4261" data-eqrs="0">Reebo's Lesser Augury</a>				</td>
+	Line 1560: 				<a href="spells.php?id=50" data-eqrs="0">Summon Food</a>				</td>
+	Line 1609: 				<a href="spells.php?id=35" data-eqrs="0">Bind Affinity</a>				</td>
+	Line 1625: 				<a href="spells.php?id=262" data-eqrs="0">Cascade of Hail</a>				</td>
+	Line 1674: 				<a href="spells.php?id=245" data-eqrs="0">Befriend Animal</a>				</td>
+	Line 1690: 				<a href="spells.php?id=663" data-eqrs="0">Expulse Summoned</a>				</td>
+	Line 1706: 				<a href="spells.php?id=80" data-eqrs="0">See Invisible</a>				</td>
+	Line 1755: 				<a href="spells.php?id=261" data-eqrs="0">Levitate</a>				</td>
+	Line 1771: 				<a href="spells.php?id=4285" data-eqrs="0">Reebo's Lesser Cleansing</a>				</td>
+	Line 1787: 				<a href="spells.php?id=4273" data-eqrs="0">Reebo's Lesser Exorcism</a>				</td>
+	Line 1803: 				<a href="spells.php?id=263" data-eqrs="0">Skin like Rock</a>				</td>
+	Line 1852: 				<a href="spells.php?id=513" data-eqrs="0">Calm Animal</a>				</td>
+	Line 1868: 				<a href="spells.php?id=530" data-eqrs="0">Ring of Karana</a>				</td>
+	Line 1884: 				<a href="spells.php?id=2021" data-eqrs="0">Ring of Surefall Glade</a>				</td>
+	Line 1900: 				<a href="spells.php?id=514" data-eqrs="0">Terrorize Animal</a>				</td>
+	Line 1949: 				<a href="spells.php?id=419" data-eqrs="0">Careless Lightning</a>				</td>
+	Line 1965: 				<a href="spells.php?id=520" data-eqrs="0">Dizzying Wind</a>				</td>
+	Line 1981: 				<a href="spells.php?id=532" data-eqrs="0">Ring of Butcher</a>				</td>
+	Line 2030: 				<a href="spells.php?id=516" data-eqrs="0">Barbcoat</a>				</td>
+	Line 2046: 				<a href="spells.php?id=531" data-eqrs="0">Ring of Commons</a>				</td>
+	Line 2062: 				<a href="spells.php?id=533" data-eqrs="0">Ring of Toxxulia</a>				</td>
+	Line 2078: 				<a href="spells.php?id=273" data-eqrs="0">Shield of Barbs</a>				</td>
+	Line 2094: 				<a href="spells.php?id=3583" data-eqrs="0">Tiny Companion</a>				</td>
+	Line 2143: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 2159: 				<a href="spells.php?id=139" data-eqrs="0">Feral Spirit</a>				</td>
+	Line 2175: 				<a href="spells.php?id=2183" data-eqrs="0">Lesser Succor</a>				</td>
+	Line 2191: 				<a href="spells.php?id=2417" data-eqrs="0">Ring of Grimling</a>				</td>
+	Line 2207: 				<a href="spells.php?id=34" data-eqrs="0">Superior Camouflage</a>				</td>
+	Line 2256: 				<a href="spells.php?id=226" data-eqrs="0">Endure Disease</a>				</td>
+	Line 2272: 				<a href="spells.php?id=227" data-eqrs="0">Endure Poison</a>				</td>
+	Line 2288: 				<a href="spells.php?id=12" data-eqrs="0">Healing</a>				</td>
+	Line 2304: 				<a href="spells.php?id=2512" data-eqrs="0">Protection of Rock</a>				</td>
+	Line 2320: 				<a href="spells.php?id=2433" data-eqrs="0">Ring of the Nexus</a>				</td>
+	Line 2369: 				<a href="spells.php?id=9957" data-eqrs="0">Circle of Blightfire Moors</a>				</td>
+	Line 2385: 				<a href="spells.php?id=27779" data-eqrs="0">Primary Anchor Ring</a>				</td>
+	Line 2401: 				<a href="spells.php?id=60" data-eqrs="0">Resist Fire</a>				</td>
+	Line 2417: 				<a href="spells.php?id=9958" data-eqrs="0">Ring of Blightfire Moors</a>				</td>
+	Line 2433: 				<a href="spells.php?id=535" data-eqrs="0">Ring of Ro</a>				</td>
+	Line 2449: 				<a href="spells.php?id=3794" data-eqrs="0">Ring of Stonebrunt</a>				</td>
+	Line 2465: 				<a href="spells.php?id=27782" data-eqrs="0">Secondary Anchor Ring</a>				</td>
+	Line 2481: 				<a href="spells.php?id=425" data-eqrs="0">Wolf Form</a>				</td>
+	Line 2497: 				<a href="spells.php?id=9956" data-eqrs="0">Zephyr: Blightfire Moors</a>				</td>
+	Line 2546: 				<a href="spells.php?id=76" data-eqrs="0">Ensnaring Roots</a>				</td>
+	Line 2562: 				<a href="spells.php?id=4262" data-eqrs="0">Reebo's Augury</a>				</td>
+	Line 2578: 				<a href="spells.php?id=537" data-eqrs="0">Ring of Steamfont</a>				</td>
+	Line 2594: 				<a href="spells.php?id=220" data-eqrs="0">Spirit of Cheetah</a>				</td>
+	Line 2610: 				<a href="spells.php?id=405" data-eqrs="0">Tremor</a>				</td>
+	Line 2659: 				<a href="spells.php?id=27" data-eqrs="0">Pogonip</a>				</td>
+	Line 2675: 				<a href="spells.php?id=536" data-eqrs="0">Ring of Feerrott</a>				</td>
+	Line 2691: 				<a href="spells.php?id=534" data-eqrs="0">Ring of Lavastorm</a>				</td>
+	Line 2707: 				<a href="spells.php?id=143" data-eqrs="0">Sunbeam</a>				</td>
+	Line 2756: 				<a href="spells.php?id=260" data-eqrs="0">Charm Animals</a>				</td>
+	Line 2772: 				<a href="spells.php?id=115" data-eqrs="0">Dismiss Summoned</a>				</td>
+	Line 2788: 				<a href="spells.php?id=4057" data-eqrs="0">Remove Lesser Curse</a>				</td>
+	Line 2804: 				<a href="spells.php?id=2422" data-eqrs="0">Ring of Twilight</a>				</td>
+	Line 2853: 				<a href="spells.php?id=99" data-eqrs="0">Creeping Crud</a>				</td>
+	Line 2869: 				<a href="spells.php?id=4286" data-eqrs="0">Reebo's Cleansing</a>				</td>
+	Line 2885: 				<a href="spells.php?id=4274" data-eqrs="0">Reebo's Exorcism</a>				</td>
+	Line 2901: 				<a href="spells.php?id=1326" data-eqrs="0">Ring of the Combines</a>				</td>
+	Line 2917: 				<a href="spells.php?id=421" data-eqrs="0">Skin like Steel</a>				</td>
+	Line 2966: 				<a href="spells.php?id=553" data-eqrs="0">Circle of Butcher</a>				</td>
+	Line 2982: 				<a href="spells.php?id=550" data-eqrs="0">Circle of Karana</a>				</td>
+	Line 2998: 				<a href="spells.php?id=552" data-eqrs="0">Circle of Toxxulia</a>				</td>
+	Line 3014: 				<a href="spells.php?id=78" data-eqrs="0">Immolate</a>				</td>
+	Line 3030: 				<a href="spells.php?id=3182" data-eqrs="0">Ring of Knowledge</a>				</td>
+	Line 3046: 				<a href="spells.php?id=538" data-eqrs="0">Ring of Misty</a>				</td>
+	Line 3095: 				<a href="spells.php?id=2020" data-eqrs="0">Circle of Surefall Glade</a>				</td>
+	Line 3111: 				<a href="spells.php?id=2432" data-eqrs="0">Circle of the Nexus</a>				</td>
+	Line 3127: 				<a href="spells.php?id=512" data-eqrs="0">Ensnare</a>				</td>
+	Line 3143: 				<a href="spells.php?id=424" data-eqrs="0">Scale of Wolf</a>				</td>
+	Line 3159: 				<a href="spells.php?id=607" data-eqrs="0">Succor: East</a>				</td>
+	Line 3208: 				<a href="spells.php?id=517" data-eqrs="0">Bramblecoat</a>				</td>
+	Line 3224: 				<a href="spells.php?id=551" data-eqrs="0">Circle of Commons</a>				</td>
+	Line 3240: 				<a href="spells.php?id=2513" data-eqrs="0">Protection of Steel</a>				</td>
+	Line 3256: 				<a href="spells.php?id=129" data-eqrs="0">Shield of Brambles</a>				</td>
+	Line 3305: 				<a href="spells.php?id=753" data-eqrs="0">Beguile Plants</a>				</td>
+	Line 3321: 				<a href="spells.php?id=3792" data-eqrs="0">Circle of Stonebrunt</a>				</td>
+	Line 3337: 				<a href="spells.php?id=217" data-eqrs="0">Combust</a>				</td>
+	Line 3353: 				<a href="spells.php?id=96" data-eqrs="0">Counteract Disease</a>				</td>
+	Line 3369: 				<a href="spells.php?id=95" data-eqrs="0">Counteract Poison</a>				</td>
+	Line 3418: 				<a href="spells.php?id=2419" data-eqrs="0">Circle of Grimling</a>				</td>
+	Line 3434: 				<a href="spells.php?id=15" data-eqrs="0">Greater Healing</a>				</td>
+	Line 3450: 				<a href="spells.php?id=3601" data-eqrs="0">Harmony of Nature</a>				</td>
+	Line 3466: 				<a href="spells.php?id=1888" data-eqrs="0">Imbue Emerald</a>				</td>
+	Line 3482: 				<a href="spells.php?id=1800" data-eqrs="0">Imbue Plains Pebble</a>				</td>
+	Line 3498: 				<a href="spells.php?id=3998" data-eqrs="0">Mass Imbue Emerald</a>				</td>
+	Line 3514: 				<a href="spells.php?id=4004" data-eqrs="0">Mass Imbue Plains Pebble</a>				</td>
+	Line 3530: 				<a href="spells.php?id=2427" data-eqrs="0">Ring of Dawnshroud</a>				</td>
+	Line 3579: 				<a href="spells.php?id=554" data-eqrs="0">Circle of Lavastorm</a>				</td>
+	Line 3595: 				<a href="spells.php?id=1439" data-eqrs="0">Fury of Air</a>				</td>
+	Line 3611: 				<a href="spells.php?id=426" data-eqrs="0">Greater Wolf Form</a>				</td>
+	Line 3627: 				<a href="spells.php?id=61" data-eqrs="0">Resist Cold</a>				</td>
+	Line 3643: 				<a href="spells.php?id=4054" data-eqrs="0">Spirit of the Shrew</a>				</td>
+	Line 3692: 				<a href="spells.php?id=557" data-eqrs="0">Circle of Steamfont</a>				</td>
+	Line 3708: 				<a href="spells.php?id=406" data-eqrs="0">Earthquake</a>				</td>
+	Line 3724: 				<a href="spells.php?id=418" data-eqrs="0">Lightning Strike</a>				</td>
+	Line 3740: 				<a href="spells.php?id=4263" data-eqrs="0">Reebo's Greater Augury</a>				</td>
+	Line 3756: 				<a href="spells.php?id=1433" data-eqrs="0">Ring of Iceclad</a>				</td>
+	Line 3805: 				<a href="spells.php?id=556" data-eqrs="0">Circle of Feerrott</a>				</td>
+	Line 3821: 				<a href="spells.php?id=1434" data-eqrs="0">Circle of Iceclad</a>				</td>
+	Line 3837: 				<a href="spells.php?id=555" data-eqrs="0">Circle of Ro</a>				</td>
+	Line 3853: 				<a href="spells.php?id=259" data-eqrs="0">Drones of Doom</a>				</td>
+	Line 3869: 				<a href="spells.php?id=608" data-eqrs="0">Succor: Butcher</a>				</td>
+	Line 3885: 				<a href="spells.php?id=25898" data-eqrs="0">Zephyr: Nexus</a>				</td>
+	Line 3901: 				<a href="spells.php?id=25904" data-eqrs="0">Zephyr: Toxxulia</a>				</td>
+	Line 3950: 				<a href="spells.php?id=141" data-eqrs="0">Beguile Animals</a>				</td>
+	Line 3966: 				<a href="spells.php?id=1517" data-eqrs="0">Circle of the Combines</a>				</td>
+	Line 3982: 				<a href="spells.php?id=2424" data-eqrs="0">Circle of Twilight</a>				</td>
+	Line 3998: 				<a href="spells.php?id=664" data-eqrs="0">Expel Summoned</a>				</td>
+	Line 4014: 				<a href="spells.php?id=2029" data-eqrs="0">Ring of Great Divide</a>				</td>
+	Line 4030: 				<a href="spells.php?id=25689" data-eqrs="0">Zephyr: Butcherblock</a>				</td>
+	Line 4046: 				<a href="spells.php?id=25698" data-eqrs="0">Zephyr: Iceclad</a>				</td>
+	Line 4095: 				<a href="spells.php?id=228" data-eqrs="0">Endure Magic</a>				</td>
+	Line 4111: 				<a href="spells.php?id=3834" data-eqrs="0">Healing Water</a>				</td>
+	Line 4127: 				<a href="spells.php?id=4287" data-eqrs="0">Reebo's Greater Cleansing</a>				</td>
+	Line 4143: 				<a href="spells.php?id=4275" data-eqrs="0">Reebo's Greater Exorcism</a>				</td>
+	Line 4159: 				<a href="spells.php?id=144" data-eqrs="0">Regeneration</a>				</td>
+	Line 4175: 				<a href="spells.php?id=429" data-eqrs="0">Strength of Stone</a>				</td>
+	Line 4191: 				<a href="spells.php?id=25899" data-eqrs="0">Zephyr: Karana</a>				</td>
+	Line 4240: 				<a href="spells.php?id=4055" data-eqrs="0">Pack Shrew</a>				</td>
+	Line 4256: 				<a href="spells.php?id=169" data-eqrs="0">Pack Spirit</a>				</td>
+	Line 4272: 				<a href="spells.php?id=27781" data-eqrs="0">Primary Anchor Circle</a>				</td>
+	Line 4288: 				<a href="spells.php?id=27784" data-eqrs="0">Secondary Anchor Circle</a>				</td>
+	Line 4304: 				<a href="spells.php?id=428" data-eqrs="0">Share Wolf Form</a>				</td>
+	Line 4320: 				<a href="spells.php?id=25690" data-eqrs="0">Zephyr: Commonlands</a>				</td>
+	Line 4336: 				<a href="spells.php?id=25903" data-eqrs="0">Zephyr: Stonebrunt</a>				</td>
+	Line 4352: 				<a href="spells.php?id=25900" data-eqrs="0">Zephyr: Surefall Glade</a>				</td>
+	Line 4401: 				<a href="spells.php?id=558" data-eqrs="0">Circle of Misty</a>				</td>
+	Line 4417: 				<a href="spells.php?id=490" data-eqrs="0">Enveloping Roots</a>				</td>
+	Line 4433: 				<a href="spells.php?id=2030" data-eqrs="0">Ring of Wakening Lands</a>				</td>
+	Line 4449: 				<a href="spells.php?id=422" data-eqrs="0">Skin like Diamond</a>				</td>
+	Line 4465: 				<a href="spells.php?id=3580" data-eqrs="0">Spirit of Ash</a>				</td>
+	Line 4514: 				<a href="spells.php?id=28" data-eqrs="0">Avalanche</a>				</td>
+	Line 4530: 				<a href="spells.php?id=2429" data-eqrs="0">Circle of Dawnshroud</a>				</td>
+	Line 4546: 				<a href="spells.php?id=1437" data-eqrs="0">Ro's Fiery Sundering</a>				</td>
+	Line 4562: 				<a href="spells.php?id=432" data-eqrs="0">Shield of Spikes</a>				</td>
+	Line 4578: 				<a href="spells.php?id=518" data-eqrs="0">Spikecoat</a>				</td>
+	Line 4594: 				<a href="spells.php?id=1737" data-eqrs="0">Wind of the South</a>				</td>
+	Line 4643: 				<a href="spells.php?id=1438" data-eqrs="0">Circle of Great Divide</a>				</td>
+	Line 4659: 				<a href="spells.php?id=3184" data-eqrs="0">Circle of Knowledge</a>				</td>
+	Line 4675: 				<a href="spells.php?id=57" data-eqrs="0">Firestrike</a>				</td>
+	Line 4691: 				<a href="spells.php?id=2946" data-eqrs="0">Remove Curse</a>				</td>
+	Line 4707: 				<a href="spells.php?id=609" data-eqrs="0">Succor: Ro</a>				</td>
+	Line 4723: 				<a href="spells.php?id=25697" data-eqrs="0">Zephyr: Grimling</a>				</td>
+	Line 4772: 				<a href="spells.php?id=6873" data-eqrs="0">Nature's Renewal</a>				</td>
+	Line 4788: 				<a href="spells.php?id=137" data-eqrs="0">Pack Regeneration</a>				</td>
+	Line 4804: 				<a href="spells.php?id=2514" data-eqrs="0">Protection of Diamond</a>				</td>
+	Line 4820: 				<a href="spells.php?id=2031" data-eqrs="0">Ring of Cobalt Scar</a>				</td>
+	Line 4836: 				<a href="spells.php?id=1736" data-eqrs="0">Wind of the North</a>				</td>
+	Line 4852: 				<a href="spells.php?id=25695" data-eqrs="0">Zephyr: Feerrott</a>				</td>
+	Line 4868: 				<a href="spells.php?id=25902" data-eqrs="0">Zephyr: Steamfont</a>				</td>
+	Line 4917: 				<a href="spells.php?id=1398" data-eqrs="0">Circle of Wakening Lands</a>				</td>
+	Line 4933: 				<a href="spells.php?id=665" data-eqrs="0">Drifting Death</a>				</td>
+	Line 4949: 				<a href="spells.php?id=427" data-eqrs="0">Form of the Great Wolf</a>				</td>
+	Line 4951: 				<br><b>1:</b> Illusion: White Spirit Wolf<br><b>2:</b> If Not Item Click: Also Cast <a href="spells.php?id=40593" data-eqrs="0">Illusion Benefit Dena</a><br>				<br>
+	Line 4965: 				<a href="spells.php?id=27757" data-eqrs="0">Primary Anchor Push</a>				</td>
+	Line 4981: 				<a href="spells.php?id=27758" data-eqrs="0">Secondary Anchor Push</a>				</td>
+	Line 4997: 				<a href="spells.php?id=25694" data-eqrs="0">Zephyr: Combines</a>				</td>
+	Line 5013: 				<a href="spells.php?id=27780" data-eqrs="0">Zephyr: Primary Anchor</a>				</td>
+	Line 5029: 				<a href="spells.php?id=25901" data-eqrs="0">Zephyr: Ro</a>				</td>
+	Line 5045: 				<a href="spells.php?id=27783" data-eqrs="0">Zephyr: Secondary Anchor</a>				</td>
+	Line 5094: 				<a href="spells.php?id=140" data-eqrs="0">Savage Spirit</a>				</td>
+	Line 5110: 				<a href="spells.php?id=610" data-eqrs="0">Succor: Lavastorm</a>				</td>
+	Line 5126: 				<a href="spells.php?id=1285" data-eqrs="0">Summon Companion</a>				</td>
+	Line 5142: 				<a href="spells.php?id=25905" data-eqrs="0">Zephyr: Twilight</a>				</td>
+	Line 5191: 				<a href="spells.php?id=145" data-eqrs="0">Chloroplast</a>				</td>
+	Line 5207: 				<a href="spells.php?id=1440" data-eqrs="0">Circle of Cobalt Scar</a>				</td>
+	Line 5223: 				<a href="spells.php?id=1436" data-eqrs="0">Fixation of Ro</a>				</td>
+	Line 5239: 				<a href="spells.php?id=25696" data-eqrs="0">Zephyr: Great Divide</a>				</td>
+	Line 5288: 				<a href="spells.php?id=142" data-eqrs="0">Allure of the Wild</a>				</td>
+	Line 5304: 				<a href="spells.php?id=116" data-eqrs="0">Banish Summoned</a>				</td>
+	Line 5320: 				<a href="spells.php?id=1740" data-eqrs="0">Dustdevil</a>				</td>
+	Line 5336: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 5352: 				<a href="spells.php?id=25906" data-eqrs="0">Zephyr: Wakening Lands</a>				</td>
+	Line 5401: 				<a href="spells.php?id=53122" data-eqrs="0">Greater Mass Imbue Emerald</a>				</td>
+	Line 5417: 				<a href="spells.php?id=53128" data-eqrs="0">Greater Mass Imbue Plains Pebble</a>				</td>
+	Line 5433: 				<a href="spells.php?id=63" data-eqrs="0">Resist Disease</a>				</td>
+	Line 5449: 				<a href="spells.php?id=62" data-eqrs="0">Resist Poison</a>				</td>
+	Line 5465: 				<a href="spells.php?id=430" data-eqrs="0">Storm Strength</a>				</td>
+	Line 5481: 				<a href="spells.php?id=9" data-eqrs="0">Superior Healing</a>				</td>
+	Line 5497: 				<a href="spells.php?id=25693" data-eqrs="0">Zephyr: Cobalt Scar</a>				</td>
+	Line 5546: 				<a href="spells.php?id=77" data-eqrs="0">Engulfing Roots</a>				</td>
+	Line 5562: 				<a href="spells.php?id=138" data-eqrs="0">Pack Chloroplast</a>				</td>
+	Line 5578: 				<a href="spells.php?id=3579" data-eqrs="0">Share Form of the Great Wolf</a>				</td>
+	Line 5580: 				<br><b>1:</b> Illusion: Old Wolf<br><b>2:</b> If Not Item Click: Also Cast <a href="spells.php?id=40593" data-eqrs="0">Illusion Benefit Dena</a><br>				<br>
+	Line 5594: 				<a href="spells.php?id=25699" data-eqrs="0">Zephyr: Misty</a>				</td>
+	Line 5643: 				<a href="spells.php?id=420" data-eqrs="0">Lightning Blast</a>				</td>
+	Line 5659: 				<a href="spells.php?id=423" data-eqrs="0">Skin like Nature</a>				</td>
+	Line 5675: 				<a href="spells.php?id=611" data-eqrs="0">Succor: North</a>				</td>
+	Line 5691: 				<a href="spells.php?id=24773" data-eqrs="0">Zephyr: Knowledge</a>				</td>
+	Line 5740: 				<a href="spells.php?id=29" data-eqrs="0">Ice</a>				</td>
+	Line 5756: 				<a href="spells.php?id=356" data-eqrs="0">Shield of Thorns</a>				</td>
+	Line 5772: 				<a href="spells.php?id=519" data-eqrs="0">Thorncoat</a>				</td>
+	Line 5788: 				<a href="spells.php?id=24771" data-eqrs="0">Zephyr: Lavastorm</a>				</td>
+	Line 5837: 				<a href="spells.php?id=433" data-eqrs="0">Fire</a>				</td>
+	Line 5853: 				<a href="spells.php?id=1435" data-eqrs="0">Improved Superior Camouflage</a>				</td>
+	Line 5869: 				<a href="spells.php?id=671" data-eqrs="0">Starfire</a>				</td>
+	Line 5885: 				<a href="spells.php?id=1542" data-eqrs="0">Upheaval</a>				</td>
+	Line 5934: 				<a href="spells.php?id=6876" data-eqrs="0">Forest's Renewal</a>				</td>
+	Line 5950: 				<a href="spells.php?id=1727" data-eqrs="0">Legacy of Spike</a>				</td>
+	Line 5966: 				<a href="spells.php?id=2515" data-eqrs="0">Protection of Nature</a>				</td>
+	Line 5982: 				<a href="spells.php?id=64" data-eqrs="0">Resist Magic</a>				</td>
+	Line 5998: 				<a href="spells.php?id=4104" data-eqrs="0">Vengeance of the Wild</a>				</td>
+	Line 6047: 				<a href="spells.php?id=2881" data-eqrs="0">Everlasting Breath</a>				</td>
+	Line 6063: 				<a href="spells.php?id=2894" data-eqrs="0">Levitation</a>				</td>
+	Line 6079: 				<a href="spells.php?id=5571" data-eqrs="0">Tangle</a>				</td>
+	Line 6128: 				<a href="spells.php?id=1551" data-eqrs="0">Circle of Winter</a>				</td>
+	Line 6144: 				<a href="spells.php?id=1550" data-eqrs="0">Repulse Animal</a>				</td>
+	Line 6160: 				<a href="spells.php?id=53153" data-eqrs="0">Ring of Tranquility</a>				</td>
+	Line 6209: 				<a href="spells.php?id=1600" data-eqrs="0">Breath of Ro</a>				</td>
+	Line 6225: 				<a href="spells.php?id=1553" data-eqrs="0">Call of Karana</a>				</td>
+	Line 6241: 				<a href="spells.php?id=8965" data-eqrs="0">Circle of Arcstone</a>				</td>
+	Line 6257: 				<a href="spells.php?id=1552" data-eqrs="0">Circle of Summer</a>				</td>
+	Line 6273: 				<a href="spells.php?id=8235" data-eqrs="0">Circle of Undershore</a>				</td>
+	Line 6289: 				<a href="spells.php?id=1566" data-eqrs="0">Egress I</a>				</td>
+	Line 6305: 				<a href="spells.php?id=4058" data-eqrs="0">Feral Pack</a>				</td>
+	Line 6321: 				<a href="spells.php?id=2516" data-eqrs="0">Foliage Shield</a>				</td>
+	Line 6337: 				<a href="spells.php?id=3693" data-eqrs="0">Pure Blood</a>				</td>
+	Line 6353: 				<a href="spells.php?id=8967" data-eqrs="0">Ring of Arcstone</a>				</td>
+	Line 6369: 				<a href="spells.php?id=5733" data-eqrs="0">Ring of Barindu</a>				</td>
+	Line 6385: 				<a href="spells.php?id=4967" data-eqrs="0">Ring of Natimbi</a>				</td>
+	Line 6401: 				<a href="spells.php?id=8237" data-eqrs="0">Ring of Undershore</a>				</td>
+	Line 6417: 				<a href="spells.php?id=24775" data-eqrs="0">Zephyr: Undershore</a>				</td>
+	Line 6466: 				<a href="spells.php?id=1555" data-eqrs="0">Glamour of Tunare</a>				</td>
+	Line 6482: 				<a href="spells.php?id=6185" data-eqrs="0">Ring of Bloodfields</a>				</td>
+	Line 6498: 				<a href="spells.php?id=1554" data-eqrs="0">Spirit of Scale</a>				</td>
+	Line 6514: 				<a href="spells.php?id=1601" data-eqrs="0">Winged Death</a>				</td>
+	Line 6563: 				<a href="spells.php?id=1602" data-eqrs="0">Blizzard</a>				</td>
+	Line 6579: 				<a href="spells.php?id=4966" data-eqrs="0">Circle of Natimbi</a>				</td>
+	Line 6595: 				<a href="spells.php?id=53154" data-eqrs="0">Circle of Tranquility</a>				</td>
+	Line 6611: 				<a href="spells.php?id=21400" data-eqrs="0">Eradicate Curse</a>				</td>
+	Line 6627: 				<a href="spells.php?id=1562" data-eqrs="0">Form of the Howler</a>				</td>
+	Line 6643: 				<a href="spells.php?id=1568" data-eqrs="0">Regrowth</a>				</td>
+	Line 6659: 				<a href="spells.php?id=2880" data-eqrs="0">Remove Greater Curse</a>				</td>
+	Line 6675: 				<a href="spells.php?id=11982" data-eqrs="0">Ring of Buried Sea</a>				</td>
+	Line 6691: 				<a href="spells.php?id=1603" data-eqrs="0">Scoriae</a>				</td>
+	Line 6707: 				<a href="spells.php?id=2517" data-eqrs="0">Spirit of Eagle</a>				</td>
+	Line 6756: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 6772: 				<a href="spells.php?id=8929" data-eqrs="0">Aura of the Grove</a>				</td>
+	Line 6774: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8943" data-eqrs="0">Aura of the Grove Effect</a> (PCIObDruS11L055VineTrap)<br>				<br>
+	Line 6788: 				<a href="spells.php?id=1290" data-eqrs="0">Chloroblast</a>				</td>
+	Line 6804: 				<a href="spells.php?id=5731" data-eqrs="0">Circle of Barindu</a>				</td>
+	Line 6820: 				<a href="spells.php?id=6184" data-eqrs="0">Circle of Bloodfields</a>				</td>
+	Line 6836: 				<a href="spells.php?id=1529" data-eqrs="0">Exile Summoned</a>				</td>
+	Line 6852: 				<a href="spells.php?id=1605" data-eqrs="0">Frost</a>				</td>
+	Line 6868: 				<a href="spells.php?id=1557" data-eqrs="0">Girdle of Karana</a>				</td>
+	Line 6884: 				<a href="spells.php?id=1475" data-eqrs="0">Nature Walker's Behest</a>				</td>
+	Line 6900: 				<a href="spells.php?id=1556" data-eqrs="0">Tunare's Request</a>				</td>
+	Line 6916: 				<a href="spells.php?id=4105" data-eqrs="0">Vengeance of Nature</a>				</td>
+	Line 6965: 				<a href="spells.php?id=1558" data-eqrs="0">Bladecoat</a>				</td>
+	Line 6981: 				<a href="spells.php?id=1604" data-eqrs="0">Breath of Karana</a>				</td>
+	Line 6997: 				<a href="spells.php?id=1719" data-eqrs="0">Engorging Roots</a>				</td>
+	Line 7013: 				<a href="spells.php?id=2518" data-eqrs="0">Ro's Smoldering Disjunction</a>				</td>
+	Line 7029: 				<a href="spells.php?id=1725" data-eqrs="0">Wake of Karana</a>				</td>
+	Line 7045: 				<a href="spells.php?id=24776" data-eqrs="0">Zephyr: Arcstone</a>				</td>
+	Line 7061: 				<a href="spells.php?id=25700" data-eqrs="0">Zephyr: Natimbi</a>				</td>
+	Line 7110: 				<a href="spells.php?id=1767" data-eqrs="0">Bonds of Tunare</a>				</td>
+	Line 7126: 				<a href="spells.php?id=3346" data-eqrs="0">Imbue Storm</a>				</td>
+	Line 7142: 				<a href="spells.php?id=6998" data-eqrs="0">Instinctual Fear</a>				</td>
+	Line 7158: 				<a href="spells.php?id=1559" data-eqrs="0">Natureskin</a>				</td>
+	Line 7174: 				<a href="spells.php?id=1567" data-eqrs="0">Succor</a>				</td>
+	Line 7190: 				<a href="spells.php?id=25691" data-eqrs="0">Zephyr: Barindu</a>				</td>
+	Line 7206: 				<a href="spells.php?id=25692" data-eqrs="0">Zephyr: Bloodfields</a>				</td>
+	Line 7222: 				<a href="spells.php?id=24772" data-eqrs="0">Zephyr: Dawnshroud</a>				</td>
+	Line 7238: 				<a href="spells.php?id=53155" data-eqrs="0">Zephyr: Tranquility</a>				</td>
+	Line 7287: 				<a href="spells.php?id=2519" data-eqrs="0">Circle of Seasons</a>				</td>
+	Line 7303: 				<a href="spells.php?id=21399" data-eqrs="0">Eradicate Disease</a>				</td>
+	Line 7319: 				<a href="spells.php?id=21398" data-eqrs="0">Eradicate Poison</a>				</td>
+	Line 7335: 				<a href="spells.php?id=1606" data-eqrs="0">Fist of Karana</a>				</td>
+	Line 7351: 				<a href="spells.php?id=1569" data-eqrs="0">Regrowth of the Grove</a>				</td>
+	Line 7367: 				<a href="spells.php?id=1560" data-eqrs="0">Shield of Blades</a>				</td>
+	Line 7383: 				<a href="spells.php?id=2179" data-eqrs="0">Tunare's Renewal</a>				</td>
+	Line 7432: 				<a href="spells.php?id=11981" data-eqrs="0">Circle of Buried Sea</a>				</td>
+	Line 7448: 				<a href="spells.php?id=4589" data-eqrs="0">Incarnate Anew</a>				</td>
+	Line 7464: 				<a href="spells.php?id=1561" data-eqrs="0">Legacy of Thorn</a>				</td>
+	Line 7480: 				<a href="spells.php?id=2188" data-eqrs="0">Protection of the Cabbage</a>				</td>
+	Line 7496: 				<a href="spells.php?id=1564" data-eqrs="0">Spirit of Oak</a>				</td>
+	Line 7512: 				<a href="spells.php?id=1607" data-eqrs="0">Wildfire</a>				</td>
+	Line 7561: 				<a href="spells.php?id=2125" data-eqrs="0">Ancient: Legacy of Blades</a>				</td>
+	Line 7577: 				<a href="spells.php?id=2126" data-eqrs="0">Ancient: Starfire of Ro</a>				</td>
+	Line 7593: 				<a href="spells.php?id=1531" data-eqrs="0">Banishment</a>				</td>
+	Line 7609: 				<a href="spells.php?id=9954" data-eqrs="0">Circle of The Steppes</a>				</td>
+	Line 7625: 				<a href="spells.php?id=1608" data-eqrs="0">Entrapping Roots</a>				</td>
+	Line 7641: 				<a href="spells.php?id=1563" data-eqrs="0">Form of the Hunter</a>				</td>
+	Line 7657: 				<a href="spells.php?id=1565" data-eqrs="0">Mask of the Hunter</a>				</td>
+	Line 7673: 				<a href="spells.php?id=2887" data-eqrs="0">Mask of the Stalker</a>				</td>
+	Line 7689: 				<a href="spells.php?id=2877" data-eqrs="0">Moonfire</a>				</td>
+	Line 7705: 				<a href="spells.php?id=2520" data-eqrs="0">Nature's Recovery</a>				</td>
+	Line 7721: 				<a href="spells.php?id=1291" data-eqrs="0">Nature's Touch</a>				</td>
+	Line 7737: 				<a href="spells.php?id=1442" data-eqrs="0">Protection of the Glades</a>				</td>
+	Line 7753: 				<a href="spells.php?id=9955" data-eqrs="0">Ring of The Steppes</a>				</td>
+	Line 7769: 				<a href="spells.php?id=33099" data-eqrs="0">Teleport Guild Hall Anchor</a>				</td>
+	Line 7785: 				<a href="spells.php?id=9953" data-eqrs="0">Zephyr: The Steppes</a>				</td>
+	Line 7834: 				<a href="spells.php?id=3473" data-eqrs="0">Catastrophe</a>				</td>
+	Line 7850: 				<a href="spells.php?id=9700" data-eqrs="0">Cure Corruption</a>				</td>
+	Line 7866: 				<a href="spells.php?id=9701" data-eqrs="0">Cure Corruption Rk. II</a>				</td>
+	Line 7882: 				<a href="spells.php?id=9702" data-eqrs="0">Cure Corruption Rk. III</a>				</td>
+	Line 7898: 				<a href="spells.php?id=3192" data-eqrs="0">Earthen Roots</a>				</td>
+	Line 7914: 				<a href="spells.php?id=5572" data-eqrs="0">Entangle</a>				</td>
+	Line 7930: 				<a href="spells.php?id=3435" data-eqrs="0">Hand of Ro</a>				</td>
+	Line 7946: 				<a href="spells.php?id=6999" data-eqrs="0">Instinctual Panic</a>				</td>
+	Line 7962: 				<a href="spells.php?id=6733" data-eqrs="0">Mire Thorns</a>				</td>
+	Line 7978: 				<a href="spells.php?id=3433" data-eqrs="0">Replenishment</a>				</td>
+	Line 7994: 				<a href="spells.php?id=3434" data-eqrs="0">Storm's Fury</a>				</td>
+	Line 8010: 				<a href="spells.php?id=3436" data-eqrs="0">Winter's Storm</a>				</td>
+	Line 8059: 				<a href="spells.php?id=3185" data-eqrs="0">Flight of Eagles</a>				</td>
+	Line 8075: 				<a href="spells.php?id=3437" data-eqrs="0">Immolation of Ro</a>				</td>
+	Line 8091: 				<a href="spells.php?id=3438" data-eqrs="0">Karana's Rage</a>				</td>
+	Line 8107: 				<a href="spells.php?id=3439" data-eqrs="0">Nature's Might</a>				</td>
+	Line 8123: 				<a href="spells.php?id=6180" data-eqrs="0">Ring of Slaughter</a>				</td>
+	Line 8139: 				<a href="spells.php?id=3440" data-eqrs="0">Ro's Illumination</a>				</td>
+	Line 8188: 				<a href="spells.php?id=3441" data-eqrs="0">Blessing of Replenishment</a>				</td>
+	Line 8204: 				<a href="spells.php?id=3445" data-eqrs="0">Command of Tunare</a>				</td>
+	Line 8220: 				<a href="spells.php?id=3442" data-eqrs="0">E`ci's Frosty Breath</a>				</td>
+	Line 8236: 				<a href="spells.php?id=3443" data-eqrs="0">Nature's Infusion</a>				</td>
+	Line 8252: 				<a href="spells.php?id=3234" data-eqrs="0">Protection of the Nine</a>				</td>
+	Line 8268: 				<a href="spells.php?id=9721" data-eqrs="0">Resist Corruption</a>				</td>
+	Line 8284: 				<a href="spells.php?id=9722" data-eqrs="0">Resist Corruption Rk. II</a>				</td>
+	Line 8300: 				<a href="spells.php?id=9723" data-eqrs="0">Resist Corruption Rk. III</a>				</td>
+	Line 8316: 				<a href="spells.php?id=3448" data-eqrs="0">Shield of Bracken</a>				</td>
+	Line 8332: 				<a href="spells.php?id=3446" data-eqrs="0">Swarming Death</a>				</td>
+	Line 8381: 				<a href="spells.php?id=3450" data-eqrs="0">Brackencoat</a>				</td>
+	Line 8397: 				<a href="spells.php?id=9920" data-eqrs="0">Chant of the Napaea</a>				</td>
+	Line 8413: 				<a href="spells.php?id=9921" data-eqrs="0">Chant of the Napaea Rk. II</a>				</td>
+	Line 8429: 				<a href="spells.php?id=9922" data-eqrs="0">Chant of the Napaea Rk. III</a>				</td>
+	Line 8445: 				<a href="spells.php?id=6179" data-eqrs="0">Circle of Slaughter</a>				</td>
+	Line 8461: 				<a href="spells.php?id=3232" data-eqrs="0">Karana's Renewal</a>				</td>
+	Line 8477: 				<a href="spells.php?id=3444" data-eqrs="0">Protection of Seasons</a>				</td>
+	Line 8493: 				<a href="spells.php?id=3447" data-eqrs="0">Savage Roots</a>				</td>
+	Line 8509: 				<a href="spells.php?id=3449" data-eqrs="0">Summer's Flame</a>				</td>
+	Line 8525: 				<a href="spells.php?id=4106" data-eqrs="0">Vengeance of Tunare</a>				</td>
+	Line 8541: 				<a href="spells.php?id=11980" data-eqrs="0">Zephyr: Buried Sea</a>				</td>
+	Line 8590: 				<a href="spells.php?id=4974" data-eqrs="0">Ancient: Chaos Frost</a>				</td>
+	Line 8606: 				<a href="spells.php?id=3451" data-eqrs="0">Blessing of the Nine</a>				</td>
+	Line 8622: 				<a href="spells.php?id=3238" data-eqrs="0">Destroy Summoned</a>				</td>
+	Line 8638: 				<a href="spells.php?id=3295" data-eqrs="0">Legacy of Bracken</a>				</td>
+	Line 8654: 				<a href="spells.php?id=3453" data-eqrs="0">Mask of the Forest</a>				</td>
+	Line 8670: 				<a href="spells.php?id=4885" data-eqrs="0">Sylvan Embers</a>				</td>
+	Line 8686: 				<a href="spells.php?id=4884" data-eqrs="0">Sylvan Fire</a>				</td>
+	Line 8702: 				<a href="spells.php?id=4883" data-eqrs="0">Sylvan Infusion</a>				</td>
+	Line 8718: 				<a href="spells.php?id=3452" data-eqrs="0">Winter's Frost</a>				</td>

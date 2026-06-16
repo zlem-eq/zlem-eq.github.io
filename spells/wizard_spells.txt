@@ -1,0 +1,329 @@
+Line  606: 				<a href="spells.php?id=372" data-eqrs="0">Blast of Cold</a>				</td>
+	Line  622: 				<a href="spells.php?id=54" data-eqrs="0">Frost Bolt</a>				</td>
+	Line  638: 				<a href="spells.php?id=288" data-eqrs="0">Minor Shielding</a>				</td>
+	Line  654: 				<a href="spells.php?id=374" data-eqrs="0">Numbing Cold</a>				</td>
+	Line  670: 				<a href="spells.php?id=373" data-eqrs="0">Sphere of Light</a>				</td>
+	Line  686: 				<a href="spells.php?id=205" data-eqrs="0">True North</a>				</td>
+	Line  735: 				<a href="spells.php?id=51" data-eqrs="0">Glimpse</a>				</td>
+	Line  751: 				<a href="spells.php?id=378" data-eqrs="0">O`Keil's Radiation</a>				</td>
+	Line  800: 				<a href="spells.php?id=375" data-eqrs="0">Fade</a>				</td>
+	Line  816: 				<a href="spells.php?id=230" data-eqrs="0">Root</a>				</td>
+	Line  865: 				<a href="spells.php?id=36" data-eqrs="0">Gate</a>				</td>
+	Line  881: 				<a href="spells.php?id=80" data-eqrs="0">See Invisible</a>				</td>
+	Line  897: 				<a href="spells.php?id=376" data-eqrs="0">Shock of Fire</a>				</td>
+	Line  946: 				<a href="spells.php?id=379" data-eqrs="0">Fingers of Fire</a>				</td>
+	Line  962: 				<a href="spells.php?id=477" data-eqrs="0">Fire Bolt</a>				</td>
+	Line 1011: 				<a href="spells.php?id=377" data-eqrs="0">Icestrike</a>				</td>
+	Line 1027: 				<a href="spells.php?id=246" data-eqrs="0">Lesser Shielding</a>				</td>
+	Line 1076: 				<a href="spells.php?id=232" data-eqrs="0">Sense Summoned</a>				</td>
+	Line 1092: 				<a href="spells.php?id=354" data-eqrs="0">Shadow Step</a>				</td>
+	Line 1141: 				<a href="spells.php?id=380" data-eqrs="0">Column of Frost</a>				</td>
+	Line 1157: 				<a href="spells.php?id=323" data-eqrs="0">Eye of Zomm</a>				</td>
+	Line 1173: 				<a href="spells.php?id=656" data-eqrs="0">Shock of Ice</a>				</td>
+	Line 1222: 				<a href="spells.php?id=234" data-eqrs="0">Halo of Light</a>				</td>
+	Line 1238: 				<a href="spells.php?id=381" data-eqrs="0">Resistant Skin</a>				</td>
+	Line 1287: 				<a href="spells.php?id=2551" data-eqrs="0">O`Keil's Embers</a>				</td>
+	Line 1303: 				<a href="spells.php?id=383" data-eqrs="0">Shock of Lightning</a>				</td>
+	Line 1352: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 1368: 				<a href="spells.php?id=529" data-eqrs="0">Gaze</a>				</td>
+	Line 1417: 				<a href="spells.php?id=35" data-eqrs="0">Bind Affinity</a>				</td>
+	Line 1433: 				<a href="spells.php?id=85" data-eqrs="0">Firestorm</a>				</td>
+	Line 1449: 				<a href="spells.php?id=382" data-eqrs="0">Frost Spiral of Al`Kabor</a>				</td>
+	Line 1498: 				<a href="spells.php?id=236" data-eqrs="0">Shieldskin</a>				</td>
+	Line 1514: 				<a href="spells.php?id=4252" data-eqrs="0">Xalirilan's Lesser Appraisal</a>				</td>
+	Line 1563: 				<a href="spells.php?id=305" data-eqrs="0">Identify</a>				</td>
+	Line 1579: 				<a href="spells.php?id=385" data-eqrs="0">Project Lightning</a>				</td>
+	Line 1595: 				<a href="spells.php?id=4264" data-eqrs="0">Xalirilan's Lesser Discombobulation</a>				</td>
+	Line 1611: 				<a href="spells.php?id=4276" data-eqrs="0">Xalirilan's Lesser Extrication</a>				</td>
+	Line 1660: 				<a href="spells.php?id=657" data-eqrs="0">Flame Shock</a>				</td>
+	Line 1676: 				<a href="spells.php?id=386" data-eqrs="0">Pillar of Fire</a>				</td>
+	Line 1692: 				<a href="spells.php?id=309" data-eqrs="0">Shielding</a>				</td>
+	Line 1741: 				<a href="spells.php?id=500" data-eqrs="0">Bind Sight</a>				</td>
+	Line 1757: 				<a href="spells.php?id=7676" data-eqrs="0">Focus Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 1773: 				<a href="spells.php?id=7674" data-eqrs="0">Focus Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 1789: 				<a href="spells.php?id=7675" data-eqrs="0">Focus Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 1805: 				<a href="spells.php?id=679" data-eqrs="0">Heat Sight</a>				</td>
+	Line 1821: 				<a href="spells.php?id=42" data-eqrs="0">Invisibility</a>				</td>
+	Line 1837: 				<a href="spells.php?id=38" data-eqrs="0">Lightning Bolt</a>				</td>
+	Line 1886: 				<a href="spells.php?id=22" data-eqrs="0">Force Snap</a>				</td>
+	Line 1902: 				<a href="spells.php?id=131" data-eqrs="0">Instill</a>				</td>
+	Line 1918: 				<a href="spells.php?id=2945" data-eqrs="0">Nexus Gate</a>				</td>
+	Line 1967: 				<a href="spells.php?id=458" data-eqrs="0">Fire Spiral of Al`Kabor</a>				</td>
+	Line 1983: 				<a href="spells.php?id=2552" data-eqrs="0">Garrison's Mighty Mana Shock</a>				</td>
+	Line 1999: 				<a href="spells.php?id=2184" data-eqrs="0">Lesser Evacuate</a>				</td>
+	Line 2015: 				<a href="spells.php?id=542" data-eqrs="0">North Gate</a>				</td>
+	Line 2064: 				<a href="spells.php?id=578" data-eqrs="0">Sight</a>				</td>
+	Line 2080: 				<a href="spells.php?id=503" data-eqrs="0">Tishan's Clash</a>				</td>
+	Line 2096: 				<a href="spells.php?id=541" data-eqrs="0">Tox Gate</a>				</td>
+	Line 2145: 				<a href="spells.php?id=10882" data-eqrs="0">Blightfire Moors Gate</a>				</td>
+	Line 2161: 				<a href="spells.php?id=10881" data-eqrs="0">Blightfire Moors Portal</a>				</td>
+	Line 2177: 				<a href="spells.php?id=108" data-eqrs="0">Elemental Shield</a>				</td>
+	Line 2193: 				<a href="spells.php?id=543" data-eqrs="0">Fay Gate</a>				</td>
+	Line 2209: 				<a href="spells.php?id=7677" data-eqrs="0">Focus Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2225: 				<a href="spells.php?id=7689" data-eqrs="0">Focus Mass Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 2241: 				<a href="spells.php?id=7687" data-eqrs="0">Focus Mass Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 2257: 				<a href="spells.php?id=7688" data-eqrs="0">Focus Mass Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 2273: 				<a href="spells.php?id=2418" data-eqrs="0">Grimling Gate</a>				</td>
+	Line 2289: 				<a href="spells.php?id=27749" data-eqrs="0">Primary Anchor Gate</a>				</td>
+	Line 2305: 				<a href="spells.php?id=27753" data-eqrs="0">Secondary Anchor Gate</a>				</td>
+	Line 2321: 				<a href="spells.php?id=10880" data-eqrs="0">Translocate: Blightfire Moors</a>				</td>
+	Line 2370: 				<a href="spells.php?id=544" data-eqrs="0">Common Gate</a>				</td>
+	Line 2386: 				<a href="spells.php?id=387" data-eqrs="0">Leatherskin</a>				</td>
+	Line 2402: 				<a href="spells.php?id=3795" data-eqrs="0">Stonebrunt Gate</a>				</td>
+	Line 2451: 				<a href="spells.php?id=261" data-eqrs="0">Levitate</a>				</td>
+	Line 2467: 				<a href="spells.php?id=545" data-eqrs="0">Nek Gate</a>				</td>
+	Line 2483: 				<a href="spells.php?id=547" data-eqrs="0">Ro Gate</a>				</td>
+	Line 2499: 				<a href="spells.php?id=2423" data-eqrs="0">Twilight Gate</a>				</td>
+	Line 2548: 				<a href="spells.php?id=546" data-eqrs="0">Cazic Gate</a>				</td>
+	Line 2564: 				<a href="spells.php?id=467" data-eqrs="0">Lightning Storm</a>				</td>
+	Line 2580: 				<a href="spells.php?id=65" data-eqrs="0">Major Shielding</a>				</td>
+	Line 2596: 				<a href="spells.php?id=548" data-eqrs="0">West Gate</a>				</td>
+	Line 2612: 				<a href="spells.php?id=4253" data-eqrs="0">Xalirilan's Appraisal</a>				</td>
+	Line 2661: 				<a href="spells.php?id=461" data-eqrs="0">Cast Force</a>				</td>
+	Line 2677: 				<a href="spells.php?id=462" data-eqrs="0">Column of Lightning</a>				</td>
+	Line 2693: 				<a href="spells.php?id=1325" data-eqrs="0">Combine Gate</a>				</td>
+	Line 2709: 				<a href="spells.php?id=7690" data-eqrs="0">Focus Mass Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2725: 				<a href="spells.php?id=464" data-eqrs="0">Frost Shock</a>				</td>
+	Line 2741: 				<a href="spells.php?id=4265" data-eqrs="0">Xalirilan's Discombobulation</a>				</td>
+	Line 2757: 				<a href="spells.php?id=4277" data-eqrs="0">Xalirilan's Extrication</a>				</td>
+	Line 2806: 				<a href="spells.php?id=2553" data-eqrs="0">Minor Familiar</a>				</td>
+	Line 2808: 				<br><b>1:</b> If Not Item Click: Also Cast <a href="spells.php?id=50601" data-eqrs="0">Summon Minor Familiar</a><br><b>2:</b> Increase All Resists by 10<br><b>9:</b> Increase Effective Casting Level by 2<br>				<br>
+	Line 2822: 				<a href="spells.php?id=562" data-eqrs="0">North Portal</a>				</td>
+	Line 2838: 				<a href="spells.php?id=3581" data-eqrs="0">O`Keil's Levity</a>				</td>
+	Line 2854: 				<a href="spells.php?id=528" data-eqrs="0">Yonder</a>				</td>
+	Line 2903: 				<a href="spells.php?id=468" data-eqrs="0">Energy Storm</a>				</td>
+	Line 2919: 				<a href="spells.php?id=602" data-eqrs="0">Evacuate: North</a>				</td>
+	Line 2935: 				<a href="spells.php?id=1899" data-eqrs="0">Imbue Fire Opal</a>				</td>
+	Line 2951: 				<a href="spells.php?id=465" data-eqrs="0">Inferno Shock</a>				</td>
+	Line 3000: 				<a href="spells.php?id=636" data-eqrs="0">Bonds of Force</a>				</td>
+	Line 3016: 				<a href="spells.php?id=563" data-eqrs="0">Fay Portal</a>				</td>
+	Line 3032: 				<a href="spells.php?id=3183" data-eqrs="0">Knowledge Gate</a>				</td>
+	Line 3048: 				<a href="spells.php?id=3793" data-eqrs="0">Stonebrunt Portal</a>				</td>
+	Line 3097: 				<a href="spells.php?id=3999" data-eqrs="0">Mass Imbue Fire Opal</a>				</td>
+	Line 3113: 				<a href="spells.php?id=459" data-eqrs="0">Shock Spiral of Al`Kabor</a>				</td>
+	Line 3129: 				<a href="spells.php?id=470" data-eqrs="0">Thunder Strike</a>				</td>
+	Line 3145: 				<a href="spells.php?id=561" data-eqrs="0">Tox Portal</a>				</td>
+	Line 3194: 				<a href="spells.php?id=2428" data-eqrs="0">Dawnshroud Gate</a>				</td>
+	Line 3210: 				<a href="spells.php?id=2420" data-eqrs="0">Grimling Portal</a>				</td>
+	Line 3226: 				<a href="spells.php?id=579" data-eqrs="0">Magnify</a>				</td>
+	Line 3242: 				<a href="spells.php?id=2944" data-eqrs="0">Nexus Portal</a>				</td>
+	Line 3291: 				<a href="spells.php?id=7678" data-eqrs="0">Focus Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3307: 				<a href="spells.php?id=393" data-eqrs="0">Steelskin</a>				</td>
+	Line 3323: 				<a href="spells.php?id=471" data-eqrs="0">Thunderclap</a>				</td>
+	Line 3372: 				<a href="spells.php?id=463" data-eqrs="0">Circle of Force</a>				</td>
+	Line 3388: 				<a href="spells.php?id=1419" data-eqrs="0">O`Keil's Flickering Flame</a>				</td>
+	Line 3437: 				<a href="spells.php?id=603" data-eqrs="0">Evacuate: Fay</a>				</td>
+	Line 3453: 				<a href="spells.php?id=1744" data-eqrs="0">Harvest</a>				</td>
+	Line 3469: 				<a href="spells.php?id=1417" data-eqrs="0">Iceclad Gate</a>				</td>
+	Line 3485: 				<a href="spells.php?id=469" data-eqrs="0">Lava Storm</a>				</td>
+	Line 3501: 				<a href="spells.php?id=564" data-eqrs="0">Nek Portal</a>				</td>
+	Line 3550: 				<a href="spells.php?id=565" data-eqrs="0">Cazic Portal</a>				</td>
+	Line 3566: 				<a href="spells.php?id=66" data-eqrs="0">Greater Shielding</a>				</td>
+	Line 3582: 				<a href="spells.php?id=1418" data-eqrs="0">Iceclad Portal</a>				</td>
+	Line 3598: 				<a href="spells.php?id=2425" data-eqrs="0">Twilight Portal</a>				</td>
+	Line 3614: 				<a href="spells.php?id=4254" data-eqrs="0">Xalirilan's Greater Appraisal</a>				</td>
+	Line 3663: 				<a href="spells.php?id=1516" data-eqrs="0">Combine Portal</a>				</td>
+	Line 3679: 				<a href="spells.php?id=7691" data-eqrs="0">Focus Mass Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3695: 				<a href="spells.php?id=2026" data-eqrs="0">Great Divide Gate</a>				</td>
+	Line 3711: 				<a href="spells.php?id=658" data-eqrs="0">Ice Shock</a>				</td>
+	Line 3727: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 3743: 				<a href="spells.php?id=4266" data-eqrs="0">Xalirilan's Greater Discombobulation</a>				</td>
+	Line 3759: 				<a href="spells.php?id=4278" data-eqrs="0">Xalirilan's Greater Extrication</a>				</td>
+	Line 3808: 				<a href="spells.php?id=566" data-eqrs="0">Common Portal</a>				</td>
+	Line 3824: 				<a href="spells.php?id=2554" data-eqrs="0">Elnerick's Entombment of Ice</a>				</td>
+	Line 3840: 				<a href="spells.php?id=460" data-eqrs="0">Force Spiral of Al`Kabor</a>				</td>
+	Line 3856: 				<a href="spells.php?id=27751" data-eqrs="0">Primary Anchor Portal</a>				</td>
+	Line 3872: 				<a href="spells.php?id=27755" data-eqrs="0">Secondary Anchor Portal</a>				</td>
+	Line 3888: 				<a href="spells.php?id=1338" data-eqrs="0">Translocate: North</a>				</td>
+	Line 3904: 				<a href="spells.php?id=3833" data-eqrs="0">Translocate: Stonebrunt</a>				</td>
+	Line 3953: 				<a href="spells.php?id=1423" data-eqrs="0">Great Divide Portal</a>				</td>
+	Line 3969: 				<a href="spells.php?id=567" data-eqrs="0">Ro Portal</a>				</td>
+	Line 3985: 				<a href="spells.php?id=1738" data-eqrs="0">Tishan's Relocation</a>				</td>
+	Line 4001: 				<a href="spells.php?id=1336" data-eqrs="0">Translocate: Fay</a>				</td>
+	Line 4017: 				<a href="spells.php?id=2943" data-eqrs="0">Translocate: Nexus</a>				</td>
+	Line 4066: 				<a href="spells.php?id=752" data-eqrs="0">Concussion</a>				</td>
+	Line 4082: 				<a href="spells.php?id=466" data-eqrs="0">Lightning Shock</a>				</td>
+	Line 4098: 				<a href="spells.php?id=1739" data-eqrs="0">Markar's Relocation</a>				</td>
+	Line 4114: 				<a href="spells.php?id=1337" data-eqrs="0">Translocate: Tox</a>				</td>
+	Line 4130: 				<a href="spells.php?id=568" data-eqrs="0">West Portal</a>				</td>
+	Line 4179: 				<a href="spells.php?id=539" data-eqrs="0">Chill Sight</a>				</td>
+	Line 4195: 				<a href="spells.php?id=604" data-eqrs="0">Evacuate: Ro</a>				</td>
+	Line 4211: 				<a href="spells.php?id=3180" data-eqrs="0">Knowledge Portal</a>				</td>
+	Line 4227: 				<a href="spells.php?id=84" data-eqrs="0">Shifting Sight</a>				</td>
+	Line 4243: 				<a href="spells.php?id=1339" data-eqrs="0">Translocate: Combine</a>				</td>
+	Line 4259: 				<a href="spells.php?id=2027" data-eqrs="0">Wakening Lands Gate</a>				</td>
+	Line 4308: 				<a href="spells.php?id=2028" data-eqrs="0">Cobalt Scar Gate</a>				</td>
+	Line 4324: 				<a href="spells.php?id=2430" data-eqrs="0">Dawnshroud Portal</a>				</td>
+	Line 4340: 				<a href="spells.php?id=132" data-eqrs="0">Immobilize</a>				</td>
+	Line 4356: 				<a href="spells.php?id=1420" data-eqrs="0">Invisibility to Undead</a>				</td>
+	Line 4372: 				<a href="spells.php?id=2421" data-eqrs="0">Translocate: Grimling</a>				</td>
+	Line 4421: 				<a href="spells.php?id=394" data-eqrs="0">Diamondskin</a>				</td>
+	Line 4437: 				<a href="spells.php?id=7679" data-eqrs="0">Focus Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4453: 				<a href="spells.php?id=27757" data-eqrs="0">Primary Anchor Push</a>				</td>
+	Line 4469: 				<a href="spells.php?id=27758" data-eqrs="0">Secondary Anchor Push</a>				</td>
+	Line 4485: 				<a href="spells.php?id=1372" data-eqrs="0">Translocate: Common</a>				</td>
+	Line 4501: 				<a href="spells.php?id=27750" data-eqrs="0">Translocate: Primary Anchor</a>				</td>
+	Line 4517: 				<a href="spells.php?id=27754" data-eqrs="0">Translocate: Secondary Anchor</a>				</td>
+	Line 4533: 				<a href="spells.php?id=3811" data-eqrs="0">Vision Shift</a>				</td>
+	Line 4582: 				<a href="spells.php?id=23" data-eqrs="0">Force Strike</a>				</td>
+	Line 4598: 				<a href="spells.php?id=660" data-eqrs="0">Frost Storm</a>				</td>
+	Line 4614: 				<a href="spells.php?id=1371" data-eqrs="0">Translocate: Nek</a>				</td>
+	Line 4630: 				<a href="spells.php?id=2426" data-eqrs="0">Translocate: Twilight</a>				</td>
+	Line 4679: 				<a href="spells.php?id=109" data-eqrs="0">Elemental Armor</a>				</td>
+	Line 4695: 				<a href="spells.php?id=605" data-eqrs="0">Evacuate: Nek</a>				</td>
+	Line 4711: 				<a href="spells.php?id=53123" data-eqrs="0">Greater Mass Imbue Fire Opal</a>				</td>
+	Line 4727: 				<a href="spells.php?id=1374" data-eqrs="0">Translocate: West</a>				</td>
+	Line 4743: 				<a href="spells.php?id=1399" data-eqrs="0">Wakening Lands Portal</a>				</td>
+	Line 4792: 				<a href="spells.php?id=1425" data-eqrs="0">Cobalt Scar Portal</a>				</td>
+	Line 4808: 				<a href="spells.php?id=659" data-eqrs="0">Conflagration</a>				</td>
+	Line 4824: 				<a href="spells.php?id=73" data-eqrs="0">Gravity Flux</a>				</td>
+	Line 4840: 				<a href="spells.php?id=1373" data-eqrs="0">Translocate: Ro</a>				</td>
+	Line 4889: 				<a href="spells.php?id=67" data-eqrs="0">Arch Shielding</a>				</td>
+	Line 4905: 				<a href="spells.php?id=4099" data-eqrs="0">Bounce</a>				</td>
+	Line 4921: 				<a href="spells.php?id=1421" data-eqrs="0">Enticement of Flame</a>				</td>
+	Line 4937: 				<a href="spells.php?id=7692" data-eqrs="0">Focus Mass Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4953: 				<a href="spells.php?id=1375" data-eqrs="0">Translocate: Cazic</a>				</td>
+	Line 5002: 				<a href="spells.php?id=2555" data-eqrs="0">Lesser Familiar</a>				</td>
+	Line 5004: 				<br><b>1:</b> If Not Item Click: Also Cast <a href="spells.php?id=50602" data-eqrs="0">Summon Lesser Familiar</a><br><b>2:</b> Increase All Resists by 15<br><b>9:</b> Increase Effective Casting Level by 2<br><b>10:</b> See Invisible<br><b>12:</b> Increase Current Mana by 1 per Tick<br>				<br>
+	Line 5018: 				<a href="spells.php?id=733" data-eqrs="0">Supernova</a>				</td>
+	Line 5034: 				<a href="spells.php?id=2022" data-eqrs="0">Translocate: Iceclad</a>				</td>
+	Line 5050: 				<a href="spells.php?id=3181" data-eqrs="0">Translocate: Knowledge</a>				</td>
+	Line 5099: 				<a href="spells.php?id=666" data-eqrs="0">Alter Plane: Hate</a>				</td>
+	Line 5115: 				<a href="spells.php?id=674" data-eqrs="0">Alter Plane: Sky</a>				</td>
+	Line 5131: 				<a href="spells.php?id=2023" data-eqrs="0">Translocate: Great Divide</a>				</td>
+	Line 5180: 				<a href="spells.php?id=606" data-eqrs="0">Evacuate: West</a>				</td>
+	Line 5196: 				<a href="spells.php?id=612" data-eqrs="0">Markar's Clash</a>				</td>
+	Line 5212: 				<a href="spells.php?id=755" data-eqrs="0">Rend</a>				</td>
+	Line 5228: 				<a href="spells.php?id=2024" data-eqrs="0">Translocate: Wakening Lands</a>				</td>
+	Line 5277: 				<a href="spells.php?id=133" data-eqrs="0">Paralyzing Earth</a>				</td>
+	Line 5293: 				<a href="spells.php?id=2025" data-eqrs="0">Translocate: Cobalt Scar</a>				</td>
+	Line 5309: 				<a href="spells.php?id=731" data-eqrs="0">Wrath of Al`Kabor</a>				</td>
+	Line 5358: 				<a href="spells.php?id=732" data-eqrs="0">Ice Comet</a>				</td>
+	Line 5374: 				<a href="spells.php?id=2431" data-eqrs="0">Translocate: Dawnshroud</a>				</td>
+	Line 5390: 				<a href="spells.php?id=4067" data-eqrs="0">Ward of Calrena</a>				</td>
+	Line 5439: 				<a href="spells.php?id=7680" data-eqrs="0">Focus Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 5455: 				<a href="spells.php?id=2894" data-eqrs="0">Levitation</a>				</td>
+	Line 5471: 				<a href="spells.php?id=1422" data-eqrs="0">Translocate</a>				</td>
+	Line 5520: 				<a href="spells.php?id=8968" data-eqrs="0">Arcstone Gate</a>				</td>
+	Line 5536: 				<a href="spells.php?id=8966" data-eqrs="0">Arcstone Portal</a>				</td>
+	Line 5552: 				<a href="spells.php?id=1631" data-eqrs="0">Atol's Spectral Shackles</a>				</td>
+	Line 5568: 				<a href="spells.php?id=1637" data-eqrs="0">Draught of Fire</a>				</td>
+	Line 5584: 				<a href="spells.php?id=1646" data-eqrs="0">Pillar of Frost</a>				</td>
+	Line 5600: 				<a href="spells.php?id=1634" data-eqrs="0">Tishan's Discord</a>				</td>
+	Line 5616: 				<a href="spells.php?id=53150" data-eqrs="0">Tranquility Gate</a>				</td>
+	Line 5632: 				<a href="spells.php?id=8238" data-eqrs="0">Undershore Gate</a>				</td>
+	Line 5648: 				<a href="spells.php?id=8236" data-eqrs="0">Undershore Portal</a>				</td>
+	Line 5697: 				<a href="spells.php?id=1627" data-eqrs="0">Abscond</a>				</td>
+	Line 5713: 				<a href="spells.php?id=5734" data-eqrs="0">Barindu Gate</a>				</td>
+	Line 5729: 				<a href="spells.php?id=3706" data-eqrs="0">Frozen Harpoon</a>				</td>
+	Line 5745: 				<a href="spells.php?id=1642" data-eqrs="0">Lure of Frost</a>				</td>
+	Line 5761: 				<a href="spells.php?id=1609" data-eqrs="0">Manaskin</a>				</td>
+	Line 5777: 				<a href="spells.php?id=4963" data-eqrs="0">Natimbi Gate</a>				</td>
+	Line 5793: 				<a href="spells.php?id=1649" data-eqrs="0">Tears of Druzzil</a>				</td>
+	Line 5809: 				<a href="spells.php?id=1334" data-eqrs="0">Translocate: Group</a>				</td>
+	Line 5858: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 5874: 				<a href="spells.php?id=6181" data-eqrs="0">Bloodfields Gate</a>				</td>
+	Line 5890: 				<a href="spells.php?id=1650" data-eqrs="0">Inferno of Al`Kabor</a>				</td>
+	Line 5906: 				<a href="spells.php?id=1653" data-eqrs="0">Jyll's Static Pulse</a>				</td>
+	Line 5955: 				<a href="spells.php?id=3582" data-eqrs="0">Elemental Cloak</a>				</td>
+	Line 5971: 				<a href="spells.php?id=2557" data-eqrs="0">Familiar</a>				</td>
+	Line 5973: 				<br><b>1:</b> If Not Item Click: Also Cast <a href="spells.php?id=50603" data-eqrs="0">Summon Familiar</a><br><b>2:</b> Increase All Resists by 20<br><b>9:</b> Increase Effective Casting Level by 4<br><b>10:</b> See Invisible<br><b>11:</b> Increase Max Mana by 75<br><b>12:</b> Increase Current Mana by 2 per Tick<br>				<br>
+	Line 5987: 				<a href="spells.php?id=7693" data-eqrs="0">Focus Mass Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 6003: 				<a href="spells.php?id=4070" data-eqrs="0">Magi Ward</a>				</td>
+	Line 6019: 				<a href="spells.php?id=4965" data-eqrs="0">Natimbi Portal</a>				</td>
+	Line 6035: 				<a href="spells.php?id=1645" data-eqrs="0">Pillar of Lightning</a>				</td>
+	Line 6051: 				<a href="spells.php?id=1610" data-eqrs="0">Shield of the Magi</a>				</td>
+	Line 6067: 				<a href="spells.php?id=1656" data-eqrs="0">Thunderbolt</a>				</td>
+	Line 6083: 				<a href="spells.php?id=53151" data-eqrs="0">Tranquility Portal</a>				</td>
+	Line 6099: 				<a href="spells.php?id=1639" data-eqrs="0">Voltaic Draught</a>				</td>
+	Line 6148: 				<a href="spells.php?id=5732" data-eqrs="0">Barindu Portal</a>				</td>
+	Line 6164: 				<a href="spells.php?id=6183" data-eqrs="0">Bloodfields Portal</a>				</td>
+	Line 6180: 				<a href="spells.php?id=1643" data-eqrs="0">Draught of Jiva</a>				</td>
+	Line 6196: 				<a href="spells.php?id=8932" data-eqrs="0">Fire Mark</a>				</td>
+	Line 6198: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8947" data-eqrs="0">Fire Mark Effect</a> (PCIObWizS11L055TrapDmg)<br>				<br>
+	Line 6212: 				<a href="spells.php?id=7681" data-eqrs="0">Focus Spellcaster's Empowering Essence</a>				</td>
+	Line 6228: 				<a href="spells.php?id=1406" data-eqrs="0">Improved Invisibility</a>				</td>
+	Line 6244: 				<a href="spells.php?id=1638" data-eqrs="0">Lure of Flame</a>				</td>
+	Line 6260: 				<a href="spells.php?id=1632" data-eqrs="0">Plainsight</a>				</td>
+	Line 6276: 				<a href="spells.php?id=1648" data-eqrs="0">Tears of Solusek</a>				</td>
+	Line 6292: 				<a href="spells.php?id=8969" data-eqrs="0">Translocate: Arcstone</a>				</td>
+	Line 6308: 				<a href="spells.php?id=8239" data-eqrs="0">Translocate: Undershore</a>				</td>
+	Line 6357: 				<a href="spells.php?id=2558" data-eqrs="0">Decession</a>				</td>
+	Line 6373: 				<a href="spells.php?id=1654" data-eqrs="0">Jyll's Zephyr of Ice</a>				</td>
+	Line 6389: 				<a href="spells.php?id=1635" data-eqrs="0">Markar's Discord</a>				</td>
+	Line 6405: 				<a href="spells.php?id=1651" data-eqrs="0">Retribution of Al`Kabor</a>				</td>
+	Line 6454: 				<a href="spells.php?id=1641" data-eqrs="0">Draught of Ice</a>				</td>
+	Line 6470: 				<a href="spells.php?id=1628" data-eqrs="0">Evacuate</a>				</td>
+	Line 6486: 				<a href="spells.php?id=1720" data-eqrs="0">Eye of Tallon</a>				</td>
+	Line 6502: 				<a href="spells.php?id=4068" data-eqrs="0">Guard of Calrena</a>				</td>
+	Line 6518: 				<a href="spells.php?id=1644" data-eqrs="0">Pillar of Flame</a>				</td>
+	Line 6534: 				<a href="spells.php?id=4964" data-eqrs="0">Translocate: Natimbi</a>				</td>
+	Line 6550: 				<a href="spells.php?id=53152" data-eqrs="0">Translocate: Tranquility</a>				</td>
+	Line 6599: 				<a href="spells.php?id=1633" data-eqrs="0">Fetter</a>				</td>
+	Line 6615: 				<a href="spells.php?id=1640" data-eqrs="0">Lure of Lightning</a>				</td>
+	Line 6631: 				<a href="spells.php?id=1728" data-eqrs="0">Manasink</a>				</td>
+	Line 6647: 				<a href="spells.php?id=4100" data-eqrs="0">Reflect</a>				</td>
+	Line 6663: 				<a href="spells.php?id=2559" data-eqrs="0">Spellshield</a>				</td>
+	Line 6679: 				<a href="spells.php?id=1647" data-eqrs="0">Tears of Prexus</a>				</td>
+	Line 6695: 				<a href="spells.php?id=6182" data-eqrs="0">Translocate: Bloodfields</a>				</td>
+	Line 6744: 				<a href="spells.php?id=1722" data-eqrs="0">Flaming Sword of Xuzl</a>				</td>
+	Line 6760: 				<a href="spells.php?id=7694" data-eqrs="0">Focus Mass Spellcaster's Empowering Essence</a>				</td>
+	Line 6776: 				<a href="spells.php?id=1636" data-eqrs="0">Invert Gravity</a>				</td>
+	Line 6792: 				<a href="spells.php?id=1655" data-eqrs="0">Jyll's Wave of Heat</a>				</td>
+	Line 6808: 				<a href="spells.php?id=1652" data-eqrs="0">Vengeance of Al`Kabor</a>				</td>
+	Line 6857: 				<a href="spells.php?id=2116" data-eqrs="0">Ancient: Destruction of Ice</a>				</td>
+	Line 6873: 				<a href="spells.php?id=2117" data-eqrs="0">Ancient: Greater Concussion</a>				</td>
+	Line 6889: 				<a href="spells.php?id=1724" data-eqrs="0">Disintegrate</a>				</td>
+	Line 6905: 				<a href="spells.php?id=2883" data-eqrs="0">Elnerick's Electrical Rending</a>				</td>
+	Line 6921: 				<a href="spells.php?id=7682" data-eqrs="0">Focus Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 6937: 				<a href="spells.php?id=2884" data-eqrs="0">Garrison's Superior Sundering</a>				</td>
+	Line 6953: 				<a href="spells.php?id=2560" data-eqrs="0">Greater Familiar</a>				</td>
+	Line 6955: 				<br><b>1:</b> If Not Item Click: Also Cast <a href="spells.php?id=50604" data-eqrs="0">Summon Greater Familiar</a><br><b>2:</b> Increase All Resists by 25<br><b>9:</b> Increase Effective Casting Level by 8<br><b>10:</b> See Invisible<br><b>11:</b> Increase Max Mana by 150<br><b>12:</b> Increase Current Mana by 4 per Tick<br>				<br>
+	Line 6969: 				<a href="spells.php?id=1311" data-eqrs="0">Hsagra's Wrath</a>				</td>
+	Line 6985: 				<a href="spells.php?id=1426" data-eqrs="0">Ice Spear of Solist</a>				</td>
+	Line 7001: 				<a href="spells.php?id=1769" data-eqrs="0">Lure of Ice</a>				</td>
+	Line 7017: 				<a href="spells.php?id=1310" data-eqrs="0">Porlos' Fury</a>				</td>
+	Line 7033: 				<a href="spells.php?id=10879" data-eqrs="0">Sunderock Springs Gate</a>				</td>
+	Line 7049: 				<a href="spells.php?id=10878" data-eqrs="0">Sunderock Springs Portal</a>				</td>
+	Line 7065: 				<a href="spells.php?id=1658" data-eqrs="0">Sunstrike</a>				</td>
+	Line 7081: 				<a href="spells.php?id=33099" data-eqrs="0">Teleport Guild Hall Anchor</a>				</td>
+	Line 7097: 				<a href="spells.php?id=27752" data-eqrs="0">Teleport Primary Anchor</a>				</td>
+	Line 7113: 				<a href="spells.php?id=27756" data-eqrs="0">Teleport Secondary Anchor</a>				</td>
+	Line 7129: 				<a href="spells.php?id=5735" data-eqrs="0">Translocate: Barindu</a>				</td>
+	Line 7145: 				<a href="spells.php?id=10877" data-eqrs="0">Translocate: Sunderock Springs</a>				</td>
+	Line 7161: 				<a href="spells.php?id=1657" data-eqrs="0">Winds of Gelid</a>				</td>
+	Line 7210: 				<a href="spells.php?id=6737" data-eqrs="0">Claw of Frost</a>				</td>
+	Line 7226: 				<a href="spells.php?id=3194" data-eqrs="0">Greater Fetter</a>				</td>
+	Line 7242: 				<a href="spells.php?id=3328" data-eqrs="0">Lure of Thunder</a>				</td>
+	Line 7258: 				<a href="spells.php?id=3326" data-eqrs="0">Resistant Armor</a>				</td>
+	Line 7274: 				<a href="spells.php?id=3300" data-eqrs="0">Shield of the Arcane</a>				</td>
+	Line 7290: 				<a href="spells.php?id=3327" data-eqrs="0">Tears of Ro</a>				</td>
+	Line 7339: 				<a href="spells.php?id=3330" data-eqrs="0">Draught of Ro</a>				</td>
+	Line 7355: 				<a href="spells.php?id=3329" data-eqrs="0">Elemental Barrier</a>				</td>
+	Line 7371: 				<a href="spells.php?id=3331" data-eqrs="0">Lure of Ro</a>				</td>
+	Line 7387: 				<a href="spells.php?id=6176" data-eqrs="0">Slaughter Gate</a>				</td>
+	Line 7403: 				<a href="spells.php?id=3243" data-eqrs="0">Teleport</a>				</td>
+	Line 7452: 				<a href="spells.php?id=3335" data-eqrs="0">Agnarr's Thunder</a>				</td>
+	Line 7468: 				<a href="spells.php?id=3976" data-eqrs="0">Draught of Lightning</a>				</td>
+	Line 7484: 				<a href="spells.php?id=3334" data-eqrs="0">Draught of Thunder</a>				</td>
+	Line 7500: 				<a href="spells.php?id=3301" data-eqrs="0">Force Shield</a>				</td>
+	Line 7516: 				<a href="spells.php?id=3337" data-eqrs="0">Iceflame of E`ci</a>				</td>
+	Line 7532: 				<a href="spells.php?id=4071" data-eqrs="0">Mana Ward</a>				</td>
+	Line 7581: 				<a href="spells.php?id=3336" data-eqrs="0">Draught of E`ci</a>				</td>
+	Line 7597: 				<a href="spells.php?id=7695" data-eqrs="0">Focus Mass Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 7613: 				<a href="spells.php?id=4066" data-eqrs="0">Ice Meteor</a>				</td>
+	Line 7629: 				<a href="spells.php?id=11985" data-eqrs="0">Katta Castrum Gate</a>				</td>
+	Line 7645: 				<a href="spells.php?id=4069" data-eqrs="0">Protection of Calrena</a>				</td>
+	Line 7661: 				<a href="spells.php?id=3302" data-eqrs="0">Shield of Maelin</a>				</td>
+	Line 7677: 				<a href="spells.php?id=6178" data-eqrs="0">Slaughter Portal</a>				</td>
+	Line 7693: 				<a href="spells.php?id=3189" data-eqrs="0">Tears of Arlyxir</a>				</td>
+	Line 7709: 				<a href="spells.php?id=3333" data-eqrs="0">Telekin</a>				</td>
+	Line 7758: 				<a href="spells.php?id=4981" data-eqrs="0">Ancient: Strike of Chaos</a>				</td>
+	Line 7774: 				<a href="spells.php?id=4905" data-eqrs="0">Black Ice</a>				</td>
+	Line 7790: 				<a href="spells.php?id=7683" data-eqrs="0">Focus Intricate Spellcaster's Empowering Essence</a>				</td>
+	Line 7806: 				<a href="spells.php?id=3244" data-eqrs="0">Greater Decession</a>				</td>
+	Line 7822: 				<a href="spells.php?id=3191" data-eqrs="0">Shock of Magic</a>				</td>
+	Line 7838: 				<a href="spells.php?id=3339" data-eqrs="0">Strike of Solusek</a>				</td>
+	Line 7854: 				<a href="spells.php?id=3332" data-eqrs="0">Tears of Marr</a>				</td>
+	Line 7870: 				<a href="spells.php?id=4907" data-eqrs="0">Telaka</a>				</td>
+	Line 7886: 				<a href="spells.php?id=4906" data-eqrs="0">White Fire</a>				</td>

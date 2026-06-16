@@ -1,0 +1,361 @@
+	Line  606: 				<a href="spells.php?id=208" data-eqrs="0">Lull</a>				</td>
+	Line  622: 				<a href="spells.php?id=288" data-eqrs="0">Minor Shielding</a>				</td>
+	Line  638: 				<a href="spells.php?id=285" data-eqrs="0">Pendril's Animation</a>				</td>
+	Line  654: 				<a href="spells.php?id=331" data-eqrs="0">Reclaim Energy</a>				</td>
+	Line  670: 				<a href="spells.php?id=286" data-eqrs="0">Shallow Breath</a>				</td>
+	Line  686: 				<a href="spells.php?id=40" data-eqrs="0">Strengthen</a>				</td>
+	Line  702: 				<a href="spells.php?id=289" data-eqrs="0">Taper Enchantment</a>				</td>
+	Line  718: 				<a href="spells.php?id=205" data-eqrs="0">True North</a>				</td>
+	Line  734: 				<a href="spells.php?id=41" data-eqrs="0">Weaken</a>				</td>
+	Line  783: 				<a href="spells.php?id=582" data-eqrs="0">Illusion: Human</a>				</td>
+	Line  799: 				<a href="spells.php?id=681" data-eqrs="0">Juli's Animation</a>				</td>
+	Line  815: 				<a href="spells.php?id=292" data-eqrs="0">Mesmerize</a>				</td>
+	Line  831: 				<a href="spells.php?id=676" data-eqrs="0">Tashina</a>				</td>
+	Line  880: 				<a href="spells.php?id=290" data-eqrs="0">Color Flux</a>				</td>
+	Line  896: 				<a href="spells.php?id=229" data-eqrs="0">Fear</a>				</td>
+	Line  912: 				<a href="spells.php?id=293" data-eqrs="0">Haze</a>				</td>
+	Line  928: 				<a href="spells.php?id=583" data-eqrs="0">Illusion: Half-Elf</a>				</td>
+	Line  977: 				<a href="spells.php?id=291" data-eqrs="0">Enfeeblement</a>				</td>
+	Line  993: 				<a href="spells.php?id=36" data-eqrs="0">Gate</a>				</td>
+	Line 1009: 				<a href="spells.php?id=42" data-eqrs="0">Invisibility</a>				</td>
+	Line 1025: 				<a href="spells.php?id=294" data-eqrs="0">Suffocating Sphere</a>				</td>
+	Line 1074: 				<a href="spells.php?id=297" data-eqrs="0">Eye of Confusion</a>				</td>
+	Line 1090: 				<a href="spells.php?id=588" data-eqrs="0">Illusion: Wood Elf</a>				</td>
+	Line 1106: 				<a href="spells.php?id=299" data-eqrs="0">Sentinel</a>				</td>
+	Line 1155: 				<a href="spells.php?id=246" data-eqrs="0">Lesser Shielding</a>				</td>
+	Line 1171: 				<a href="spells.php?id=230" data-eqrs="0">Root</a>				</td>
+	Line 1187: 				<a href="spells.php?id=80" data-eqrs="0">See Invisible</a>				</td>
+	Line 1203: 				<a href="spells.php?id=501" data-eqrs="0">Soothe</a>				</td>
+	Line 1252: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 1268: 				<a href="spells.php?id=296" data-eqrs="0">Chaotic Feedback</a>				</td>
+	Line 1284: 				<a href="spells.php?id=667" data-eqrs="0">Enchant Silver</a>				</td>
+	Line 1300: 				<a href="spells.php?id=3991" data-eqrs="0">Mass Enchant Silver</a>				</td>
+	Line 1316: 				<a href="spells.php?id=295" data-eqrs="0">Mircyl's Animation</a>				</td>
+	Line 1365: 				<a href="spells.php?id=298" data-eqrs="0">Alliance</a>				</td>
+	Line 1381: 				<a href="spells.php?id=500" data-eqrs="0">Bind Sight</a>				</td>
+	Line 1397: 				<a href="spells.php?id=1359" data-eqrs="0">Enchant Clay</a>				</td>
+	Line 1413: 				<a href="spells.php?id=595" data-eqrs="0">Illusion: Gnome</a>				</td>
+	Line 1429: 				<a href="spells.php?id=3986" data-eqrs="0">Mass Enchant Clay</a>				</td>
+	Line 1478: 				<a href="spells.php?id=645" data-eqrs="0">Ebbing Strength</a>				</td>
+	Line 1494: 				<a href="spells.php?id=682" data-eqrs="0">Kilan's Animation</a>				</td>
+	Line 1510: 				<a href="spells.php?id=302" data-eqrs="0">Languid Pace</a>				</td>
+	Line 1526: 				<a href="spells.php?id=303" data-eqrs="0">Whirl Till You Hurl</a>				</td>
+	Line 1575: 				<a href="spells.php?id=12337" data-eqrs="0">Illusion: Burning Nekhon</a>				</td>
+	Line 1577: 				<br><b>1:</b> Illusion: Burning Nekhon<br><b>2:</b> Cast <a href="spells.php?id=40624" data-eqrs="0">Illusion Benefit Levitation</a> (v374)<br>				<br>
+	Line 1591: 				<a href="spells.php?id=590" data-eqrs="0">Illusion: Dark Elf</a>				</td>
+	Line 1607: 				<a href="spells.php?id=12402" data-eqrs="0">Illusion: Kedge</a>				</td>
+	Line 1609: 				<br><b>1:</b> Illusion: Kedge<br><b>2:</b> Cast <a href="spells.php?id=40624" data-eqrs="0">Illusion Benefit Levitation</a> (v374)<br>				<br>
+	Line 1623: 				<a href="spells.php?id=12335" data-eqrs="0">Illusion: Simple Gnoll</a>				</td>
+	Line 1639: 				<a href="spells.php?id=12401" data-eqrs="0">Illusion: Steam Suit</a>				</td>
+	Line 1655: 				<a href="spells.php?id=301" data-eqrs="0">Memory Blur</a>				</td>
+	Line 1671: 				<a href="spells.php?id=650" data-eqrs="0">Mist</a>				</td>
+	Line 1687: 				<a href="spells.php?id=276" data-eqrs="0">Serpent Sight</a>				</td>
+	Line 1736: 				<a href="spells.php?id=300" data-eqrs="0">Charm</a>				</td>
+	Line 1752: 				<a href="spells.php?id=521" data-eqrs="0">Choke</a>				</td>
+	Line 1768: 				<a href="spells.php?id=7988" data-eqrs="0">Greater Mass Enchant Silver</a>				</td>
+	Line 1784: 				<a href="spells.php?id=589" data-eqrs="0">Illusion: High Elf</a>				</td>
+	Line 1800: 				<a href="spells.php?id=2561" data-eqrs="0">Intellectual Advancement</a>				</td>
+	Line 1816: 				<a href="spells.php?id=4010" data-eqrs="0">Mass Thicken Mana</a>				</td>
+	Line 1832: 				<a href="spells.php?id=390" data-eqrs="0">Thicken Mana</a>				</td>
+	Line 1881: 				<a href="spells.php?id=35" data-eqrs="0">Bind Affinity</a>				</td>
+	Line 1897: 				<a href="spells.php?id=86" data-eqrs="0">Enduring Breath</a>				</td>
+	Line 1913: 				<a href="spells.php?id=53115" data-eqrs="0">Greater Mass Enchant Clay</a>				</td>
+	Line 1929: 				<a href="spells.php?id=587" data-eqrs="0">Illusion: Erudite</a>				</td>
+	Line 1945: 				<a href="spells.php?id=594" data-eqrs="0">Illusion: Halfling</a>				</td>
+	Line 1994: 				<a href="spells.php?id=187" data-eqrs="0">Enthrall</a>				</td>
+	Line 2010: 				<a href="spells.php?id=591" data-eqrs="0">Illusion: Dwarf</a>				</td>
+	Line 2026: 				<a href="spells.php?id=481" data-eqrs="0">Rune I</a>				</td>
+	Line 2042: 				<a href="spells.php?id=4255" data-eqrs="0">Wuggan's Lesser Appraisal</a>				</td>
+	Line 2091: 				<a href="spells.php?id=697" data-eqrs="0">Breeze</a>				</td>
+	Line 2107: 				<a href="spells.php?id=668" data-eqrs="0">Enchant Electrum</a>				</td>
+	Line 2123: 				<a href="spells.php?id=235" data-eqrs="0">Invisibility Versus Undead</a>				</td>
+	Line 2139: 				<a href="spells.php?id=3987" data-eqrs="0">Mass Enchant Electrum</a>				</td>
+	Line 2155: 				<a href="spells.php?id=683" data-eqrs="0">Shalee's Animation</a>				</td>
+	Line 2171: 				<a href="spells.php?id=4267" data-eqrs="0">Wuggan's Lesser Discombobulation</a>				</td>
+	Line 2187: 				<a href="spells.php?id=4279" data-eqrs="0">Wuggan's Lesser Extrication</a>				</td>
+	Line 2236: 				<a href="spells.php?id=305" data-eqrs="0">Identify</a>				</td>
+	Line 2252: 				<a href="spells.php?id=586" data-eqrs="0">Illusion: Barbarian</a>				</td>
+	Line 2268: 				<a href="spells.php?id=601" data-eqrs="0">Illusion: Tree</a>				</td>
+	Line 2284: 				<a href="spells.php?id=261" data-eqrs="0">Levitate</a>				</td>
+	Line 2300: 				<a href="spells.php?id=39" data-eqrs="0">Quickness</a>				</td>
+	Line 2349: 				<a href="spells.php?id=304" data-eqrs="0">Chase the Moon</a>				</td>
+	Line 2365: 				<a href="spells.php?id=281" data-eqrs="0">Disempower</a>				</td>
+	Line 2381: 				<a href="spells.php?id=7676" data-eqrs="0">Focus Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 2397: 				<a href="spells.php?id=7677" data-eqrs="0">Focus Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2413: 				<a href="spells.php?id=7674" data-eqrs="0">Focus Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 2429: 				<a href="spells.php?id=7675" data-eqrs="0">Focus Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 2445: 				<a href="spells.php?id=307" data-eqrs="0">Mesmerization</a>				</td>
+	Line 2461: 				<a href="spells.php?id=306" data-eqrs="0">Sanity Warp</a>				</td>
+	Line 2477: 				<a href="spells.php?id=309" data-eqrs="0">Shielding</a>				</td>
+	Line 2526: 				<a href="spells.php?id=651" data-eqrs="0">Cloud</a>				</td>
+	Line 2542: 				<a href="spells.php?id=228" data-eqrs="0">Endure Magic</a>				</td>
+	Line 2558: 				<a href="spells.php?id=53134" data-eqrs="0">Greater Mass Thicken Mana</a>				</td>
+	Line 2574: 				<a href="spells.php?id=593" data-eqrs="0">Illusion: Ogre</a>				</td>
+	Line 2590: 				<a href="spells.php?id=2562" data-eqrs="0">Intellectual Superiority</a>				</td>
+	Line 2606: 				<a href="spells.php?id=684" data-eqrs="0">Sisna's Animation</a>				</td>
+	Line 2655: 				<a href="spells.php?id=47" data-eqrs="0">Calm</a>				</td>
+	Line 2671: 				<a href="spells.php?id=592" data-eqrs="0">Illusion: Troll</a>				</td>
+	Line 2687: 				<a href="spells.php?id=489" data-eqrs="0">Sympathetic Aura</a>				</td>
+	Line 2703: 				<a href="spells.php?id=677" data-eqrs="0">Tashani</a>				</td>
+	Line 2752: 				<a href="spells.php?id=21" data-eqrs="0">Berserker Strength</a>				</td>
+	Line 2768: 				<a href="spells.php?id=439" data-eqrs="0">Crystallize Mana</a>				</td>
+	Line 2784: 				<a href="spells.php?id=179" data-eqrs="0">Feckless Might</a>				</td>
+	Line 2800: 				<a href="spells.php?id=7985" data-eqrs="0">Greater Mass Enchant Electrum</a>				</td>
+	Line 2816: 				<a href="spells.php?id=3583" data-eqrs="0">Tiny Companion</a>				</td>
+	Line 2865: 				<a href="spells.php?id=173" data-eqrs="0">Benevolence</a>				</td>
+	Line 2881: 				<a href="spells.php?id=177" data-eqrs="0">Color Shift</a>				</td>
+	Line 2897: 				<a href="spells.php?id=7689" data-eqrs="0">Focus Mass Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 2913: 				<a href="spells.php?id=7690" data-eqrs="0">Focus Mass Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2929: 				<a href="spells.php?id=7687" data-eqrs="0">Focus Mass Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 2945: 				<a href="spells.php?id=7688" data-eqrs="0">Focus Mass Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 2961: 				<a href="spells.php?id=243" data-eqrs="0">Illusion: Iksar</a>				</td>
+	Line 2977: 				<a href="spells.php?id=3982" data-eqrs="0">Mass Crystallize Mana</a>				</td>
+	Line 2993: 				<a href="spells.php?id=84" data-eqrs="0">Shifting Sight</a>				</td>
+	Line 3042: 				<a href="spells.php?id=170" data-eqrs="0">Alacrity</a>				</td>
+	Line 3058: 				<a href="spells.php?id=350" data-eqrs="0">Chaos Flux</a>				</td>
+	Line 3074: 				<a href="spells.php?id=584" data-eqrs="0">Illusion: Earth Elemental</a>				</td>
+	Line 3123: 				<a href="spells.php?id=482" data-eqrs="0">Rune II</a>				</td>
+	Line 3139: 				<a href="spells.php?id=685" data-eqrs="0">Sagar's Animation</a>				</td>
+	Line 3155: 				<a href="spells.php?id=24" data-eqrs="0">Strip Enchantment</a>				</td>
+	Line 3204: 				<a href="spells.php?id=182" data-eqrs="0">Beguile</a>				</td>
+	Line 3220: 				<a href="spells.php?id=65" data-eqrs="0">Major Shielding</a>				</td>
+	Line 3236: 				<a href="spells.php?id=185" data-eqrs="0">Tepid Deeds</a>				</td>
+	Line 3252: 				<a href="spells.php?id=4256" data-eqrs="0">Wuggan's Appraisal</a>				</td>
+	Line 3301: 				<a href="spells.php?id=669" data-eqrs="0">Enchant Gold</a>				</td>
+	Line 3317: 				<a href="spells.php?id=581" data-eqrs="0">Illusion: Skeleton</a>				</td>
+	Line 3333: 				<a href="spells.php?id=3988" data-eqrs="0">Mass Enchant Gold</a>				</td>
+	Line 3349: 				<a href="spells.php?id=4268" data-eqrs="0">Wuggan's Discombobulation</a>				</td>
+	Line 3365: 				<a href="spells.php?id=4280" data-eqrs="0">Wuggan's Extrication</a>				</td>
+	Line 3414: 				<a href="spells.php?id=191" data-eqrs="0">Feedback</a>				</td>
+	Line 3430: 				<a href="spells.php?id=7678" data-eqrs="0">Focus Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3446: 				<a href="spells.php?id=131" data-eqrs="0">Instill</a>				</td>
+	Line 3462: 				<a href="spells.php?id=162" data-eqrs="0">Listless Power</a>				</td>
+	Line 3511: 				<a href="spells.php?id=174" data-eqrs="0">Clarity</a>				</td>
+	Line 3527: 				<a href="spells.php?id=408" data-eqrs="0">Curse of the Simple Mind</a>				</td>
+	Line 3543: 				<a href="spells.php?id=2563" data-eqrs="0">Haunting Visage</a>				</td>
+	Line 3559: 				<a href="spells.php?id=450" data-eqrs="0">Suffocate</a>				</td>
+	Line 3608: 				<a href="spells.php?id=540" data-eqrs="0">Clarify Mana</a>				</td>
+	Line 3624: 				<a href="spells.php?id=652" data-eqrs="0">Obscure</a>				</td>
+	Line 3640: 				<a href="spells.php?id=46" data-eqrs="0">Ultravision</a>				</td>
+	Line 3689: 				<a href="spells.php?id=10" data-eqrs="0">Augmentation</a>				</td>
+	Line 3705: 				<a href="spells.php?id=619" data-eqrs="0">Dyn's Dizzying Draught</a>				</td>
+	Line 3721: 				<a href="spells.php?id=7986" data-eqrs="0">Greater Mass Enchant Gold</a>				</td>
+	Line 3737: 				<a href="spells.php?id=599" data-eqrs="0">Illusion: Water Elemental</a>				</td>
+	Line 3739: 				<br><b>1:</b> Illusion: Water Elemental<br><b>2:</b> If Not Item Click: Also Cast <a href="spells.php?id=40617" data-eqrs="0">Illusion Benefit Water Breathing</a><br>				<br>
+	Line 3753: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 3802: 				<a href="spells.php?id=7691" data-eqrs="0">Focus Mass Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3818: 				<a href="spells.php?id=597" data-eqrs="0">Illusion: Air Elemental</a>				</td>
+	Line 3820: 				<br><b>1:</b> Illusion: Air Elemental<br><b>2:</b> Cast <a href="spells.php?id=40624" data-eqrs="0">Illusion Benefit Levitation</a> (v374)<br>				<br>
+	Line 3834: 				<a href="spells.php?id=3981" data-eqrs="0">Mass Clarify Mana</a>				</td>
+	Line 3850: 				<a href="spells.php?id=686" data-eqrs="0">Uleen's Animation</a>				</td>
+	Line 3866: 				<a href="spells.php?id=4073" data-eqrs="0">Ward of Alendar</a>				</td>
+	Line 3915: 				<a href="spells.php?id=188" data-eqrs="0">Entrance</a>				</td>
+	Line 3931: 				<a href="spells.php?id=3585" data-eqrs="0">Entrancing Lights</a>				</td>
+	Line 3947: 				<a href="spells.php?id=53111" data-eqrs="0">Greater Mass Crystallize Mana</a>				</td>
+	Line 3963: 				<a href="spells.php?id=10605" data-eqrs="0">Illusion: Drakkin of Draton`ra</a>				</td>
+	Line 3979: 				<a href="spells.php?id=10606" data-eqrs="0">Illusion: Drakkin of Osh`vir</a>				</td>
+	Line 3995: 				<a href="spells.php?id=10607" data-eqrs="0">Illusion: Drakkin of Venesh</a>				</td>
+	Line 4011: 				<a href="spells.php?id=74" data-eqrs="0">Mana Sieve</a>				</td>
+	Line 4060: 				<a href="spells.php?id=687" data-eqrs="0">Boltran's Animation</a>				</td>
+	Line 4076: 				<a href="spells.php?id=66" data-eqrs="0">Greater Shielding</a>				</td>
+	Line 4092: 				<a href="spells.php?id=646" data-eqrs="0">Radiant Visage</a>				</td>
+	Line 4141: 				<a href="spells.php?id=71" data-eqrs="0">Anarchy</a>				</td>
+	Line 4157: 				<a href="spells.php?id=407" data-eqrs="0">Cast Sight</a>				</td>
+	Line 4173: 				<a href="spells.php?id=670" data-eqrs="0">Enchant Platinum</a>				</td>
+	Line 4189: 				<a href="spells.php?id=3990" data-eqrs="0">Mass Enchant Platinum</a>				</td>
+	Line 4238: 				<a href="spells.php?id=598" data-eqrs="0">Illusion: Fire Elemental</a>				</td>
+	Line 4254: 				<a href="spells.php?id=483" data-eqrs="0">Rune III</a>				</td>
+	Line 4270: 				<a href="spells.php?id=4257" data-eqrs="0">Wuggan's Greater Appraisal</a>				</td>
+	Line 4319: 				<a href="spells.php?id=1408" data-eqrs="0">Gift of Magic</a>				</td>
+	Line 4335: 				<a href="spells.php?id=180" data-eqrs="0">Insipid Weakness</a>				</td>
+	Line 4351: 				<a href="spells.php?id=4269" data-eqrs="0">Wuggan's Greater Discombobulation</a>				</td>
+	Line 4367: 				<a href="spells.php?id=4281" data-eqrs="0">Wuggan's Greater Extrication</a>				</td>
+	Line 4416: 				<a href="spells.php?id=7679" data-eqrs="0">Focus Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4432: 				<a href="spells.php?id=175" data-eqrs="0">Insight</a>				</td>
+	Line 4448: 				<a href="spells.php?id=127" data-eqrs="0">Invoke Fear</a>				</td>
+	Line 4464: 				<a href="spells.php?id=45" data-eqrs="0">Pacify</a>				</td>
+	Line 4513: 				<a href="spells.php?id=2564" data-eqrs="0">Calming Visage</a>				</td>
+	Line 4529: 				<a href="spells.php?id=73" data-eqrs="0">Gravity Flux</a>				</td>
+	Line 4545: 				<a href="spells.php?id=192" data-eqrs="0">Mind Wipe</a>				</td>
+	Line 4594: 				<a href="spells.php?id=688" data-eqrs="0">Aanya's Animation</a>				</td>
+	Line 4610: 				<a href="spells.php?id=183" data-eqrs="0">Cajoling Whispers</a>				</td>
+	Line 4626: 				<a href="spells.php?id=596" data-eqrs="0">Illusion: Dry Bone</a>				</td>
+	Line 4642: 				<a href="spells.php?id=64" data-eqrs="0">Resist Magic</a>				</td>
+	Line 4658: 				<a href="spells.php?id=653" data-eqrs="0">Shade</a>				</td>
+	Line 4707: 				<a href="spells.php?id=695" data-eqrs="0">Distill Mana</a>				</td>
+	Line 4723: 				<a href="spells.php?id=7987" data-eqrs="0">Greater Mass Enchant Platinum</a>				</td>
+	Line 4739: 				<a href="spells.php?id=600" data-eqrs="0">Illusion: Spirit Wolf</a>				</td>
+	Line 4755: 				<a href="spells.php?id=648" data-eqrs="0">Rampage</a>				</td>
+	Line 4771: 				<a href="spells.php?id=1407" data-eqrs="0">Wandering Mind</a>				</td>
+	Line 4774: 				Recourse: <a href="spells.php?id=2469" data-eqrs="0">Wandering Mind Recourse</a><br>				<br>
+	Line 4821: 				<a href="spells.php?id=171" data-eqrs="0">Celerity</a>				</td>
+	Line 4837: 				<a href="spells.php?id=7692" data-eqrs="0">Focus Mass Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4853: 				<a href="spells.php?id=132" data-eqrs="0">Immobilize</a>				</td>
+	Line 4869: 				<a href="spells.php?id=3983" data-eqrs="0">Mass Distill Mana</a>				</td>
+	Line 4918: 				<a href="spells.php?id=67" data-eqrs="0">Arch Shielding</a>				</td>
+	Line 4934: 				<a href="spells.php?id=1474" data-eqrs="0">Boon of the Garou</a>				</td>
+	Line 4936: 				<br><b>1:</b> Illusion: Werewolf<br><b>2:</b> Add Melee Proc: <a href="spells.php?id=1965" data-eqrs="0">Lifetap Strike</a><br><b>3:</b> Increase Attack by 30<br><b>4:</b> Increase Dexterity by 100<br>				<br>
+	Line 4950: 				<a href="spells.php?id=163" data-eqrs="0">Incapacitate</a>				</td>
+	Line 4966: 				<a href="spells.php?id=484" data-eqrs="0">Rune IV</a>				</td>
+	Line 5015: 				<a href="spells.php?id=33" data-eqrs="0">Brilliance</a>				</td>
+	Line 5031: 				<a href="spells.php?id=186" data-eqrs="0">Shiftless Deeds</a>				</td>
+	Line 5047: 				<a href="spells.php?id=678" data-eqrs="0">Tashania</a>				</td>
+	Line 5063: 				<a href="spells.php?id=689" data-eqrs="0">Yegoreff's Animation</a>				</td>
+	Line 5112: 				<a href="spells.php?id=1694" data-eqrs="0">Boon of the Clear Mind</a>				</td>
+	Line 5128: 				<a href="spells.php?id=585" data-eqrs="0">Illusion: Werewolf</a>				</td>
+	Line 5144: 				<a href="spells.php?id=25" data-eqrs="0">Pillage Enchantment</a>				</td>
+	Line 5160: 				<a href="spells.php?id=181" data-eqrs="0">Weakness</a>				</td>
+	Line 5209: 				<a href="spells.php?id=4099" data-eqrs="0">Bounce</a>				</td>
+	Line 5225: 				<a href="spells.php?id=178" data-eqrs="0">Color Skew</a>				</td>
+	Line 5241: 				<a href="spells.php?id=673" data-eqrs="0">Discordant Mind</a>				</td>
+	Line 5257: 				<a href="spells.php?id=1797" data-eqrs="0">Enchant Velium</a>				</td>
+	Line 5273: 				<a href="spells.php?id=1285" data-eqrs="0">Summon Companion</a>				</td>
+	Line 5322: 				<a href="spells.php?id=53110" data-eqrs="0">Greater Mass Clarify Mana</a>				</td>
+	Line 5338: 				<a href="spells.php?id=7989" data-eqrs="0">Greater Mass Enchant Velium</a>				</td>
+	Line 5354: 				<a href="spells.php?id=4074" data-eqrs="0">Guard of Alendar</a>				</td>
+	Line 5370: 				<a href="spells.php?id=3586" data-eqrs="0">Illusion: Scaled Wolf</a>				</td>
+	Line 5386: 				<a href="spells.php?id=3696" data-eqrs="0">Leviathan Eyes</a>				</td>
+	Line 5402: 				<a href="spells.php?id=3993" data-eqrs="0">Mass Enchant Velium</a>				</td>
+	Line 5451: 				<a href="spells.php?id=7680" data-eqrs="0">Focus Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 5467: 				<a href="spells.php?id=2565" data-eqrs="0">Illusion: Imp</a>				</td>
+	Line 5469: 				<br><b>1:</b> Illusion: Imp<br><b>2:</b> Cast <a href="spells.php?id=40624" data-eqrs="0">Illusion Benefit Levitation</a> (v374)<br>				<br>
+	Line 5483: 				<a href="spells.php?id=133" data-eqrs="0">Paralyzing Earth</a>				</td>
+	Line 5499: 				<a href="spells.php?id=696" data-eqrs="0">Purify Mana</a>				</td>
+	Line 5515: 				<a href="spells.php?id=194" data-eqrs="0">Reoccurring Amnesia</a>				</td>
+	Line 5564: 				<a href="spells.php?id=647" data-eqrs="0">Adorning Grace</a>				</td>
+	Line 5580: 				<a href="spells.php?id=184" data-eqrs="0">Allure</a>				</td>
+	Line 5596: 				<a href="spells.php?id=193" data-eqrs="0">Blanket of Forgetfulness</a>				</td>
+	Line 5612: 				<a href="spells.php?id=1892" data-eqrs="0">Enchant Steel</a>				</td>
+	Line 5661: 				<a href="spells.php?id=176" data-eqrs="0">Berserker Spirit</a>				</td>
+	Line 5677: 				<a href="spells.php?id=190" data-eqrs="0">Dazzle</a>				</td>
+	Line 5693: 				<a href="spells.php?id=195" data-eqrs="0">Gasping Embrace</a>				</td>
+	Line 5709: 				<a href="spells.php?id=4009" data-eqrs="0">Mass Purify Mana</a>				</td>
+	Line 5725: 				<a href="spells.php?id=172" data-eqrs="0">Swift Like the Wind</a>				</td>
+	Line 5774: 				<a href="spells.php?id=1890" data-eqrs="0">Enchant Adamantite</a>				</td>
+	Line 5790: 				<a href="spells.php?id=1889" data-eqrs="0">Enchant Mithril</a>				</td>
+	Line 5806: 				<a href="spells.php?id=72" data-eqrs="0">Group Resist Magic</a>				</td>
+	Line 5822: 				<a href="spells.php?id=690" data-eqrs="0">Kintaz's Animation</a>				</td>
+	Line 5838: 				<a href="spells.php?id=654" data-eqrs="0">Shadow</a>				</td>
+	Line 5887: 				<a href="spells.php?id=1893" data-eqrs="0">Enchant Brellium</a>				</td>
+	Line 5903: 				<a href="spells.php?id=7693" data-eqrs="0">Focus Mass Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 5919: 				<a href="spells.php?id=3984" data-eqrs="0">Mass Enchant Adamantite</a>				</td>
+	Line 5935: 				<a href="spells.php?id=3985" data-eqrs="0">Mass Enchant Brellium</a>				</td>
+	Line 5951: 				<a href="spells.php?id=3989" data-eqrs="0">Mass Enchant Mithril</a>				</td>
+	Line 5967: 				<a href="spells.php?id=3992" data-eqrs="0">Mass Enchant Steel</a>				</td>
+	Line 6016: 				<a href="spells.php?id=1687" data-eqrs="0">Collaboration</a>				</td>
+	Line 6032: 				<a href="spells.php?id=7681" data-eqrs="0">Focus Spellcaster's Empowering Essence</a>				</td>
+	Line 6048: 				<a href="spells.php?id=1406" data-eqrs="0">Improved Invisibility</a>				</td>
+	Line 6064: 				<a href="spells.php?id=1686" data-eqrs="0">Theft of Thought</a>				</td>
+	Line 6113: 				<a href="spells.php?id=2881" data-eqrs="0">Everlasting Breath</a>				</td>
+	Line 6129: 				<a href="spells.php?id=2894" data-eqrs="0">Levitation</a>				</td>
+	Line 6145: 				<a href="spells.php?id=1541" data-eqrs="0">Wake of Tranquility</a>				</td>
+	Line 6194: 				<a href="spells.php?id=1693" data-eqrs="0">Clarity II</a>				</td>
+	Line 6210: 				<a href="spells.php?id=1696" data-eqrs="0">Color Slant</a>				</td>
+	Line 6226: 				<a href="spells.php?id=1690" data-eqrs="0">Fascination</a>				</td>
+	Line 6242: 				<a href="spells.php?id=4017" data-eqrs="0">Illusion: Guktan</a>				</td>
+	Line 6258: 				<a href="spells.php?id=4077" data-eqrs="0">Ordinance</a>				</td>
+	Line 6274: 				<a href="spells.php?id=1689" data-eqrs="0">Rune V</a>				</td>
+	Line 6290: 				<a href="spells.php?id=3697" data-eqrs="0">Scryer's Trespass</a>				</td>
+	Line 6293: 				Recourse: <a href="spells.php?id=3698" data-eqrs="0">Scryer's Trespass Recourse</a><br>				<br>
+	Line 6307: 				<a href="spells.php?id=2566" data-eqrs="0">Trickster's Augmentation</a>				</td>
+	Line 6309: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2710" data-eqrs="0">Trickster's Torment</a><br><b>2:</b> Illusion: Imp<br><b>3:</b> Levitate<br><b>8:</b> Increase Fire Resist by 30<br>				<br>
+	Line 6356: 				<a href="spells.php?id=1708" data-eqrs="0">Aanya's Quickening</a>				</td>
+	Line 6372: 				<a href="spells.php?id=1705" data-eqrs="0">Boltran's Agacerie</a>				</td>
+	Line 6388: 				<a href="spells.php?id=1592" data-eqrs="0">Cripple</a>				</td>
+	Line 6404: 				<a href="spells.php?id=1697" data-eqrs="0">Recant Magic</a>				</td>
+	Line 6453: 				<a href="spells.php?id=2567" data-eqrs="0">Beguiling Visage</a>				</td>
+	Line 6469: 				<a href="spells.php?id=1698" data-eqrs="0">Dementia</a>				</td>
+	Line 6485: 				<a href="spells.php?id=7694" data-eqrs="0">Focus Mass Spellcaster's Empowering Essence</a>				</td>
+	Line 6501: 				<a href="spells.php?id=1691" data-eqrs="0">Glamour of Kintaz</a>				</td>
+	Line 6517: 				<a href="spells.php?id=8036" data-eqrs="0">Illusion: Orc</a>				</td>
+	Line 6533: 				<a href="spells.php?id=2826" data-eqrs="0">Illusion: Vah Shir</a>				</td>
+	Line 6549: 				<a href="spells.php?id=1610" data-eqrs="0">Shield of the Magi</a>				</td>
+	Line 6598: 				<a href="spells.php?id=8931" data-eqrs="0">Beguiler's Aura</a>				</td>
+	Line 6600: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8946" data-eqrs="0">Beguiler's Aura Effect</a> (PCIObEncS11L055AuraMana)<br>				<br>
+	Line 6614: 				<a href="spells.php?id=7682" data-eqrs="0">Focus Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 6630: 				<a href="spells.php?id=1409" data-eqrs="0">Gift of Insight</a>				</td>
+	Line 6646: 				<a href="spells.php?id=4418" data-eqrs="0">Illusion: Frost Bone</a>				</td>
+	Line 6662: 				<a href="spells.php?id=1715" data-eqrs="0">Largarn's Lamentation</a>				</td>
+	Line 6678: 				<a href="spells.php?id=1714" data-eqrs="0">Memory Flux</a>				</td>
+	Line 6694: 				<a href="spells.php?id=4075" data-eqrs="0">Protection of Alendar</a>				</td>
+	Line 6710: 				<a href="spells.php?id=1699" data-eqrs="0">Wind of Tashani</a>				</td>
+	Line 6726: 				<a href="spells.php?id=1723" data-eqrs="0">Zumaik's Animation</a>				</td>
+	Line 6775: 				<a href="spells.php?id=1729" data-eqrs="0">Augment</a>				</td>
+	Line 6791: 				<a href="spells.php?id=1695" data-eqrs="0">Gift of Pure Thought</a>				</td>
+	Line 6807: 				<a href="spells.php?id=2568" data-eqrs="0">Horrifying Visage</a>				</td>
+	Line 6823: 				<a href="spells.php?id=3591" data-eqrs="0">Imbue Disease</a>				</td>
+	Line 6839: 				<a href="spells.php?id=3595" data-eqrs="0">Imbue Justice</a>				</td>
+	Line 6855: 				<a href="spells.php?id=1701" data-eqrs="0">Overwhelming Splendor</a>				</td>
+	Line 6871: 				<a href="spells.php?id=1700" data-eqrs="0">Torment of Argli</a>				</td>
+	Line 6887: 				<a href="spells.php?id=1527" data-eqrs="0">Trepidation</a>				</td>
+	Line 6936: 				<a href="spells.php?id=1688" data-eqrs="0">Enlightenment</a>				</td>
+	Line 6952: 				<a href="spells.php?id=1712" data-eqrs="0">Forlorn Deeds</a>				</td>
+	Line 6968: 				<a href="spells.php?id=3352" data-eqrs="0">Imbue Earth</a>				</td>
+	Line 6984: 				<a href="spells.php?id=3344" data-eqrs="0">Imbue Nightmare</a>				</td>
+	Line 7000: 				<a href="spells.php?id=3346" data-eqrs="0">Imbue Storm</a>				</td>
+	Line 7016: 				<a href="spells.php?id=3594" data-eqrs="0">Imbue Torment</a>				</td>
+	Line 7032: 				<a href="spells.php?id=6983" data-eqrs="0">Phobia</a>				</td>
+	Line 7048: 				<a href="spells.php?id=1702" data-eqrs="0">Tashanian</a>				</td>
+	Line 7064: 				<a href="spells.php?id=1711" data-eqrs="0">Umbra</a>				</td>
+	Line 7113: 				<a href="spells.php?id=1713" data-eqrs="0">Bedlam</a>				</td>
+	Line 7129: 				<a href="spells.php?id=2016" data-eqrs="0">Dementing Visions</a>				</td>
+	Line 7145: 				<a href="spells.php?id=1633" data-eqrs="0">Fetter</a>				</td>
+	Line 7161: 				<a href="spells.php?id=2569" data-eqrs="0">Glamorous Visage</a>				</td>
+	Line 7177: 				<a href="spells.php?id=3592" data-eqrs="0">Imbue Valor</a>				</td>
+	Line 7193: 				<a href="spells.php?id=3593" data-eqrs="0">Imbue War</a>				</td>
+	Line 7209: 				<a href="spells.php?id=4100" data-eqrs="0">Reflect</a>				</td>
+	Line 7225: 				<a href="spells.php?id=1709" data-eqrs="0">Wondrous Rapidity</a>				</td>
+	Line 7274: 				<a href="spells.php?id=1703" data-eqrs="0">Asphyxiate</a>				</td>
+	Line 7290: 				<a href="spells.php?id=7695" data-eqrs="0">Focus Mass Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 7306: 				<a href="spells.php?id=53112" data-eqrs="0">Greater Mass Distill Mana</a>				</td>
+	Line 7322: 				<a href="spells.php?id=3353" data-eqrs="0">Imbue Air</a>				</td>
+	Line 7338: 				<a href="spells.php?id=1692" data-eqrs="0">Rapture</a>				</td>
+	Line 7387: 				<a href="spells.php?id=2121" data-eqrs="0">Ancient: Chaotic Visions</a>				</td>
+	Line 7403: 				<a href="spells.php?id=2120" data-eqrs="0">Ancient: Eternal Rapture</a>				</td>
+	Line 7419: 				<a href="spells.php?id=1707" data-eqrs="0">Dictate</a>				</td>
+	Line 7435: 				<a href="spells.php?id=7683" data-eqrs="0">Focus Intricate Spellcaster's Empowering Essence</a>				</td>
+	Line 7451: 				<a href="spells.php?id=1410" data-eqrs="0">Gift of Brilliance</a>				</td>
+	Line 7467: 				<a href="spells.php?id=3356" data-eqrs="0">Imbue Fire</a>				</td>
+	Line 7483: 				<a href="spells.php?id=3357" data-eqrs="0">Imbue Water</a>				</td>
+	Line 7499: 				<a href="spells.php?id=2570" data-eqrs="0">Koadic's Endless Intellect</a>				</td>
+	Line 7515: 				<a href="spells.php?id=2895" data-eqrs="0">Speed of the Brood</a>				</td>
+	Line 7531: 				<a href="spells.php?id=1710" data-eqrs="0">Visions of Grandeur</a>				</td>
+	Line 7547: 				<a href="spells.php?id=1704" data-eqrs="0">Wind of Tashanian</a>				</td>
+	Line 7596: 				<a href="spells.php?id=3341" data-eqrs="0">Apathy</a>				</td>
+	Line 7612: 				<a href="spells.php?id=3199" data-eqrs="0">Arcane Rune</a>				</td>
+	Line 7628: 				<a href="spells.php?id=3229" data-eqrs="0">Boggle</a>				</td>
+	Line 7644: 				<a href="spells.php?id=3194" data-eqrs="0">Greater Fetter</a>				</td>
+	Line 7660: 				<a href="spells.php?id=3342" data-eqrs="0">Howl of Tashan</a>				</td>
+	Line 7676: 				<a href="spells.php?id=6739" data-eqrs="0">Rune of the Scale</a>				</td>
+	Line 7692: 				<a href="spells.php?id=3343" data-eqrs="0">Rune of Zebuxoruk</a>				</td>
+	Line 7708: 				<a href="spells.php?id=3300" data-eqrs="0">Shield of the Arcane</a>				</td>
+	Line 7757: 				<a href="spells.php?id=3034" data-eqrs="0">Aeldorb's Animation</a>				</td>
+	Line 7773: 				<a href="spells.php?id=3347" data-eqrs="0">Beckon</a>				</td>
+	Line 7789: 				<a href="spells.php?id=3242" data-eqrs="0">Guard of Druzzil</a>				</td>
+	Line 7805: 				<a href="spells.php?id=6984" data-eqrs="0">Jitterskin</a>				</td>
+	Line 7821: 				<a href="spells.php?id=3197" data-eqrs="0">Pacification</a>				</td>
+	Line 7837: 				<a href="spells.php?id=3240" data-eqrs="0">Speed of Vallon</a>				</td>
+	Line 7853: 				<a href="spells.php?id=3345" data-eqrs="0">Strangle</a>				</td>
+	Line 7869: 				<a href="spells.php?id=3359" data-eqrs="0">Word of Morell</a>				</td>
+	Line 7918: 				<a href="spells.php?id=4076" data-eqrs="0">Bulwark of Alendar</a>				</td>
+	Line 7934: 				<a href="spells.php?id=4408" data-eqrs="0">Color Cloud</a>				</td>
+	Line 7950: 				<a href="spells.php?id=3241" data-eqrs="0">Night's Dark Terror</a>				</td>
+	Line 7952: 				<br><b>1:</b> Illusion: Old Scarecrow<br><b>2:</b> Add Melee Proc: <a href="spells.php?id=1965" data-eqrs="0">Lifetap Strike</a><br><b>3:</b> Increase Attack by 45<br><b>4:</b> Increase Dexterity by 120<br>				<br>
+	Line 7966: 				<a href="spells.php?id=3354" data-eqrs="0">Sleep</a>				</td>
+	Line 7982: 				<a href="spells.php?id=3348" data-eqrs="0">Torment of Scio</a>				</td>
+	Line 7998: 				<a href="spells.php?id=3350" data-eqrs="0">Tranquility</a>				</td>
+	Line 8014: 				<a href="spells.php?id=3351" data-eqrs="0">Uproar</a>				</td>
+	Line 8063: 				<a href="spells.php?id=3358" data-eqrs="0">Bliss</a>				</td>
+	Line 8079: 				<a href="spells.php?id=3355" data-eqrs="0">Command of Druzzil</a>				</td>
+	Line 8095: 				<a href="spells.php?id=7696" data-eqrs="0">Focus Mass Intricate Spellcaster's Empowering Essence</a>				</td>
+	Line 8111: 				<a href="spells.php?id=3349" data-eqrs="0">Insanity</a>				</td>
+	Line 8127: 				<a href="spells.php?id=3302" data-eqrs="0">Shield of Maelin</a>				</td>
+	Line 8176: 				<a href="spells.php?id=4975" data-eqrs="0">Ancient: Chaos Madness</a>				</td>
+	Line 8192: 				<a href="spells.php?id=4878" data-eqrs="0">Bliss of the Nihil</a>				</td>
+	Line 8208: 				<a href="spells.php?id=4877" data-eqrs="0">Dreary Deeds</a>				</td>
+	Line 8224: 				<a href="spells.php?id=7684" data-eqrs="0">Focus Elaborate Spellcaster's Empowering Essence</a>				</td>
+	Line 8240: 				<a href="spells.php?id=3063" data-eqrs="0">Illusion: Froglok</a>				</td>
+	Line 8256: 				<a href="spells.php?id=27733" data-eqrs="0">Illusion: Kunark Goblin</a>				</td>
+	Line 8272: 				<a href="spells.php?id=4879" data-eqrs="0">Madness of Ikkibi</a>				</td>
+	Line 8288: 				<a href="spells.php?id=3178" data-eqrs="0">Vallon's Quickening</a>				</td>
+	Line 8304: 				<a href="spells.php?id=3360" data-eqrs="0">Voice of Quellious</a>				</td>

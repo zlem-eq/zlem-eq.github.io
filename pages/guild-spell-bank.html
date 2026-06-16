@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guild Spell Bank</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/guild-spell-bank.css" />
+</head>
+<body>
+  <header class="page-header spell-bank-header">
+    <a href="../index.html" class="back">&#8592; Back</a>
+    <h1 class="spell-bank-title">Guild Spell Bank</h1>
+    <div class="header-right">
+      <button id="mode-toggle" class="mode-toggle mode-toggle--header" data-mode="claim">
+        <span class="mode-switch-to">Switch to</span>
+        <span class="mode-icon">&#9881;&#65039;</span>
+        <span class="mode-label">Manager mode</span>
+      </button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-sun">&#9728;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="spell-bank-content">
+    <!-- Left panel: Available Spells -->
+    <div class="spell-panel">
+      <div class="spell-panel-header">
+        <span>Available Spells</span>
+        <button id="remove-all-spells-btn" class="panel-danger-btn" style="display:none;">Remove All</button>
+        <select id="class-filter" class="class-filter-select">
+          <option value="">All Classes</option>
+          <option value="Bard">Bard</option>
+          <option value="Beastlord">Beastlord</option>
+          <option value="Berserker">Berserker</option>
+          <option value="Cleric">Cleric</option>
+          <option value="Druid">Druid</option>
+          <option value="Enchanter">Enchanter</option>
+          <option value="Magician">Magician</option>
+          <option value="Monk">Monk</option>
+          <option value="Necromancer">Necromancer</option>
+          <option value="Paladin">Paladin</option>
+          <option value="Ranger">Ranger</option>
+          <option value="Rogue">Rogue</option>
+          <option value="Shadow Knight">Shadow Knight</option>
+          <option value="Shaman">Shaman</option>
+          <option value="Warrior">Warrior</option>
+          <option value="Wizard">Wizard</option>
+        </select>
+      </div>
+      <div id="add-spell-row" class="add-spell-row" style="display:none;">
+        <div class="spell-search-wrap">
+          <input type="text" id="add-spell-input" class="add-spell-input" placeholder="Search spells…" autocomplete="off" />
+          <div id="spell-suggestions" class="spell-suggestions" style="display:none;"></div>
+        </div>
+        <button id="add-spell-btn" class="add-spell-btn">+ Add</button>
+        <button id="import-spell-btn" class="import-spell-btn">&#8679; Import</button>
+      </div>
+      <div class="spell-panel-body" id="available-list"></div>
+    </div>
+
+    <!-- Right panel: Claimed / Delivered -->
+    <div class="spell-panel">
+      <div class="spell-panel-header">
+        <span>Claimed &amp; Delivered</span>
+        <button id="remove-delivered-btn" class="panel-danger-btn" style="display:none;">Remove All Delivered</button>
+      </div>
+      <div id="claims-action-row" class="claims-action-row" style="display:none;">
+        <button id="delivery-list-btn" class="panel-action-btn">Generate Delivery List</button>
+        <button id="delivered-msg-btn" class="panel-action-btn">Generate Delivered Message</button>
+      </div>
+      <div class="spell-panel-body" id="claims-list"></div>
+    </div>
+  </div>
+
+  <!-- Claim Modal -->
+  <div id="claim-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <span>Claim Spell</span>
+        <button class="modal-close" id="claim-modal-close">&#10005;</button>
+      </div>
+      <p class="modal-spell-label">Spell: <strong id="claim-spell-name"></strong></p>
+      <div class="modal-body">
+        <div class="modal-field">
+          <label for="claim-player-input">Player Name</label>
+          <input type="text" id="claim-player-input" placeholder="Enter character name" autocomplete="off" />
+        </div>
+        <div class="modal-field">
+          <label for="claim-type-select">Type</label>
+          <select id="claim-type-select">
+            <option value="main">Main</option>
+            <option value="raid alt">Raid Alt</option>
+            <option value="alt">Alt</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="claim-modal-cancel">Cancel</button>
+        <button class="modal-submit-btn" id="claim-modal-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import: File Upload Modal -->
+  <div id="import-upload-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <span>Import from Inventory</span>
+        <button class="modal-close" id="import-upload-close">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <p class="import-upload-desc">In game type: "<em>/outputfile inventory</em>" to generate your inventory dump. Upload your EverQuest character inventory file (<em>*-Inventory.txt</em>). Spells found in General, Bank, and Shared Bank slots will be available to import.</p>
+        <div class="modal-field">
+          <label for="import-file-input">Inventory File</label>
+          <input type="file" id="import-file-input" accept=".txt" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="import-upload-cancel">Cancel</button>
+        <button class="modal-submit-btn" id="import-upload-submit">Upload</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import: Inventory Browser Modal -->
+  <div id="import-inventory-modal" class="modal-overlay" style="display:none;">
+    <div class="modal import-inventory-modal">
+      <div class="modal-header">
+        <span>Select Spells to Import</span>
+        <button class="modal-close" id="import-inventory-close">&#10005;</button>
+      </div>
+      <div class="import-select-all-row">
+        <input type="checkbox" id="import-select-all" />
+        <label for="import-select-all">Select All / None</label>
+        <button id="import-expand-all-btn" class="import-expand-btn">Expand All</button>
+      </div>
+      <div class="import-inventory-body" id="import-inventory-body"></div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="import-inventory-cancel">Cancel</button>
+        <button class="modal-submit-btn" id="import-inventory-submit">Import Selected</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spell Unavailable Popup -->
+  <div id="unavailable-modal" class="modal-overlay" style="display:none;">
+    <div class="modal unavailable-modal">
+      <div class="modal-header">
+        <span>Spell Unavailable</span>
+        <button class="modal-close" id="unavailable-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <p class="unavailable-msg">Sorry, <strong id="unavailable-spell-name"></strong> is no longer available — it was just claimed by someone else.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="unavailable-modal-dismiss">Dismiss</button>
+        <button class="modal-submit-btn" id="unavailable-modal-refresh">Refresh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delivery List Popup -->
+  <div id="delivery-list-modal" class="modal-overlay" style="display:none;">
+    <div class="modal info-modal">
+      <div class="modal-header">
+        <span>Delivery List</span>
+        <button class="modal-close" id="delivery-list-close">&#10005;</button>
+      </div>
+      <div class="info-modal-body" id="delivery-list-body"></div>
+    </div>
+  </div>
+
+  <!-- Delivered Message Popup -->
+  <div id="delivered-msg-modal" class="modal-overlay" style="display:none;">
+    <div class="modal info-modal">
+      <div class="modal-header">
+        <span>Delivered Message</span>
+        <button class="modal-close" id="delivered-msg-close">&#10005;</button>
+      </div>
+      <div class="info-modal-body">
+        <pre id="delivered-msg-text" class="discord-pre"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-submit-btn" id="delivered-msg-copy">Copy Text</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/spells.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getFirestore, collection, addDoc, deleteDoc, doc, updateDoc,
+      onSnapshot, query, orderBy, runTransaction, increment, serverTimestamp,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    // ── Firebase init ──────────────────────────────────────────
+    const app = initializeApp({
+      apiKey: 'AIzaSyCmB3wHICxm3jS6J25R55dR2Mrp06IqBBM',
+      authDomain: 'everquest-guild-potions.firebaseapp.com',
+      projectId: 'everquest-guild-potions',
+      storageBucket: 'everquest-guild-potions.firebasestorage.app',
+      messagingSenderId: '63090909940',
+      appId: '1:63090909940:web:64a03f0f76970beeae74a1',
+    });
+    const db = getFirestore(app);
+
+    // ── State ──────────────────────────────────────────────────
+    let spells = [];   // [{ id, name, count }]
+    let claims = [];   // [{ id, spellName, player, type, status }]
+    let mode        = 'claim';
+    let classFilter = '';
+    let pendingClaimSpellId = null;
+
+    const CLASS_SPELL_MAP = {
+      'Bard':          window.BARD_SPELLS          || [],
+      'Beastlord':     window.BEASTLORD_SPELLS     || [],
+      'Berserker':     window.BERSERKER_SPELLS      || [],
+      'Cleric':        window.CLERIC_SPELLS         || [],
+      'Druid':         window.DRUID_SPELLS          || [],
+      'Enchanter':     window.ENCHANTER_SPELLS      || [],
+      'Magician':      window.MAGICIAN_SPELLS       || [],
+      'Monk':          window.MONK_SPELLS           || [],
+      'Necromancer':   window.NECROMANCER_SPELLS    || [],
+      'Paladin':       window.PALADIN_SPELLS        || [],
+      'Ranger':        window.RANGER_SPELLS         || [],
+      'Rogue':         window.ROGUE_SPELLS          || [],
+      'Shadow Knight': window.SHADOW_KNIGHT_SPELLS  || [],
+      'Shaman':        window.SHAMAN_SPELLS         || [],
+      'Warrior':       window.WARRIOR_SPELLS        || [],
+      'Wizard':        window.WIZARD_SPELLS         || [],
+    };
+
+    // ── Render: Available Spells ───────────────────────────────
+    function renderAvailable() {
+      const list   = document.getElementById('available-list');
+      const classSet = classFilter ? new Set(CLASS_SPELL_MAP[classFilter]) : null;
+      const sorted = [...spells]
+        .filter(s => s.count > 0)
+        .filter(s => !classSet || classSet.has(s.name))
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+      // show/hide the class filter dropdown based on mode
+      const filterEl = document.getElementById('class-filter');
+      if (filterEl) filterEl.style.display = mode === 'claim' ? '' : 'none';
+
+      if (sorted.length === 0) {
+        list.innerHTML = mode === 'manager'
+          ? '<div class="spell-empty">No spells yet. Add one above.</div>'
+          : '<div class="spell-empty">No spells available.</div>';
+        return;
+      }
+
+      const mgrClass = mode === 'manager' ? ' mgr' : '';
+      const availHeader = mode === 'manager'
+        ? `<div class="spell-col-header mgr"><span>Spell</span><span style="text-align:center">Qty</span><span></span></div>`
+        : `<div class="spell-col-header"><span>Spell</span><span style="text-align:center">Qty</span><span></span></div>`;
+
+      list.innerHTML = availHeader + sorted.map(spell => {
+        const countClass = spell.count === 0 ? 'spell-count zero' : 'spell-count';
+        if (mode === 'manager') {
+          return `
+            <div class="spell-row mgr" data-id="${spell.id}">
+              <span class="spell-name">${escHtml(spell.name)}</span>
+              <div class="count-controls">
+                <button class="count-btn count-minus" data-id="${spell.id}">−</button>
+                <span class="${countClass}">${spell.count}</span>
+                <button class="count-btn count-plus" data-id="${spell.id}">+</button>
+              </div>
+              <button class="delete-spell-btn" data-id="${spell.id}" aria-label="Delete">&#128465;</button>
+            </div>`;
+        } else {
+          return `
+            <div class="spell-row" data-id="${spell.id}">
+              <span class="spell-name">${escHtml(spell.name)}</span>
+              <span class="${countClass}">${spell.count}</span>
+              <button class="claim-btn" data-id="${spell.id}" ${spell.count === 0 ? 'disabled' : ''}>Claim</button>
+            </div>`;
+        }
+      }).join('');
+
+      list.querySelectorAll('.claim-btn').forEach(btn => {
+        btn.addEventListener('click', () => openClaimModal(btn.dataset.id));
+      });
+      list.querySelectorAll('.count-minus').forEach(btn => {
+        btn.addEventListener('click', () => adjustCount(btn.dataset.id, -1));
+      });
+      list.querySelectorAll('.count-plus').forEach(btn => {
+        btn.addEventListener('click', () => adjustCount(btn.dataset.id, 1));
+      });
+      list.querySelectorAll('.delete-spell-btn').forEach(btn => {
+        btn.addEventListener('click', () => deleteSpell(btn.dataset.id));
+      });
+    }
+
+    // ── Render: Claims ─────────────────────────────────────────
+    function renderClaims() {
+      const list = document.getElementById('claims-list');
+
+      const claimHeader = mode === 'manager'
+        ? `<div class="claim-col-header mgr"><span>Spell</span><span>Player</span><span>Type</span><span>Status</span><span></span><span></span></div>`
+        : `<div class="claim-col-header"><span>Spell</span><span>Player</span><span>Type</span><span>Status</span></div>`;
+
+      if (claims.length === 0) {
+        list.innerHTML = claimHeader + '<div class="spell-empty">No claims yet.</div>';
+        return;
+      }
+
+      list.innerHTML = claimHeader + claims.map(claim => {
+        const statusClass = claim.status === 'delivered' ? 'delivered' : 'claimed';
+        const statusLabel = claim.status === 'delivered' ? 'Delivered' : 'Claimed';
+        const typeLabel   = claim.type === 'raid alt' ? 'Raid Alt'
+          : claim.type.charAt(0).toUpperCase() + claim.type.slice(1);
+        const managerActions = mode === 'manager' ? `
+          ${claim.status === 'claimed' ? `<button class="deliver-btn" data-id="${claim.id}">Mark Delivered</button>` : '<span></span>'}
+          <button class="delete-claim-btn" data-id="${claim.id}" aria-label="Remove">&#128465;</button>
+        ` : '';
+
+        return `
+          <div class="claim-row${mode === 'manager' ? ' mgr' : ''}" data-id="${claim.id}">
+            <span class="claim-spell-name">${escHtml(claim.spellName)}</span>
+            <span class="claim-player">${escHtml(claim.player)}</span>
+            <span class="claim-type">${typeLabel}</span>
+            <span class="status-badge ${statusClass}">${statusLabel}</span>
+            ${managerActions}
+          </div>`;
+      }).join('');
+
+      list.querySelectorAll('.deliver-btn').forEach(btn => {
+        btn.addEventListener('click', () => markDelivered(btn.dataset.id));
+      });
+      list.querySelectorAll('.delete-claim-btn').forEach(btn => {
+        btn.addEventListener('click', () => deleteClaim(btn.dataset.id));
+      });
+    }
+
+    function render() { renderAvailable(); renderClaims(); }
+
+    // ── Firestore: spells ──────────────────────────────────────
+    onSnapshot(
+      query(collection(db, 'gsb_spells'), orderBy('name')),
+      snapshot => {
+        spells = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderAvailable();
+      },
+      err => {
+        console.error('Firestore spells error:', err);
+        document.getElementById('available-list').innerHTML =
+          '<div class="spell-empty">Failed to load spells.</div>';
+      }
+    );
+
+    // ── Firestore: claims ──────────────────────────────────────
+    onSnapshot(
+      query(collection(db, 'gsb_claims'), orderBy('claimedAt', 'desc')),
+      snapshot => {
+        claims = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderClaims();
+      },
+      err => {
+        console.error('Firestore claims error:', err);
+        document.getElementById('claims-list').innerHTML =
+          '<div class="spell-empty">Failed to load claims.</div>';
+      }
+    );
+
+    // ── Spell actions ──────────────────────────────────────────
+    async function adjustCount(id, delta) {
+      const spell = spells.find(s => s.id === id);
+      if (!spell) return;
+      const next = Math.max(0, spell.count + delta);
+      await updateDoc(doc(db, 'gsb_spells', id), { count: next });
+    }
+
+    async function deleteSpell(id) {
+      await deleteDoc(doc(db, 'gsb_spells', id));
+    }
+
+    async function markDelivered(id) {
+      await updateDoc(doc(db, 'gsb_claims', id), { status: 'delivered' });
+    }
+
+    async function deleteClaim(id) {
+      await deleteDoc(doc(db, 'gsb_claims', id));
+    }
+
+    // ── Spell search dropdown ──────────────────────────────────
+    const ALL_SPELLS = [...new Set([
+      ...(window.BARD_SPELLS         || []),
+      ...(window.BEASTLORD_SPELLS    || []),
+      ...(window.BERSERKER_SPELLS    || []),
+      ...(window.CLERIC_SPELLS       || []),
+      ...(window.DRUID_SPELLS        || []),
+      ...(window.ENCHANTER_SPELLS    || []),
+      ...(window.MAGICIAN_SPELLS     || []),
+      ...(window.MONK_SPELLS         || []),
+      ...(window.NECROMANCER_SPELLS  || []),
+      ...(window.PALADIN_SPELLS      || []),
+      ...(window.RANGER_SPELLS       || []),
+      ...(window.ROGUE_SPELLS        || []),
+      ...(window.SHADOW_KNIGHT_SPELLS|| []),
+      ...(window.SHAMAN_SPELLS       || []),
+      ...(window.WARRIOR_SPELLS      || []),
+      ...(window.WIZARD_SPELLS       || []),
+    ])].sort((a, b) => a.localeCompare(b));
+
+    let selectedSuggestionIndex = -1;
+
+    const spellInput       = document.getElementById('add-spell-input');
+    const suggestionsBox   = document.getElementById('spell-suggestions');
+
+    function showSuggestions(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) { hideSuggestions(); return; }
+
+      const matches = ALL_SPELLS.filter(s => s.toLowerCase().includes(q)).slice(0, 50);
+      if (matches.length === 0) { hideSuggestions(); return; }
+
+      selectedSuggestionIndex = -1;
+      suggestionsBox.innerHTML = matches.map((s, i) =>
+        `<div class="spell-suggestion-item" data-index="${i}">${escHtml(s)}</div>`
+      ).join('');
+
+      suggestionsBox.querySelectorAll('.spell-suggestion-item').forEach(item => {
+        item.addEventListener('mousedown', e => {
+          e.preventDefault();
+          selectSuggestion(item.textContent);
+        });
+      });
+
+      suggestionsBox.style.display = '';
+    }
+
+    function hideSuggestions() {
+      suggestionsBox.style.display = 'none';
+      suggestionsBox.innerHTML = '';
+      selectedSuggestionIndex = -1;
+    }
+
+    function selectSuggestion(name) {
+      spellInput.value = name;
+      hideSuggestions();
+      spellInput.focus();
+    }
+
+    function moveSuggestion(dir) {
+      const items = suggestionsBox.querySelectorAll('.spell-suggestion-item');
+      if (items.length === 0) return;
+      items[selectedSuggestionIndex]?.classList.remove('active');
+      selectedSuggestionIndex = Math.max(-1, Math.min(items.length - 1, selectedSuggestionIndex + dir));
+      if (selectedSuggestionIndex >= 0) {
+        items[selectedSuggestionIndex].classList.add('active');
+        items[selectedSuggestionIndex].scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    spellInput.addEventListener('input', () => showSuggestions(spellInput.value));
+    spellInput.addEventListener('blur',  () => setTimeout(hideSuggestions, 150));
+    spellInput.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown')  { e.preventDefault(); moveSuggestion(1); return; }
+      if (e.key === 'ArrowUp')    { e.preventDefault(); moveSuggestion(-1); return; }
+      if (e.key === 'Escape')     { hideSuggestions(); return; }
+      if (e.key === 'Enter') {
+        const items = suggestionsBox.querySelectorAll('.spell-suggestion-item');
+        if (selectedSuggestionIndex >= 0 && items[selectedSuggestionIndex]) {
+          selectSuggestion(items[selectedSuggestionIndex].textContent);
+        } else {
+          addSpell();
+        }
+      }
+    });
+
+    // ── Add Spell ──────────────────────────────────────────────
+    document.getElementById('add-spell-btn').addEventListener('click', addSpell);
+
+    async function addSpell() {
+      const name = spellInput.value.trim();
+      if (!name) { spellInput.focus(); return; }
+      hideSuggestions();
+      spellInput.value = '';
+      spellInput.focus();
+      await addDoc(collection(db, 'gsb_spells'), { name, count: 1, createdAt: serverTimestamp() });
+    }
+
+    // ── Claim Modal ────────────────────────────────────────────
+    function openClaimModal(spellId) {
+      pendingClaimSpellId = spellId;
+      const spell = spells.find(s => s.id === spellId);
+      document.getElementById('claim-spell-name').textContent = spell ? spell.name : '';
+      document.getElementById('claim-player-input').value = '';
+      document.getElementById('claim-player-input').classList.remove('input-error');
+      document.getElementById('claim-type-select').value = 'main';
+      document.getElementById('claim-modal').style.display = 'flex';
+      document.getElementById('claim-player-input').focus();
+    }
+
+    function closeClaimModal() {
+      document.getElementById('claim-modal').style.display = 'none';
+      pendingClaimSpellId = null;
+    }
+
+    document.getElementById('claim-modal-close').addEventListener('click', closeClaimModal);
+    document.getElementById('claim-modal-cancel').addEventListener('click', closeClaimModal);
+    document.getElementById('claim-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeClaimModal();
+    });
+    document.getElementById('claim-player-input').addEventListener('input', () => {
+      document.getElementById('claim-player-input').classList.remove('input-error');
+    });
+    document.getElementById('claim-player-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('claim-modal-submit').click();
+    });
+
+    document.getElementById('claim-modal-submit').addEventListener('click', async () => {
+      const player = document.getElementById('claim-player-input').value.trim();
+      if (!player) {
+        document.getElementById('claim-player-input').classList.add('input-error');
+        document.getElementById('claim-player-input').focus();
+        return;
+      }
+
+      const submitBtn = document.getElementById('claim-modal-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '…';
+
+      const type     = document.getElementById('claim-type-select').value;
+      const spellRef = doc(db, 'gsb_spells', pendingClaimSpellId);
+      const spellName = spells.find(s => s.id === pendingClaimSpellId)?.name ?? '';
+
+      try {
+        await runTransaction(db, async tx => {
+          const snap = await tx.get(spellRef);
+          if (!snap.exists() || snap.data().count <= 0)
+            throw new Error('Spell no longer available.');
+          tx.update(spellRef, { count: increment(-1) });
+          tx.set(doc(collection(db, 'gsb_claims')), {
+            spellName, player, type, status: 'claimed', claimedAt: serverTimestamp(),
+          });
+        });
+        closeClaimModal();
+      } catch (err) {
+        console.error('Claim failed:', err);
+        const spellName = spells.find(s => s.id === pendingClaimSpellId)?.name ?? '';
+        closeClaimModal();
+        document.getElementById('unavailable-spell-name').textContent = spellName;
+        document.getElementById('unavailable-modal').style.display = 'flex';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    });
+
+    // ── Class filter ───────────────────────────────────────────
+    document.getElementById('class-filter').addEventListener('change', e => {
+      classFilter = e.target.value;
+      renderAvailable();
+    });
+
+    // ── Mode Toggle ────────────────────────────────────────────
+    document.getElementById('mode-toggle').addEventListener('click', () => {
+      mode = mode === 'claim' ? 'manager' : 'claim';
+      const btn = document.getElementById('mode-toggle');
+      btn.dataset.mode = mode;
+
+      const isMgr = mode === 'manager';
+      if (isMgr) {
+        btn.querySelector('.mode-icon').textContent  = '🛒';
+        btn.querySelector('.mode-label').textContent = 'Claim mode';
+        document.getElementById('add-spell-row').style.display = '';
+      } else {
+        btn.querySelector('.mode-icon').textContent  = '⚙️';
+        btn.querySelector('.mode-label').textContent = 'Manager mode';
+        document.getElementById('add-spell-row').style.display = 'none';
+      }
+      document.getElementById('remove-all-spells-btn').style.display = isMgr ? '' : 'none';
+      document.getElementById('remove-delivered-btn').style.display  = isMgr ? '' : 'none';
+      document.getElementById('claims-action-row').style.display     = isMgr ? '' : 'none';
+
+      render();
+    });
+
+    document.getElementById('remove-all-spells-btn').addEventListener('click', async () => {
+      if (!spells.length) return;
+      if (!confirm(`Delete all ${spells.length} spell${spells.length !== 1 ? 's' : ''} from the bank? This cannot be undone.`)) return;
+      await Promise.all(spells.map(s => deleteDoc(doc(db, 'gsb_spells', s.id))));
+    });
+
+    document.getElementById('remove-delivered-btn').addEventListener('click', async () => {
+      const delivered = claims.filter(c => c.status === 'delivered');
+      if (!delivered.length) return;
+      if (!confirm(`Remove ${delivered.length} delivered claim${delivered.length !== 1 ? 's' : ''}? This cannot be undone.`)) return;
+      await Promise.all(delivered.map(c => deleteDoc(doc(db, 'gsb_claims', c.id))));
+    });
+
+    // ── Spell Unavailable Modal ────────────────────────────────
+    function closeUnavailableModal() {
+      document.getElementById('unavailable-modal').style.display = 'none';
+    }
+    document.getElementById('unavailable-modal-close').addEventListener('click', closeUnavailableModal);
+    document.getElementById('unavailable-modal-dismiss').addEventListener('click', closeUnavailableModal);
+    document.getElementById('unavailable-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeUnavailableModal();
+    });
+    document.getElementById('unavailable-modal-refresh').addEventListener('click', () => {
+      closeUnavailableModal();
+      window.location.reload();
+    });
+
+    // ── Delivery List ──────────────────────────────────────────
+    document.getElementById('delivery-list-btn').addEventListener('click', () => {
+      const claimed = claims.filter(c => c.status === 'claimed');
+      const byPlayer = groupByPlayer(claimed);
+      const body = document.getElementById('delivery-list-body');
+      if (byPlayer.length === 0) {
+        body.innerHTML = '<div class="spell-empty">No claimed spells.</div>';
+      } else {
+        body.innerHTML = byPlayer.map(({ player, items }) => `
+          <div class="info-player-group">
+            <div class="info-player-name">${escHtml(player)}</div>
+            <ul class="info-spell-list">
+              ${items.map(c => `<li>${escHtml(c.spellName)} <span class="info-type-tag">${escHtml(c.type)}</span></li>`).join('')}
+            </ul>
+          </div>`).join('');
+      }
+      document.getElementById('delivery-list-modal').style.display = 'flex';
+    });
+
+    document.getElementById('delivery-list-close').addEventListener('click', () => {
+      document.getElementById('delivery-list-modal').style.display = 'none';
+    });
+    document.getElementById('delivery-list-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) document.getElementById('delivery-list-modal').style.display = 'none';
+    });
+
+    // ── Delivered Message ──────────────────────────────────────
+    document.getElementById('delivered-msg-btn').addEventListener('click', () => {
+      const delivered = claims.filter(c => c.status === 'delivered');
+      const byPlayer = groupByPlayer(delivered);
+      let text = '';
+      if (byPlayer.length === 0) {
+        text = 'No delivered spells.';
+      } else {
+        const header = '**Guild Spell Bank - Delivered Spells**';
+        text = header + '\n\n' + byPlayer.map(({ player, items }) => {
+          const spellWord = items.length === 1 ? 'spell' : 'spells';
+          return `**${player}** - ${items.length} ${spellWord}\n` + items.map(c => `> ${c.spellName}`).join('\n');
+        }).join('\n\n');
+      }
+      document.getElementById('delivered-msg-text').textContent = text;
+      document.getElementById('delivered-msg-modal').style.display = 'flex';
+    });
+
+    document.getElementById('delivered-msg-close').addEventListener('click', () => {
+      document.getElementById('delivered-msg-modal').style.display = 'none';
+    });
+    document.getElementById('delivered-msg-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) document.getElementById('delivered-msg-modal').style.display = 'none';
+    });
+    document.getElementById('delivered-msg-copy').addEventListener('click', () => {
+      const text = document.getElementById('delivered-msg-text').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('delivered-msg-copy');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy Text'; }, 1500);
+      });
+    });
+
+    function groupByPlayer(list) {
+      const map = {};
+      list.forEach(c => {
+        if (!map[c.player]) map[c.player] = [];
+        map[c.player].push(c);
+      });
+      return Object.keys(map).sort((a, b) => a.localeCompare(b))
+        .map(player => ({ player, items: map[player] }));
+    }
+
+    // ── Util ───────────────────────────────────────────────────
+    function escHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Import from Inventory ──────────────────────────────────
+    let pendingImportData = null;
+
+    document.getElementById('import-spell-btn').addEventListener('click', () => {
+      document.getElementById('import-file-input').value = '';
+      document.getElementById('import-upload-modal').style.display = 'flex';
+    });
+
+    function closeUploadModal() {
+      document.getElementById('import-upload-modal').style.display = 'none';
+    }
+    document.getElementById('import-upload-close').addEventListener('click', closeUploadModal);
+    document.getElementById('import-upload-cancel').addEventListener('click', closeUploadModal);
+    document.getElementById('import-upload-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeUploadModal();
+    });
+
+    document.getElementById('import-upload-submit').addEventListener('click', () => {
+      const file = document.getElementById('import-file-input').files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = evt => {
+        const parsed = parseInventoryFile(evt.target.result);
+        if (Object.keys(parsed.locationMap).length === 0) {
+          alert('No spells found in this inventory file.');
+          return;
+        }
+        closeUploadModal();
+        showInventoryModal(parsed);
+      };
+      reader.readAsText(file);
+    });
+
+    const ALL_SPELLS_SET = new Set(ALL_SPELLS);
+
+    function parseInventoryFile(text) {
+      const SPELL_PREFIXES = ['Spell: ', 'Song: ', 'Ancient: ', 'Tome of '];
+      const STRIP_PREFIXES = ['Spell: ', 'Song: ', 'Tome of '];
+      const locationMap = {};
+      const lines = text.split(/\r?\n/);
+
+      for (let i = 1; i < lines.length; i++) {
+        const parts = lines[i].split('\t');
+        if (parts.length < 4) continue;
+        const location = parts[0].trim();
+        const rawName  = parts[1].trim();
+        const count    = parseInt(parts[3], 10) || 0;
+
+        if (!rawName || rawName === 'Empty') continue;
+        if (!SPELL_PREFIXES.some(p => rawName.startsWith(p))) continue;
+
+        const stripped = STRIP_PREFIXES.reduce((n, p) => n.startsWith(p) ? n.slice(p.length) : n, rawName);
+        if (!ALL_SPELLS_SET.has(stripped)) continue;
+        const name = stripped;
+
+        const m = location.match(/^(General(?:\s+\d+)?|Bank\d+|SharedBank\d+)(-Slot(\d+).*)?$/);
+        if (!m) continue;
+
+        const parent    = m[1];
+        const slotPath  = m[2] ? m[2].replace(/^-Slot/, 'Slot ').replace(/-Slot/g, ' › Slot ') : '—';
+
+        if (!locationMap[parent]) locationMap[parent] = [];
+        locationMap[parent].push({ name, count, slotPath });
+      }
+
+      const LOCATION_ORDER = [
+        'General',
+        ...Array.from({ length: 12 }, (_, i) => `General ${i + 1}`),
+        ...Array.from({ length: 24 }, (_, i) => `Bank${i + 1}`),
+        ...Array.from({ length: 8  }, (_, i) => `SharedBank${i + 1}`),
+      ];
+      const orderedLocations = LOCATION_ORDER.filter(l => locationMap[l]);
+      Object.keys(locationMap).forEach(l => { if (!orderedLocations.includes(l)) orderedLocations.push(l); });
+
+      return { locationMap, orderedLocations };
+    }
+
+    function showInventoryModal({ locationMap, orderedLocations }) {
+      pendingImportData = { locationMap, orderedLocations };
+      const body = document.getElementById('import-inventory-body');
+
+      body.innerHTML = orderedLocations.map((loc, li) => {
+        const spells = locationMap[loc];
+        const rows = spells.map((s, si) => `
+          <div class="inv-spell-row">
+            <input type="checkbox" class="inv-spell-cb" data-li="${li}" data-si="${si}" />
+            <span class="inv-spell-name">${escHtml(s.name)}</span>
+            <span class="inv-spell-qty">${s.count}</span>
+            <span class="inv-spell-slot">${escHtml(s.slotPath)}</span>
+          </div>`).join('');
+        return `
+          <div class="inv-location-panel">
+            <div class="inv-location-header">
+              <span>${escHtml(loc)}<span class="inv-location-count">${spells.length} spell${spells.length !== 1 ? 's' : ''}</span></span>
+              <span class="inv-location-chevron">&#9660;</span>
+            </div>
+            <div class="inv-location-body">
+              <div class="inv-spell-col-header">
+                <input type="checkbox" class="inv-loc-cb" data-li="${li}" title="Select all in ${escHtml(loc)}" /><span>Spell</span><span>Qty</span><span>Slot</span>
+              </div>
+              ${rows}
+            </div>
+          </div>`;
+      }).join('');
+
+      // Collapsible panels
+      body.querySelectorAll('.inv-location-header').forEach(header => {
+        header.addEventListener('click', () => header.parentElement.classList.toggle('open'));
+      });
+
+      // Expand / Collapse All
+      const expandBtn = document.getElementById('import-expand-all-btn');
+      expandBtn.textContent = 'Expand All';
+      expandBtn.onclick = () => {
+        const panels = body.querySelectorAll('.inv-location-panel');
+        const allOpen = [...panels].every(p => p.classList.contains('open'));
+        panels.forEach(p => p.classList.toggle('open', !allOpen));
+        expandBtn.textContent = allOpen ? 'Expand All' : 'Collapse All';
+      };
+
+      // Select-all logic
+      const selectAll = document.getElementById('import-select-all');
+      selectAll.checked = false;
+      selectAll.indeterminate = false;
+
+      const newSelectAll = selectAll.cloneNode(true);
+      selectAll.replaceWith(newSelectAll);
+      const freshLabel = document.querySelector('label[for="import-select-all"]');
+      newSelectAll.id = 'import-select-all';
+      if (freshLabel) freshLabel.setAttribute('for', 'import-select-all');
+
+      function updateGlobalSelectAll() {
+        const all     = body.querySelectorAll('.inv-spell-cb');
+        const checked = body.querySelectorAll('.inv-spell-cb:checked');
+        newSelectAll.checked       = checked.length === all.length && all.length > 0;
+        newSelectAll.indeterminate = checked.length > 0 && checked.length < all.length;
+      }
+
+      function updateLocSelectAll(li) {
+        const locCb      = body.querySelector(`.inv-loc-cb[data-li="${li}"]`);
+        if (!locCb) return;
+        const all     = body.querySelectorAll(`.inv-spell-cb[data-li="${li}"]`);
+        const checked = body.querySelectorAll(`.inv-spell-cb[data-li="${li}"]:checked`);
+        locCb.checked       = checked.length === all.length && all.length > 0;
+        locCb.indeterminate = checked.length > 0 && checked.length < all.length;
+      }
+
+      // Global select-all toggles every spell cb and every loc cb
+      newSelectAll.addEventListener('change', () => {
+        body.querySelectorAll('.inv-spell-cb').forEach(cb => { cb.checked = newSelectAll.checked; });
+        body.querySelectorAll('.inv-loc-cb').forEach(cb => {
+          cb.checked = newSelectAll.checked;
+          cb.indeterminate = false;
+        });
+      });
+
+      body.addEventListener('change', e => {
+        if (e.target.classList.contains('inv-loc-cb')) {
+          // Location select-all: toggle all spells in this location
+          const li = e.target.dataset.li;
+          body.querySelectorAll(`.inv-spell-cb[data-li="${li}"]`).forEach(cb => {
+            cb.checked = e.target.checked;
+          });
+          e.target.indeterminate = false;
+          updateGlobalSelectAll();
+        } else if (e.target.classList.contains('inv-spell-cb')) {
+          updateLocSelectAll(e.target.dataset.li);
+          updateGlobalSelectAll();
+        }
+      });
+
+      document.getElementById('import-inventory-modal').style.display = 'flex';
+    }
+
+    function closeInventoryModal() {
+      document.getElementById('import-inventory-modal').style.display = 'none';
+    }
+    document.getElementById('import-inventory-close').addEventListener('click', closeInventoryModal);
+    document.getElementById('import-inventory-cancel').addEventListener('click', closeInventoryModal);
+    document.getElementById('import-inventory-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeInventoryModal();
+    });
+
+    document.getElementById('import-inventory-submit').addEventListener('click', async () => {
+      if (!pendingImportData) return;
+      const body = document.getElementById('import-inventory-body');
+      const checked = [...body.querySelectorAll('.inv-spell-cb:checked')];
+      if (checked.length === 0) { alert('Please select at least one spell to import.'); return; }
+
+      const { locationMap, orderedLocations } = pendingImportData;
+      const submitBtn = document.getElementById('import-inventory-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '…';
+
+      try {
+        for (const cb of checked) {
+          const loc   = orderedLocations[parseInt(cb.dataset.li, 10)];
+          const spell = locationMap[loc][parseInt(cb.dataset.si, 10)];
+          const existing = spells.find(s => s.name === spell.name);
+          if (existing) {
+            await updateDoc(doc(db, 'gsb_spells', existing.id), { count: existing.count + spell.count });
+          } else {
+            await addDoc(collection(db, 'gsb_spells'), { name: spell.name, count: spell.count, createdAt: serverTimestamp() });
+          }
+        }
+        closeInventoryModal();
+      } catch (err) {
+        console.error('Import failed:', err);
+        alert('Import failed: ' + (err.message || 'Unknown error'));
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Import Selected';
+      }
+    });
+  </script>
+</body>
+</html>

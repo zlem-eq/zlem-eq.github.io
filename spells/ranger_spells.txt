@@ -1,0 +1,134 @@
+Line  606: 				<a href="spells.php?id=5011" data-eqrs="0">Salve</a>				</td>
+	Line  655: 				<a href="spells.php?id=51" data-eqrs="0">Glimpse</a>				</td>
+	Line  704: 				<a href="spells.php?id=239" data-eqrs="0">Flame Lick</a>				</td>
+	Line  753: 				<a href="spells.php?id=240" data-eqrs="0">Lull Animal</a>				</td>
+	Line  802: 				<a href="spells.php?id=2591" data-eqrs="0">Tangling Weeds</a>				</td>
+	Line  851: 				<a href="spells.php?id=242" data-eqrs="0">Snare</a>				</td>
+	Line  900: 				<a href="spells.php?id=26" data-eqrs="0">Skin like Wood</a>				</td>
+	Line  949: 				<a href="spells.php?id=200" data-eqrs="0">Minor Healing</a>				</td>
+	Line  998: 				<a href="spells.php?id=224" data-eqrs="0">Endure Fire</a>				</td>
+	Line 1047: 				<a href="spells.php?id=237" data-eqrs="0">Dance of the Fireflies</a>				</td>
+	Line 1096: 				<a href="spells.php?id=2592" data-eqrs="0">Hawk Eye</a>				</td>
+	Line 1145: 				<a href="spells.php?id=269" data-eqrs="0">Feet like Cat</a>				</td>
+	Line 1194: 				<a href="spells.php?id=203" data-eqrs="0">Cure Poison</a>				</td>
+	Line 1210: 				<a href="spells.php?id=515" data-eqrs="0">Thistlecoat</a>				</td>
+	Line 1259: 				<a href="spells.php?id=92" data-eqrs="0">Burst of Fire</a>				</td>
+	Line 1275: 				<a href="spells.php?id=247" data-eqrs="0">Camouflage</a>				</td>
+	Line 1324: 				<a href="spells.php?id=249" data-eqrs="0">Grasping Roots</a>				</td>
+	Line 1340: 				<a href="spells.php?id=252" data-eqrs="0">Invoke Lightning</a>				</td>
+	Line 1389: 				<a href="spells.php?id=241" data-eqrs="0">Panic Animal</a>				</td>
+	Line 1405: 				<a href="spells.php?id=248" data-eqrs="0">Ward Summoned</a>				</td>
+	Line 1454: 				<a href="spells.php?id=500" data-eqrs="0">Bind Sight</a>				</td>
+	Line 1470: 				<a href="spells.php?id=254" data-eqrs="0">Firefist</a>				</td>
+	Line 1519: 				<a href="spells.php?id=225" data-eqrs="0">Endure Cold</a>				</td>
+	Line 1568: 				<a href="spells.php?id=91" data-eqrs="0">Ignite</a>				</td>
+	Line 1617: 				<a href="spells.php?id=86" data-eqrs="0">Enduring Breath</a>				</td>
+	Line 1633: 				<a href="spells.php?id=17" data-eqrs="0">Light Healing</a>				</td>
+	Line 1682: 				<a href="spells.php?id=263" data-eqrs="0">Skin like Rock</a>				</td>
+	Line 1731: 				<a href="spells.php?id=213" data-eqrs="0">Cure Disease</a>				</td>
+	Line 1747: 				<a href="spells.php?id=250" data-eqrs="0">Harmony</a>				</td>
+	Line 1796: 				<a href="spells.php?id=256" data-eqrs="0">Shield of Thistles</a>				</td>
+	Line 1845: 				<a href="spells.php?id=264" data-eqrs="0">Stinging Swarm</a>				</td>
+	Line 1894: 				<a href="spells.php?id=268" data-eqrs="0">Strength of Earth</a>				</td>
+	Line 1943: 				<a href="spells.php?id=655" data-eqrs="0">Eyes of the Cat</a>				</td>
+	Line 1992: 				<a href="spells.php?id=278" data-eqrs="0">Spirit of Wolf</a>				</td>
+	Line 2041: 				<a href="spells.php?id=3565" data-eqrs="0">Flaming Arrow</a>				</td>
+	Line 2057: 				<a href="spells.php?id=2593" data-eqrs="0">Riftwind's Protection</a>				</td>
+	Line 2106: 				<a href="spells.php?id=516" data-eqrs="0">Barbcoat</a>				</td>
+	Line 2122: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 2171: 				<a href="spells.php?id=513" data-eqrs="0">Calm Animal</a>				</td>
+	Line 2220: 				<a href="spells.php?id=12" data-eqrs="0">Healing</a>				</td>
+	Line 2236: 				<a href="spells.php?id=80" data-eqrs="0">See Invisible</a>				</td>
+	Line 2285: 				<a href="spells.php?id=115" data-eqrs="0">Dismiss Summoned</a>				</td>
+	Line 2334: 				<a href="spells.php?id=517" data-eqrs="0">Bramblecoat</a>				</td>
+	Line 2383: 				<a href="spells.php?id=261" data-eqrs="0">Levitate</a>				</td>
+	Line 2432: 				<a href="spells.php?id=1461" data-eqrs="0">Call of Sky</a>				</td>
+	Line 2434: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=3129" data-eqrs="0">Call of Sky Strike</a><br>				<br>
+	Line 2481: 				<a href="spells.php?id=419" data-eqrs="0">Careless Lightning</a>				</td>
+	Line 2497: 				<a href="spells.php?id=2594" data-eqrs="0">Nature's Precision</a>				</td>
+	Line 2546: 				<a href="spells.php?id=421" data-eqrs="0">Skin like Steel</a>				</td>
+	Line 2595: 				<a href="spells.php?id=3564" data-eqrs="0">Burning Arrow</a>				</td>
+	Line 2611: 				<a href="spells.php?id=3601" data-eqrs="0">Harmony of Nature</a>				</td>
+	Line 2660: 				<a href="spells.php?id=3687" data-eqrs="0">Swarm of Pain</a>				</td>
+	Line 2709: 				<a href="spells.php?id=4054" data-eqrs="0">Spirit of the Shrew</a>				</td>
+	Line 2758: 				<a href="spells.php?id=518" data-eqrs="0">Spikecoat</a>				</td>
+	Line 2807: 				<a href="spells.php?id=129" data-eqrs="0">Shield of Brambles</a>				</td>
+	Line 2856: 				<a href="spells.php?id=15" data-eqrs="0">Greater Healing</a>				</td>
+	Line 2872: 				<a href="spells.php?id=78" data-eqrs="0">Immolate</a>				</td>
+	Line 2921: 				<a href="spells.php?id=76" data-eqrs="0">Ensnaring Roots</a>				</td>
+	Line 2970: 				<a href="spells.php?id=60" data-eqrs="0">Resist Fire</a>				</td>
+	Line 3019: 				<a href="spells.php?id=34" data-eqrs="0">Superior Camouflage</a>				</td>
+	Line 3068: 				<a href="spells.php?id=2595" data-eqrs="0">Force of Nature</a>				</td>
+	Line 3084: 				<a href="spells.php?id=425" data-eqrs="0">Wolf Form</a>				</td>
+	Line 3133: 				<a href="spells.php?id=691" data-eqrs="0">Call of Flame</a>				</td>
+	Line 3149: 				<a href="spells.php?id=4055" data-eqrs="0">Pack Shrew</a>				</td>
+	Line 3198: 				<a href="spells.php?id=1462" data-eqrs="0">Call of Earth</a>				</td>
+	Line 3214: 				<a href="spells.php?id=1741" data-eqrs="0">Jolt</a>				</td>
+	Line 3263: 				<a href="spells.php?id=512" data-eqrs="0">Ensnare</a>				</td>
+	Line 3279: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line 3295: 				<a href="spells.php?id=1397" data-eqrs="0">Strength of Nature</a>				</td>
+	Line 3311: 				<a href="spells.php?id=5571" data-eqrs="0">Tangle</a>				</td>
+	Line 3360: 				<a href="spells.php?id=2596" data-eqrs="0">Falcon Eye</a>				</td>
+	Line 3376: 				<a href="spells.php?id=57" data-eqrs="0">Firestrike</a>				</td>
+	Line 3392: 				<a href="spells.php?id=3688" data-eqrs="0">Icewind</a>				</td>
+	Line 3441: 				<a href="spells.php?id=430" data-eqrs="0">Storm Strength</a>				</td>
+	Line 3490: 				<a href="spells.php?id=259" data-eqrs="0">Drones of Doom</a>				</td>
+	Line 3506: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line 3522: 				<a href="spells.php?id=2597" data-eqrs="0">Jolting Blades</a>				</td>
+	Line 3524: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=2876" data-eqrs="0">Jolting Blades Strike</a><br>				<br>
+	Line 3538: 				<a href="spells.php?id=422" data-eqrs="0">Skin like Diamond</a>				</td>
+	Line 3587: 				<a href="spells.php?id=1463" data-eqrs="0">Call of Fire</a>				</td>
+	Line 3589: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=3131" data-eqrs="0">Call of Fire Strike</a><br>				<br>
+	Line 3603: 				<a href="spells.php?id=145" data-eqrs="0">Chloroplast</a>				</td>
+	Line 3619: 				<a href="spells.php?id=1296" data-eqrs="0">Cinder Jolt</a>				</td>
+	Line 3635: 				<a href="spells.php?id=4111" data-eqrs="0">Fire Swarm</a>				</td>
+	Line 3651: 				<a href="spells.php?id=61" data-eqrs="0">Resist Cold</a>				</td>
+	Line 3667: 				<a href="spells.php?id=4506" data-eqrs="0">Trueshot Discipline</a>				</td>
+	Line 3716: 				<a href="spells.php?id=539" data-eqrs="0">Chill Sight</a>				</td>
+	Line 3732: 				<a href="spells.php?id=426" data-eqrs="0">Greater Wolf Form</a>				</td>
+	Line 3748: 				<a href="spells.php?id=2598" data-eqrs="0">Mark of the Predator</a>				</td>
+	Line 3797: 				<a href="spells.php?id=4059" data-eqrs="0">Call of Ice</a>				</td>
+	Line 3799: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=4060" data-eqrs="0">Call of Ice Strike</a><br>				<br>
+	Line 3813: 				<a href="spells.php?id=2599" data-eqrs="0">Eagle Eye</a>				</td>
+	Line 3829: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 3845: 				<a href="spells.php?id=432" data-eqrs="0">Shield of Spikes</a>				</td>
+	Line 3894: 				<a href="spells.php?id=1740" data-eqrs="0">Dustdevil</a>				</td>
+	Line 3910: 				<a href="spells.php?id=423" data-eqrs="0">Skin like Nature</a>				</td>
+	Line 3959: 				<a href="spells.php?id=1464" data-eqrs="0">Call of the Predator</a>				</td>
+	Line 3975: 				<a href="spells.php?id=490" data-eqrs="0">Enveloping Roots</a>				</td>
+	Line 3991: 				<a href="spells.php?id=519" data-eqrs="0">Thorncoat</a>				</td>
+	Line 4007: 				<a href="spells.php?id=2600" data-eqrs="0">Warder's Protection</a>				</td>
+	Line 4023: 				<a href="spells.php?id=4519" data-eqrs="0">Weapon Shield Discipline</a>				</td>
+	Line 4072: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 4088: 				<a href="spells.php?id=1551" data-eqrs="0">Circle of Winter</a>				</td>
+	Line 4104: 				<a href="spells.php?id=96" data-eqrs="0">Counteract Disease</a>				</td>
+	Line 4120: 				<a href="spells.php?id=95" data-eqrs="0">Counteract Poison</a>				</td>
+	Line 4136: 				<a href="spells.php?id=6732" data-eqrs="0">Earthen Embrace</a>				</td>
+	Line 4152: 				<a href="spells.php?id=5572" data-eqrs="0">Entangle</a>				</td>
+	Line 4168: 				<a href="spells.php?id=1529" data-eqrs="0">Exile Summoned</a>				</td>
+	Line 4217: 				<a href="spells.php?id=3419" data-eqrs="0">Call of the Rathe</a>				</td>
+	Line 4233: 				<a href="spells.php?id=1290" data-eqrs="0">Chloroblast</a>				</td>
+	Line 4249: 				<a href="spells.php?id=665" data-eqrs="0">Drifting Death</a>				</td>
+	Line 4265: 				<a href="spells.php?id=356" data-eqrs="0">Shield of Thorns</a>				</td>
+	Line 4281: 				<a href="spells.php?id=3487" data-eqrs="0">Strength of Tunare</a>				</td>
+	Line 4330: 				<a href="spells.php?id=1558" data-eqrs="0">Bladecoat</a>				</td>
+	Line 4346: 				<a href="spells.php?id=1552" data-eqrs="0">Circle of Summer</a>				</td>
+	Line 4362: 				<a href="spells.php?id=3192" data-eqrs="0">Earthen Roots</a>				</td>
+	Line 4378: 				<a href="spells.php?id=3418" data-eqrs="0">Frozen Wind</a>				</td>
+	Line 4427: 				<a href="spells.php?id=3431" data-eqrs="0">Brushfire</a>				</td>
+	Line 4443: 				<a href="spells.php?id=4107" data-eqrs="0">Feral Form</a>				</td>
+	Line 4459: 				<a href="spells.php?id=3415" data-eqrs="0">Nature's Rebuke</a>				</td>
+	Line 4461: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=3416" data-eqrs="0">Nature's Rebuke Strike</a><br>				<br>
+	Line 4475: 				<a href="spells.php?id=1568" data-eqrs="0">Regrowth</a>				</td>
+	Line 4491: 				<a href="spells.php?id=3417" data-eqrs="0">Spirit of the Predator</a>				</td>
+	Line 4540: 				<a href="spells.php?id=4980" data-eqrs="0">Ancient: Burning Chaos</a>				</td>
+	Line 4556: 				<a href="spells.php?id=3420" data-eqrs="0">Cry of Thunder</a>				</td>
+	Line 4558: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=3421" data-eqrs="0">Cry of Thunder Strike</a><br>				<br>
+	Line 4572: 				<a href="spells.php?id=2887" data-eqrs="0">Mask of the Stalker</a>				</td>
+	Line 4588: 				<a href="spells.php?id=1559" data-eqrs="0">Natureskin</a>				</td>
+	Line 4604: 				<a href="spells.php?id=3039" data-eqrs="0">Protection of the Wild</a>				</td>
+	Line 4620: 				<a href="spells.php?id=2517" data-eqrs="0">Spirit of Eagle</a>				</td>
+	Line 4636: 				<a href="spells.php?id=4897" data-eqrs="0">Sylvan Burn</a>				</td>
+	Line 4652: 				<a href="spells.php?id=4898" data-eqrs="0">Sylvan Call</a>				</td>
+	Line 4654: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=4912" data-eqrs="0">Sylvan Call Strike</a><br>				<br>
+	Line 4668: 				<a href="spells.php?id=4896" data-eqrs="0">Sylvan Light</a>				</td>

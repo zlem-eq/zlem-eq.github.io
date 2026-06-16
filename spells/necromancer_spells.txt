@@ -1,0 +1,296 @@
+Line  606: 				<a href="spells.php?id=338" data-eqrs="0">Cavorting Bones</a>				</td>
+	Line  622: 				<a href="spells.php?id=339" data-eqrs="0">Coldlight</a>				</td>
+	Line  638: 				<a href="spells.php?id=340" data-eqrs="0">Disease Cloud</a>				</td>
+	Line  654: 				<a href="spells.php?id=235" data-eqrs="0">Invisibility Versus Undead</a>				</td>
+	Line  670: 				<a href="spells.php?id=341" data-eqrs="0">Lifetap</a>				</td>
+	Line  686: 				<a href="spells.php?id=342" data-eqrs="0">Locate Corpse</a>				</td>
+	Line  702: 				<a href="spells.php?id=288" data-eqrs="0">Minor Shielding</a>				</td>
+	Line  718: 				<a href="spells.php?id=331" data-eqrs="0">Reclaim Energy</a>				</td>
+	Line  734: 				<a href="spells.php?id=221" data-eqrs="0">Sense the Dead</a>				</td>
+	Line  750: 				<a href="spells.php?id=343" data-eqrs="0">Siphon Strength</a>				</td>
+	Line  753: 				Recourse: <a href="spells.php?id=2463" data-eqrs="0">Siphon Strength Recourse</a><br>				<br>
+	Line  800: 				<a href="spells.php?id=229" data-eqrs="0">Fear</a>				</td>
+	Line  816: 				<a href="spells.php?id=347" data-eqrs="0">Numb the Dead</a>				</td>
+	Line  832: 				<a href="spells.php?id=205" data-eqrs="0">True North</a>				</td>
+	Line  881: 				<a href="spells.php?id=225" data-eqrs="0">Endure Cold</a>				</td>
+	Line  897: 				<a href="spells.php?id=346" data-eqrs="0">Grim Aura</a>				</td>
+	Line  913: 				<a href="spells.php?id=502" data-eqrs="0">Lifespike</a>				</td>
+	Line  962: 				<a href="spells.php?id=344" data-eqrs="0">Clinging Darkness</a>				</td>
+	Line  978: 				<a href="spells.php?id=36" data-eqrs="0">Gate</a>				</td>
+	Line  994: 				<a href="spells.php?id=491" data-eqrs="0">Leering Corpse</a>				</td>
+	Line 1010: 				<a href="spells.php?id=348" data-eqrs="0">Poison Bolt</a>				</td>
+	Line 1059: 				<a href="spells.php?id=352" data-eqrs="0">Deadeye</a>				</td>
+	Line 1075: 				<a href="spells.php?id=354" data-eqrs="0">Shadow Step</a>				</td>
+	Line 1124: 				<a href="spells.php?id=357" data-eqrs="0">Dark Empathy</a>				</td>
+	Line 1127: 				Recourse: <a href="spells.php?id=3650" data-eqrs="0">Dark Empathy Recourse</a><br>				<br>
+	Line 1141: 				<a href="spells.php?id=641" data-eqrs="0">Dark Pact</a>				</td>
+	Line 1157: 				<a href="spells.php?id=218" data-eqrs="0">Ward Undead</a>				</td>
+	Line 1206: 				<a href="spells.php?id=522" data-eqrs="0">Gather Shadows</a>				</td>
+	Line 1222: 				<a href="spells.php?id=353" data-eqrs="0">Mend Bones</a>				</td>
+	Line 1238: 				<a href="spells.php?id=359" data-eqrs="0">Vampiric Embrace</a>				</td>
+	Line 1240: 				<br><b>1:</b> Add Melee Proc: <a href="spells.php?id=821" data-eqrs="0">Vampiric Embrace</a><br>				<br>
+	Line 1287: 				<a href="spells.php?id=351" data-eqrs="0">Bone Walk</a>				</td>
+	Line 1303: 				<a href="spells.php?id=358" data-eqrs="0">Impart Strength</a>				</td>
+	Line 1306: 				Recourse: <a href="spells.php?id=2464" data-eqrs="0">Impart Strength Recourse</a><br>				<br>
+	Line 1320: 				<a href="spells.php?id=246" data-eqrs="0">Lesser Shielding</a>				</td>
+	Line 1369: 				<a href="spells.php?id=1509" data-eqrs="0">Leech</a>				</td>
+	Line 1385: 				<a href="spells.php?id=361" data-eqrs="0">Sight Graft</a>				</td>
+	Line 1401: 				<a href="spells.php?id=363" data-eqrs="0">Wave of Enfeeblement</a>				</td>
+	Line 1450: 				<a href="spells.php?id=360" data-eqrs="0">Heat Blood</a>				</td>
+	Line 1466: 				<a href="spells.php?id=1511" data-eqrs="0">Scent of Dusk</a>				</td>
+	Line 1482: 				<a href="spells.php?id=209" data-eqrs="0">Spook the Dead</a>				</td>
+	Line 1531: 				<a href="spells.php?id=226" data-eqrs="0">Endure Disease</a>				</td>
+	Line 1547: 				<a href="spells.php?id=355" data-eqrs="0">Engulfing Darkness</a>				</td>
+	Line 1563: 				<a href="spells.php?id=2541" data-eqrs="0">Focus Death</a>				</td>
+	Line 1612: 				<a href="spells.php?id=35" data-eqrs="0">Bind Affinity</a>				</td>
+	Line 1628: 				<a href="spells.php?id=362" data-eqrs="0">Convoke Shadow</a>				</td>
+	Line 1644: 				<a href="spells.php?id=2213" data-eqrs="0">Lesser Summon Corpse</a>				</td>
+	Line 1660: 				<a href="spells.php?id=445" data-eqrs="0">Lifedraw</a>				</td>
+	Line 1709: 				<a href="spells.php?id=213" data-eqrs="0">Cure Disease</a>				</td>
+	Line 1725: 				<a href="spells.php?id=367" data-eqrs="0">Heart Flutter</a>				</td>
+	Line 1741: 				<a href="spells.php?id=4273" data-eqrs="0">Reebo's Lesser Exorcism</a>				</td>
+	Line 1757: 				<a href="spells.php?id=4255" data-eqrs="0">Wuggan's Lesser Appraisal</a>				</td>
+	Line 1806: 				<a href="spells.php?id=4261" data-eqrs="0">Reebo's Lesser Augury</a>				</td>
+	Line 1822: 				<a href="spells.php?id=4285" data-eqrs="0">Reebo's Lesser Cleansing</a>				</td>
+	Line 1838: 				<a href="spells.php?id=236" data-eqrs="0">Shieldskin</a>				</td>
+	Line 1854: 				<a href="spells.php?id=4267" data-eqrs="0">Wuggan's Lesser Discombobulation</a>				</td>
+	Line 1870: 				<a href="spells.php?id=4279" data-eqrs="0">Wuggan's Lesser Extrication</a>				</td>
+	Line 1919: 				<a href="spells.php?id=364" data-eqrs="0">Banshee Aura</a>				</td>
+	Line 1935: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 1951: 				<a href="spells.php?id=365" data-eqrs="0">Infectious Cloud</a>				</td>
+	Line 1967: 				<a href="spells.php?id=371" data-eqrs="0">Voice Graft</a>				</td>
+	Line 2016: 				<a href="spells.php?id=366" data-eqrs="0">Feign Death</a>				</td>
+	Line 2032: 				<a href="spells.php?id=7676" data-eqrs="0">Focus Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 2048: 				<a href="spells.php?id=7674" data-eqrs="0">Focus Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 2064: 				<a href="spells.php?id=7675" data-eqrs="0">Focus Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 2080: 				<a href="spells.php?id=9987" data-eqrs="0">Form of Chilled Bone</a>				</td>
+	Line 2096: 				<a href="spells.php?id=369" data-eqrs="0">Hungry Earth</a>				</td>
+	Line 2112: 				<a href="spells.php?id=492" data-eqrs="0">Restless Bones</a>				</td>
+	Line 2128: 				<a href="spells.php?id=309" data-eqrs="0">Shielding</a>				</td>
+	Line 2144: 				<a href="spells.php?id=368" data-eqrs="0">Spirit Armor</a>				</td>
+	Line 2193: 				<a href="spells.php?id=305" data-eqrs="0">Identify</a>				</td>
+	Line 2209: 				<a href="spells.php?id=2542" data-eqrs="0">Shackle of Bone</a>				</td>
+	Line 2225: 				<a href="spells.php?id=1510" data-eqrs="0">Shadow Compact</a>				</td>
+	Line 2228: 				Recourse: <a href="spells.php?id=2473" data-eqrs="0">Shadow Compact Recourse</a><br>				<br>
+	Line 2275: 				<a href="spells.php?id=642" data-eqrs="0">Allure of Death</a>				</td>
+	Line 2291: 				<a href="spells.php?id=196" data-eqrs="0">Dominate Undead</a>				</td>
+	Line 2307: 				<a href="spells.php?id=698" data-eqrs="0">Track Corpse</a>				</td>
+	Line 2356: 				<a href="spells.php?id=233" data-eqrs="0">Expulse Undead</a>				</td>
+	Line 2372: 				<a href="spells.php?id=370" data-eqrs="0">Shadow Vortex</a>				</td>
+	Line 2375: 				Recourse: <a href="spells.php?id=2465" data-eqrs="0">Shadow Vortex Recourse</a><br>				<br>
+	Line 2389: 				<a href="spells.php?id=3583" data-eqrs="0">Tiny Companion</a>				</td>
+	Line 2438: 				<a href="spells.php?id=440" data-eqrs="0">Animate Dead</a>				</td>
+	Line 2454: 				<a href="spells.php?id=7677" data-eqrs="0">Focus Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2470: 				<a href="spells.php?id=7689" data-eqrs="0">Focus Mass Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 2486: 				<a href="spells.php?id=7687" data-eqrs="0">Focus Mass Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 2502: 				<a href="spells.php?id=7688" data-eqrs="0">Focus Mass Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 2518: 				<a href="spells.php?id=199" data-eqrs="0">Harmshield</a>				</td>
+	Line 2534: 				<a href="spells.php?id=446" data-eqrs="0">Siphon Life</a>				</td>
+	Line 2550: 				<a href="spells.php?id=413" data-eqrs="0">Word of Shadow</a>				</td>
+	Line 2599: 				<a href="spells.php?id=478" data-eqrs="0">Breath of the Dead</a>				</td>
+	Line 2615: 				<a href="spells.php?id=1514" data-eqrs="0">Rapacious Subvention</a>				</td>
+	Line 2631: 				<a href="spells.php?id=1512" data-eqrs="0">Scent of Shadow</a>				</td>
+	Line 2647: 				<a href="spells.php?id=204" data-eqrs="0">Shock of Poison</a>				</td>
+	Line 2696: 				<a href="spells.php?id=387" data-eqrs="0">Leatherskin</a>				</td>
+	Line 2712: 				<a href="spells.php?id=549" data-eqrs="0">Screaming Terror</a>				</td>
+	Line 2728: 				<a href="spells.php?id=90" data-eqrs="0">Shadow Sight</a>				</td>
+	Line 2777: 				<a href="spells.php?id=449" data-eqrs="0">Intensify Death</a>				</td>
+	Line 2793: 				<a href="spells.php?id=4274" data-eqrs="0">Reebo's Exorcism</a>				</td>
+	Line 2809: 				<a href="spells.php?id=448" data-eqrs="0">Rest the Dead</a>				</td>
+	Line 2825: 				<a href="spells.php?id=4256" data-eqrs="0">Wuggan's Appraisal</a>				</td>
+	Line 2874: 				<a href="spells.php?id=7690" data-eqrs="0">Focus Mass Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2890: 				<a href="spells.php?id=493" data-eqrs="0">Haunting Corpse</a>				</td>
+	Line 2906: 				<a href="spells.php?id=65" data-eqrs="0">Major Shielding</a>				</td>
+	Line 2922: 				<a href="spells.php?id=4262" data-eqrs="0">Reebo's Augury</a>				</td>
+	Line 2938: 				<a href="spells.php?id=4286" data-eqrs="0">Reebo's Cleansing</a>				</td>
+	Line 2954: 				<a href="spells.php?id=61" data-eqrs="0">Resist Cold</a>				</td>
+	Line 2970: 				<a href="spells.php?id=4268" data-eqrs="0">Wuggan's Discombobulation</a>				</td>
+	Line 2986: 				<a href="spells.php?id=4280" data-eqrs="0">Wuggan's Extrication</a>				</td>
+	Line 3035: 				<a href="spells.php?id=59" data-eqrs="0">Panic the Dead</a>				</td>
+	Line 3084: 				<a href="spells.php?id=444" data-eqrs="0">Renew Bones</a>				</td>
+	Line 3100: 				<a href="spells.php?id=524" data-eqrs="0">Spirit Tap</a>				</td>
+	Line 3149: 				<a href="spells.php?id=452" data-eqrs="0">Dooming Darkness</a>				</td>
+	Line 3165: 				<a href="spells.php?id=2543" data-eqrs="0">Eternities Torment</a>				</td>
+	Line 3181: 				<a href="spells.php?id=414" data-eqrs="0">Word of Spirit</a>				</td>
+	Line 3230: 				<a href="spells.php?id=451" data-eqrs="0">Boil Blood</a>				</td>
+	Line 3246: 				<a href="spells.php?id=117" data-eqrs="0">Dismiss Undead</a>				</td>
+	Line 3295: 				<a href="spells.php?id=441" data-eqrs="0">Summon Dead</a>				</td>
+	Line 3311: 				<a href="spells.php?id=454" data-eqrs="0">Vampiric Curse</a>				</td>
+	Line 3360: 				<a href="spells.php?id=7678" data-eqrs="0">Focus Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3376: 				<a href="spells.php?id=127" data-eqrs="0">Invoke Fear</a>				</td>
+	Line 3425: 				<a href="spells.php?id=197" data-eqrs="0">Beguile Undead</a>				</td>
+	Line 3441: 				<a href="spells.php?id=643" data-eqrs="0">Call of Bones</a>				</td>
+	Line 3443: 				<br><b>1:</b> Cast <a href="spells.php?id=9492" data-eqrs="0">Icebone Skeletal Form</a> (v374)<br><b>2:</b> Increase Current Mana by 8 per Tick<br><b>4:</b> Ultravision<br><b>7:</b> Decrease Current Hit Points by 11 per Tick<br>				<br>
+	Line 3457: 				<a href="spells.php?id=63" data-eqrs="0">Resist Disease</a>				</td>
+	Line 3506: 				<a href="spells.php?id=393" data-eqrs="0">Steelskin</a>				</td>
+	Line 3522: 				<a href="spells.php?id=455" data-eqrs="0">Surge of Enfeeblement</a>				</td>
+	Line 3538: 				<a href="spells.php?id=1415" data-eqrs="0">Torbas' Acid Blast</a>				</td>
+	Line 3587: 				<a href="spells.php?id=66" data-eqrs="0">Greater Shielding</a>				</td>
+	Line 3603: 				<a href="spells.php?id=494" data-eqrs="0">Invoke Shadow</a>				</td>
+	Line 3619: 				<a href="spells.php?id=4275" data-eqrs="0">Reebo's Greater Exorcism</a>				</td>
+	Line 3635: 				<a href="spells.php?id=4257" data-eqrs="0">Wuggan's Greater Appraisal</a>				</td>
+	Line 3684: 				<a href="spells.php?id=7691" data-eqrs="0">Focus Mass Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3700: 				<a href="spells.php?id=4263" data-eqrs="0">Reebo's Greater Augury</a>				</td>
+	Line 3716: 				<a href="spells.php?id=4287" data-eqrs="0">Reebo's Greater Cleansing</a>				</td>
+	Line 3732: 				<a href="spells.php?id=230" data-eqrs="0">Root</a>				</td>
+	Line 3748: 				<a href="spells.php?id=435" data-eqrs="0">Venom of the Snake</a>				</td>
+	Line 3764: 				<a href="spells.php?id=4269" data-eqrs="0">Wuggan's Greater Discombobulation</a>				</td>
+	Line 3780: 				<a href="spells.php?id=4281" data-eqrs="0">Wuggan's Greater Extrication</a>				</td>
+	Line 3829: 				<a href="spells.php?id=661" data-eqrs="0">Augment Death</a>				</td>
+	Line 3845: 				<a href="spells.php?id=31" data-eqrs="0">Scourge</a>				</td>
+	Line 3861: 				<a href="spells.php?id=3" data-eqrs="0">Summon Corpse</a>				</td>
+	Line 3910: 				<a href="spells.php?id=1412" data-eqrs="0">Chilling Embrace</a>				</td>
+	Line 3926: 				<a href="spells.php?id=96" data-eqrs="0">Counteract Disease</a>				</td>
+	Line 3942: 				<a href="spells.php?id=415" data-eqrs="0">Word of Souls</a>				</td>
+	Line 3991: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 4007: 				<a href="spells.php?id=1513" data-eqrs="0">Scent of Darkness</a>				</td>
+	Line 4056: 				<a href="spells.php?id=662" data-eqrs="0">Expel Undead</a>				</td>
+	Line 4072: 				<a href="spells.php?id=2544" data-eqrs="0">Shackle of Spirit</a>				</td>
+	Line 4121: 				<a href="spells.php?id=4096" data-eqrs="0">Dark Soul</a>				</td>
+	Line 4137: 				<a href="spells.php?id=525" data-eqrs="0">Drain Spirit</a>				</td>
+	Line 4153: 				<a href="spells.php?id=442" data-eqrs="0">Malignant Dead</a>				</td>
+	Line 4202: 				<a href="spells.php?id=1508" data-eqrs="0">Asystole</a>				</td>
+	Line 4218: 				<a href="spells.php?id=7679" data-eqrs="0">Focus Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4234: 				<a href="spells.php?id=1285" data-eqrs="0">Summon Companion</a>				</td>
+	Line 4283: 				<a href="spells.php?id=67" data-eqrs="0">Arch Shielding</a>				</td>
+	Line 4299: 				<a href="spells.php?id=457" data-eqrs="0">Dead Man Floating</a>				</td>
+	Line 4348: 				<a href="spells.php?id=559" data-eqrs="0">Ignite Bones</a>				</td>
+	Line 4364: 				<a href="spells.php?id=2014" data-eqrs="0">Incinerate Bones</a>				</td>
+	Line 4413: 				<a href="spells.php?id=1413" data-eqrs="0">Corporeal Empathy</a>				</td>
+	Line 4416: 				Recourse: <a href="spells.php?id=5573" data-eqrs="0">Corporeal Empathy Recourse</a><br>				<br>
+	Line 4430: 				<a href="spells.php?id=1515" data-eqrs="0">Covetous Subversion</a>				</td>
+	Line 4446: 				<a href="spells.php?id=394" data-eqrs="0">Diamondskin</a>				</td>
+	Line 4495: 				<a href="spells.php?id=4099" data-eqrs="0">Bounce</a>				</td>
+	Line 4511: 				<a href="spells.php?id=495" data-eqrs="0">Cackling Bones</a>				</td>
+	Line 4527: 				<a href="spells.php?id=7692" data-eqrs="0">Focus Mass Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4543: 				<a href="spells.php?id=9988" data-eqrs="0">Form of Bleached Bone</a>				</td>
+	Line 4559: 				<a href="spells.php?id=694" data-eqrs="0">Pact of Shadow</a>				</td>
+	Line 4562: 				Recourse: <a href="spells.php?id=2468" data-eqrs="0">Pact of Shadow Recourse</a><br>				<br>
+	Line 4609: 				<a href="spells.php?id=3702" data-eqrs="0">Auspice</a>				</td>
+	Line 4625: 				<a href="spells.php?id=1391" data-eqrs="0">Dead Men Floating</a>				</td>
+	Line 4674: 				<a href="spells.php?id=118" data-eqrs="0">Banish Undead</a>				</td>
+	Line 4690: 				<a href="spells.php?id=2545" data-eqrs="0">Insidious Retrogression</a>				</td>
+	Line 4706: 				<a href="spells.php?id=133" data-eqrs="0">Paralyzing Earth</a>				</td>
+	Line 4755: 				<a href="spells.php?id=198" data-eqrs="0">Cajole Undead</a>				</td>
+	Line 4771: 				<a href="spells.php?id=453" data-eqrs="0">Cascading Darkness</a>				</td>
+	Line 4787: 				<a href="spells.php?id=6" data-eqrs="0">Ignite Blood</a>				</td>
+	Line 4836: 				<a href="spells.php?id=447" data-eqrs="0">Drain Soul</a>				</td>
+	Line 4852: 				<a href="spells.php?id=443" data-eqrs="0">Invoke Death</a>				</td>
+	Line 4868: 				<a href="spells.php?id=644" data-eqrs="0">Lich</a>				</td>
+	Line 4870: 				<br><b>1:</b> Cast <a href="spells.php?id=9490" data-eqrs="0">Skeletal Form</a> (v374)<br><b>2:</b> Increase Current Mana by 20 per Tick<br><b>4:</b> Ultravision<br><b>7:</b> Decrease Current Hit Points by 22 per Tick<br>				<br>
+	Line 4917: 				<a href="spells.php?id=456" data-eqrs="0">Bond of Death</a>				</td>
+	Line 4933: 				<a href="spells.php?id=3571" data-eqrs="0">Torbas' Poison Blast</a>				</td>
+	Line 4949: 				<a href="spells.php?id=4079" data-eqrs="0">Ward of Calliav</a>				</td>
+	Line 4998: 				<a href="spells.php?id=436" data-eqrs="0">Envenomed Bolt</a>				</td>
+	Line 5014: 				<a href="spells.php?id=7680" data-eqrs="0">Focus Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 5030: 				<a href="spells.php?id=1411" data-eqrs="0">Improved Invisibility to Undead</a>				</td>
+	Line 5079: 				<a href="spells.php?id=1532" data-eqrs="0">Dread of Night</a>				</td>
+	Line 5095: 				<a href="spells.php?id=1768" data-eqrs="0">Sacrifice</a>				</td>
+	Line 5111: 				<a href="spells.php?id=1620" data-eqrs="0">Splurt</a>				</td>
+	Line 5160: 				<a href="spells.php?id=3685" data-eqrs="0">Comatose</a>				</td>
+	Line 5176: 				<a href="spells.php?id=1630" data-eqrs="0">Defoliation</a>				</td>
+	Line 5192: 				<a href="spells.php?id=2546" data-eqrs="0">Degeneration</a>				</td>
+	Line 5195: 				Recourse: <a href="spells.php?id=2477" data-eqrs="0">Degeneration Recourse</a><br>				<br>
+	Line 5209: 				<a href="spells.php?id=1609" data-eqrs="0">Manaskin</a>				</td>
+	Line 5225: 				<a href="spells.php?id=32" data-eqrs="0">Plague</a>				</td>
+	Line 5241: 				<a href="spells.php?id=1716" data-eqrs="0">Scent of Terris</a>				</td>
+	Line 5290: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 5306: 				<a href="spells.php?id=1733" data-eqrs="0">Convergence</a>				</td>
+	Line 5322: 				<a href="spells.php?id=131" data-eqrs="0">Instill</a>				</td>
+	Line 5338: 				<a href="spells.php?id=1621" data-eqrs="0">Minion of Shadows</a>				</td>
+	Line 5387: 				<a href="spells.php?id=1613" data-eqrs="0">Deflux</a>				</td>
+	Line 5403: 				<a href="spells.php?id=7693" data-eqrs="0">Focus Mass Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 5419: 				<a href="spells.php?id=4097" data-eqrs="0">Imprecation</a>				</td>
+	Line 5435: 				<a href="spells.php?id=1717" data-eqrs="0">Shadowbond</a>				</td>
+	Line 5438: 				Recourse: <a href="spells.php?id=2475" data-eqrs="0">Shadowbond Recourse</a><br>				<br>
+	Line 5452: 				<a href="spells.php?id=1610" data-eqrs="0">Shield of the Magi</a>				</td>
+	Line 5468: 				<a href="spells.php?id=2547" data-eqrs="0">Succussion of Shadows</a>				</td>
+	Line 5471: 				Recourse: <a href="spells.php?id=2478" data-eqrs="0">Succussion of Shadows Recourse</a><br>				<br>
+	Line 5485: 				<a href="spells.php?id=1624" data-eqrs="0">Thrall of Bones</a>				</td>
+	Line 5501: 				<a href="spells.php?id=3572" data-eqrs="0">Torbas' Venom Blast</a>				</td>
+	Line 5550: 				<a href="spells.php?id=1414" data-eqrs="0">Augmentation of Death</a>				</td>
+	Line 5566: 				<a href="spells.php?id=1614" data-eqrs="0">Chill Bones</a>				</td>
+	Line 5582: 				<a href="spells.php?id=2015" data-eqrs="0">Conglaciation of Bone</a>				</td>
+	Line 5598: 				<a href="spells.php?id=8934" data-eqrs="0">Dark Rune</a>				</td>
+	Line 5600: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8949" data-eqrs="0">Dark Rune Effect</a> (PCIObNecS11L055TrapDmg)<br>				<br>
+	Line 5614: 				<a href="spells.php?id=7681" data-eqrs="0">Focus Spellcaster's Empowering Essence</a>				</td>
+	Line 5630: 				<a href="spells.php?id=1734" data-eqrs="0">Infusion</a>				</td>
+	Line 5646: 				<a href="spells.php?id=1626" data-eqrs="0">Levant</a>				</td>
+	Line 5662: 				<a href="spells.php?id=1625" data-eqrs="0">Skin of the Shadow</a>				</td>
+	Line 5711: 				<a href="spells.php?id=1615" data-eqrs="0">Cessation of Cor</a>				</td>
+	Line 5727: 				<a href="spells.php?id=2548" data-eqrs="0">Crippling Claudication</a>				</td>
+	Line 5730: 				Recourse: <a href="spells.php?id=2479" data-eqrs="0">Crippling Claudication Recourse</a><br>				<br>
+	Line 5744: 				<a href="spells.php?id=1611" data-eqrs="0">Demi Lich</a>				</td>
+	Line 5746: 				<br><b>1:</b> Cast <a href="spells.php?id=9490" data-eqrs="0">Skeletal Form</a> (v374)<br><b>2:</b> Increase Current Mana by 31 per Tick<br><b>4:</b> Ultravision<br><b>7:</b> Decrease Current Hit Points by 32 per Tick<br>				<br>
+	Line 5760: 				<a href="spells.php?id=6992" data-eqrs="0">Eidolon Voice</a>				</td>
+	Line 5776: 				<a href="spells.php?id=9989" data-eqrs="0">Form of Mottled Bone</a>				</td>
+	Line 5792: 				<a href="spells.php?id=1718" data-eqrs="0">Sedulous Subversion</a>				</td>
+	Line 5808: 				<a href="spells.php?id=1622" data-eqrs="0">Servant of Bones</a>				</td>
+	Line 5824: 				<a href="spells.php?id=1527" data-eqrs="0">Trepidation</a>				</td>
+	Line 5873: 				<a href="spells.php?id=1773" data-eqrs="0">Conjure Corpse</a>				</td>
+	Line 5889: 				<a href="spells.php?id=1528" data-eqrs="0">Exile Undead</a>				</td>
+	Line 5905: 				<a href="spells.php?id=3344" data-eqrs="0">Imbue Nightmare</a>				</td>
+	Line 5921: 				<a href="spells.php?id=6980" data-eqrs="0">Unholy Voice</a>				</td>
+	Line 5937: 				<a href="spells.php?id=1616" data-eqrs="0">Vexing Mordinia</a>				</td>
+	Line 5986: 				<a href="spells.php?id=4080" data-eqrs="0">Guard of Calliav</a>				</td>
+	Line 6002: 				<a href="spells.php?id=3591" data-eqrs="0">Imbue Disease</a>				</td>
+	Line 6018: 				<a href="spells.php?id=3594" data-eqrs="0">Imbue Torment</a>				</td>
+	Line 6034: 				<a href="spells.php?id=132" data-eqrs="0">Immobilize</a>				</td>
+	Line 6050: 				<a href="spells.php?id=2549" data-eqrs="0">Mind Wrack</a>				</td>
+	Line 6053: 				Recourse: <a href="spells.php?id=2480" data-eqrs="0">Mind Wrack Recourse</a><br>				<br>
+	Line 6067: 				<a href="spells.php?id=1617" data-eqrs="0">Pyrocruor</a>				</td>
+	Line 6083: 				<a href="spells.php?id=1612" data-eqrs="0">Quivering Veil of Xarn</a>				</td>
+	Line 6099: 				<a href="spells.php?id=4100" data-eqrs="0">Reflect</a>				</td>
+	Line 6148: 				<a href="spells.php?id=1619" data-eqrs="0">Devouring Darkness</a>				</td>
+	Line 6164: 				<a href="spells.php?id=1623" data-eqrs="0">Emissary of Thule</a>				</td>
+	Line 6180: 				<a href="spells.php?id=7694" data-eqrs="0">Focus Mass Spellcaster's Empowering Essence</a>				</td>
+	Line 6196: 				<a href="spells.php?id=1618" data-eqrs="0">Touch of Night</a>				</td>
+	Line 6245: 				<a href="spells.php?id=2115" data-eqrs="0">Ancient: Lifebane</a>				</td>
+	Line 6261: 				<a href="spells.php?id=2114" data-eqrs="0">Ancient: Master of Death</a>				</td>
+	Line 6263: 				<br><b>1:</b> Cast <a href="spells.php?id=9495" data-eqrs="0">Specter Form</a> (v374)<br><b>2:</b> Increase Current Mana by 44 per Tick<br><b>4:</b> Ultravision<br><b>5:</b> See Invisible<br><b>7:</b> Decrease Current Hit Points by 42 per Tick<br>				<br>
+	Line 6277: 				<a href="spells.php?id=1416" data-eqrs="0">Arch Lich</a>				</td>
+	Line 6279: 				<br><b>1:</b> Cast <a href="spells.php?id=9495" data-eqrs="0">Specter Form</a> (v374)<br><b>2:</b> Increase Current Mana by 35 per Tick<br><b>4:</b> Ultravision<br><b>5:</b> See Invisible<br><b>7:</b> Decrease Current Hit Points by 36 per Tick<br>				<br>
+	Line 6293: 				<a href="spells.php?id=1530" data-eqrs="0">Banishment of Shadows</a>				</td>
+	Line 6309: 				<a href="spells.php?id=1460" data-eqrs="0">Death Peace</a>				</td>
+	Line 6325: 				<a href="spells.php?id=1629" data-eqrs="0">Enslave Death</a>				</td>
+	Line 6341: 				<a href="spells.php?id=7682" data-eqrs="0">Focus Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 6357: 				<a href="spells.php?id=2885" data-eqrs="0">Funeral Pyre of Kelador</a>				</td>
+	Line 6373: 				<a href="spells.php?id=1393" data-eqrs="0">Gangrenous Touch of Zum`uul</a>				</td>
+	Line 6389: 				<a href="spells.php?id=1735" data-eqrs="0">Trucidation</a>				</td>
+	Line 6405: 				<a href="spells.php?id=2550" data-eqrs="0">Zevfeer's Theft of Vitae</a>				</td>
+	Line 6408: 				Recourse: <a href="spells.php?id=2481" data-eqrs="0">Zevfeer's Theft of Vitae Recourse</a><br>				<br>
+	Line 6455: 				<a href="spells.php?id=3315" data-eqrs="0">Dark Plague</a>				</td>
+	Line 6471: 				<a href="spells.php?id=6993" data-eqrs="0">Eidolon Bellow</a>				</td>
+	Line 6487: 				<a href="spells.php?id=3304" data-eqrs="0">Legacy of Zek</a>				</td>
+	Line 6503: 				<a href="spells.php?id=3035" data-eqrs="0">Neurotoxin</a>				</td>
+	Line 6519: 				<a href="spells.php?id=3300" data-eqrs="0">Shield of the Arcane</a>				</td>
+	Line 6535: 				<a href="spells.php?id=6736" data-eqrs="0">Soul Orb</a>				</td>
+	Line 6538: 				Recourse: <a href="spells.php?id=6745" data-eqrs="0">Soul Orb Recourse</a><br>				<br>
+	Line 6552: 				<a href="spells.php?id=3032" data-eqrs="0">Touch of Mujaki</a>				</td>
+	Line 6601: 				<a href="spells.php?id=3196" data-eqrs="0">Petrifying Earth</a>				</td>
+	Line 6617: 				<a href="spells.php?id=3305" data-eqrs="0">Rune of Death</a>				</td>
+	Line 6633: 				<a href="spells.php?id=3306" data-eqrs="0">Saryrn's Kiss</a>				</td>
+	Line 6649: 				<a href="spells.php?id=6981" data-eqrs="0">Unholy Bellow</a>				</td>
+	Line 6698: 				<a href="spells.php?id=3308" data-eqrs="0">Death's Silence</a>				</td>
+	Line 6714: 				<a href="spells.php?id=3309" data-eqrs="0">Embracing Darkness</a>				</td>
+	Line 6730: 				<a href="spells.php?id=3301" data-eqrs="0">Force Shield</a>				</td>
+	Line 6746: 				<a href="spells.php?id=3195" data-eqrs="0">Greater Immobilize</a>				</td>
+	Line 6762: 				<a href="spells.php?id=4098" data-eqrs="0">Horror</a>				</td>
+	Line 6778: 				<a href="spells.php?id=3310" data-eqrs="0">Saryrn's Companion</a>				</td>
+	Line 6827: 				<a href="spells.php?id=7695" data-eqrs="0">Focus Mass Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 6843: 				<a href="spells.php?id=4081" data-eqrs="0">Protection of Calliav</a>				</td>
+	Line 6859: 				<a href="spells.php?id=3311" data-eqrs="0">Seduction of Saryrn</a>				</td>
+	Line 6861: 				<br><b>1:</b> Cast <a href="spells.php?id=9491" data-eqrs="0">Mottled Skeletal Form</a> (v374)<br><b>2:</b> Increase Current Mana by 50 per Tick<br><b>4:</b> Ultravision<br><b>5:</b> See Invisible<br><b>7:</b> Decrease Current Hit Points by 42 per Tick<br>				<br>
+	Line 6875: 				<a href="spells.php?id=3302" data-eqrs="0">Shield of Maelin</a>				</td>
+	Line 6891: 				<a href="spells.php?id=3312" data-eqrs="0">Touch of Death</a>				</td>
+	Line 6940: 				<a href="spells.php?id=4978" data-eqrs="0">Ancient: Seduction of Chaos</a>				</td>
+	Line 6942: 				<br><b>1:</b> Cast <a href="spells.php?id=9491" data-eqrs="0">Mottled Skeletal Form</a> (v374)<br><b>2:</b> Increase Current Mana by 60 per Tick<br><b>4:</b> Ultravision<br><b>5:</b> See Invisible<br><b>7:</b> Decrease Current Hit Points by 50 per Tick<br>				<br>
+	Line 6956: 				<a href="spells.php?id=3303" data-eqrs="0">Blood of Thule</a>				</td>
+	Line 6972: 				<a href="spells.php?id=3314" data-eqrs="0">Child of Bertoxxulous</a>				</td>
+	Line 6988: 				<a href="spells.php?id=3468" data-eqrs="0">Destroy Undead</a>				</td>
+	Line 7004: 				<a href="spells.php?id=7683" data-eqrs="0">Focus Intricate Spellcaster's Empowering Essence</a>				</td>
+	Line 7020: 				<a href="spells.php?id=4890" data-eqrs="0">Night Fire</a>				</td>
+	Line 7036: 				<a href="spells.php?id=4889" data-eqrs="0">Night Stalker</a>				</td>
+	Line 7039: 				Recourse: <a href="spells.php?id=4984" data-eqrs="0">Night Stalker Recourse</a><br>				<br>
+	Line 7053: 				<a href="spells.php?id=4891" data-eqrs="0">Night's Beckon</a>				</td>
+	Line 7069: 				<a href="spells.php?id=3316" data-eqrs="0">Word of Terris</a>				</td>

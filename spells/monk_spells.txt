@@ -1,0 +1,26 @@
+Line  606: 				<a href="spells.php?id=5225" data-eqrs="0">Throw Stone</a>				</td>
+	Line  655: 				<a href="spells.php?id=25060" data-eqrs="0">Elbow Strike</a>				</td>
+	Line  704: 				<a href="spells.php?id=4721" data-eqrs="0">Focused Will Discipline</a>				</td>
+	Line  753: 				<a href="spells.php?id=4585" data-eqrs="0">Resistant Discipline</a>				</td>
+	Line  802: 				<a href="spells.php?id=4614" data-eqrs="0">Phantom Zephyr</a>				</td>
+	Line  851: 				<a href="spells.php?id=4587" data-eqrs="0">Fearless Discipline</a>				</td>
+	Line  900: 				<a href="spells.php?id=4683" data-eqrs="0">Phantom Wind</a>				</td>
+	Line  949: 				<a href="spells.php?id=4510" data-eqrs="0">Stonestance Discipline</a>				</td>
+	Line  998: 				<a href="spells.php?id=4511" data-eqrs="0">Thunderkick Discipline</a>				</td>
+	Line 1047: 				<a href="spells.php?id=4509" data-eqrs="0">Whirlwind Discipline</a>				</td>
+	Line 1096: 				<a href="spells.php?id=4502" data-eqrs="0">Voiddance Discipline</a>				</td>
+	Line 1145: 				<a href="spells.php?id=8923" data-eqrs="0">Disciple's Aura</a>				</td>
+	Line 1147: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8937" data-eqrs="0">Disciple's Aura Effect</a> (PCIObMnkS11L055AuraActiveDef)<br>				<br>
+	Line 1194: 				<a href="spells.php?id=4512" data-eqrs="0">Innerflame Discipline</a>				</td>
+	Line 1243: 				<a href="spells.php?id=4513" data-eqrs="0">Hundred Fists Discipline</a>				</td>
+	Line 1259: 				<a href="spells.php?id=4684" data-eqrs="0">Phantom Echo</a>				</td>
+	Line 1308: 				<a href="spells.php?id=4507" data-eqrs="0">Silentfist Discipline</a>				</td>
+	Line 1357: 				<a href="spells.php?id=4508" data-eqrs="0">Ashenhand Discipline</a>				</td>
+	Line 1406: 				<a href="spells.php?id=6752" data-eqrs="0">Leopard Claw</a>				</td>
+	Line 1422: 				<a href="spells.php?id=4692" data-eqrs="0">Planeswalk Discipline</a>				</td>
+	Line 1471: 				<a href="spells.php?id=4687" data-eqrs="0">Healing Will Discipline</a>				</td>
+	Line 1487: 				<a href="spells.php?id=4691" data-eqrs="0">Speed Focus Discipline</a>				</td>
+	Line 1536: 				<a href="spells.php?id=4698" data-eqrs="0">Phantom Call</a>				</td>
+	Line 1585: 				<a href="spells.php?id=5020" data-eqrs="0">Ancient: Phantom Chaos</a>				</td>
+	Line 1601: 				<a href="spells.php?id=4690" data-eqrs="0">Earthwalk Discipline</a>				</td>
+	Line 1617: 				<a href="spells.php?id=5019" data-eqrs="0">Phantom Shadow</a>				</td>

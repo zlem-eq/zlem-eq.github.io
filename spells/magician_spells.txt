@@ -1,0 +1,302 @@
+Line  606: 				<a href="spells.php?id=93" data-eqrs="0">Burst of Flame</a>				</td>
+	Line  622: 				<a href="spells.php?id=313" data-eqrs="0">Fire Flux</a>				</td>
+	Line  638: 				<a href="spells.php?id=310" data-eqrs="0">Flare</a>				</td>
+	Line  654: 				<a href="spells.php?id=288" data-eqrs="0">Minor Shielding</a>				</td>
+	Line  670: 				<a href="spells.php?id=331" data-eqrs="0">Reclaim Energy</a>				</td>
+	Line  686: 				<a href="spells.php?id=311" data-eqrs="0">Summon Dagger</a>				</td>
+	Line  702: 				<a href="spells.php?id=211" data-eqrs="0">Summon Drink</a>				</td>
+	Line  718: 				<a href="spells.php?id=50" data-eqrs="0">Summon Food</a>				</td>
+	Line  734: 				<a href="spells.php?id=205" data-eqrs="0">True North</a>				</td>
+	Line  783: 				<a href="spells.php?id=315" data-eqrs="0">Elementalkin: Water</a>				</td>
+	Line  799: 				<a href="spells.php?id=318" data-eqrs="0">Summon Bandages</a>				</td>
+	Line  815: 				<a href="spells.php?id=2230" data-eqrs="0">Summon Brass Choker</a>				</td>
+	Line  864: 				<a href="spells.php?id=316" data-eqrs="0">Elementalkin: Fire</a>				</td>
+	Line  880: 				<a href="spells.php?id=232" data-eqrs="0">Sense Summoned</a>				</td>
+	Line  896: 				<a href="spells.php?id=321" data-eqrs="0">Summon Wisp</a>				</td>
+	Line  945: 				<a href="spells.php?id=94" data-eqrs="0">Burn</a>				</td>
+	Line  961: 				<a href="spells.php?id=317" data-eqrs="0">Elementalkin: Air</a>				</td>
+	Line  977: 				<a href="spells.php?id=36" data-eqrs="0">Gate</a>				</td>
+	Line 1026: 				<a href="spells.php?id=58" data-eqrs="0">Elementalkin: Earth</a>				</td>
+	Line 1042: 				<a href="spells.php?id=322" data-eqrs="0">Flame Bolt</a>				</td>
+	Line 1058: 				<a href="spells.php?id=246" data-eqrs="0">Lesser Shielding</a>				</td>
+	Line 1107: 				<a href="spells.php?id=325" data-eqrs="0">Dimensional Pocket</a>				</td>
+	Line 1123: 				<a href="spells.php?id=398" data-eqrs="0">Elementaling: Water</a>				</td>
+	Line 1139: 				<a href="spells.php?id=323" data-eqrs="0">Eye of Zomm</a>				</td>
+	Line 1188: 				<a href="spells.php?id=399" data-eqrs="0">Elementaling: Fire</a>				</td>
+	Line 1204: 				<a href="spells.php?id=1504" data-eqrs="0">Renew Elements</a>				</td>
+	Line 1220: 				<a href="spells.php?id=332" data-eqrs="0">Shield of Fire</a>				</td>
+	Line 1236: 				<a href="spells.php?id=324" data-eqrs="0">Shock of Blades</a>				</td>
+	Line 1285: 				<a href="spells.php?id=400" data-eqrs="0">Elementaling: Air</a>				</td>
+	Line 1301: 				<a href="spells.php?id=42" data-eqrs="0">Invisibility</a>				</td>
+	Line 1317: 				<a href="spells.php?id=613" data-eqrs="0">Staff of Tracing</a>				</td>
+	Line 1333: 				<a href="spells.php?id=2233" data-eqrs="0">Summon Linen Mantle</a>				</td>
+	Line 1382: 				<a href="spells.php?id=397" data-eqrs="0">Elementaling: Earth</a>				</td>
+	Line 1398: 				<a href="spells.php?id=319" data-eqrs="0">Summon Fang</a>				</td>
+	Line 1414: 				<a href="spells.php?id=248" data-eqrs="0">Ward Summoned</a>				</td>
+	Line 1463: 				<a href="spells.php?id=48" data-eqrs="0">Cancel Magic</a>				</td>
+	Line 1479: 				<a href="spells.php?id=402" data-eqrs="0">Elemental: Water</a>				</td>
+	Line 1495: 				<a href="spells.php?id=330" data-eqrs="0">Rain of Blades</a>				</td>
+	Line 1511: 				<a href="spells.php?id=2242" data-eqrs="0">Summon Tarnished Bauble</a>				</td>
+	Line 1560: 				<a href="spells.php?id=327" data-eqrs="0">Burnout</a>				</td>
+	Line 1576: 				<a href="spells.php?id=403" data-eqrs="0">Elemental: Fire</a>				</td>
+	Line 1592: 				<a href="spells.php?id=2531" data-eqrs="0">Summon Elemental Defender</a>				</td>
+	Line 1641: 				<a href="spells.php?id=35" data-eqrs="0">Bind Affinity</a>				</td>
+	Line 1657: 				<a href="spells.php?id=328" data-eqrs="0">Column of Fire</a>				</td>
+	Line 1673: 				<a href="spells.php?id=404" data-eqrs="0">Elemental: Air</a>				</td>
+	Line 1722: 				<a href="spells.php?id=401" data-eqrs="0">Elemental: Earth</a>				</td>
+	Line 1738: 				<a href="spells.php?id=305" data-eqrs="0">Identify</a>				</td>
+	Line 1754: 				<a href="spells.php?id=333" data-eqrs="0">Phantom Leather</a>				</td>
+	Line 1770: 				<a href="spells.php?id=4255" data-eqrs="0">Wuggan's Lesser Appraisal</a>				</td>
+	Line 1819: 				<a href="spells.php?id=336" data-eqrs="0">Minor Summoning: Water</a>				</td>
+	Line 1835: 				<a href="spells.php?id=614" data-eqrs="0">Staff of Warding</a>				</td>
+	Line 1851: 				<a href="spells.php?id=4267" data-eqrs="0">Wuggan's Lesser Discombobulation</a>				</td>
+	Line 1867: 				<a href="spells.php?id=4279" data-eqrs="0">Wuggan's Lesser Extrication</a>				</td>
+	Line 1916: 				<a href="spells.php?id=395" data-eqrs="0">Minor Summoning: Fire</a>				</td>
+	Line 1932: 				<a href="spells.php?id=334" data-eqrs="0">Shock of Flame</a>				</td>
+	Line 1948: 				<a href="spells.php?id=320" data-eqrs="0">Summon Heatstone</a>				</td>
+	Line 1964: 				<a href="spells.php?id=100" data-eqrs="0">Summon Throwing Dagger</a>				</td>
+	Line 2013: 				<a href="spells.php?id=7676" data-eqrs="0">Focus Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 2029: 				<a href="spells.php?id=7674" data-eqrs="0">Focus Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 2045: 				<a href="spells.php?id=7675" data-eqrs="0">Focus Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 2061: 				<a href="spells.php?id=396" data-eqrs="0">Minor Summoning: Air</a>				</td>
+	Line 2077: 				<a href="spells.php?id=80" data-eqrs="0">See Invisible</a>				</td>
+	Line 2093: 				<a href="spells.php?id=309" data-eqrs="0">Shielding</a>				</td>
+	Line 2109: 				<a href="spells.php?id=2239" data-eqrs="0">Summon Tiny Ring</a>				</td>
+	Line 2158: 				<a href="spells.php?id=335" data-eqrs="0">Minor Summoning: Earth</a>				</td>
+	Line 2174: 				<a href="spells.php?id=83" data-eqrs="0">Rain of Fire</a>				</td>
+	Line 2190: 				<a href="spells.php?id=2532" data-eqrs="0">Summon Phantom Leather</a>				</td>
+	Line 2206: 				<a href="spells.php?id=4" data-eqrs="0">Summon Waterstone</a>				</td>
+	Line 2255: 				<a href="spells.php?id=68" data-eqrs="0">Bolt of Flame</a>				</td>
+	Line 2271: 				<a href="spells.php?id=663" data-eqrs="0">Expulse Summoned</a>				</td>
+	Line 2287: 				<a href="spells.php?id=497" data-eqrs="0">Lesser Summoning: Water</a>				</td>
+	Line 2303: 				<a href="spells.php?id=1505" data-eqrs="0">Renew Summoning</a>				</td>
+	Line 2352: 				<a href="spells.php?id=108" data-eqrs="0">Elemental Shield</a>				</td>
+	Line 2368: 				<a href="spells.php?id=498" data-eqrs="0">Lesser Summoning: Fire</a>				</td>
+	Line 2384: 				<a href="spells.php?id=411" data-eqrs="0">Shield of Flame</a>				</td>
+	Line 2400: 				<a href="spells.php?id=3583" data-eqrs="0">Tiny Companion</a>				</td>
+	Line 2449: 				<a href="spells.php?id=7677" data-eqrs="0">Focus Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2465: 				<a href="spells.php?id=7689" data-eqrs="0">Focus Mass Crude Spellcaster's Empowering Essence</a>				</td>
+	Line 2481: 				<a href="spells.php?id=7687" data-eqrs="0">Focus Mass Primitive Spellcaster's Empowering Essence</a>				</td>
+	Line 2497: 				<a href="spells.php?id=7688" data-eqrs="0">Focus Mass Rudimentary Spellcaster's Empowering Essence</a>				</td>
+	Line 2513: 				<a href="spells.php?id=499" data-eqrs="0">Lesser Summoning: Air</a>				</td>
+	Line 2529: 				<a href="spells.php?id=102" data-eqrs="0">Spear of Warding</a>				</td>
+	Line 2545: 				<a href="spells.php?id=101" data-eqrs="0">Summon Arrows</a>				</td>
+	Line 2561: 				<a href="spells.php?id=2236" data-eqrs="0">Summon Jade Bracelet</a>				</td>
+	Line 2577: 				<a href="spells.php?id=4027" data-eqrs="0">Summon Wooden Bracelet</a>				</td>
+	Line 2626: 				<a href="spells.php?id=55" data-eqrs="0">Cornucopia</a>				</td>
+	Line 2642: 				<a href="spells.php?id=496" data-eqrs="0">Lesser Summoning: Earth</a>				</td>
+	Line 2658: 				<a href="spells.php?id=2231" data-eqrs="0">Summon Silver Choker</a>				</td>
+	Line 2707: 				<a href="spells.php?id=56" data-eqrs="0">Everfount</a>				</td>
+	Line 2723: 				<a href="spells.php?id=189" data-eqrs="0">Flame Flux</a>				</td>
+	Line 2739: 				<a href="spells.php?id=110" data-eqrs="0">Malaise</a>				</td>
+	Line 2755: 				<a href="spells.php?id=570" data-eqrs="0">Summoning: Water</a>				</td>
+	Line 2804: 				<a href="spells.php?id=113" data-eqrs="0">Shock of Spikes</a>				</td>
+	Line 2820: 				<a href="spells.php?id=571" data-eqrs="0">Summoning: Fire</a>				</td>
+	Line 2836: 				<a href="spells.php?id=4256" data-eqrs="0">Wuggan's Appraisal</a>				</td>
+	Line 2885: 				<a href="spells.php?id=7690" data-eqrs="0">Focus Mass Makeshift Spellcaster's Empowering Essence</a>				</td>
+	Line 2901: 				<a href="spells.php?id=65" data-eqrs="0">Major Shielding</a>				</td>
+	Line 2917: 				<a href="spells.php?id=615" data-eqrs="0">Staff of Runes</a>				</td>
+	Line 2933: 				<a href="spells.php?id=572" data-eqrs="0">Summoning: Air</a>				</td>
+	Line 2949: 				<a href="spells.php?id=4268" data-eqrs="0">Wuggan's Discombobulation</a>				</td>
+	Line 2965: 				<a href="spells.php?id=4280" data-eqrs="0">Wuggan's Extrication</a>				</td>
+	Line 3014: 				<a href="spells.php?id=115" data-eqrs="0">Dismiss Summoned</a>				</td>
+	Line 3030: 				<a href="spells.php?id=81" data-eqrs="0">Phantom Chain</a>				</td>
+	Line 3046: 				<a href="spells.php?id=2533" data-eqrs="0">Summon Phantom Chain</a>				</td>
+	Line 3062: 				<a href="spells.php?id=569" data-eqrs="0">Summoning: Earth</a>				</td>
+	Line 3111: 				<a href="spells.php?id=574" data-eqrs="0">Greater Summoning: Water</a>				</td>
+	Line 3127: 				<a href="spells.php?id=409" data-eqrs="0">Rain of Spikes</a>				</td>
+	Line 3143: 				<a href="spells.php?id=617" data-eqrs="0">Sword of Runes</a>				</td>
+	Line 3192: 				<a href="spells.php?id=1286" data-eqrs="0">Expedience</a>				</td>
+	Line 3208: 				<a href="spells.php?id=575" data-eqrs="0">Greater Summoning: Fire</a>				</td>
+	Line 3224: 				<a href="spells.php?id=2234" data-eqrs="0">Summon Leather Mantle</a>				</td>
+	Line 3273: 				<a href="spells.php?id=664" data-eqrs="0">Expel Summoned</a>				</td>
+	Line 3289: 				<a href="spells.php?id=576" data-eqrs="0">Greater Summoning: Air</a>				</td>
+	Line 3305: 				<a href="spells.php?id=479" data-eqrs="0">Inferno Shield</a>				</td>
+	Line 3354: 				<a href="spells.php?id=106" data-eqrs="0">Burnout II</a>				</td>
+	Line 3370: 				<a href="spells.php?id=573" data-eqrs="0">Greater Summoning: Earth</a>				</td>
+	Line 3386: 				<a href="spells.php?id=103" data-eqrs="0">Summon Coldstone</a>				</td>
+	Line 3435: 				<a href="spells.php?id=618" data-eqrs="0">Dimensional Hole</a>				</td>
+	Line 3451: 				<a href="spells.php?id=7678" data-eqrs="0">Focus Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3467: 				<a href="spells.php?id=1400" data-eqrs="0">Monster Summoning I</a>				</td>
+	Line 3483: 				<a href="spells.php?id=2243" data-eqrs="0">Summon Shiny Bauble</a>				</td>
+	Line 3532: 				<a href="spells.php?id=120" data-eqrs="0">Blaze</a>				</td>
+	Line 3548: 				<a href="spells.php?id=621" data-eqrs="0">Minor Conjuration: Water</a>				</td>
+	Line 3564: 				<a href="spells.php?id=1401" data-eqrs="0">Summon Shard of the Core</a>				</td>
+	Line 3613: 				<a href="spells.php?id=66" data-eqrs="0">Greater Shielding</a>				</td>
+	Line 3629: 				<a href="spells.php?id=622" data-eqrs="0">Minor Conjuration: Fire</a>				</td>
+	Line 3645: 				<a href="spells.php?id=49" data-eqrs="0">Nullify Magic</a>				</td>
+	Line 3694: 				<a href="spells.php?id=69" data-eqrs="0">Cinder Bolt</a>				</td>
+	Line 3710: 				<a href="spells.php?id=623" data-eqrs="0">Minor Conjuration: Air</a>				</td>
+	Line 3726: 				<a href="spells.php?id=616" data-eqrs="0">Staff of Symbols</a>				</td>
+	Line 3742: 				<a href="spells.php?id=4257" data-eqrs="0">Wuggan's Greater Appraisal</a>				</td>
+	Line 3791: 				<a href="spells.php?id=7691" data-eqrs="0">Focus Mass Elementary Spellcaster's Empowering Essence</a>				</td>
+	Line 3807: 				<a href="spells.php?id=620" data-eqrs="0">Minor Conjuration: Earth</a>				</td>
+	Line 3823: 				<a href="spells.php?id=3584" data-eqrs="0">Refresh Summoning</a>				</td>
+	Line 3839: 				<a href="spells.php?id=4269" data-eqrs="0">Wuggan's Greater Discombobulation</a>				</td>
+	Line 3855: 				<a href="spells.php?id=4281" data-eqrs="0">Wuggan's Greater Extrication</a>				</td>
+	Line 3904: 				<a href="spells.php?id=104" data-eqrs="0">Dagger of Symbols</a>				</td>
+	Line 3920: 				<a href="spells.php?id=121" data-eqrs="0">Rain of Lava</a>				</td>
+	Line 3969: 				<a href="spells.php?id=625" data-eqrs="0">Lesser Conjuration: Water</a>				</td>
+	Line 3985: 				<a href="spells.php?id=1285" data-eqrs="0">Summon Companion</a>				</td>
+	Line 4034: 				<a href="spells.php?id=626" data-eqrs="0">Lesser Conjuration: Fire</a>				</td>
+	Line 4050: 				<a href="spells.php?id=105" data-eqrs="0">Summon Ring of Flight</a>				</td>
+	Line 4066: 				<a href="spells.php?id=2240" data-eqrs="0">Summon Twisted Ring</a>				</td>
+	Line 4115: 				<a href="spells.php?id=680" data-eqrs="0">Barrier of Combustion</a>				</td>
+	Line 4131: 				<a href="spells.php?id=627" data-eqrs="0">Lesser Conjuration: Air</a>				</td>
+	Line 4147: 				<a href="spells.php?id=2534" data-eqrs="0">Summon Phantom Plate</a>				</td>
+	Line 4196: 				<a href="spells.php?id=122" data-eqrs="0">Flame Arc</a>				</td>
+	Line 4212: 				<a href="spells.php?id=624" data-eqrs="0">Lesser Conjuration: Earth</a>				</td>
+	Line 4261: 				<a href="spells.php?id=7679" data-eqrs="0">Focus Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4310: 				<a href="spells.php?id=629" data-eqrs="0">Conjuration: Water</a>				</td>
+	Line 4326: 				<a href="spells.php?id=109" data-eqrs="0">Elemental Armor</a>				</td>
+	Line 4342: 				<a href="spells.php?id=82" data-eqrs="0">Phantom Plate</a>				</td>
+	Line 4358: 				<a href="spells.php?id=114" data-eqrs="0">Shock of Swords</a>				</td>
+	Line 4407: 				<a href="spells.php?id=4099" data-eqrs="0">Bounce</a>				</td>
+	Line 4423: 				<a href="spells.php?id=630" data-eqrs="0">Conjuration: Fire</a>				</td>
+	Line 4439: 				<a href="spells.php?id=2237" data-eqrs="0">Summon Opal Bracelet</a>				</td>
+	Line 4455: 				<a href="spells.php?id=4082" data-eqrs="0">Summon: Orb of Exploration</a>				</td>
+	Line 4504: 				<a href="spells.php?id=67" data-eqrs="0">Arch Shielding</a>				</td>
+	Line 4520: 				<a href="spells.php?id=631" data-eqrs="0">Conjuration: Air</a>				</td>
+	Line 4536: 				<a href="spells.php?id=1403" data-eqrs="0">Elemental Maelstrom</a>				</td>
+	Line 4585: 				<a href="spells.php?id=628" data-eqrs="0">Conjuration: Earth</a>				</td>
+	Line 4601: 				<a href="spells.php?id=7692" data-eqrs="0">Focus Mass Modest Spellcaster's Empowering Essence</a>				</td>
+	Line 4617: 				<a href="spells.php?id=111" data-eqrs="0">Malaisement</a>				</td>
+	Line 4633: 				<a href="spells.php?id=1503" data-eqrs="0">Modulating Rod</a>				</td>
+	Line 4649: 				<a href="spells.php?id=3699" data-eqrs="0">Primal Remedy</a>				</td>
+	Line 4665: 				<a href="spells.php?id=4028" data-eqrs="0">Summon Stone Bracelet</a>				</td>
+	Line 4714: 				<a href="spells.php?id=412" data-eqrs="0">Shield of Lava</a>				</td>
+	Line 4730: 				<a href="spells.php?id=1944" data-eqrs="0">Summon Orb</a>				</td>
+	Line 4779: 				<a href="spells.php?id=632" data-eqrs="0">Greater Conjuration: Earth</a>				</td>
+	Line 4795: 				<a href="spells.php?id=4079" data-eqrs="0">Ward of Calliav</a>				</td>
+	Line 4844: 				<a href="spells.php?id=107" data-eqrs="0">Burnout III</a>				</td>
+	Line 4860: 				<a href="spells.php?id=634" data-eqrs="0">Greater Conjuration: Fire</a>				</td>
+	Line 4876: 				<a href="spells.php?id=70" data-eqrs="0">Lava Bolt</a>				</td>
+	Line 4925: 				<a href="spells.php?id=116" data-eqrs="0">Banish Summoned</a>				</td>
+	Line 4941: 				<a href="spells.php?id=635" data-eqrs="0">Greater Conjuration: Air</a>				</td>
+	Line 4957: 				<a href="spells.php?id=2535" data-eqrs="0">Summon Elemental Blanket</a>				</td>
+	Line 5006: 				<a href="spells.php?id=633" data-eqrs="0">Greater Conjuration: Water</a>				</td>
+	Line 5022: 				<a href="spells.php?id=410" data-eqrs="0">Rain of Swords</a>				</td>
+	Line 5071: 				<a href="spells.php?id=7680" data-eqrs="0">Focus Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 5087: 				<a href="spells.php?id=1402" data-eqrs="0">Monster Summoning II</a>				</td>
+	Line 5103: 				<a href="spells.php?id=2232" data-eqrs="0">Summon Golden Choker</a>				</td>
+	Line 5152: 				<a href="spells.php?id=1680" data-eqrs="0">Gift of Xev</a>				</td>
+	Line 5168: 				<a href="spells.php?id=112" data-eqrs="0">Malosi</a>				</td>
+	Line 5184: 				<a href="spells.php?id=1659" data-eqrs="0">Scintillation</a>				</td>
+	Line 5200: 				<a href="spells.php?id=2235" data-eqrs="0">Summon Silken Mantle</a>				</td>
+	Line 5216: 				<a href="spells.php?id=1671" data-eqrs="0">Vocarate: Earth</a>				</td>
+	Line 5265: 				<a href="spells.php?id=1681" data-eqrs="0">Bristlebane's Bundle</a>				</td>
+	Line 5281: 				<a href="spells.php?id=1660" data-eqrs="0">Char</a>				</td>
+	Line 5297: 				<a href="spells.php?id=3700" data-eqrs="0">Elemental Empathy</a>				</td>
+	Line 5300: 				Recourse: <a href="spells.php?id=3701" data-eqrs="0">Elemental Empathy Recourse</a><br>				<br>
+	Line 5314: 				<a href="spells.php?id=1666" data-eqrs="0">Phantom Armor</a>				</td>
+	Line 5330: 				<a href="spells.php?id=2244" data-eqrs="0">Summon Brilliant Bauble</a>				</td>
+	Line 5346: 				<a href="spells.php?id=2536" data-eqrs="0">Transon's Elemental Infusion</a>				</td>
+	Line 5362: 				<a href="spells.php?id=1673" data-eqrs="0">Vocarate: Fire</a>				</td>
+	Line 5411: 				<a href="spells.php?id=1526" data-eqrs="0">Annul Magic</a>				</td>
+	Line 5427: 				<a href="spells.php?id=1668" data-eqrs="0">Boon of Immolation</a>				</td>
+	Line 5443: 				<a href="spells.php?id=1682" data-eqrs="0">Quiver of Marr</a>				</td>
+	Line 5459: 				<a href="spells.php?id=2241" data-eqrs="0">Summon Studded Ring</a>				</td>
+	Line 5475: 				<a href="spells.php?id=1674" data-eqrs="0">Vocarate: Air</a>				</td>
+	Line 5524: 				<a href="spells.php?id=1683" data-eqrs="0">Bandolier of Luclin</a>				</td>
+	Line 5540: 				<a href="spells.php?id=3582" data-eqrs="0">Elemental Cloak</a>				</td>
+	Line 5556: 				<a href="spells.php?id=5133" data-eqrs="0">Elemental Draw</a>				</td>
+	Line 5559: 				Recourse: <a href="spells.php?id=5134" data-eqrs="0">Elemental Draw Recourse</a><br>				<br>
+	Line 5573: 				<a href="spells.php?id=7693" data-eqrs="0">Focus Mass Simple Spellcaster's Empowering Essence</a>				</td>
+	Line 5589: 				<a href="spells.php?id=4011" data-eqrs="0">Kindle</a>				</td>
+	Line 5605: 				<a href="spells.php?id=2879" data-eqrs="0">Phantasmal Armor</a>				</td>
+	Line 5621: 				<a href="spells.php?id=1661" data-eqrs="0">Scars of Sigil</a>				</td>
+	Line 5637: 				<a href="spells.php?id=1610" data-eqrs="0">Shield of the Magi</a>				</td>
+	Line 5653: 				<a href="spells.php?id=4029" data-eqrs="0">Summon Iron Bracelet</a>				</td>
+	Line 5669: 				<a href="spells.php?id=2238" data-eqrs="0">Summon Ruby Bracelet</a>				</td>
+	Line 5685: 				<a href="spells.php?id=2537" data-eqrs="0">Veil of Elements</a>				</td>
+	Line 5701: 				<a href="spells.php?id=1672" data-eqrs="0">Vocarate: Water</a>				</td>
+	Line 5750: 				<a href="spells.php?id=1472" data-eqrs="0">Burnout IV</a>				</td>
+	Line 5766: 				<a href="spells.php?id=1771" data-eqrs="0">Call of the Hero</a>				</td>
+	Line 5782: 				<a href="spells.php?id=8933" data-eqrs="0">Earthen Strength</a>				</td>
+	Line 5784: 				<br><b>1:</b> Aura Effect: <a href="spells.php?id=8948" data-eqrs="0">Earthen Strength Effect</a> (PCIObMagS11L055TrapPetAug)<br>				<br>
+	Line 5798: 				<a href="spells.php?id=7681" data-eqrs="0">Focus Spellcaster's Empowering Essence</a>				</td>
+	Line 5814: 				<a href="spells.php?id=1684" data-eqrs="0">Pouch of Quellious</a>				</td>
+	Line 5830: 				<a href="spells.php?id=1770" data-eqrs="0">Rage of Zomm</a>				</td>
+	Line 5846: 				<a href="spells.php?id=1662" data-eqrs="0">Sirocco</a>				</td>
+	Line 5862: 				<a href="spells.php?id=1405" data-eqrs="0">Wrath of the Elements</a>				</td>
+	Line 5911: 				<a href="spells.php?id=1667" data-eqrs="0">Cadeau of Flame</a>				</td>
+	Line 5927: 				<a href="spells.php?id=1679" data-eqrs="0">Dyzil's Deafening Decoy</a>				</td>
+	Line 5943: 				<a href="spells.php?id=1529" data-eqrs="0">Exile Summoned</a>				</td>
+	Line 5959: 				<a href="spells.php?id=2538" data-eqrs="0">Mass Mystical Transvergence</a>				</td>
+	Line 5975: 				<a href="spells.php?id=1685" data-eqrs="0">Muzzle of Mardu</a>				</td>
+	Line 5991: 				<a href="spells.php?id=3188" data-eqrs="0">Rod of Mystical Transvergence</a>				</td>
+	Line 6040: 				<a href="spells.php?id=1720" data-eqrs="0">Eye of Tallon</a>				</td>
+	Line 6056: 				<a href="spells.php?id=1675" data-eqrs="0">Greater Vocaration: Earth</a>				</td>
+	Line 6072: 				<a href="spells.php?id=3352" data-eqrs="0">Imbue Earth</a>				</td>
+	Line 6088: 				<a href="spells.php?id=1663" data-eqrs="0">Shock of Steel</a>				</td>
+	Line 6137: 				<a href="spells.php?id=1677" data-eqrs="0">Greater Vocaration: Fire</a>				</td>
+	Line 6153: 				<a href="spells.php?id=4080" data-eqrs="0">Guard of Calliav</a>				</td>
+	Line 6169: 				<a href="spells.php?id=1577" data-eqrs="0">Malosini</a>				</td>
+	Line 6185: 				<a href="spells.php?id=4100" data-eqrs="0">Reflect</a>				</td>
+	Line 6201: 				<a href="spells.php?id=2539" data-eqrs="0">Transon's Phantasmal Protection</a>				</td>
+	Line 6217: 				<a href="spells.php?id=1670" data-eqrs="0">Velocity</a>				</td>
+	Line 6266: 				<a href="spells.php?id=7694" data-eqrs="0">Focus Mass Spellcaster's Empowering Essence</a>				</td>
+	Line 6282: 				<a href="spells.php?id=1678" data-eqrs="0">Greater Vocaration: Air</a>				</td>
+	Line 6298: 				<a href="spells.php?id=3353" data-eqrs="0">Imbue Air</a>				</td>
+	Line 6314: 				<a href="spells.php?id=1665" data-eqrs="0">Manastorm</a>				</td>
+	Line 6330: 				<a href="spells.php?id=1936" data-eqrs="0">Manifest Elements</a>				</td>
+	Line 6346: 				<a href="spells.php?id=1664" data-eqrs="0">Seeking Flame of Seukor</a>				</td>
+	Line 6362: 				<a href="spells.php?id=1284" data-eqrs="0">Valiant Companion</a>				</td>
+	Line 6411: 				<a href="spells.php?id=1669" data-eqrs="0">Aegis of Ro</a>				</td>
+	Line 6427: 				<a href="spells.php?id=2119" data-eqrs="0">Ancient: Burnout Blaze</a>				</td>
+	Line 6443: 				<a href="spells.php?id=2118" data-eqrs="0">Ancient: Shock of Sun</a>				</td>
+	Line 6459: 				<a href="spells.php?id=1531" data-eqrs="0">Banishment</a>				</td>
+	Line 6475: 				<a href="spells.php?id=7682" data-eqrs="0">Focus Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 6491: 				<a href="spells.php?id=1676" data-eqrs="0">Greater Vocaration: Water</a>				</td>
+	Line 6507: 				<a href="spells.php?id=3356" data-eqrs="0">Imbue Fire</a>				</td>
+	Line 6523: 				<a href="spells.php?id=3357" data-eqrs="0">Imbue Water</a>				</td>
+	Line 6539: 				<a href="spells.php?id=1394" data-eqrs="0">Maelstrom of Electricity</a>				</td>
+	Line 6555: 				<a href="spells.php?id=1772" data-eqrs="0">Mala</a>				</td>
+	Line 6571: 				<a href="spells.php?id=1404" data-eqrs="0">Monster Summoning III</a>				</td>
+	Line 6587: 				<a href="spells.php?id=2540" data-eqrs="0">Shock of Fiery Blades</a>				</td>
+	Line 6603: 				<a href="spells.php?id=2896" data-eqrs="0">Transon's Elemental Renewal</a>				</td>
+	Line 6619: 				<a href="spells.php?id=4078" data-eqrs="0">Wind of the Desert</a>				</td>
+	Line 6668: 				<a href="spells.php?id=3040" data-eqrs="0">Belt of Magi`Kot</a>				</td>
+	Line 6684: 				<a href="spells.php?id=3041" data-eqrs="0">Blade of Walnan</a>				</td>
+	Line 6700: 				<a href="spells.php?id=3329" data-eqrs="0">Elemental Barrier</a>				</td>
+	Line 6716: 				<a href="spells.php?id=3318" data-eqrs="0">Firebolt of Tallon</a>				</td>
+	Line 6732: 				<a href="spells.php?id=3198" data-eqrs="0">Flameshield of Ro</a>				</td>
+	Line 6748: 				<a href="spells.php?id=3300" data-eqrs="0">Shield of the Arcane</a>				</td>
+	Line 6764: 				<a href="spells.php?id=3209" data-eqrs="0">Summon Glowing Bauble</a>				</td>
+	Line 6780: 				<a href="spells.php?id=3205" data-eqrs="0">Summon Platinum Choker</a>				</td>
+	Line 6796: 				<a href="spells.php?id=3206" data-eqrs="0">Summon Runed Mantle</a>				</td>
+	Line 6812: 				<a href="spells.php?id=3207" data-eqrs="0">Summon Sapphire Bracelet</a>				</td>
+	Line 6828: 				<a href="spells.php?id=3208" data-eqrs="0">Summon Spiked Ring</a>				</td>
+	Line 6844: 				<a href="spells.php?id=4030" data-eqrs="0">Summon Steel Bracelet</a>				</td>
+	Line 6860: 				<a href="spells.php?id=6738" data-eqrs="0">Summon: Lava Orb</a>				</td>
+	Line 6876: 				<a href="spells.php?id=3317" data-eqrs="0">Ward of Xegony</a>				</td>
+	Line 6925: 				<a href="spells.php?id=4110" data-eqrs="0">Burning Sand</a>				</td>
+	Line 6941: 				<a href="spells.php?id=3237" data-eqrs="0">Burnout V</a>				</td>
+	Line 6957: 				<a href="spells.php?id=3042" data-eqrs="0">Fist of Ixiblat</a>				</td>
+	Line 6973: 				<a href="spells.php?id=3320" data-eqrs="0">Servant of Marr</a>				</td>
+	Line 6989: 				<a href="spells.php?id=3319" data-eqrs="0">Sun Storm</a>				</td>
+	Line 7005: 				<a href="spells.php?id=3045" data-eqrs="0">Talisman of Return</a>				</td>
+	Line 7021: 				<a href="spells.php?id=3031" data-eqrs="0">Xegony's Phantasmal Guard</a>				</td>
+	Line 7070: 				<a href="spells.php?id=3321" data-eqrs="0">Black Steel</a>				</td>
+	Line 7086: 				<a href="spells.php?id=3043" data-eqrs="0">Blade of The Kedge</a>				</td>
+	Line 7102: 				<a href="spells.php?id=3322" data-eqrs="0">Child of Ro</a>				</td>
+	Line 7118: 				<a href="spells.php?id=3483" data-eqrs="0">Elemental Silence</a>				</td>
+	Line 7134: 				<a href="spells.php?id=3486" data-eqrs="0">Maelstrom of Ro</a>				</td>
+	Line 7150: 				<a href="spells.php?id=3387" data-eqrs="0">Malosinia</a>				</td>
+	Line 7166: 				<a href="spells.php?id=3210" data-eqrs="0">Summon Jewelry Bag</a>				</td>
+	Line 7215: 				<a href="spells.php?id=3238" data-eqrs="0">Destroy Summoned</a>				</td>
+	Line 7231: 				<a href="spells.php?id=7695" data-eqrs="0">Focus Mass Refined Spellcaster's Empowering Essence</a>				</td>
+	Line 7247: 				<a href="spells.php?id=3044" data-eqrs="0">Girdle of Magi`Kot</a>				</td>
+	Line 7263: 				<a href="spells.php?id=3323" data-eqrs="0">Maelstrom of Thunder</a>				</td>
+	Line 7279: 				<a href="spells.php?id=3239" data-eqrs="0">Planar Renewal</a>				</td>
+	Line 7295: 				<a href="spells.php?id=4081" data-eqrs="0">Protection of Calliav</a>				</td>
+	Line 7311: 				<a href="spells.php?id=3302" data-eqrs="0">Shield of Maelin</a>				</td>
+	Line 7360: 				<a href="spells.php?id=4976" data-eqrs="0">Ancient: Chaos Vortex</a>				</td>
+	Line 7376: 				<a href="spells.php?id=3484" data-eqrs="0">Call of the Arch Mage</a>				</td>
+	Line 7392: 				<a href="spells.php?id=4886" data-eqrs="0">Elemental Siphon</a>				</td>
+	Line 7395: 				Recourse: <a href="spells.php?id=4987" data-eqrs="0">Elemental Siphon Recourse</a><br>				<br>
+	Line 7409: 				<a href="spells.php?id=7683" data-eqrs="0">Focus Intricate Spellcaster's Empowering Essence</a>				</td>
+	Line 7425: 				<a href="spells.php?id=4888" data-eqrs="0">Monster Summoning IV</a>				</td>
+	Line 7441: 				<a href="spells.php?id=3324" data-eqrs="0">Rathe's Son</a>				</td>
+	Line 7457: 				<a href="spells.php?id=4887" data-eqrs="0">Rock of Taelosia</a>				</td>
+	Line 7473: 				<a href="spells.php?id=3325" data-eqrs="0">Sun Vortex</a>				</td>
