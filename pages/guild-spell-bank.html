@@ -74,7 +74,7 @@
       <div id="claims-action-row" class="claims-action-row" style="display:none;">
         <button id="delivery-list-btn" class="panel-action-btn">Generate Delivery List</button>
         <button id="delivered-msg-btn" class="panel-action-btn">Generate Delivered Message</button>
-        <button id="mass-delivered-btn" class="panel-action-btn">Mass Mark Delivered</button>
+        <button id="mass-delivered-btn" class="panel-action-btn">Auto Mark Delivered</button>
       </div>
       <div class="spell-panel-body" id="claims-list"></div>
     </div>
@@ -949,7 +949,7 @@
       if (e.target === e.currentTarget) closeInventoryModal();
     });
 
-    // ── Mass Mark Delivered ────────────────────────────────────
+    // ── Auto Mark Delivered ────────────────────────────────────
     document.getElementById('mass-delivered-btn').addEventListener('click', () => {
       document.getElementById('log-file-input').value = '';
       document.getElementById('log-file-input').click();
