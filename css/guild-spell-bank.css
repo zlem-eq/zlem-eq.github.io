@@ -21,7 +21,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  padding: 1.5rem 24rem;
+  padding: 1.5rem 16rem;
   height: calc(100vh - 73px);
   box-sizing: border-box;
 }
@@ -331,10 +331,10 @@
   font-size: 0.875rem;
 }
 
-/* Manager mode: Name | Player | Type | Status | Deliver | Delete */
+/* Manager mode: Name | Player | Type | Status | Deliver | Deny | Delete */
 .claim-col-header.mgr,
 .claim-row.mgr {
-  grid-template-columns: minmax(0, 1fr) 110px 64px 82px 108px 32px;
+  grid-template-columns: minmax(0, 1fr) 110px 64px 82px 108px 60px 32px;
 }
 
 .claim-col-header { border-bottom: 2px solid var(--border); padding-top: 0.4rem; padding-bottom: 0.4rem; }
@@ -396,6 +396,30 @@
   background: #0a2e1a;
   color: #75d9a5;
 }
+
+.status-badge.denied {
+  background: #f8d7da;
+  color: #58151c;
+}
+
+[data-theme="dark"] .status-badge.denied {
+  background: #2e0a0e;
+  color: #f5a0a8;
+}
+
+.deny-btn {
+  padding: 0.25rem 0.55rem;
+  background: none;
+  border: 1px solid #e05050;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e05050;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.deny-btn:hover { background: rgba(224,80,80,0.1); }
 
 .deliver-btn {
   padding: 0.25rem 0.55rem;

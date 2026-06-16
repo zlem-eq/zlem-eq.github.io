@@ -306,7 +306,7 @@
       const list = document.getElementById('claims-list');
 
       const claimHeader = mode === 'manager'
-        ? `<div class="claim-col-header mgr"><span>Spell</span><span>Player</span><span>Type</span><span>Status</span><span></span><span></span></div>`
+        ? `<div class="claim-col-header mgr"><span>Spell</span><span>Player</span><span>Type</span><span>Status</span><span></span><span></span><span></span></div>`
         : `<div class="claim-col-header"><span>Spell</span><span>Player</span><span>Type</span><span>Status</span></div>`;
 
       if (claims.length === 0) {
@@ -315,12 +315,13 @@
       }
 
       list.innerHTML = claimHeader + claims.map(claim => {
-        const statusClass = claim.status === 'delivered' ? 'delivered' : 'claimed';
-        const statusLabel = claim.status === 'delivered' ? 'Delivered' : 'Claimed';
+        const statusClass = claim.status === 'delivered' ? 'delivered' : claim.status === 'denied' ? 'denied' : 'claimed';
+        const statusLabel = claim.status === 'delivered' ? 'Delivered' : claim.status === 'denied' ? 'Denied' : 'Claimed';
         const typeLabel   = claim.type === 'raid alt' ? 'Raid Alt'
           : claim.type.charAt(0).toUpperCase() + claim.type.slice(1);
         const managerActions = mode === 'manager' ? `
           ${claim.status === 'claimed' ? `<button class="deliver-btn" data-id="${claim.id}">Mark Delivered</button>` : '<span></span>'}
+          ${claim.status === 'claimed' ? `<button class="deny-btn" data-id="${claim.id}" data-spell="${escHtml(claim.spellName)}">Deny</button>` : '<span></span>'}
           <button class="delete-claim-btn" data-id="${claim.id}" aria-label="Remove">&#128465;</button>
         ` : '';
 
@@ -336,6 +337,9 @@
 
       list.querySelectorAll('.deliver-btn').forEach(btn => {
         btn.addEventListener('click', () => markDelivered(btn.dataset.id));
+      });
+      list.querySelectorAll('.deny-btn').forEach(btn => {
+        btn.addEventListener('click', () => denyClaim(btn.dataset.id, btn.dataset.spell));
       });
       list.querySelectorAll('.delete-claim-btn').forEach(btn => {
         btn.addEventListener('click', () => deleteClaim(btn.dataset.id));
@@ -386,6 +390,14 @@
 
     async function markDelivered(id) {
       await updateDoc(doc(db, 'gsb_claims', id), { status: 'delivered' });
+    }
+
+    async function denyClaim(id, spellName) {
+      const spell = spells.find(s => s.name === spellName);
+      await runTransaction(db, async tx => {
+        tx.update(doc(db, 'gsb_claims', id), { status: 'denied' });
+        if (spell) tx.update(doc(db, 'gsb_spells', spell.id), { count: increment(1) });
+      });
     }
 
     async function deleteClaim(id) {
@@ -594,10 +606,10 @@
     });
 
     document.getElementById('remove-delivered-btn').addEventListener('click', async () => {
-      const delivered = claims.filter(c => c.status === 'delivered');
-      if (!delivered.length) return;
-      if (!confirm(`Remove ${delivered.length} delivered claim${delivered.length !== 1 ? 's' : ''}? This cannot be undone.`)) return;
-      await Promise.all(delivered.map(c => deleteDoc(doc(db, 'gsb_claims', c.id))));
+      const resolved = claims.filter(c => c.status === 'delivered' || c.status === 'denied');
+      if (!resolved.length) return;
+      if (!confirm(`Remove ${resolved.length} delivered/denied claim${resolved.length !== 1 ? 's' : ''}? This cannot be undone.`)) return;
+      await Promise.all(resolved.map(c => deleteDoc(doc(db, 'gsb_claims', c.id))));
     });
 
     // ── Spell Unavailable Modal ────────────────────────────────
@@ -643,16 +655,27 @@
     // ── Delivered Message ──────────────────────────────────────
     document.getElementById('delivered-msg-btn').addEventListener('click', () => {
       const delivered = claims.filter(c => c.status === 'delivered');
-      const byPlayer = groupByPlayer(delivered);
+      const denied    = claims.filter(c => c.status === 'denied');
+      const byPlayerDelivered = groupByPlayer(delivered);
+      const byPlayerDenied    = groupByPlayer(denied);
       let text = '';
-      if (byPlayer.length === 0) {
-        text = 'No delivered spells.';
+      if (byPlayerDelivered.length === 0 && byPlayerDenied.length === 0) {
+        text = 'No delivered or denied spells.';
       } else {
-        const header = '**Guild Spell Bank - Delivered Spells**';
-        text = header + '\n\n' + byPlayer.map(({ player, items }) => {
-          const spellWord = items.length === 1 ? 'spell' : 'spells';
-          return `**${player}** - ${items.length} ${spellWord}\n` + items.map(c => `> ${c.spellName}`).join('\n');
-        }).join('\n\n');
+        const sections = [];
+        if (byPlayerDelivered.length > 0) {
+          sections.push('**Guild Spell Bank - Delivered Spells**\n\n' + byPlayerDelivered.map(({ player, items }) => {
+            const spellWord = items.length === 1 ? 'spell' : 'spells';
+            return `**${player}** - ${items.length} ${spellWord}\n` + items.map(c => `> ${c.spellName}`).join('\n');
+          }).join('\n\n'));
+        }
+        if (byPlayerDenied.length > 0) {
+          sections.push('**Guild Spell Bank - Denied Claims**\n\n' + byPlayerDenied.map(({ player, items }) => {
+            const spellWord = items.length === 1 ? 'spell' : 'spells';
+            return `**${player}** - ${items.length} ${spellWord}\n` + items.map(c => `> ${c.spellName}`).join('\n');
+          }).join('\n\n'));
+        }
+        text = sections.join('\n\n');
       }
       document.getElementById('delivered-msg-text').textContent = text;
       document.getElementById('delivered-msg-modal').style.display = 'flex';
