@@ -642,11 +642,16 @@
     var checkedItems = getCheckedItems();
 
     // Build lookup: normalizedItemName → [{item, looter, mob}]
+    // Expand by qty so each deliverable unit has its own slot (and its own _used flag).
+    // This ensures a player who looted qty=2 can be assigned to two separate winners,
+    // and a fully-consumed item is never silently reused for a third winner.
     var raidMap = {};
     checkedItems.forEach(function (ci) {
       var key = normalizeItemName(ci.item);
       if (!raidMap[key]) raidMap[key] = [];
-      raidMap[key].push(ci);
+      for (var q = 0; q < (ci.qty || 1); q++) {
+        raidMap[key].push({ item: ci.item, looter: ci.looter, mob: ci.mob });
+      }
     });
 
     // Parse pasted lines
@@ -678,10 +683,11 @@
     pastedEntries.forEach(function (entry) {
       var key  = normalizeItemName(entry.itemRaw);
       var hits = raidMap[key];
+      var hit  = null;
       if (hits && hits.length > 0) {
-        var hit = entry._selfHit
-               || hits.find(function (h) { return !h._used; })
-               || hits[hits.length - 1];
+        hit = entry._selfHit || hits.find(function (h) { return !h._used; });
+      }
+      if (hit) {
         hit._used = true;
         matched.push({ entry: entry, looter: hit.looter, mob: hit.mob, item: hit.item });
       } else {
@@ -689,7 +695,13 @@
       }
     });
 
-    var unassigned = checkedItems.filter(function (ci) { return !ci._used; });
+    // Collect every raidMap slot that was never assigned to a winner.
+    var unassigned = [];
+    Object.keys(raidMap).forEach(function (key) {
+      raidMap[key].forEach(function (slot) {
+        if (!slot._used) unassigned.push(slot);
+      });
+    });
 
     // ── Group matched items by deliverer (looter), sorted alphabetically ─────
     var byDeliverer = {};
@@ -753,8 +765,10 @@
       unmatchedLines.push('');
     }
 
-    // Clean up _used flags
-    checkedItems.forEach(function (ci) { delete ci._used; });
+    // Clean up _used flags on raidMap slots
+    Object.keys(raidMap).forEach(function (key) {
+      raidMap[key].forEach(function (slot) { delete slot._used; });
+    });
 
     var summary = matched.length + ' matched';
     if (noDelivery.length)  summary += ' · ' + noDelivery.length  + ' missing delivery player';

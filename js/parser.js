@@ -443,18 +443,18 @@
   };
 
   window.getCheckedLoot = function () {
+    // Deduplicate by (mob, session, item, looter) so that the same physical loot
+    // event — visible in every player's log — is counted exactly once, while items
+    // looted by players who have no split file are still captured from whichever
+    // split happens to record them first.
+    var seen = new Set();
     var results = [];
-    // When multiple splits are loaded, each physical loot event is visible in every
-    // player's log file. To avoid counting the same drop N times, only include
-    // entries where the looter is the "you" player for that split — i.e. the line
-    // was originally "You have looted X" in that file. Other players' loots will be
-    // covered by their own split files.
-    var hasSplits = allSplits.length > 1;
     currentMobs.forEach(function (data, key) {
       if (!selectedMobs.has(key)) return;
-      var splitPlayerName = allSplits[data.splitIdx] ? allSplits[data.splitIdx].playerName : null;
       data.entries.forEach(function (entry) {
-        if (hasSplits && splitPlayerName && entry.looter !== splitPlayerName) return;
+        var dedupKey = data.displayName + '\x01' + (data.sessionLabel || '') + '\x01' + entry.item + '\x01' + entry.looter;
+        if (seen.has(dedupKey)) return;
+        seen.add(dedupKey);
         results.push({ mob: data.displayName, item: entry.item, qty: entry.qty, looter: entry.looter });
       });
     });
