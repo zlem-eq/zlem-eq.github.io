@@ -235,11 +235,12 @@
       <!-- Content state -->
       <div id="log-review-content" class="log-review-content" style="display:none;">
         <div id="log-review-summary" class="log-review-summary"></div>
-        <div class="import-select-all-row" id="log-select-all-row">
-          <input type="checkbox" id="log-select-all" />
-          <label for="log-select-all">Select All / None</label>
-        </div>
         <div class="import-inventory-body" id="log-review-body"></div>
+        <div id="log-review-pagination" class="log-pagination-bar" style="display:none;">
+          <button id="log-page-prev" class="log-page-btn">&#8592;</button>
+          <span id="log-page-info" class="log-page-info"></span>
+          <button id="log-page-next" class="log-page-btn">&#8594;</button>
+        </div>
       </div>
       <div id="log-review-footer" class="modal-footer" style="display:none;">
         <button class="modal-cancel-btn" id="log-review-cancel">Cancel</button>
@@ -271,6 +272,8 @@
     // ── State ──────────────────────────────────────────────────
     let spells = [];   // [{ id, name, count }]
     let claims = [];   // [{ id, spellName, player, type, status }]
+    let logEntries   = [];        // entries from last parsed log file
+    let logCheckedSet = new Set(); // indices of checked entries
     let mode        = 'claim';
     let classFilter = '';
     let pendingClaimSpellId = null;
@@ -1006,56 +1009,84 @@
 
     function normalizeSpellFromLog(raw) {
       const prefixes = ['Spell: ', 'Song: ', 'Tome of ', 'Ancient: '];
-      let name = raw.trim();
+      let name = raw.trim().replace(/^\d+ /, ''); // strip leading quantity (e.g. "1 Spell: X")
       for (const p of prefixes) {
         if (name.startsWith(p)) { name = name.slice(p.length).trim(); break; }
       }
       return ALL_SPELLS_SET.has(name) ? name : null;
     }
 
+    const EQ_MONTHS = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
+    function parseEQTimestamp(line) {
+      const m = line.match(/^\[(\w{3}) (\w{3}) (\d{1,2}) (\d{2}:\d{2}:\d{2}) (\d{4})\]/);
+      if (!m) return null;
+      const [,, mon, day, time, year] = m;
+      const [h, min, s] = time.split(':');
+      return new Date(+year, EQ_MONTHS[mon], +day, +h, +min, +s);
+    }
+
     function parseLogFile(text) {
       const lines = text.split(/\r?\n/);
       const results = [];
       const seen = new Set();
+      let pendingOffers = []; // { player, rawItem, rawLine, date } for current trade window
+      let tradePartner = null;
+
+      function emit(player, rawItem, rawLine, type, date) {
+        const spellName = normalizeSpellFromLog(rawItem);
+        if (!spellName) return;
+        const key = `${player.toLowerCase()}|${spellName}`;
+        if (seen.has(key)) return;
+        seen.add(key);
+        results.push({ player, spellName, rawLine: rawLine.trim(), type, date });
+      }
 
       for (const line of lines) {
-        // Strip EQ timestamp prefix: [Day Mon DD HH:MM:SS YYYY]
-        const body = line.replace(/^\[.*?\]\s*/, '');
+        const body = line.replace(/^\[.*?\]\s*/, '').trim();
+        if (!body) continue;
+        const date = parseEQTimestamp(line);
 
-        let player = null, rawItem = null;
+        let m;
 
-        // Trade: "Playername has received Spell: X from the Trade."
-        let m = body.match(/^(\w+) (?:has )?receives? (.+?) from (?:the )?[Tt]rade\.?$/i);
-        if (m) { player = m[1]; rawItem = m[2]; }
+        // NPC courier: "NPC told you, 'I will deliver the Spell: X to Playername as soon as possible!'"
+        m = body.match(/^.+? told you, 'I will deliver the (.+?) to (\S+) as soon as possible!'$/i);
+        if (m) { emit(m[2], m[1], line, 'Parcel', date); continue; }
 
-        // Trade: "You gave Playername the Spell: X." or "You gave Playername Spell: X."
-        if (!player) {
-          m = body.match(/^You gave (\w+) (?:the )?(.+?)\.?$/i);
-          if (m) { player = m[1]; rawItem = m[2]; }
+        // Trade offered: "You offered [qty] Spell: X to Playername."
+        m = body.match(/^You offered (?:\d+ )?(.+?) to (.+?)\.$/i);
+        if (m) {
+          if (tradePartner && tradePartner !== m[2]) pendingOffers = [];
+          tradePartner = m[2];
+          pendingOffers.push({ player: m[2], rawItem: m[1], rawLine: line, date });
+          continue;
         }
 
-        // Parcel sent: "Playername has received your parcel containing Spell: X."
-        if (!player) {
-          m = body.match(/^(\w+) has received your parcel containing (.+?)\.?$/i);
-          if (m) { player = m[1]; rawItem = m[2]; }
+        // Trade complete: "You complete the trade with Playername."
+        m = body.match(/^You complete the trade with (.+?)\.$/i);
+        if (m) {
+          for (const o of pendingOffers) emit(o.player, o.rawItem, o.rawLine, 'Trade', o.date);
+          pendingOffers = []; tradePartner = null;
+          continue;
         }
 
-        // Parcel alt: "Your parcel to Playername containing Spell: X was delivered."
-        if (!player) {
-          m = body.match(/^Your parcel to (\w+) containing (.+?) (?:was|has been) delivered\.?$/i);
-          if (m) { player = m[1]; rawItem = m[2]; }
+        // Trade cancelled
+        if (/^You have cancelled the trade\.$/i.test(body) ||
+            /^.+ has cancelled the trade\.$/i.test(body)) {
+          pendingOffers = []; tradePartner = null;
+          continue;
         }
 
-        if (!player || !rawItem) continue;
+        // Trade fallback: "Playername received Spell: X from the Trade."
+        m = body.match(/^(\w+) (?:has )?(?:receives?|received) (.+?) from (?:the )?[Tt]rade\.?$/i);
+        if (m) { emit(m[1], m[2], line, 'Trade', date); continue; }
 
-        const spellName = normalizeSpellFromLog(rawItem);
-        if (!spellName) continue;
+        // Parcel: "Playername has received your parcel containing Spell: X."
+        m = body.match(/^(\w+) has received your parcel containing (.+?)\.?$/i);
+        if (m) { emit(m[1], m[2], line, 'Parcel', date); continue; }
 
-        const key = `${player.toLowerCase()}|${spellName}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-
-        results.push({ player, spellName, rawLine: line.trim() });
+        // Parcel alt: "Your parcel to Playername containing Spell: X was/has been delivered."
+        m = body.match(/^Your parcel to (\w+) containing (.+?) (?:was|has been) delivered\.?$/i);
+        if (m) { emit(m[1], m[2], line, 'Parcel', date); continue; }
       }
 
       return results;
@@ -1067,7 +1098,7 @@
 
       // Transition: hide spinner, show content
       document.getElementById('log-review-loading').style.display = 'none';
-      document.getElementById('log-review-title').textContent = 'Raid Item Delivery Confirmations';
+      document.getElementById('log-review-title').textContent = 'Spell Delivery Confirmations';
       document.getElementById('log-review-content').style.display = 'flex';
       document.getElementById('log-review-footer').style.display = '';
 
@@ -1081,7 +1112,6 @@
 
       if (entries.length === 0) {
         summaryEl.textContent = `Scanned ${lineCount.toLocaleString()} lines — no traded or parceled spell deliveries found.`;
-        document.getElementById('log-select-all-row').style.display = 'none';
         body.innerHTML = '<div class="spell-empty">No deliveries found in this log file.</div>';
         document.getElementById('log-review-modal').dataset.entries = '[]';
         document.getElementById('log-review-submit').disabled = true;
@@ -1093,52 +1123,124 @@
         `found <strong>${entries.length}</strong> deliver${entries.length !== 1 ? 'ies' : 'y'}, ` +
         `<strong>${matchCount}</strong> match${matchCount !== 1 ? ' a' : 'es a'} claimed spell.`;
 
-      document.getElementById('log-select-all-row').style.display = '';
-
-      body.innerHTML = entries.map((e, i) => {
-        const hasMatch = claims.some(c => c.status === 'claimed' &&
+      // ── Helpers ───────────────────────────────────────────────
+      function fmtLogDate(date) {
+        if (!date) return '';
+        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const pad = n => String(n).padStart(2, '0');
+        return `${days[date.getDay()]} ${months[date.getMonth()]} ${date.getDate()} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+      }
+      function dayKey(date) {
+        return date ? `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}` : 'unknown';
+      }
+      function fmtDayLabel(date) {
+        if (!date) return 'Unknown date';
+        const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+      }
+      function hasMatch(e) {
+        return claims.some(c => c.status === 'claimed' &&
           c.spellName === e.spellName &&
           c.player.toLowerCase() === e.player.toLowerCase());
-        return `
-          <div class="inv-spell-row log-delivery-row${hasMatch ? '' : ' log-no-match'}">
-            <input type="checkbox" class="log-delivery-cb" data-index="${i}" ${hasMatch ? 'checked' : ''} />
-            <span class="inv-spell-name">${escHtml(e.spellName)}</span>
-            <span class="claim-player log-player-col">${escHtml(e.player)}</span>
-            <span class="log-match-badge ${hasMatch ? 'log-match' : 'log-nomatch'}">${hasMatch ? 'Match' : 'No match'}</span>
-          </div>`;
-      }).join('');
-
-      // Wire select-all
-      const selectAll = document.getElementById('log-select-all');
-      selectAll.checked = matchCount > 0;
-      selectAll.indeterminate = false;
-
-      const freshSA = selectAll.cloneNode(true);
-      selectAll.replaceWith(freshSA);
-      const saLabel = document.querySelector('label[for="log-select-all"]');
-      freshSA.id = 'log-select-all';
-      if (saLabel) saLabel.setAttribute('for', 'log-select-all');
-
-      const submitBtn = document.getElementById('log-review-submit');
-
-      function updateSA() {
-        const all     = body.querySelectorAll('.log-delivery-cb');
-        const checked = body.querySelectorAll('.log-delivery-cb:checked');
-        freshSA.checked = checked.length === all.length && all.length > 0;
-        freshSA.indeterminate = checked.length > 0 && checked.length < all.length;
-        submitBtn.disabled = checked.length === 0;
       }
-      freshSA.addEventListener('change', () => {
-        body.querySelectorAll('.log-delivery-cb').forEach(cb => { cb.checked = freshSA.checked; });
-        submitBtn.disabled = body.querySelectorAll('.log-delivery-cb:checked').length === 0;
-      });
+
+      // ── State ──────────────────────────────────────────────────
+      const PAGE_SIZE = 40;
+      let currentPage = 0;
+      logEntries = entries.filter(e => hasMatch(e));
+      logCheckedSet = new Set();
+      const totalPages = () => Math.max(1, Math.ceil(logEntries.length / PAGE_SIZE));
+
+      const submitBtn  = document.getElementById('log-review-submit');
+      const prevBtn    = document.getElementById('log-page-prev');
+      const nextBtn    = document.getElementById('log-page-next');
+      const pageInfo   = document.getElementById('log-page-info');
+      const pagination = document.getElementById('log-review-pagination');
+
+      // ── Cross-page day helpers ─────────────────────────────────
+      function dayIndices(dk) {
+        return logEntries.reduce((acc, e, i) => { if (dayKey(e.date) === dk) acc.push(i); return acc; }, []);
+      }
+      function updateDaySA(dk) {
+        const sa = body.querySelector(`.log-day-sa[data-day-key="${dk}"]`);
+        if (!sa) return;
+        const indices = dayIndices(dk);
+        const checkedCount = indices.filter(i => logCheckedSet.has(i)).length;
+        sa.checked = checkedCount === indices.length && indices.length > 0;
+        sa.indeterminate = checkedCount > 0 && checkedCount < indices.length;
+      }
+      function updateSubmit() {
+        submitBtn.disabled = logCheckedSet.size === 0;
+      }
+
+      // ── Render one page ────────────────────────────────────────
+      function renderPage() {
+        const start = currentPage * PAGE_SIZE;
+        const end   = Math.min(start + PAGE_SIZE, logEntries.length);
+        const page  = logEntries.slice(start, end);
+
+        let lastDk = null;
+        body.innerHTML = page.map((e, localIdx) => {
+          const globalIdx = start + localIdx;
+          const dk = dayKey(e.date);
+          let sep = '';
+          if (dk !== lastDk) {
+            lastDk = dk;
+            sep = `<div class="log-date-separator" data-day-key="${escHtml(dk)}">
+              <input type="checkbox" class="log-day-sa" data-day-key="${escHtml(dk)}" />
+              <span>${escHtml(fmtDayLabel(e.date))}</span>
+            </div>`;
+          }
+          return `${sep}
+            <div class="inv-spell-row log-delivery-row${hasMatch(e) ? '' : ' log-no-match'}">
+              <input type="checkbox" class="log-delivery-cb" data-index="${globalIdx}" data-day-key="${escHtml(dk)}" ${logCheckedSet.has(globalIdx) ? 'checked' : ''} />
+              <span class="inv-spell-name">${escHtml(e.spellName)}</span>
+              <span class="log-date-col">${escHtml(e.player)}</span>
+              <span class="log-type-badge log-type-${(e.type||'').toLowerCase()}">${escHtml(e.type||'')}</span>
+              <span class="log-date-col">${escHtml(fmtLogDate(e.date))}</span>
+              <span class="log-match-badge ${hasMatch(e) ? 'log-match' : 'log-nomatch'}">${hasMatch(e) ? 'Match' : 'No match'}</span>
+            </div>`;
+        }).join('');
+
+        // Sync day SA checkboxes for days visible on this page
+        body.querySelectorAll('.log-day-sa').forEach(sa => updateDaySA(sa.dataset.dayKey));
+
+        // Pagination bar
+        const tp = totalPages();
+        pagination.style.display = tp > 1 ? '' : 'none';
+        pageInfo.textContent = `Page ${currentPage + 1} of ${tp}`;
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage >= tp - 1;
+      }
+
+      prevBtn.addEventListener('click', () => { currentPage--; renderPage(); });
+      nextBtn.addEventListener('click', () => { currentPage++; renderPage(); });
+
       body.addEventListener('change', ev => {
-        if (ev.target.classList.contains('log-delivery-cb')) updateSA();
+        if (ev.target.classList.contains('log-day-sa')) {
+          const dk = ev.target.dataset.dayKey;
+          dayIndices(dk).forEach(i => {
+            if (ev.target.checked) logCheckedSet.add(i);
+            else logCheckedSet.delete(i);
+          });
+          // Sync visible checkboxes on this page for the toggled day
+          body.querySelectorAll(`.log-delivery-cb[data-day-key="${dk}"]`)
+              .forEach(cb => { cb.checked = ev.target.checked; });
+          updateDaySA(dk);
+          updateSubmit();
+        } else if (ev.target.classList.contains('log-delivery-cb')) {
+          const idx = parseInt(ev.target.dataset.index, 10);
+          if (ev.target.checked) logCheckedSet.add(idx);
+          else logCheckedSet.delete(idx);
+          updateDaySA(ev.target.dataset.dayKey);
+          updateSubmit();
+        }
       });
 
-      submitBtn.disabled = body.querySelectorAll('.log-delivery-cb:checked').length === 0;
-
-      document.getElementById('log-review-modal').dataset.entries = JSON.stringify(entries);
+      renderPage();
+      updateSubmit();
     }
 
     function closeLogReviewModal() {
@@ -1151,12 +1253,8 @@
     });
 
     document.getElementById('log-review-submit').addEventListener('click', async () => {
-      const body = document.getElementById('log-review-body');
-      const checked = [...body.querySelectorAll('.log-delivery-cb:checked')];
-      if (checked.length === 0) { alert('Please select at least one delivery to mark.'); return; }
-
-      const entries = JSON.parse(document.getElementById('log-review-modal').dataset.entries || '[]');
-      const selected = checked.map(cb => entries[parseInt(cb.dataset.index, 10)]);
+      if (logCheckedSet.size === 0) { alert('Please select at least one delivery to mark.'); return; }
+      const selected = [...logCheckedSet].map(i => logEntries[i]).filter(Boolean);
 
       const submitBtn = document.getElementById('log-review-submit');
       submitBtn.disabled = true;

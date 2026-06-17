@@ -854,14 +854,100 @@
   line-height: 1.5;
 }
 
-/* Log delivery rows: checkbox | spell | player | badge */
-.log-delivery-row {
-  grid-template-columns: 20px 1fr auto auto;
+/* Log delivery grid: shared columns so all rows align */
+#log-review-body {
+  display: grid;
+  grid-template-columns: 20px 1fr auto auto auto auto;
+  align-items: center;
 }
+
+.log-delivery-row {
+  display: contents;
+}
+
+/* Apply padding + border-bottom to every cell in a delivery row */
+.log-delivery-row > * {
+  padding: 0.45rem 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.log-delivery-row > *:first-child { padding-left: 0.6rem; }
+.log-delivery-row > *:last-child  { padding-right: 0.6rem; }
+
+/* Propagate no-match dimming to cells since display:contents removes the box */
+.log-no-match > * { opacity: 0.5; }
 
 .log-player-col {
   padding: 0 0.5rem;
   font-size: 0.82rem;
+}
+
+.log-type-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  margin: 0 0.25rem;
+}
+
+.log-type-badge.log-type-trade {
+  background: #dbeafe;
+  color: #1e3a5f;
+}
+
+[data-theme="dark"] .log-type-badge.log-type-trade {
+  background: #0d2340;
+  color: #7db8f7;
+}
+
+.log-type-badge.log-type-parcel {
+  background: #fef3c7;
+  color: #5c3d00;
+}
+
+[data-theme="dark"] .log-type-badge.log-type-parcel {
+  background: #3b2600;
+  color: #f5c842;
+}
+
+.log-date-col {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding-right: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.log-date-separator {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.6rem 0.35rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  cursor: default;
+}
+
+.log-date-separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.log-day-sa {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .log-match-badge {
@@ -891,3 +977,32 @@
 }
 
 .log-no-match { opacity: 0.55; }
+
+.log-pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.log-page-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+.log-page-btn:hover:not(:disabled) { background: var(--border); }
+.log-page-btn:disabled { opacity: 0.35; cursor: default; }
+
+.log-page-info {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 7rem;
+  text-align: center;
+}
