@@ -444,9 +444,17 @@
 
   window.getCheckedLoot = function () {
     var results = [];
+    // When multiple splits are loaded, each physical loot event is visible in every
+    // player's log file. To avoid counting the same drop N times, only include
+    // entries where the looter is the "you" player for that split — i.e. the line
+    // was originally "You have looted X" in that file. Other players' loots will be
+    // covered by their own split files.
+    var hasSplits = allSplits.length > 1;
     currentMobs.forEach(function (data, key) {
       if (!selectedMobs.has(key)) return;
+      var splitPlayerName = allSplits[data.splitIdx] ? allSplits[data.splitIdx].playerName : null;
       data.entries.forEach(function (entry) {
+        if (hasSplits && splitPlayerName && entry.looter !== splitPlayerName) return;
         results.push({ mob: data.displayName, item: entry.item, qty: entry.qty, looter: entry.looter });
       });
     });
