@@ -16,6 +16,7 @@
     <a href="../index.html" class="back">&#8592; Back</a>
     <h1 style="font-size:1.1rem;">Raid Item Log Parser</h1>
     <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button id="splits-help-btn" class="btn-secondary" style="font-size:0.825rem;" title="How to do Splits">&#10067; How to do Splits</button>
       <button id="edit-targets-btn" class="btn-secondary" style="font-size:0.825rem;">&#9998; Edit Raid Targets</button>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
         <span class="icon-sun">&#9728;</span>
@@ -173,6 +174,46 @@
       <div class="modal-footer">
         <span></span>
         <button id="opendkp-modal-close2" class="btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Splits Help Modal ────────────────────────────────────────────────── -->
+  <div id="splits-help-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="splits-help-modal-title">
+    <div class="modal" style="max-width:540px;">
+      <div class="modal-header">
+        <h2 id="splits-help-modal-title">How to Handle Split Raids</h2>
+        <button id="splits-help-modal-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body" style="line-height:1.6;">
+        <p style="margin:0 0 1rem;">Split raids involve multiple groups running simultaneously. Follow these steps to combine them into one loot session:</p>
+        <ol style="margin:0;padding-left:1.3rem;">
+          <li style="margin-bottom:0.75rem;">
+            <strong>One person per split uploads their log</strong> to this utility and checks the boxes next to the raid targets and items that need to be bid.
+            <br><em>Only include raid targets that were killed in your split!</em>
+          </li>
+          <li style="margin-bottom:0.75rem;">
+            Once all targets and items are selected, click <strong>"Extract Logs"</strong> to download the relevant snippet of your log.
+          </li>
+          <li style="margin-bottom:0.75rem;">
+            <strong>Designate one person</strong> to handle all loot. Everyone sends their downloaded split log file to that person.
+          </li>
+          <li style="margin-bottom:0.75rem;">
+            The designated loot person starts by <strong>uploading their own log</strong> as normal.
+          </li>
+          <li style="margin-bottom:0.75rem;">
+            They then click <strong>"Add Split"</strong> and upload each log file received from the other splits.
+          </li>
+          <li style="margin-bottom:0.75rem;">
+            All targets and loot from every split are now combined — <strong>resume the normal loot flow</strong> from here.
+          </li>
+          <li style="margin-bottom:0;">
+            <strong>Important:</strong> Make sure to select the checkboxes for raid targets from <em>all</em> logs that were added, not just your own.
+          </li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button id="splits-help-modal-ok" class="btn-primary">Got it</button>
       </div>
     </div>
   </div>

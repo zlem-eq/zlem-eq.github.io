@@ -182,4 +182,30 @@
     li.appendChild(removeBtn);
     return li;
   }
+
+  // ── Splits Help Modal ─────────────────────────────────────────────────────
+  var splitsHelpModal    = document.getElementById('splits-help-modal');
+  var splitsHelpBtn      = document.getElementById('splits-help-btn');
+  var splitsHelpClose    = document.getElementById('splits-help-modal-close');
+  var splitsHelpOk       = document.getElementById('splits-help-modal-ok');
+
+  function openSplitsHelp() {
+    splitsHelpModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSplitsHelp() {
+    splitsHelpModal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  splitsHelpBtn.addEventListener('click', openSplitsHelp);
+  splitsHelpClose.addEventListener('click', closeSplitsHelp);
+  splitsHelpOk.addEventListener('click', closeSplitsHelp);
+  splitsHelpModal.addEventListener('click', function (e) {
+    if (e.target === splitsHelpModal) closeSplitsHelp();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !splitsHelpModal.classList.contains('hidden')) closeSplitsHelp();
+  });
 })();
