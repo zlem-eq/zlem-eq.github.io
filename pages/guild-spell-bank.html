@@ -378,7 +378,7 @@
         const typeLabel   = claim.type === 'raid alt' ? 'Raid Alt'
           : claim.type.charAt(0).toUpperCase() + claim.type.slice(1);
         const managerActions = mode === 'manager' ? `
-          ${claim.status === 'claimed' ? `<button class="deliver-btn" data-id="${claim.id}">Mark Delivered</button>` : '<span></span>'}
+          ${claim.status === 'claimed' ? `<button class="deliver-btn" data-id="${claim.id}">Mark Delivered</button>` : claim.status === 'delivered' ? `<button class="undeliver-btn" data-id="${claim.id}">Mark Claimed</button>` : '<span></span>'}
           ${claim.status === 'claimed' ? `<button class="deny-btn" data-id="${claim.id}" data-spell="${escHtml(claim.spellName)}">Deny</button>` : '<span></span>'}
           <button class="delete-claim-btn" data-id="${claim.id}" aria-label="Remove">&#128465;</button>
         ` : '';
@@ -395,6 +395,9 @@
 
       list.querySelectorAll('.deliver-btn').forEach(btn => {
         btn.addEventListener('click', () => markDelivered(btn.dataset.id));
+      });
+      list.querySelectorAll('.undeliver-btn').forEach(btn => {
+        btn.addEventListener('click', () => unmarkDelivered(btn.dataset.id));
       });
       list.querySelectorAll('.deny-btn').forEach(btn => {
         btn.addEventListener('click', () => denyClaim(btn.dataset.id, btn.dataset.spell));
@@ -448,6 +451,10 @@
 
     async function markDelivered(id) {
       await updateDoc(doc(db, 'gsb_claims', id), { status: 'delivered' });
+    }
+
+    async function unmarkDelivered(id) {
+      await updateDoc(doc(db, 'gsb_claims', id), { status: 'claimed' });
     }
 
     async function denyClaim(id, spellName) {

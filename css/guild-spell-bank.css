@@ -435,6 +435,20 @@
 
 .deliver-btn:hover { background: #145e28; }
 
+.undeliver-btn {
+  padding: 0.25rem 0.55rem;
+  background: #ca8a04;
+  border: 1px solid #ca8a04;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.undeliver-btn:hover { background: #a16207; border-color: #a16207; }
+
 .delete-claim-btn {
   background: none;
   border: none;
