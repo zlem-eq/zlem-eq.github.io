@@ -831,6 +831,33 @@
   background: rgba(220, 38, 38, 0.8);
 }
 
+/* ── Edit Potions footer ── */
+.ep-modal-footer {
+  justify-content: flex-end;
+}
+
+.ep-reset-btn {
+  padding: 0.35rem 0.9rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ep-reset-btn:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.ep-reset-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* ── Add New Potion popup ── */
 .add-potion-popup-body {
   display: flex;

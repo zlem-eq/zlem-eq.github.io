@@ -157,6 +157,9 @@
         <button class="modal-close" id="edit-potions-modal-close">&#10005;</button>
       </div>
       <div class="modal-body" id="edit-potions-modal-body"></div>
+      <div class="modal-footer ep-modal-footer">
+        <button class="ep-reset-btn" id="ep-reset-btn">&#8635; Reset to Default</button>
+      </div>
     </div>
   </div>
 
@@ -298,6 +301,29 @@
         if (document.getElementById('edit-potions-modal').style.display === 'flex') buildEditPotionsModal();
       }
     );
+
+    // ── Seed default potion config (once) ─────────────────────
+    (async () => {
+      const ref = doc(db, 'config', 'potionDefault');
+      const snap = await getDoc(ref);
+      if (!snap.exists()) {
+        await setDoc(ref, {
+          groups: DEFAULT_CATALOG.map((cat, i) => ({
+            name: cat.name,
+            order: i,
+            maxPerPotion: cat.maxPerPotion,
+            headerColor: cat.headerColor ?? '',
+            rowColor: cat.rowColor ?? '',
+            textColor: cat.textColor ?? '#fff',
+            potions: cat.potions.map(p =>
+              typeof p === 'string'
+                ? { name: p, enabled: true }
+                : { name: p.name, enabled: true, ...(p.max !== undefined ? { max: p.max } : {}) }
+            ),
+          })),
+        });
+      }
+    })();
 
     // ── Config ─────────────────────────────────────────────────
     const ORDER_COOLDOWN_DAYS = 10;
@@ -976,6 +1002,29 @@
     document.getElementById('edit-potions-modal-close').addEventListener('click', closeEditPotionsModal);
     document.getElementById('edit-potions-modal').addEventListener('click', e => {
       if (e.target === e.currentTarget) closeEditPotionsModal();
+    });
+
+    document.getElementById('ep-reset-btn').addEventListener('click', async () => {
+      if (!confirm('Reset all potions to the default list? This cannot be undone.')) return;
+      const btn = document.getElementById('ep-reset-btn');
+      btn.disabled = true;
+      btn.textContent = 'Resetting…';
+      try {
+        const snap = await getDoc(doc(db, 'config', 'potionDefault'));
+        if (!snap.exists()) { alert('No default saved yet.'); return; }
+        const defaultGroups = snap.data().groups;
+        await Promise.all(potionCatalog.map(cat => {
+          const defaultGroup = defaultGroups.find(g => g.name === cat.name);
+          if (!defaultGroup) return Promise.resolve();
+          return updateDoc(doc(db, 'potionGroups', cat.id), { potions: defaultGroup.potions });
+        }));
+      } catch (err) {
+        console.error('Reset failed:', err);
+        alert('Reset failed. Please try again.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '↻ Reset to Default';
+      }
     });
 
     // ── Add New Potion popup ───────────────────────────────────
