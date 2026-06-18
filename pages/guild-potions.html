@@ -16,6 +16,7 @@
     <a href="../index.html" class="back">&#8592; Back</a>
     <h1 class="guild-potions-title">Guild Potions</h1>
     <div class="header-right">
+      <button id="edit-potions-btn" class="add-maker-btn" style="display:none;">Edit Potions</button>
       <button id="add-maker-btn" class="add-maker-btn" style="display:none;">+ Add Maker</button>
       <button id="mode-toggle" class="mode-toggle mode-toggle--header" data-mode="buyer">
         <span class="mode-switch-to">Switch to</span>
@@ -148,6 +149,40 @@
     </div>
   </div>
 
+  <!-- Edit Potions Modal -->
+  <div id="edit-potions-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <span>Edit Potions</span>
+        <button class="modal-close" id="edit-potions-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body" id="edit-potions-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Add New Potion Popup -->
+  <div id="add-potion-popup" class="modal-overlay" style="display:none;">
+    <div class="modal modal--narrow">
+      <div class="modal-header">
+        <span>Add New Potion</span>
+        <button class="modal-close" id="add-potion-popup-close">&#10005;</button>
+      </div>
+      <div class="modal-body add-potion-popup-body">
+        <div class="add-potion-field">
+          <label for="add-potion-name">Potion Name</label>
+          <input type="text" id="add-potion-name" placeholder="Enter potion name" autocomplete="off" />
+        </div>
+        <div class="add-potion-field">
+          <label for="add-potion-category">Category</label>
+          <select id="add-potion-category"></select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-place-btn" id="add-potion-create-btn">Create</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Manage Makers Modal -->
   <div id="makers-modal" class="modal-overlay" style="display:none;">
     <div class="modal modal--narrow">
@@ -163,7 +198,7 @@
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import {
-      getFirestore, collection, addDoc, deleteDoc, doc, getDoc, updateDoc,
+      getFirestore, collection, addDoc, deleteDoc, doc, getDoc, updateDoc, setDoc,
       onSnapshot, query, orderBy, where, getDocs, serverTimestamp,
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
@@ -178,8 +213,8 @@
     });
     const db = getFirestore(app);
 
-    // ── Potion catalog ─────────────────────────────────────────
-    const POTION_CATALOG = [
+    // ── Potion catalog (default / seed data) ──────────────────
+    const DEFAULT_CATALOG = [
       {
         name: 'Awareness (Less Mana Cost in School)',
         maxPerPotion: 5,
@@ -226,6 +261,43 @@
         ],
       },
     ];
+
+    // ── Runtime catalog (live from Firestore) ─────────────────
+    let potionCatalog = [];
+    let _resolveCatalog;
+    const catalogReady = new Promise(resolve => { _resolveCatalog = resolve; });
+
+    onSnapshot(
+      query(collection(db, 'potionGroups'), orderBy('order')),
+      async snap => {
+        if (snap.empty) {
+          await Promise.all(DEFAULT_CATALOG.map((cat, i) =>
+            addDoc(collection(db, 'potionGroups'), {
+              ...cat,
+              potions: cat.potions.map(p =>
+                typeof p === 'string'
+                  ? { name: p, enabled: true }
+                  : { name: p.name, enabled: true, ...(p.max !== undefined ? { max: p.max } : {}) }
+              ),
+              order: i,
+            })
+          ));
+          return;
+        }
+        potionCatalog = snap.docs.map(d => {
+          const data = d.data();
+          return {
+            id: d.id,
+            ...data,
+            potions: (data.potions || []).map(p =>
+              typeof p === 'string' ? { name: p, enabled: true } : { enabled: true, ...p }
+            ),
+          };
+        }).sort((a, b) => a.order - b.order);
+        _resolveCatalog();
+        if (document.getElementById('edit-potions-modal').style.display === 'flex') buildEditPotionsModal();
+      }
+    );
 
     // ── Config ─────────────────────────────────────────────────
     const ORDER_COOLDOWN_DAYS = 10;
@@ -549,7 +621,10 @@
     function buildModalBody() {
       const body = document.getElementById('modal-body');
       body.innerHTML = '';
-      POTION_CATALOG.forEach(cat => {
+      potionCatalog.forEach(cat => {
+        const enabledPotions = cat.potions.filter(p => p.enabled !== false);
+        if (enabledPotions.length === 0) return;
+
         const header = document.createElement('div');
         header.className = 'modal-cat-header';
         header.style.background = cat.headerColor;
@@ -557,9 +632,9 @@
         header.textContent = `${cat.name} [${cat.maxPerPotion} Max${cat.maxPerPotion === 1 ? '' : ' per potion'}]`;
         body.appendChild(header);
 
-        cat.potions.forEach(p => {
-          const potionName = typeof p === 'string' ? p : p.name;
-          const max = typeof p === 'object' ? p.max : cat.maxPerPotion;
+        enabledPotions.forEach(p => {
+          const potionName = p.name;
+          const max = p.max ?? cat.maxPerPotion;
           const key = potionKey(cat.name, potionName);
           if (!(key in orderCounts)) orderCounts[key] = 0;
 
@@ -589,7 +664,8 @@
       });
     }
 
-    function openNewOrderModal() {
+    async function openNewOrderModal() {
+      await catalogReady;
       Object.keys(orderCounts).forEach(k => orderCounts[k] = 0);
       document.getElementById('modal-player-name').value = '';
       buildModalBody();
@@ -613,11 +689,9 @@
 
     // ── Order limit helpers ────────────────────────────────────
     function getPotionMax(potionName) {
-      for (const cat of POTION_CATALOG) {
+      for (const cat of potionCatalog) {
         for (const p of cat.potions) {
-          const name = typeof p === 'string' ? p : p.name;
-          const max  = typeof p === 'object'  ? p.max : cat.maxPerPotion;
-          if (name === potionName) return max;
+          if (p.name === potionName) return p.max ?? cat.maxPerPotion;
         }
       }
       return 5;
@@ -708,12 +782,11 @@
       }
 
       const selected = [];
-      POTION_CATALOG.forEach(cat => {
+      potionCatalog.forEach(cat => {
         cat.potions.forEach(p => {
-          const potionName = typeof p === 'string' ? p : p.name;
-          const key = potionKey(cat.name, potionName);
+          const key = potionKey(cat.name, p.name);
           if (orderCounts[key] > 0)
-            selected.push({ name: potionName, category: cat.name, stacks: orderCounts[key] });
+            selected.push({ name: p.name, category: cat.name, stacks: orderCounts[key] });
         });
       });
       if (selected.length === 0) { alert('Add at least one stack before placing an order.'); return; }
@@ -788,7 +861,7 @@
       body.innerHTML = '';
       let anyPotion = false;
 
-      POTION_CATALOG.forEach(cat => {
+      potionCatalog.forEach(cat => {
         const potionNames = cat.potions.map(p => typeof p === 'string' ? p : p.name);
         const catTotal = potionNames.reduce((s, n) => s + (totals.get(n) ?? 0), 0);
         if (catTotal === 0) return;
@@ -837,6 +910,123 @@
       if (e.target === e.currentTarget) closePotionListModal();
     });
 
+    // ── Edit Potions modal ─────────────────────────────────────
+    function buildEditPotionsModal() {
+      const body = document.getElementById('edit-potions-modal-body');
+      body.innerHTML = '';
+
+      const addBtn = document.createElement('button');
+      addBtn.className = 'ep-add-potion-btn';
+      addBtn.textContent = '+ Add New Potion';
+      addBtn.addEventListener('click', openAddPotionPopup);
+      body.appendChild(addBtn);
+
+      potionCatalog.forEach(cat => {
+        const header = document.createElement('div');
+        header.className = 'modal-cat-header';
+        header.style.background = cat.headerColor;
+        header.style.color = cat.textColor;
+        header.textContent = cat.name;
+        body.appendChild(header);
+
+        cat.potions.forEach((p, pIdx) => {
+          const isEnabled = p.enabled !== false;
+          const row = document.createElement('div');
+          row.className = 'modal-potion-row ep-potion-row' + (isEnabled ? '' : ' ep-potion-disabled');
+          row.style.background = cat.rowColor;
+          row.style.color = cat.textColor;
+          row.innerHTML = `
+            <span class="modal-potion-name">${p.name}</span>
+            <div class="ep-potion-actions">
+              <button class="ep-toggle-btn ${isEnabled ? 'ep-toggle--on' : 'ep-toggle--off'}">${isEnabled ? 'Enabled' : 'Disabled'}</button>
+              <button class="ep-delete-btn" aria-label="Delete ${p.name}">&#128465;</button>
+            </div>`;
+
+          row.querySelector('.ep-toggle-btn').addEventListener('click', async () => {
+            const updatedPotions = cat.potions.map((pp, i) =>
+              i === pIdx ? { ...pp, enabled: !isEnabled } : pp
+            );
+            await updateDoc(doc(db, 'potionGroups', cat.id), { potions: updatedPotions });
+          });
+
+          row.querySelector('.ep-delete-btn').addEventListener('click', async () => {
+            if (!confirm(`Delete "${p.name}" from ${cat.name}?`)) return;
+            const updatedPotions = cat.potions.filter((_, i) => i !== pIdx);
+            await updateDoc(doc(db, 'potionGroups', cat.id), { potions: updatedPotions });
+          });
+
+          body.appendChild(row);
+        });
+      });
+    }
+
+    function openEditPotionsModal() {
+      buildEditPotionsModal();
+      document.getElementById('edit-potions-modal').style.display = 'flex';
+    }
+
+    function closeEditPotionsModal() {
+      document.getElementById('edit-potions-modal').style.display = 'none';
+    }
+
+    document.getElementById('edit-potions-btn').addEventListener('click', openEditPotionsModal);
+    document.getElementById('edit-potions-modal-close').addEventListener('click', closeEditPotionsModal);
+    document.getElementById('edit-potions-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeEditPotionsModal();
+    });
+
+    // ── Add New Potion popup ───────────────────────────────────
+    function openAddPotionPopup() {
+      const sel = document.getElementById('add-potion-category');
+      sel.innerHTML = potionCatalog.map(cat => `<option value="${cat.name}">${cat.name}</option>`).join('');
+      document.getElementById('add-potion-name').value = '';
+      document.getElementById('add-potion-name').classList.remove('input-error');
+      document.getElementById('add-potion-popup').style.display = 'flex';
+      document.getElementById('add-potion-name').focus();
+    }
+
+    function closeAddPotionPopup() {
+      document.getElementById('add-potion-popup').style.display = 'none';
+    }
+
+    document.getElementById('add-potion-popup-close').addEventListener('click', closeAddPotionPopup);
+    document.getElementById('add-potion-popup').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeAddPotionPopup();
+    });
+    document.getElementById('add-potion-name').addEventListener('input', () => {
+      document.getElementById('add-potion-name').classList.remove('input-error');
+    });
+    document.getElementById('add-potion-name').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('add-potion-create-btn').click();
+    });
+
+    document.getElementById('add-potion-create-btn').addEventListener('click', async () => {
+      const name = document.getElementById('add-potion-name').value.trim();
+      if (!name) {
+        document.getElementById('add-potion-name').classList.add('input-error');
+        document.getElementById('add-potion-name').focus();
+        return;
+      }
+      const catName = document.getElementById('add-potion-category').value;
+      const cat = potionCatalog.find(c => c.name === catName);
+      if (!cat) return;
+      const createBtn = document.getElementById('add-potion-create-btn');
+      createBtn.disabled = true;
+      createBtn.textContent = 'Creating…';
+      try {
+        await updateDoc(doc(db, 'potionGroups', cat.id), {
+          potions: [...cat.potions, { name, enabled: false }],
+        });
+        closeAddPotionPopup();
+      } catch (err) {
+        console.error('Failed to add potion:', err);
+        alert('Failed to add potion. Please try again.');
+      } finally {
+        createBtn.disabled = false;
+        createBtn.textContent = 'Create';
+      }
+    });
+
     // ── Mode toggle ────────────────────────────────────────────
     const modeBtn = document.getElementById('mode-toggle');
     modeBtn.addEventListener('click', () => {
@@ -846,6 +1036,7 @@
       modeBtn.querySelector('.mode-icon').textContent = isBuyer ? '🛒' : '⚒️';
       modeBtn.querySelector('.mode-label').textContent = isBuyer ? 'Buyer mode' : 'Maker mode';
       document.getElementById('new-order-btn').style.display = isBuyer ? 'none' : '';
+      document.getElementById('edit-potions-btn').style.display = isBuyer ? '' : 'none';
       document.getElementById('add-maker-btn').style.display = isBuyer ? '' : 'none';
       document.getElementById('gen-potion-list-btn').style.display = isBuyer ? '' : 'none';
       renderOrders();

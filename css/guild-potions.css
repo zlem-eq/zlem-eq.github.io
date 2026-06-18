@@ -697,6 +697,136 @@
   font-size: 1.1rem;
 }
 
+/* ── Edit Potions modal ── */
+.ep-add-potion-btn {
+  display: block;
+  width: calc(100% - 2.5rem);
+  margin: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.ep-add-potion-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.ep-potion-row {
+  justify-content: space-between;
+}
+
+.ep-potion-disabled {
+  opacity: 0.5;
+}
+
+.ep-potion-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.ep-toggle-btn {
+  padding: 0.25rem 0.65rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.ep-toggle--on {
+  background: rgba(22, 163, 74, 0.85);
+  color: #fff;
+}
+
+.ep-toggle--on:hover {
+  background: rgba(22, 163, 74, 1);
+}
+
+.ep-toggle--off {
+  background: rgba(0,0,0,0.25);
+  color: inherit;
+}
+
+.ep-toggle--off:hover {
+  background: rgba(0,0,0,0.4);
+}
+
+.ep-delete-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.2);
+  color: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.ep-delete-btn:hover {
+  background: rgba(220, 38, 38, 0.8);
+}
+
+/* ── Add New Potion popup ── */
+.add-potion-popup-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.add-potion-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.add-potion-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.add-potion-field input,
+.add-potion-field select {
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.add-potion-field input:focus,
+.add-potion-field select:focus {
+  border-color: var(--accent);
+}
+
+.add-potion-field input.input-error {
+  border-color: #dc2626;
+}
+
 .modal-place-btn {
   padding: 0.6rem 1.5rem;
   background: var(--accent);
