@@ -938,13 +938,16 @@
           row.innerHTML = `
             <span class="modal-potion-name">${p.name}</span>
             <div class="ep-potion-actions">
-              <button class="ep-toggle-btn ${isEnabled ? 'ep-toggle--on' : 'ep-toggle--off'}">${isEnabled ? 'Enabled' : 'Disabled'}</button>
+              <label class="ep-switch" aria-label="${isEnabled ? 'Disable' : 'Enable'} ${p.name}">
+                <input type="checkbox" class="ep-switch-input" ${isEnabled ? 'checked' : ''}>
+                <span class="ep-switch-track"></span>
+              </label>
               <button class="ep-delete-btn" aria-label="Delete ${p.name}">&#128465;</button>
             </div>`;
 
-          row.querySelector('.ep-toggle-btn').addEventListener('click', async () => {
+          row.querySelector('.ep-switch-input').addEventListener('change', async e => {
             const updatedPotions = cat.potions.map((pp, i) =>
-              i === pIdx ? { ...pp, enabled: !isEnabled } : pp
+              i === pIdx ? { ...pp, enabled: e.target.checked } : pp
             );
             await updateDoc(doc(db, 'potionGroups', cat.id), { potions: updatedPotions });
           });

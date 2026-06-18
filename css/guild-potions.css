@@ -746,22 +746,69 @@
   white-space: nowrap;
 }
 
-.ep-toggle--on {
-  background: rgba(22, 163, 74, 0.85);
-  color: #fff;
+.ep-status-badge {
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-.ep-toggle--on:hover {
-  background: rgba(22, 163, 74, 1);
+.ep-status--on {
+  background: #166534;
+  color: #bbf7d0;
 }
 
-.ep-toggle--off {
-  background: rgba(0,0,0,0.25);
-  color: inherit;
+.ep-status--off {
+  background: #374151;
+  color: #d1d5db;
 }
 
-.ep-toggle--off:hover {
-  background: rgba(0,0,0,0.4);
+.ep-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.ep-switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.ep-switch-track {
+  position: absolute;
+  inset: 0;
+  background: #374151;
+  border-radius: 22px;
+  transition: background 0.2s;
+}
+
+.ep-switch-track::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.ep-switch-input:checked + .ep-switch-track {
+  background: #166534;
+}
+
+.ep-switch-input:checked + .ep-switch-track::after {
+  transform: translateX(16px);
 }
 
 .ep-delete-btn {
