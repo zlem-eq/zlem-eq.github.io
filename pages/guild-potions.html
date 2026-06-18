@@ -949,10 +949,59 @@
 
       potionCatalog.forEach(cat => {
         const header = document.createElement('div');
-        header.className = 'modal-cat-header';
+        header.className = 'modal-cat-header ep-cat-header';
         header.style.background = cat.headerColor;
         header.style.color = cat.textColor;
-        header.textContent = cat.name;
+        header.innerHTML = `
+          <span class="ep-cat-name">${cat.name}</span>
+          <button class="ep-cat-edit-btn" aria-label="Edit category name">&#9998;</button>`;
+
+        header.querySelector('.ep-cat-edit-btn').addEventListener('click', () => {
+          const nameSpan = header.querySelector('.ep-cat-name');
+          const editBtn  = header.querySelector('.ep-cat-edit-btn');
+          const input = document.createElement('input');
+          input.className = 'ep-cat-name-input';
+          input.value = cat.name;
+          input.style.color = cat.textColor;
+
+          const saveBtn = document.createElement('button');
+          saveBtn.className = 'ep-cat-save-btn';
+          saveBtn.innerHTML = '&#10003;';
+          saveBtn.style.color = cat.textColor;
+
+          nameSpan.replaceWith(input);
+          editBtn.replaceWith(saveBtn);
+          input.focus();
+          input.select();
+
+          const save = async () => {
+            const newName = input.value.trim();
+            if (!newName) { input.focus(); return; }
+            if (newName === cat.name) {
+              input.replaceWith(nameSpan);
+              saveBtn.replaceWith(editBtn);
+              return;
+            }
+            saveBtn.disabled = true;
+            try {
+              await updateDoc(doc(db, 'potionGroups', cat.id), { name: newName });
+            } catch (err) {
+              console.error('Failed to rename category:', err);
+              alert('Failed to save. Please try again.');
+              saveBtn.disabled = false;
+            }
+          };
+
+          saveBtn.addEventListener('click', save);
+          input.addEventListener('keydown', e => {
+            if (e.key === 'Enter') save();
+            if (e.key === 'Escape') {
+              input.replaceWith(nameSpan);
+              saveBtn.replaceWith(editBtn);
+            }
+          });
+        });
+
         body.appendChild(header);
 
         cat.potions.forEach((p, pIdx) => {
@@ -961,24 +1010,109 @@
           row.className = 'modal-potion-row ep-potion-row' + (isEnabled ? '' : ' ep-potion-disabled');
           row.style.background = cat.rowColor;
           row.style.color = cat.textColor;
-          row.innerHTML = `
-            <span class="modal-potion-name">${p.name}</span>
-            <div class="ep-potion-actions">
-              <label class="ep-switch" aria-label="${isEnabled ? 'Disable' : 'Enable'} ${p.name}">
-                <input type="checkbox" class="ep-switch-input" ${isEnabled ? 'checked' : ''}>
-                <span class="ep-switch-track"></span>
-              </label>
-              <button class="ep-delete-btn" aria-label="Delete ${p.name}">&#128465;</button>
-            </div>`;
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'modal-potion-name';
+          nameSpan.textContent = p.name;
 
-          row.querySelector('.ep-switch-input').addEventListener('change', async e => {
+          const maxSpan = document.createElement('span');
+          maxSpan.className = 'ep-potion-max';
+          maxSpan.textContent = `Max: ${p.max ?? cat.maxPerPotion}`;
+
+          const editBtn = document.createElement('button');
+          editBtn.className = 'ep-row-edit-btn';
+          editBtn.innerHTML = '&#9998;';
+          editBtn.setAttribute('aria-label', `Edit ${p.name}`);
+
+          const switchLabel = document.createElement('label');
+          switchLabel.className = 'ep-switch';
+          switchLabel.setAttribute('aria-label', `${isEnabled ? 'Disable' : 'Enable'} ${p.name}`);
+          switchLabel.innerHTML = `<input type="checkbox" class="ep-switch-input" ${isEnabled ? 'checked' : ''}><span class="ep-switch-track"></span>`;
+
+          const deleteBtn = document.createElement('button');
+          deleteBtn.className = 'ep-delete-btn';
+          deleteBtn.innerHTML = '&#128465;';
+          deleteBtn.setAttribute('aria-label', `Delete ${p.name}`);
+
+          const actions = document.createElement('div');
+          actions.className = 'ep-potion-actions';
+          actions.append(switchLabel, deleteBtn);
+
+          row.append(nameSpan, maxSpan, editBtn, actions);
+
+          editBtn.addEventListener('click', () => {
+            const nameInput = document.createElement('input');
+            nameInput.className = 'ep-row-name-input';
+            nameInput.value = p.name;
+            nameInput.style.color = cat.textColor;
+
+            const maxInput = document.createElement('input');
+            maxInput.className = 'ep-row-max-input';
+            maxInput.type = 'number';
+            maxInput.min = '1';
+            maxInput.value = p.max ?? cat.maxPerPotion;
+            maxInput.style.color = cat.textColor;
+
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'ep-row-save-btn';
+            saveBtn.innerHTML = '&#10003;';
+            saveBtn.style.color = cat.textColor;
+
+            nameSpan.replaceWith(nameInput);
+            maxSpan.replaceWith(maxInput);
+            editBtn.replaceWith(saveBtn);
+            nameInput.focus();
+            nameInput.select();
+
+            const save = async () => {
+              const newName = nameInput.value.trim();
+              const newMax  = parseInt(maxInput.value, 10);
+              if (!newName || isNaN(newMax) || newMax < 1) {
+                (newName ? maxInput : nameInput).focus();
+                return;
+              }
+              const unchanged = newName === p.name && newMax === (p.max ?? cat.maxPerPotion);
+              if (unchanged) {
+                nameInput.replaceWith(nameSpan);
+                maxInput.replaceWith(maxSpan);
+                saveBtn.replaceWith(editBtn);
+                return;
+              }
+              saveBtn.disabled = true;
+              try {
+                const updatedPotions = cat.potions.map((pp, i) => {
+                  if (i !== pIdx) return pp;
+                  const updated = { ...pp, name: newName };
+                  if (newMax !== cat.maxPerPotion) updated.max = newMax;
+                  else delete updated.max;
+                  return updated;
+                });
+                await updateDoc(doc(db, 'potionGroups', cat.id), { potions: updatedPotions });
+              } catch (err) {
+                console.error('Failed to update potion:', err);
+                alert('Failed to save. Please try again.');
+                saveBtn.disabled = false;
+              }
+            };
+
+            saveBtn.addEventListener('click', save);
+            [nameInput, maxInput].forEach(inp => inp.addEventListener('keydown', e => {
+              if (e.key === 'Enter') save();
+              if (e.key === 'Escape') {
+                nameInput.replaceWith(nameSpan);
+                maxInput.replaceWith(maxSpan);
+                saveBtn.replaceWith(editBtn);
+              }
+            }));
+          });
+
+          switchLabel.querySelector('.ep-switch-input').addEventListener('change', async e => {
             const updatedPotions = cat.potions.map((pp, i) =>
               i === pIdx ? { ...pp, enabled: e.target.checked } : pp
             );
             await updateDoc(doc(db, 'potionGroups', cat.id), { potions: updatedPotions });
           });
 
-          row.querySelector('.ep-delete-btn').addEventListener('click', async () => {
+          deleteBtn.addEventListener('click', async () => {
             if (!confirm(`Delete "${p.name}" from ${cat.name}?`)) return;
             const updatedPotions = cat.potions.filter((_, i) => i !== pIdx);
             await updateDoc(doc(db, 'potionGroups', cat.id), { potions: updatedPotions });
