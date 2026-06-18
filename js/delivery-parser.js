@@ -194,11 +194,7 @@
       uploadZone.classList.remove('hidden');
     };
 
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      parseWorker.postMessage({ buffer: e.target.result }, [e.target.result]);
-    };
-    reader.readAsArrayBuffer(file);
+    parseWorker.postMessage({ file: file });
   }
 
   // ── Filter ─────────────────────────────────────────────────────────────────

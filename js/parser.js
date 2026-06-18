@@ -296,14 +296,7 @@
         console.error('Parse worker error:', err);
       };
 
-      const reader = new FileReader();
-      reader.onload = function (ev) {
-        worker.postMessage(
-          { buffer: ev.target.result, playerName: pn },
-          [ev.target.result]
-        );
-      };
-      reader.readAsArrayBuffer(file);
+      worker.postMessage({ file: file, playerName: pn });
     });
   }
 
@@ -336,14 +329,7 @@
       console.error('Split-log worker error:', err);
     };
 
-    const reader = new FileReader();
-    reader.onload = function (ev) {
-      splitWorker.postMessage(
-        { buffer: ev.target.result, playerName: playerName },
-        [ev.target.result]
-      );
-    };
-    reader.readAsArrayBuffer(file);
+    splitWorker.postMessage({ file: file, playerName: playerName });
   }
 
   function recomputeLatestDate() {

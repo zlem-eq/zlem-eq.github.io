@@ -1,5 +1,5 @@
-// Web Worker — runs parseLog off the main thread so large files don't freeze the UI.
-// Receives:  { buffer: ArrayBuffer, playerName: string }
+// Web Worker — streams the log file line-by-line so large files don't exhaust memory.
+// Receives:  { file: File, playerName: string }
 // Posts:     { type: 'progress', pct: 0-100 }  (periodic)
 //            { type: 'done',     entries: Array }
 
@@ -21,44 +21,58 @@ function normalizeItemName(name) {
   return name.replace(/^(?:a|an|the) /i, '');
 }
 
-self.onmessage = function (e) {
-  var buffer     = e.data.buffer;
+function parseLine(line, playerName, entries) {
+  var lineMatch = line.match(LINE_RE);
+  if (!lineMatch) return;
+  var lootMatch = lineMatch[2].trim().match(LOOT_RE);
+  if (!lootMatch) return;
+  entries.push({
+    looter:    lootMatch[1] === 'You' ? playerName : lootMatch[1],
+    qty:       lootMatch[2] ? parseInt(lootMatch[2].trim(), 10) : 1,
+    item:      normalizeItemName(lootMatch[3]),
+    mob:       normalizeMobName(lootMatch[4]),
+    timestamp: lineMatch[1],
+    date:      parseEQDate(lineMatch[1]),
+    rawLine:   line
+  });
+}
+
+self.onmessage = async function (e) {
+  var file       = e.data.file;
   var playerName = e.data.playerName;
+  var entries    = [];
+  var fileSize   = file.size;
+  var bytesRead  = 0;
+  var remainder  = '';
+  var lastPct    = 0;
 
-  // Decode the ArrayBuffer to a string
-  var text  = new TextDecoder().decode(buffer);
-  var lines = text.split(/\r?\n/);
-  var total = lines.length;
+  var reader = file.stream().pipeThrough(new TextDecoderStream()).getReader();
 
-  var entries   = [];
-  var lastPct   = 0;
-  var CHUNK     = 50000;   // report progress every 50k lines
+  while (true) {
+    var chunk = await reader.read();
+    if (chunk.done) break;
 
-  for (var i = 0; i < total; i++) {
-    // Progress update every CHUNK lines
-    if (i > 0 && i % CHUNK === 0) {
-      var pct = Math.round(i / total * 100);
-      if (pct !== lastPct) {
-        self.postMessage({ type: 'progress', pct: pct });
-        lastPct = pct;
-      }
+    var text = chunk.value;
+    // Approximate bytes read by UTF-8 encoding length of the decoded chunk
+    bytesRead += (new TextEncoder().encode(text)).length;
+    var pct = Math.min(99, Math.round(bytesRead / fileSize * 100));
+    if (pct !== lastPct) {
+      self.postMessage({ type: 'progress', pct: pct });
+      lastPct = pct;
     }
 
-    var lineMatch = lines[i].match(LINE_RE);
-    if (!lineMatch) continue;
+    var combined = remainder + text;
+    var lines    = combined.split(/\r?\n/);
+    remainder    = lines.pop(); // last element may be an incomplete line
 
-    var lootMatch = lineMatch[2].trim().match(LOOT_RE);
-    if (!lootMatch) continue;
+    for (var i = 0; i < lines.length; i++) {
+      parseLine(lines[i], playerName, entries);
+    }
+  }
 
-    entries.push({
-      looter:    lootMatch[1] === 'You' ? playerName : lootMatch[1],
-      qty:       lootMatch[2] ? parseInt(lootMatch[2].trim(), 10) : 1,
-      item:      normalizeItemName(lootMatch[3]),
-      mob:       normalizeMobName(lootMatch[4]),
-      timestamp: lineMatch[1],
-      date:      parseEQDate(lineMatch[1]),
-      rawLine:   lines[i]
-    });
+  // Flush any remaining content after the last newline
+  if (remainder) {
+    parseLine(remainder, playerName, entries);
   }
 
   self.postMessage({ type: 'done', entries: entries });
