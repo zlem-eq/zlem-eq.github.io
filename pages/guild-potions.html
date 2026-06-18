@@ -18,6 +18,7 @@
     <div class="header-right">
       <button id="edit-potions-btn" class="add-maker-btn" style="display:none;">Edit Potions</button>
       <button id="add-maker-btn" class="add-maker-btn" style="display:none;">+ Add Maker</button>
+      <button id="add-officer-btn" class="add-maker-btn" style="display:none;">+ Add Officer</button>
       <button id="mode-toggle" class="mode-toggle mode-toggle--header" data-mode="buyer">
         <span class="mode-switch-to">Switch to</span>
         <span class="mode-icon">&#9874;&#65039;</span>
@@ -100,7 +101,13 @@
         <button class="modal-close" id="modal-close">&#10005;</button>
       </div>
       <div class="modal-player-field">
-        <label for="modal-player-name">Character Name</label>
+        <div class="modal-player-label-row">
+          <label for="modal-player-name">Character Name</label>
+          <label class="modal-officer-label">
+            <input type="checkbox" id="modal-officer-check" />
+            <span>Officer</span>
+          </label>
+        </div>
         <input type="text" id="modal-player-name" placeholder="Enter your character name" autocomplete="off" />
       </div>
       <div class="modal-body" id="modal-body"></div>
@@ -183,6 +190,17 @@
       <div class="modal-footer">
         <button class="modal-place-btn" id="add-potion-create-btn">Create</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Officers Modal -->
+  <div id="officers-modal" class="modal-overlay" style="display:none;">
+    <div class="modal modal--narrow">
+      <div class="modal-header">
+        <span>Officers</span>
+        <button class="modal-close" id="officers-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body" id="officers-modal-body"></div>
     </div>
   </div>
 
@@ -331,7 +349,8 @@
     // ── State ──────────────────────────────────────────────────
     const PAGE_SIZE = 20;
     let allOrders = [];
-    let allMakers = [];   // [{ id, name }]
+    let allMakers = [];    // [{ id, name }]
+    let allOfficers = [];  // [{ id, name }]
     let currentFilter = 'all';
     let currentPage = 1;
     let currentMode = 'buyer';
@@ -391,7 +410,7 @@
             <div class="order-panel" data-status="${o.status}" data-id="${o.id}">
               <div class="order-summary">
                 <span class="order-chevron">&#9654;</span>
-                <span class="order-player">${o.player}</span>
+                <span class="order-player ${o.isOfficer ? 'order-player--officer' : ''}">${o.player}${o.isOfficer ? '<span class="officer-asterisk">*</span>' : ''}</span>
                 <span class="order-date">${fmtDate(o.orderDate)}</span>
                 <span>${badgeHtml(o.status)}</span>
                 <span class="order-assigned">${assignedCell}</span>
@@ -598,6 +617,87 @@
       if (e.target === e.currentTarget) closeMakersModal();
     });
 
+    // ── Officers modal ─────────────────────────────────────────
+    function buildOfficersModal() {
+      const body = document.getElementById('officers-modal-body');
+      body.innerHTML = '';
+
+      const addBtn = (position) => {
+        const btn = document.createElement('button');
+        btn.className = 'makers-add-btn';
+        btn.textContent = '+ Add Player';
+        btn.addEventListener('click', () => showAddOfficerInput(body, position));
+        return btn;
+      };
+
+      body.appendChild(addBtn('top'));
+
+      if (allOfficers.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'order-empty';
+        empty.textContent = 'No officers added yet.';
+        body.appendChild(empty);
+      } else {
+        allOfficers.forEach(o => {
+          const row = document.createElement('div');
+          row.className = 'maker-row';
+          row.innerHTML = `
+            <span class="maker-name">${o.name}</span>
+            <button class="maker-delete-btn" data-id="${o.id}" aria-label="Remove ${o.name}">&#128465;</button>`;
+          row.querySelector('.maker-delete-btn').addEventListener('click', async () => {
+            await deleteDoc(doc(db, 'officers', o.id));
+          });
+          body.appendChild(row);
+        });
+      }
+
+      body.appendChild(addBtn('bottom'));
+    }
+
+    function showAddOfficerInput(body, position) {
+      if (body.querySelector('.maker-add-form')) return;
+      const form = document.createElement('div');
+      form.className = 'maker-add-form';
+      form.innerHTML = `
+        <input type="text" class="maker-add-input" placeholder="Character name" autocomplete="off" />
+        <button class="maker-confirm-btn">Add</button>
+        <button class="maker-cancel-btn">Cancel</button>`;
+
+      const addBtns = body.querySelectorAll('.makers-add-btn');
+      const refBtn = position === 'top' ? addBtns[0] : addBtns[addBtns.length - 1];
+      body.insertBefore(form, refBtn.nextSibling);
+
+      const input = form.querySelector('.maker-add-input');
+      input.focus();
+
+      form.querySelector('.maker-confirm-btn').addEventListener('click', async () => {
+        const name = input.value.trim();
+        if (!name) { input.focus(); return; }
+        await addDoc(collection(db, 'officers'), { name, createdAt: serverTimestamp() });
+        form.remove();
+      });
+      form.querySelector('.maker-cancel-btn').addEventListener('click', () => form.remove());
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') form.querySelector('.maker-confirm-btn').click();
+        if (e.key === 'Escape') form.remove();
+      });
+    }
+
+    function openOfficersModal() {
+      buildOfficersModal();
+      document.getElementById('officers-modal').style.display = 'flex';
+    }
+
+    function closeOfficersModal() {
+      document.getElementById('officers-modal').style.display = 'none';
+    }
+
+    document.getElementById('add-officer-btn').addEventListener('click', openOfficersModal);
+    document.getElementById('officers-modal-close').addEventListener('click', closeOfficersModal);
+    document.getElementById('officers-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeOfficersModal();
+    });
+
     // ── Firestore: orders ──────────────────────────────────────
     onSnapshot(
       query(collection(db, 'orders'), orderBy('orderedAt', 'desc')),
@@ -614,6 +714,7 @@
             assignedDate: data.assignedAt?.toDate() ?? null,
             potions,
             totalStacks: potions.reduce((s, p) => s + p.stacks, 0),
+            isOfficer: data.isOfficer ?? false,
           };
         });
         rebuildDropdowns();
@@ -632,6 +733,15 @@
       snapshot => {
         allMakers = snapshot.docs.map(d => ({ id: d.id, name: d.data().name }));
         if (document.getElementById('makers-modal').style.display === 'flex') buildMakersModal();
+      }
+    );
+
+    // ── Firestore: officers ────────────────────────────────────
+    onSnapshot(
+      query(collection(db, 'officers'), orderBy('name')),
+      snapshot => {
+        allOfficers = snapshot.docs.map(d => ({ id: d.id, name: d.data().name }));
+        if (document.getElementById('officers-modal').style.display === 'flex') buildOfficersModal();
       }
     );
 
@@ -680,9 +790,11 @@
             if (orderCounts[key] > 0) { orderCounts[key]--; row.querySelector('.qty-count').textContent = orderCounts[key]; updateTotal(); }
           });
           row.querySelector('.qty-plus').addEventListener('click', () => {
-            if (orderCounts[key] < max) { orderCounts[key]++; row.querySelector('.qty-count').textContent = orderCounts[key]; updateTotal(); }
+            const isOfficer = document.getElementById('modal-officer-check').checked;
+            if (isOfficer || orderCounts[key] < max) { orderCounts[key]++; row.querySelector('.qty-count').textContent = orderCounts[key]; updateTotal(); }
           });
           row.querySelector('.qty-max').addEventListener('click', () => {
+            if (document.getElementById('modal-officer-check').checked) return;
             orderCounts[key] = max; row.querySelector('.qty-count').textContent = max; updateTotal();
           });
           body.appendChild(row);
@@ -694,6 +806,7 @@
       await catalogReady;
       Object.keys(orderCounts).forEach(k => orderCounts[k] = 0);
       document.getElementById('modal-player-name').value = '';
+      document.getElementById('modal-officer-check').checked = false;
       buildModalBody();
       updateTotal();
       document.getElementById('new-order-modal').style.display = 'flex';
@@ -761,12 +874,14 @@
     }
 
     // ── Warning modal ──────────────────────────────────────────
-    function showWarningModal(adjustments) {
+    function showWarningModal(adjustments, notOfficerNote = false) {
       const body = document.getElementById('warning-modal-body');
       const removed  = adjustments.filter(a => a.allowed === 0);
       const reduced  = adjustments.filter(a => a.allowed > 0);
 
-      let html = `<p class="warning-intro">Some potions were adjusted because you have reached your limit within the last <strong>${ORDER_COOLDOWN_DAYS} days</strong>.</p>`;
+      let html = '';
+      if (notOfficerNote) html += `<p class="warning-not-officer">&#9888; You are not an officer.</p>`;
+      html += `<p class="warning-intro">Some potions were adjusted because you have reached your limit within the last <strong>${ORDER_COOLDOWN_DAYS} days</strong>.</p>`;
 
       if (reduced.length) {
         html += `<p class="warning-section-label">Reduced</p><ul class="warning-list">`;
@@ -819,28 +934,46 @@
 
       const placeBtn = document.getElementById('modal-place-btn');
       placeBtn.disabled = true;
-      placeBtn.textContent = 'Checking limits…';
+
+      const isOfficerChecked = document.getElementById('modal-officer-check').checked;
+      const officerMatch = isOfficerChecked
+        ? allOfficers.find(o => o.name.trim().toLowerCase() === playerName.toLowerCase())
+        : null;
 
       try {
-        const recentOrders = await fetchRecentPlayerOrders(playerName);
-        const { allowed, adjustments } = applyLimits(selected, recentOrders);
-
-        if (allowed.length === 0) {
-          placeBtn.disabled = false;
-          placeBtn.textContent = 'Place Order';
+        if (isOfficerChecked && officerMatch) {
+          // Verified officer — skip all limits
+          placeBtn.textContent = 'Placing…';
+          await addDoc(collection(db, 'orders'), {
+            playerName, orderedAt: serverTimestamp(),
+            status: 'unassigned', assignedTo: null, assignedAt: null,
+            potions: selected, isOfficer: true,
+          });
           closeNewOrderModal();
-          showWarningModal(adjustments);
-          return;
+        } else {
+          // Normal path (also used when officer checkbox ticked but name not in list)
+          const notOfficerNote = isOfficerChecked && !officerMatch;
+          placeBtn.textContent = 'Checking limits…';
+          const recentOrders = await fetchRecentPlayerOrders(playerName);
+          const { allowed, adjustments } = applyLimits(selected, recentOrders);
+
+          if (allowed.length === 0) {
+            placeBtn.disabled = false;
+            placeBtn.textContent = 'Place Order';
+            closeNewOrderModal();
+            showWarningModal(adjustments, notOfficerNote);
+            return;
+          }
+
+          placeBtn.textContent = 'Placing…';
+          await addDoc(collection(db, 'orders'), {
+            playerName, orderedAt: serverTimestamp(),
+            status: 'unassigned', assignedTo: null, assignedAt: null, potions: allowed,
+          });
+
+          closeNewOrderModal();
+          if (adjustments.length > 0 || notOfficerNote) showWarningModal(adjustments, notOfficerNote);
         }
-
-        placeBtn.textContent = 'Placing…';
-        await addDoc(collection(db, 'orders'), {
-          playerName, orderedAt: serverTimestamp(),
-          status: 'unassigned', assignedTo: null, assignedAt: null, potions: allowed,
-        });
-
-        closeNewOrderModal();
-        if (adjustments.length > 0) showWarningModal(adjustments);
       } catch (err) {
         console.error('Failed to place order:', err);
         alert('Failed to place order. Please try again.');
@@ -1224,6 +1357,7 @@
       document.getElementById('new-order-btn').style.display = isBuyer ? 'none' : '';
       document.getElementById('edit-potions-btn').style.display = isBuyer ? '' : 'none';
       document.getElementById('add-maker-btn').style.display = isBuyer ? '' : 'none';
+      document.getElementById('add-officer-btn').style.display = isBuyer ? '' : 'none';
       document.getElementById('gen-potion-list-btn').style.display = isBuyer ? '' : 'none';
       renderOrders();
     });

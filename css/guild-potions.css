@@ -563,11 +563,17 @@
 /* ── Player name field ── */
 .modal-player-field {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 0.4rem;
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
+}
+
+.modal-player-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .modal-player-field label {
@@ -577,8 +583,29 @@
   white-space: nowrap;
 }
 
-.modal-player-field input {
-  flex: 1;
+.modal-officer-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.modal-officer-label input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex: none;
+}
+
+.modal-officer-label span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.modal-player-field input[type="text"] {
   padding: 0.45rem 0.75rem;
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -589,12 +616,24 @@
   transition: border-color 0.15s;
 }
 
-.modal-player-field input:focus {
+.modal-player-field input[type="text"]:focus {
   border-color: var(--accent);
 }
 
-.modal-player-field input.input-error {
+.modal-player-field input[type="text"].input-error {
   border-color: #e53e3e;
+}
+
+/* ── Officer styling on order rows ── */
+.order-player--officer {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.officer-asterisk {
+  color: #2563eb;
+  font-weight: 900;
+  margin-left: 0.1rem;
 }
 
 /* ── Category header ── */
@@ -1032,6 +1071,13 @@
 
 [data-theme="dark"] .warning-modal-header {
   color: #fbbf24;
+}
+
+.warning-not-officer {
+  padding: 0.75rem 1.25rem 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #dc2626;
 }
 
 .warning-intro {
