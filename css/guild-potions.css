@@ -1167,3 +1167,60 @@
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  /* Hide the fixed-width column header — too wide for mobile */
+  .order-list-header {
+    display: none;
+  }
+
+  /* Simplify order rows: chevron | player name | badge | stack count */
+  .order-summary {
+    grid-template-columns: 1.5rem 1fr auto auto;
+    padding: 0.75rem 0.85rem;
+  }
+
+  /* Hide date, assigned-date, and assigned columns on mobile */
+  .order-date,
+  .order-assigned-date,
+  .order-assigned {
+    display: none;
+  }
+
+  .order-details {
+    padding: 0.75rem 0.85rem 0.75rem 2.5rem;
+  }
+
+  .order-dropdowns {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .dropdown-field {
+    justify-content: space-between;
+  }
+
+  .dropdown-field select {
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .order-list-above {
+    justify-content: stretch;
+  }
+
+  .gen-potion-list-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stack action buttons in assign/complete inline cells */
+  .complete-btn,
+  .assign-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+  }
+}

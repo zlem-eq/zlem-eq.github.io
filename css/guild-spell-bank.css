@@ -1020,3 +1020,76 @@
   min-width: 7rem;
   text-align: center;
 }
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .spell-bank-content {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    height: auto;
+    gap: 1rem;
+  }
+
+  /* Give each panel a reasonable fixed height so they scroll independently */
+  .spell-panel {
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .spell-bank-content {
+    padding: 0.75rem;
+  }
+
+  /* Claim mode: Name | Status (drop Player & Type columns) */
+  .claim-col-header,
+  .claim-row {
+    grid-template-columns: 1fr 82px;
+  }
+
+  /* Hide Player and Type columns on mobile */
+  .claim-col-header > *:nth-child(2),
+  .claim-row > *:nth-child(2),
+  .claim-col-header > *:nth-child(3),
+  .claim-row > *:nth-child(3) {
+    display: none;
+  }
+
+  /* Manager claim mode: Name | Status | Deliver | Delete (drop Player, Type, Deny) */
+  .claim-col-header.mgr,
+  .claim-row.mgr {
+    grid-template-columns: 1fr 82px 76px 32px;
+  }
+
+  .claim-col-header.mgr > *:nth-child(2),
+  .claim-row.mgr > *:nth-child(2),
+  .claim-col-header.mgr > *:nth-child(3),
+  .claim-row.mgr > *:nth-child(3),
+  .claim-col-header.mgr > *:nth-child(6),
+  .claim-row.mgr > *:nth-child(6) {
+    display: none;
+  }
+
+  /* Log review grid */
+  #log-review-body {
+    grid-template-columns: 20px 1fr auto auto;
+  }
+
+  /* Hide type badge and date on mobile log */
+  .log-type-badge,
+  .log-date-col {
+    display: none;
+  }
+
+  .spell-bank-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .spell-bank-title {
+    font-size: 0.9rem;
+  }
+
+  .header-right {
+    gap: 0.4rem;
+  }
+}

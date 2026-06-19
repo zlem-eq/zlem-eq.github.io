@@ -51,3 +51,20 @@
 }
 
 /* Pagination — styles live in parser.css (shared) */
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Wrap table in a scrollable container */
+  .delivery-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 10px;
+  }
+
+  .delivery-table th,
+  .delivery-table td {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.8rem;
+  }
+}

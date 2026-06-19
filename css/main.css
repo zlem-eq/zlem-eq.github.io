@@ -245,3 +245,51 @@ main {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  header,
+  .page-header {
+    padding: 0.75rem 1rem;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .tile-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tile {
+    padding: 1.25rem;
+  }
+
+  /* Guild Potions / Spell Bank page-header mode toggle */
+  .guild-potions-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
+  }
+
+  .guild-potions-title {
+    font-size: 0.9rem;
+  }
+
+  .mode-toggle--header {
+    width: 80px;
+    height: 60px;
+  }
+}

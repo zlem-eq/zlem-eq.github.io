@@ -1162,6 +1162,88 @@ button:disabled {
   }
 }
 
+/* ── Mobile additions ────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Mob header: checkbox | name | count | chevron (drop session label) */
+  .mob-header {
+    grid-template-columns: 1rem 1fr 5rem auto;
+    gap: 0.5rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .mob-session-label {
+    display: none;
+  }
+
+  /* Make loot tables scroll horizontally rather than overflow */
+  .loot-panel {
+    overflow-x: auto;
+  }
+
+  .loot-table {
+    min-width: 480px;
+  }
+
+  /* Filter bar: stack vertically on very small screens */
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .filter-pills {
+    order: 1;
+  }
+
+  .custom-range {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0;
+  }
+
+  .range-label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .range-label input[type="datetime-local"] {
+    width: 100%;
+  }
+
+  .range-sep {
+    display: none;
+  }
+
+  /* Pagination: tighten up */
+  .pagination-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .page-size-wrap {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Results toolbar: stack */
+  .results-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toolbar-actions {
+    width: 100%;
+  }
+
+  .btn-action,
+  .btn-secondary {
+    flex: 1;
+    text-align: center;
+  }
+}
+
 /* Mid-range: tablets / small laptops */
 @media (min-width: 601px) and (max-width: 900px) {
   .modal-wide {
