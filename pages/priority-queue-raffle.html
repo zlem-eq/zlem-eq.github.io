@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zlem Priority Queue Raffle</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .raffle-page { flex: 1; display: flex; flex-direction: column; }
+
+    /* ── Header extras ──────────────────────────────────────── */
+    .header-right { display: flex; align-items: center; gap: 0.5rem; }
+
+    .btn-manage {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .btn-manage:hover { background: var(--border); color: var(--text); }
+
+    /* ── Banner ─────────────────────────────────────────────── */
+    .banner {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+    }
+    .banner-title {
+      font-size: clamp(2.2rem, 8vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .banner-sub {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      opacity: 0.85;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Rules ──────────────────────────────────────────────── */
+    .rules-section {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .rules-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .rules-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 2rem;
+    }
+    .rules-list li {
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .rules-list li::before { content: '✦'; color: var(--accent); font-size: 0.6rem; }
+
+    /* ── Enter CTA ──────────────────────────────────────────── */
+    .enter-cta { display: flex; justify-content: center; padding: 2rem 1rem; background: var(--bg); }
+    .btn-enter {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 3.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(74,124,247,0.35);
+      transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+    }
+    .btn-enter:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(74,124,247,0.45); }
+    .btn-enter:active { transform: translateY(0); }
+
+    /* ── Manage Panel ───────────────────────────────────────── */
+    .manage-panel {
+      background: var(--surface);
+      border-bottom: 2px solid var(--accent);
+      padding: 1.25rem 2rem;
+    }
+    .manage-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .manage-mode-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .manage-mode-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .btn-logout {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .btn-logout:hover { background: var(--border); color: var(--text); }
+
+    .manage-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: flex-end;
+    }
+    .manage-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+      min-width: 200px;
+    }
+    .manage-field label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .manage-input-row { display: flex; gap: 0.5rem; }
+    .manage-input-row input[type="number"] {
+      width: 6rem;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    .manage-input-row input:focus { outline: none; border-color: var(--accent); }
+    .manage-input-row input.input-error { border-color: #e55; }
+
+    .btn-set-winner {
+      padding: 0.55rem 1.1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-set-winner:hover:not(:disabled) { background: var(--accent-hover); }
+    .btn-set-winner:disabled { opacity: 0.5; cursor: default; }
+
+    .btn-reset-raffle {
+      padding: 0.55rem 1.1rem;
+      background: none;
+      border: 1px solid #e55;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e55;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-reset-raffle:hover { background: rgba(238,85,85,0.08); }
+
+    .manage-set-error {
+      font-size: 0.78rem;
+      color: #e55;
+      min-height: 1em;
+      margin-top: 0.2rem;
+    }
+
+    /* ── Entrant Grid ────────────────────────────────────────── */
+    .entrants-section { flex: 1; padding: 0 1.5rem 2rem; background: var(--bg); }
+    .entrants-header { display: flex; align-items: baseline; gap: 0.75rem; padding: 1rem 0 0.75rem; }
+    .entrants-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .entrants-count { font-size: 0.75rem; color: var(--text-muted); }
+    .entrant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.6rem; }
+    .entrant-tile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.6rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .entrant-tile.is-winner { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+    .entrant-num { font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; }
+    .entrant-name { font-size: 0.82rem; font-weight: 500; color: var(--text); text-align: center; word-break: break-word; }
+    .entrants-empty { text-align: center; padding: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ── Countdown ───────────────────────────────────────────── */
+    .countdown-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .winner-display {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .winner-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .winner-name {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .countdown-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .countdown-clock { display: flex; justify-content: center; align-items: flex-end; gap: 0.5rem; }
+    .cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 4rem; }
+    .cd-value {
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .cd-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem; }
+    .cd-sep { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; color: var(--border); line-height: 1; padding-bottom: 0.35rem; }
+    .countdown-next { margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── Modals ──────────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 500; padding: 1rem;
+    }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      width: 100%; max-width: 400px;
+      overflow: hidden;
+    }
+    .modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 1.25rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700; font-size: 1rem;
+    }
+    .modal-close { background: none; border: none; font-size: 1.1rem; color: var(--text-muted); cursor: pointer; padding: 0.2rem; line-height: 1; }
+    .modal-close:hover { color: var(--text); }
+    .modal-body { padding: 1.25rem; }
+    .modal-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .modal-field label { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); }
+    .modal-field input {
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.95rem;
+      width: 100%;
+    }
+    .modal-field input:focus { outline: none; border-color: var(--accent); }
+    .modal-field input.input-error { border-color: #e55; }
+    .modal-error { font-size: 0.8rem; color: #e55; margin-top: 0.35rem; min-height: 1em; }
+    .modal-footer { display: flex; justify-content: flex-end; gap: 0.75rem; padding: 0.9rem 1.25rem 1.1rem; border-top: 1px solid var(--border); }
+    .modal-cancel-btn { background: none; border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.55rem 1.1rem; font-size: 0.9rem; color: var(--text); cursor: pointer; }
+    .modal-cancel-btn:hover { background: var(--border); }
+    .modal-submit-btn { background: var(--accent); color: #fff; border: none; border-radius: 0.5rem; padding: 0.55rem 1.4rem; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+    .modal-submit-btn:hover:not(:disabled) { background: var(--accent-hover); }
+    .modal-submit-btn:disabled { opacity: 0.5; cursor: default; }
+
+    /* ── Enter modal success ─────────────────────────────────── */
+    .modal-success { text-align: center; padding: 2rem 1.25rem 1.5rem; }
+    .modal-success-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .modal-success-msg { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .modal-success-sub { font-size: 0.85rem; color: var(--text-muted); }
+    .modal-success-num { font-size: 2rem; font-weight: 900; color: var(--accent); margin: 0.75rem 0 0.25rem; }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <a href="../index.html" class="back">&#8592; Back</a>
+    <span style="font-size:1rem;font-weight:700;">Priority Queue Raffle</span>
+    <div class="header-right">
+      <button class="btn-manage" id="manage-btn">&#9881;&#65039; Manage Raffle</button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-sun">&#9728;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="raffle-page">
+
+    <!-- Public sections (hidden in manage mode) -->
+    <div id="public-banner" class="banner">
+      <div class="banner-title">Enter to Win</div>
+      <div class="banner-sub">Zlem &mdash; Priority Queue Raffle</div>
+    </div>
+
+    <div id="public-rules" class="rules-section">
+      <div class="rules-title">Rules</div>
+      <ul class="rules-list">
+        <li>One entry per character</li>
+        <li>One winner each week</li>
+        <li>All requests from that character are automatically put at the top of the queue</li>
+      </ul>
+    </div>
+
+    <div id="public-enter" class="enter-cta">
+      <button class="btn-enter" id="enter-btn">&#127922; Enter</button>
+    </div>
+
+    <!-- Manage panel (shown in manage mode) -->
+    <div id="manage-panel" class="manage-panel" style="display:none;">
+      <div class="manage-panel-header">
+        <div class="manage-mode-badge">
+          <span class="manage-mode-dot"></span>
+          Manage Mode
+        </div>
+        <button class="btn-logout" id="logout-btn">Logout</button>
+      </div>
+      <div class="manage-controls">
+        <div class="manage-field">
+          <label for="winner-num-input">Set Winning Raffle Number</label>
+          <div class="manage-input-row">
+            <input type="number" id="winner-num-input" min="1" placeholder="#" />
+            <button class="btn-set-winner" id="set-winner-btn">Set Winner</button>
+          </div>
+          <div class="manage-set-error" id="manage-set-error"></div>
+        </div>
+        <div class="manage-field" style="flex:0;">
+          <label>&nbsp;</label>
+          <button class="btn-reset-raffle" id="reset-raffle-btn">&#8635; Reset Countdown</button>
+        </div>
+        <div class="manage-field" style="flex:0;">
+          <label>&nbsp;</label>
+          <button class="btn-reset-raffle" id="clear-entries-btn">&#128465; Clear Entries</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entrant grid (always visible) -->
+    <div class="entrants-section">
+      <div class="entrants-header">
+        <span class="entrants-title">Current Entrants</span>
+        <span class="entrants-count" id="entrant-count"></span>
+      </div>
+      <div class="entrant-grid" id="entrant-grid">
+        <div class="entrants-empty" style="grid-column:1/-1;">Loading&hellip;</div>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown-section">
+      <!-- Winner display -->
+      <div class="winner-display" id="winner-display" style="display:none;">
+        <div class="winner-label">This Week&rsquo;s Winner</div>
+        <div class="winner-name" id="winner-name-display"></div>
+      </div>
+
+      <div class="countdown-label">Next Raffle Drawing In</div>
+      <div class="countdown-clock">
+        <div class="cd-unit"><span class="cd-value" id="cd-days">--</span><span class="cd-label">Days</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-value" id="cd-hours">--</span><span class="cd-label">Hours</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-value" id="cd-minutes">--</span><span class="cd-label">Minutes</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-value" id="cd-seconds">--</span><span class="cd-label">Seconds</span></div>
+      </div>
+      <div class="countdown-next" id="cd-next-label"></div>
+    </div>
+
+  </div>
+
+  <!-- Manage / Password Modal -->
+  <div id="manage-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <span>Manage Raffle</span>
+        <button class="modal-close" id="manage-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-field">
+          <label for="manage-pw-input">Password</label>
+          <input type="password" id="manage-pw-input" placeholder="Enter password" autocomplete="current-password" />
+          <div class="modal-error" id="manage-pw-error"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="manage-modal-cancel">Cancel</button>
+        <button class="modal-submit-btn" id="manage-modal-submit">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reset Raffle Modal -->
+  <div id="reset-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <span>Reset Countdown</span>
+        <button class="modal-close" id="reset-modal-close">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+          The countdown will restart to the selected drawing time. Entries will not be affected.
+        </p>
+        <div class="modal-field">
+          <label for="reset-datetime-input">Next Drawing Date &amp; Time</label>
+          <input type="datetime-local" id="reset-datetime-input" />
+          <div class="modal-error" id="reset-datetime-error"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="reset-modal-cancel">Cancel</button>
+        <button class="modal-submit-btn" id="reset-modal-submit" style="background:#e55;">Reset Countdown</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enter Modal -->
+  <div id="enter-modal" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div id="modal-form-state">
+        <div class="modal-header">
+          <span>Enter the Raffle</span>
+          <button class="modal-close" id="modal-close-btn">&#10005;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-field">
+            <label for="char-input">Character Name</label>
+            <input type="text" id="char-input" placeholder="Enter your character name" autocomplete="off" />
+            <div class="modal-error" id="modal-error"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-cancel-btn" id="modal-cancel-btn">Cancel</button>
+          <button class="modal-submit-btn" id="modal-submit-btn">Submit</button>
+        </div>
+      </div>
+      <div id="modal-success-state" style="display:none;">
+        <div class="modal-header">
+          <span>You&rsquo;re in!</span>
+          <button class="modal-close" id="success-close-btn">&#10005;</button>
+        </div>
+        <div class="modal-success">
+          <div class="modal-success-icon">&#127881;</div>
+          <div class="modal-success-msg">Good luck, <span id="success-name"></span>!</div>
+          <div class="modal-success-num" id="success-num"></div>
+          <div class="modal-success-sub">Your raffle number</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getFirestore, collection, doc, getDoc, setDoc,
+      onSnapshot, query, orderBy, where, getDocs,
+      runTransaction, deleteDoc, writeBatch, serverTimestamp, Timestamp,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    const app = initializeApp({
+      apiKey: 'AIzaSyCmB3wHICxm3jS6J25R55dR2Mrp06IqBBM',
+      authDomain: 'everquest-guild-potions.firebaseapp.com',
+      projectId: 'everquest-guild-potions',
+      storageBucket: 'everquest-guild-potions.firebasestorage.app',
+      messagingSenderId: '63090909940',
+      appId: '1:63090909940:web:64a03f0f76970beeae74a1',
+    });
+    const db = getFirestore(app);
+
+    // ── Refs ───────────────────────────────────────────────────
+    const authRef     = doc(db, 'pq_raffle_meta', 'auth');
+    const settingsRef = doc(db, 'pq_raffle_meta', 'settings');
+    const counterRef  = doc(db, 'pq_raffle_meta', 'counter');
+    const winnerRef   = doc(db, 'pq_raffle_meta', 'winner');
+
+    // ── State ──────────────────────────────────────────────────
+    let entrants    = [];
+    let drawingAt   = null;   // Date | null
+    let winnerName  = null;   // string | null
+    let isManage    = false;
+
+    // ── Crypto util ────────────────────────────────────────────
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // ── Auth init: store hashed default password on first run ──
+    // The plaintext is used only to compute the initial hash; it is never persisted.
+    async function initAuthIfNeeded() {
+      const snap = await getDoc(authRef);
+      if (!snap.exists()) {
+        await setDoc(authRef, { passwordHash: await sha256('JwiestRaffle1!') });
+      }
+    }
+    initAuthIfNeeded().catch(console.error);
+
+    // ── Settings init: store next drawing date if none exists ──
+    async function initSettingsIfNeeded() {
+      const snap = await getDoc(settingsRef);
+      if (!snap.exists() || !snap.data().drawingAt) {
+        await setDoc(settingsRef, { drawingAt: Timestamp.fromDate(nextFriday9pmEST()) }, { merge: true });
+      }
+    }
+    initSettingsIfNeeded().catch(console.error);
+
+    // ── Entrant list ───────────────────────────────────────────
+    onSnapshot(
+      query(collection(db, 'pq_raffle_entries'), orderBy('number', 'asc')),
+      snap => {
+        entrants = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderGrid();
+      },
+      err => {
+        console.error('Firestore entrants error:', err);
+        document.getElementById('entrant-grid').innerHTML =
+          '<div class="entrants-empty" style="grid-column:1/-1;">Failed to load entrants.</div>';
+      }
+    );
+
+    // ── Settings listener (drawingAt) ──────────────────────────
+    onSnapshot(settingsRef, snap => {
+      if (snap.exists() && snap.data().drawingAt) {
+        drawingAt = snap.data().drawingAt.toDate();
+      } else {
+        drawingAt = nextFriday9pmEST();
+      }
+    });
+
+    // ── Winner listener ────────────────────────────────────────
+    onSnapshot(winnerRef, snap => {
+      winnerName = snap.exists() ? (snap.data().name || null) : null;
+      renderWinner();
+      renderGrid();
+    });
+
+    // ── Render: entrant grid ───────────────────────────────────
+    function renderGrid() {
+      const grid  = document.getElementById('entrant-grid');
+      const count = document.getElementById('entrant-count');
+
+      count.textContent = entrants.length
+        ? `${entrants.length} entrant${entrants.length !== 1 ? 's' : ''}`
+        : '';
+
+      if (entrants.length === 0) {
+        grid.innerHTML = '<div class="entrants-empty" style="grid-column:1/-1;">No entries yet — be the first!</div>';
+        return;
+      }
+
+      grid.innerHTML = entrants.map(e => {
+        const isWinner = winnerName && e.name.toLowerCase() === winnerName.toLowerCase();
+        return `<div class="entrant-tile${isWinner ? ' is-winner' : ''}">
+          <span class="entrant-num">#${e.number}</span>
+          <span class="entrant-name">${escHtml(e.name)}</span>
+        </div>`;
+      }).join('');
+    }
+
+    // ── Render: winner display ─────────────────────────────────
+    function renderWinner() {
+      const el   = document.getElementById('winner-display');
+      const name = document.getElementById('winner-name-display');
+      if (winnerName) {
+        name.innerHTML = `&#127881; ${escHtml(winnerName)} &#127880;`;
+        el.style.display = '';
+      } else {
+        el.style.display = 'none';
+      }
+    }
+
+    // ── Manage mode ────────────────────────────────────────────
+    function enterManageMode() {
+      isManage = true;
+      document.getElementById('public-banner').style.display = 'none';
+      document.getElementById('public-rules').style.display  = 'none';
+      document.getElementById('public-enter').style.display  = 'none';
+      document.getElementById('manage-panel').style.display  = '';
+      document.getElementById('manage-btn').textContent = '✓ Manage Mode';
+    }
+
+    function exitManageMode() {
+      isManage = false;
+      document.getElementById('public-banner').style.display = '';
+      document.getElementById('public-rules').style.display  = '';
+      document.getElementById('public-enter').style.display  = '';
+      document.getElementById('manage-panel').style.display  = 'none';
+      document.getElementById('manage-btn').textContent = '⚙️ Manage Raffle';
+      document.getElementById('winner-num-input').value = '';
+      document.getElementById('manage-set-error').textContent = '';
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', exitManageMode);
+
+    // ── Manage: password modal ─────────────────────────────────
+    const manageModal = document.getElementById('manage-modal');
+
+    function openManageModal() {
+      document.getElementById('manage-pw-input').value = '';
+      document.getElementById('manage-pw-error').textContent = '';
+      document.getElementById('manage-pw-input').classList.remove('input-error');
+      document.getElementById('manage-modal-submit').disabled = false;
+      document.getElementById('manage-modal-submit').textContent = 'Enter';
+      manageModal.style.display = 'flex';
+      setTimeout(() => document.getElementById('manage-pw-input').focus(), 50);
+    }
+
+    function closeManageModal() { manageModal.style.display = 'none'; }
+
+    document.getElementById('manage-btn').addEventListener('click', () => {
+      if (isManage) { exitManageMode(); return; }
+      openManageModal();
+    });
+    document.getElementById('manage-modal-close').addEventListener('click', closeManageModal);
+    document.getElementById('manage-modal-cancel').addEventListener('click', closeManageModal);
+    manageModal.addEventListener('click', e => { if (e.target === manageModal) closeManageModal(); });
+    document.getElementById('manage-pw-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('manage-modal-submit').click();
+    });
+    document.getElementById('manage-pw-input').addEventListener('input', () => {
+      document.getElementById('manage-pw-input').classList.remove('input-error');
+      document.getElementById('manage-pw-error').textContent = '';
+    });
+
+    document.getElementById('manage-modal-submit').addEventListener('click', async () => {
+      const pw  = document.getElementById('manage-pw-input').value;
+      const btn = document.getElementById('manage-modal-submit');
+      if (!pw) {
+        document.getElementById('manage-pw-input').classList.add('input-error');
+        document.getElementById('manage-pw-error').textContent = 'Please enter the password.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '…';
+
+      try {
+        const [entered, snap] = await Promise.all([sha256(pw), getDoc(authRef)]);
+        const stored = snap.exists() ? snap.data().passwordHash : null;
+
+        if (!stored || entered !== stored) {
+          document.getElementById('manage-pw-input').classList.add('input-error');
+          document.getElementById('manage-pw-error').textContent = 'Incorrect password.';
+          document.getElementById('manage-pw-input').value = '';
+          document.getElementById('manage-pw-input').focus();
+          return;
+        }
+
+        closeManageModal();
+        enterManageMode();
+      } catch (err) {
+        console.error('Auth error:', err);
+        document.getElementById('manage-pw-error').textContent = 'Something went wrong. Please try again.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Enter';
+      }
+    });
+
+    // ── Manage: set winner ─────────────────────────────────────
+    document.getElementById('set-winner-btn').addEventListener('click', async () => {
+      const input  = document.getElementById('winner-num-input');
+      const errEl  = document.getElementById('manage-set-error');
+      const btn    = document.getElementById('set-winner-btn');
+      const num    = parseInt(input.value, 10);
+
+      errEl.textContent = '';
+      input.classList.remove('input-error');
+
+      if (!num || num < 1) {
+        input.classList.add('input-error');
+        errEl.textContent = 'Enter a valid raffle number.';
+        input.focus();
+        return;
+      }
+
+      const entrant = entrants.find(e => e.number === num);
+      if (!entrant) {
+        input.classList.add('input-error');
+        errEl.textContent = `No entrant found with raffle number #${num}.`;
+        input.focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '…';
+      try {
+        await setDoc(winnerRef, { name: entrant.name, number: entrant.number, setAt: serverTimestamp() });
+        input.value = '';
+      } catch (err) {
+        console.error('Set winner error:', err);
+        errEl.textContent = 'Failed to save winner. Please try again.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Set Winner';
+      }
+    });
+
+    // ── Manage: reset raffle modal ─────────────────────────────
+    const resetModal = document.getElementById('reset-modal');
+
+    function toDatetimeLocalValue(date) {
+      // Format a Date as "YYYY-MM-DDTHH:MM" in local time for datetime-local input
+      const pad = n => String(n).padStart(2, '0');
+      return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+    }
+
+    function openResetModal() {
+      // Default to following Friday at 9 PM EST (current drawingAt + 7 days, or computed from now)
+      const base = drawingAt || nextFriday9pmEST();
+      const next = new Date(base);
+      next.setUTCDate(next.getUTCDate() + 7);
+
+      document.getElementById('reset-datetime-input').value = toDatetimeLocalValue(next);
+      document.getElementById('reset-datetime-error').textContent = '';
+      document.getElementById('reset-modal-submit').disabled = false;
+      document.getElementById('reset-modal-submit').textContent = 'Reset Raffle';
+      resetModal.style.display = 'flex';
+    }
+
+    function closeResetModal() { resetModal.style.display = 'none'; }
+
+    document.getElementById('reset-raffle-btn').addEventListener('click', openResetModal);
+    document.getElementById('reset-modal-close').addEventListener('click', closeResetModal);
+    document.getElementById('reset-modal-cancel').addEventListener('click', closeResetModal);
+    resetModal.addEventListener('click', e => { if (e.target === resetModal) closeResetModal(); });
+
+    document.getElementById('reset-modal-submit').addEventListener('click', async () => {
+      const input  = document.getElementById('reset-datetime-input');
+      const errEl  = document.getElementById('reset-datetime-error');
+      const btn    = document.getElementById('reset-modal-submit');
+
+      errEl.textContent = '';
+      const selected = input.value ? new Date(input.value) : null;
+      if (!selected || isNaN(selected.getTime())) {
+        errEl.textContent = 'Please select a valid date and time.';
+        return;
+      }
+      if (selected.getTime() <= Date.now()) {
+        errEl.textContent = 'Drawing time must be in the future.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '…';
+
+      try {
+        await setDoc(settingsRef, { drawingAt: Timestamp.fromDate(selected) });
+        drawingAt = selected;
+        closeResetModal();
+      } catch (err) {
+        console.error('Reset countdown error:', err);
+        errEl.textContent = 'Failed to update drawing time. Please try again.';
+        btn.disabled = false;
+        btn.textContent = 'Reset Countdown';
+      }
+    });
+
+    // ── Manage: clear entries ──────────────────────────────────
+    document.getElementById('clear-entries-btn').addEventListener('click', async () => {
+      if (!confirm('Clear all entries and reset the winner? This cannot be undone.')) return;
+      const btn = document.getElementById('clear-entries-btn');
+      btn.disabled = true;
+      try {
+        const snap = await getDocs(collection(db, 'pq_raffle_entries'));
+        const batch = writeBatch(db);
+        snap.docs.forEach(d => batch.delete(d.ref));
+        batch.set(counterRef, { next: 1 });
+        batch.delete(winnerRef);
+        await batch.commit();
+
+        entrants   = [];
+        winnerName = null;
+        renderGrid();
+        renderWinner();
+      } catch (err) {
+        console.error('Clear entries error:', err);
+        alert('Failed to clear entries: ' + (err.message || 'Unknown error'));
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // ── Enter modal ────────────────────────────────────────────
+    const enterModal  = document.getElementById('enter-modal');
+    const formState   = document.getElementById('modal-form-state');
+    const successState = document.getElementById('modal-success-state');
+    const charInput   = document.getElementById('char-input');
+    const modalError  = document.getElementById('modal-error');
+    const submitBtn   = document.getElementById('modal-submit-btn');
+
+    function openEnterModal() {
+      formState.style.display = '';
+      successState.style.display = 'none';
+      charInput.value = '';
+      modalError.textContent = '';
+      charInput.classList.remove('input-error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit';
+      enterModal.style.display = 'flex';
+      setTimeout(() => charInput.focus(), 50);
+    }
+
+    function closeEnterModal() { enterModal.style.display = 'none'; }
+
+    document.getElementById('enter-btn').addEventListener('click', openEnterModal);
+    document.getElementById('modal-close-btn').addEventListener('click', closeEnterModal);
+    document.getElementById('modal-cancel-btn').addEventListener('click', closeEnterModal);
+    document.getElementById('success-close-btn').addEventListener('click', closeEnterModal);
+    enterModal.addEventListener('click', e => { if (e.target === enterModal) closeEnterModal(); });
+    charInput.addEventListener('input', () => { charInput.classList.remove('input-error'); modalError.textContent = ''; });
+    charInput.addEventListener('keydown', e => { if (e.key === 'Enter') submitBtn.click(); });
+
+    submitBtn.addEventListener('click', async () => {
+      const name = charInput.value.trim();
+      if (!name) {
+        charInput.classList.add('input-error');
+        modalError.textContent = 'Please enter a character name.';
+        charInput.focus();
+        return;
+      }
+
+      if (entrants.some(e => e.name.toLowerCase() === name.toLowerCase())) {
+        charInput.classList.add('input-error');
+        modalError.textContent = `${name} has already entered the raffle.`;
+        charInput.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '…';
+
+      try {
+        // Use nameLower as the document ID so the existence check and write are
+        // atomic inside the transaction — prevents duplicates under concurrent submissions.
+        const entryRef = doc(db, 'pq_raffle_entries', name.toLowerCase());
+        let assignedNumber;
+        let duplicate = false;
+
+        await runTransaction(db, async tx => {
+          const [entrySnap, counterSnap] = await Promise.all([
+            tx.get(entryRef),
+            tx.get(counterRef),
+          ]);
+
+          if (entrySnap.exists()) { duplicate = true; return; }
+
+          const nextNum = counterSnap.exists() ? (counterSnap.data().next || 1) : 1;
+          assignedNumber = nextNum;
+          tx.set(counterRef, { next: nextNum + 1 });
+          tx.set(entryRef, {
+            name, nameLower: name.toLowerCase(),
+            number: assignedNumber,
+            enteredAt: serverTimestamp(),
+          });
+        });
+
+        if (duplicate) {
+          charInput.classList.add('input-error');
+          modalError.textContent = `${name} has already entered the raffle.`;
+          charInput.focus();
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+          return;
+        }
+
+        if (!entrants.some(e => e.number === assignedNumber)) {
+          entrants = [...entrants, { id: '_pending', name, number: assignedNumber }]
+            .sort((a, b) => a.number - b.number);
+          renderGrid();
+        }
+
+        document.getElementById('success-name').textContent = name;
+        document.getElementById('success-num').textContent  = `#${assignedNumber}`;
+        formState.style.display    = 'none';
+        successState.style.display = '';
+      } catch (err) {
+        console.error('Entry failed:', err);
+        modalError.textContent = 'Something went wrong. Please try again.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    });
+
+    // ── Countdown ──────────────────────────────────────────────
+    function nextFriday9pmEST() {
+      const now = new Date();
+      const target = new Date(now);
+      target.setUTCHours(2, 0, 0, 0);
+      const utcDay = target.getUTCDay();
+      const daysUntilSat = (6 - utcDay + 7) % 7;
+      target.setUTCDate(target.getUTCDate() + daysUntilSat);
+      if (target.getTime() <= now.getTime()) target.setUTCDate(target.getUTCDate() + 7);
+      return target;
+    }
+
+    function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
+
+    function tickCountdown() {
+      if (!drawingAt) return;
+      const now  = Date.now();
+      let diff   = Math.max(0, drawingAt.getTime() - now);
+
+      const days    = Math.floor(diff / 86400000); diff -= days * 86400000;
+      const hours   = Math.floor(diff / 3600000);  diff -= hours * 3600000;
+      const minutes = Math.floor(diff / 60000);    diff -= minutes * 60000;
+      const seconds = Math.floor(diff / 1000);
+
+      document.getElementById('cd-days').textContent    = pad(days);
+      document.getElementById('cd-hours').textContent   = pad(hours);
+      document.getElementById('cd-minutes').textContent = pad(minutes);
+      document.getElementById('cd-seconds').textContent = pad(seconds);
+
+      const opts = { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/New_York' };
+      const dateStr = drawingAt.toLocaleDateString('en-US', opts);
+      document.getElementById('cd-next-label').textContent =
+        diff > 0 ? `Drawing on ${dateStr} at 9:00 PM EST` : `Drawing was on ${dateStr} at 9:00 PM EST`;
+    }
+
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+
+    // ── Util ───────────────────────────────────────────────────
+    function escHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+  </script>
+</body>
+</html>
