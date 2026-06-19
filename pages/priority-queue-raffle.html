@@ -871,6 +871,11 @@
     charInput.addEventListener('keydown', e => { if (e.key === 'Enter') submitBtn.click(); });
 
     submitBtn.addEventListener('click', async () => {
+      if (drawingAt && drawingAt.getTime() <= Date.now()) {
+        closeEnterModal();
+        return;
+      }
+
       const name = charInput.value.trim();
       if (!name) {
         charInput.classList.add('input-error');
@@ -958,7 +963,8 @@
     function tickCountdown() {
       if (!drawingAt) return;
       const now  = Date.now();
-      let diff   = Math.max(0, drawingAt.getTime() - now);
+      const raw  = drawingAt.getTime() - now;
+      let diff   = Math.max(0, raw);
 
       const days    = Math.floor(diff / 86400000); diff -= days * 86400000;
       const hours   = Math.floor(diff / 3600000);  diff -= hours * 3600000;
@@ -972,8 +978,14 @@
 
       const opts = { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/New_York' };
       const dateStr = drawingAt.toLocaleDateString('en-US', opts);
+
+      const expired = raw <= 0;
+      const enterBtn = document.getElementById('enter-btn');
+      enterBtn.disabled = expired;
+      enterBtn.title = expired ? 'Entries are closed until the next drawing is scheduled.' : '';
+
       document.getElementById('cd-next-label').textContent =
-        diff > 0 ? `Drawing on ${dateStr} at 9:00 PM EST` : `Drawing was on ${dateStr} at 9:00 PM EST`;
+        expired ? `Drawing was on ${dateStr} at 9:00 PM EST` : `Drawing on ${dateStr} at 9:00 PM EST`;
     }
 
     tickCountdown();
