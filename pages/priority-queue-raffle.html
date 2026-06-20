@@ -817,7 +817,7 @@
 
     // ── Manage: clear entries ──────────────────────────────────
     document.getElementById('clear-entries-btn').addEventListener('click', async () => {
-      if (!confirm('Clear all entries and reset the winner? This cannot be undone.')) return;
+      if (!confirm('Clear all entries? This cannot be undone.')) return;
       const btn = document.getElementById('clear-entries-btn');
       btn.disabled = true;
       try {
@@ -825,13 +825,10 @@
         const batch = writeBatch(db);
         snap.docs.forEach(d => batch.delete(d.ref));
         batch.set(counterRef, { next: 1 });
-        batch.delete(winnerRef);
         await batch.commit();
 
-        entrants   = [];
-        winnerName = null;
+        entrants = [];
         renderGrid();
-        renderWinner();
       } catch (err) {
         console.error('Clear entries error:', err);
         alert('Failed to clear entries: ' + (err.message || 'Unknown error'));
