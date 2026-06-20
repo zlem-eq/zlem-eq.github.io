@@ -518,9 +518,9 @@
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import {
-      getFirestore, collection, doc, getDoc, setDoc,
-      onSnapshot, query, orderBy, where, getDocs,
-      runTransaction, deleteDoc, writeBatch, serverTimestamp, Timestamp,
+      getFirestore, doc, getDoc, setDoc,
+      onSnapshot,
+      runTransaction, writeBatch, serverTimestamp, Timestamp,
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     const app = initializeApp({
@@ -538,6 +538,7 @@
     const settingsRef = doc(db, 'pq_raffle_meta', 'settings');
     const counterRef  = doc(db, 'pq_raffle_meta', 'counter');
     const winnerRef   = doc(db, 'pq_raffle_meta', 'winner');
+    const entriesRef  = doc(db, 'pq_raffle_entries', 'entries');
 
     // ── State ──────────────────────────────────────────────────
     let entrants    = [];
@@ -567,20 +568,15 @@
     initSettingsIfNeeded().catch(console.error);
 
     // ── Entrant list ───────────────────────────────────────────
-    let latestEntriesSnap = null;
-    onSnapshot(
-      query(collection(db, 'pq_raffle_entries'), orderBy('number', 'asc')),
-      snap => {
-        latestEntriesSnap = snap;
-        entrants = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        renderGrid();
-      },
-      err => {
-        console.error('Firestore entrants error:', err);
-        document.getElementById('entrant-grid').innerHTML =
-          '<div class="entrants-empty" style="grid-column:1/-1;">Failed to load entrants.</div>';
-      }
-    );
+    onSnapshot(entriesRef, snap => {
+      const data = snap.exists() ? (snap.data().entries || []) : [];
+      entrants = [...data].sort((a, b) => a.number - b.number);
+      renderGrid();
+    }, err => {
+      console.error('Firestore entrants error:', err);
+      document.getElementById('entrant-grid').innerHTML =
+        '<div class="entrants-empty" style="grid-column:1/-1;">Failed to load entrants.</div>';
+    });
 
     // ── Settings listener (drawingAt) ──────────────────────────
     onSnapshot(settingsRef, snap => {
@@ -825,9 +821,8 @@
       const btn = document.getElementById('clear-entries-btn');
       btn.disabled = true;
       try {
-        const snap = latestEntriesSnap ?? await getDocs(collection(db, 'pq_raffle_entries'));
         const batch = writeBatch(db);
-        snap.docs.forEach(d => batch.delete(d.ref));
+        batch.set(entriesRef, { entries: [] });
         batch.set(counterRef, { next: 1 });
         await batch.commit();
 
@@ -932,28 +927,29 @@
       submitBtn.textContent = '…';
 
       try {
-        // Use nameLower as the document ID so the existence check and write are
-        // atomic inside the transaction — prevents duplicates under concurrent submissions.
-        const entryRef = doc(db, 'pq_raffle_entries', name.toLowerCase());
         let assignedNumber;
         let duplicate = false;
 
         await runTransaction(db, async tx => {
           const [entrySnap, counterSnap] = await Promise.all([
-            tx.get(entryRef),
+            tx.get(entriesRef),
             tx.get(counterRef),
           ]);
 
-          if (entrySnap.exists()) { duplicate = true; return; }
+          const existing = entrySnap.exists() ? (entrySnap.data().entries || []) : [];
+          if (existing.some(e => e.nameLower === name.toLowerCase())) {
+            duplicate = true;
+            return;
+          }
 
           const nextNum = counterSnap.exists() ? (counterSnap.data().next || 1) : 1;
           assignedNumber = nextNum;
           tx.set(counterRef, { next: nextNum + 1 });
-          tx.set(entryRef, {
+          tx.set(entriesRef, { entries: [...existing, {
             name, nameLower: name.toLowerCase(),
             number: assignedNumber,
-            enteredAt: serverTimestamp(),
-          });
+            enteredAt: Timestamp.now(),
+          }] });
         });
 
         if (duplicate) {
