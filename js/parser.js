@@ -268,11 +268,19 @@
       const pn = extractPlayerName(file.name);
 
       worker.onmessage = function (e) {
-        if (e.data.type === 'progress') return; // skip per-file progress for multi-file
+        if (e.data.type === 'progress') {
+          if (files.length === 1) {
+            processingLabel.textContent = 'Parsing log file… ' + e.data.pct + '%';
+          }
+          return;
+        }
         results[idx] = e.data.entries.map(function (entry) {
           entry.date = new Date(entry.date); return entry;
         });
         remaining--;
+        if (files.length > 1) {
+          processingLabel.textContent = 'Parsing ' + files.length + ' log files… ' + (files.length - remaining) + ' / ' + files.length + ' complete';
+        }
         if (remaining === 0) {
           // Merge all results, sort chronologically
           var merged = [].concat.apply([], results);
@@ -354,8 +362,8 @@
         toDate   = rangeTo.value   ? new Date(rangeTo.value)   : null;
       } else {
         var hours = activeFilter === '1h' ? 1 : activeFilter === '8h' ? 8 : 24;
-        toDate   = latestDate;
-        fromDate = new Date(latestDate.getTime() - hours * 60 * 60 * 1000);
+        toDate   = new Date();
+        fromDate = new Date(toDate.getTime() - hours * 60 * 60 * 1000);
       }
       primaryFiltered = primaryFiltered.filter(function (e) {
         if (fromDate && e.date < fromDate) return false;

@@ -208,8 +208,8 @@
         toDate   = rangeTo.value   ? new Date(rangeTo.value)   : null;
       } else {
         var hours = activeFilter === '1h' ? 1 : activeFilter === '8h' ? 8 : 24;
-        toDate   = latestDate;
-        fromDate = new Date(latestDate.getTime() - hours * 3600000);
+        toDate   = new Date();
+        fromDate = new Date(toDate.getTime() - hours * 3600000);
       }
       filtered = allEntries.filter(function (e) {
         if (fromDate && e.date < fromDate) return false;
