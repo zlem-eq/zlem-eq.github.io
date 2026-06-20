@@ -86,25 +86,6 @@
     }
     .rules-list li::before { content: '✦'; color: var(--accent); font-size: 0.6rem; }
 
-    /* ── Enter CTA ──────────────────────────────────────────── */
-    .enter-cta { display: flex; justify-content: center; padding: 2rem 1rem; background: var(--bg); }
-    .btn-enter {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 0.75rem;
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 1rem 3.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 24px rgba(74,124,247,0.35);
-      transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
-    }
-    .btn-enter:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(74,124,247,0.45); }
-    .btn-enter:active { transform: translateY(0); }
-
     /* ── Manage Panel ───────────────────────────────────────── */
     .manage-panel {
       background: var(--surface);
@@ -202,6 +183,20 @@
       white-space: nowrap;
     }
     .btn-reset-raffle:hover { background: rgba(238,85,85,0.08); }
+
+    .btn-import-roster {
+      padding: 0.55rem 1.1rem;
+      background: none;
+      border: 1px solid var(--accent);
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-import-roster:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+    .btn-import-roster:disabled { opacity: 0.5; cursor: default; }
 
     .manage-set-error {
       font-size: 0.78rem;
@@ -321,12 +316,6 @@
     .modal-submit-btn:hover:not(:disabled) { background: var(--accent-hover); }
     .modal-submit-btn:disabled { opacity: 0.5; cursor: default; }
 
-    /* ── Enter modal success ─────────────────────────────────── */
-    .modal-success { text-align: center; padding: 2rem 1.25rem 1.5rem; }
-    .modal-success-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .modal-success-msg { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem; }
-    .modal-success-sub { font-size: 0.85rem; color: var(--text-muted); }
-    .modal-success-num { font-size: 2rem; font-weight: 900; color: var(--accent); margin: 0.75rem 0 0.25rem; }
   </style>
 </head>
 <body>
@@ -356,12 +345,10 @@
         <li>One entry per character</li>
         <li>One winner each week (plus up to 5 alts!)</li>
         <li>All requests from that character are automatically put at the top of the queue</li>
+        <li>Your main will be automatically entered if you logged into the game in the current week</li>
       </ul>
     </div>
 
-    <div id="public-enter" class="enter-cta">
-      <button class="btn-enter" id="enter-btn">&#127922; Enter</button>
-    </div>
 
     <!-- Manage panel (shown in manage mode) -->
     <div id="manage-panel" class="manage-panel" style="display:none;">
@@ -388,6 +375,12 @@
         <div class="manage-field" style="flex:0;">
           <label>&nbsp;</label>
           <button class="btn-reset-raffle" id="clear-entries-btn">&#128465; Clear Entries</button>
+        </div>
+        <div class="manage-field" style="flex:0;">
+          <label>&nbsp;</label>
+          <button class="btn-import-roster" id="import-roster-btn">&#128100; Import Roster</button>
+          <input type="file" id="roster-file-input" accept=".txt" style="display:none;" />
+          <div class="manage-set-error" id="import-roster-error"></div>
         </div>
         <div class="manage-field">
           <label for="new-pw-input">Set New Password</label>
@@ -475,41 +468,6 @@
       <div class="modal-footer">
         <button class="modal-cancel-btn" id="reset-modal-cancel">Cancel</button>
         <button class="modal-submit-btn" id="reset-modal-submit" style="background:#e55;">Reset Countdown</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Enter Modal -->
-  <div id="enter-modal" class="modal-overlay" style="display:none;">
-    <div class="modal">
-      <div id="modal-form-state">
-        <div class="modal-header">
-          <span>Enter the Raffle</span>
-          <button class="modal-close" id="modal-close-btn">&#10005;</button>
-        </div>
-        <div class="modal-body">
-          <div class="modal-field">
-            <label for="char-input">Character Name</label>
-            <input type="text" id="char-input" placeholder="Enter your character name" autocomplete="off" />
-            <div class="modal-error" id="modal-error"></div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="modal-cancel-btn" id="modal-cancel-btn">Cancel</button>
-          <button class="modal-submit-btn" id="modal-submit-btn">Submit</button>
-        </div>
-      </div>
-      <div id="modal-success-state" style="display:none;">
-        <div class="modal-header">
-          <span>You&rsquo;re in!</span>
-          <button class="modal-close" id="success-close-btn">&#10005;</button>
-        </div>
-        <div class="modal-success">
-          <div class="modal-success-icon">&#127881;</div>
-          <div class="modal-success-msg">Good luck, <span id="success-name"></span>!</div>
-          <div class="modal-success-num" id="success-num"></div>
-          <div class="modal-success-sub">Your raffle number</div>
-        </div>
       </div>
     </div>
   </div>
@@ -872,113 +830,6 @@
       }
     });
 
-    // ── Enter modal ────────────────────────────────────────────
-    const enterModal  = document.getElementById('enter-modal');
-    const formState   = document.getElementById('modal-form-state');
-    const successState = document.getElementById('modal-success-state');
-    const charInput   = document.getElementById('char-input');
-    const modalError  = document.getElementById('modal-error');
-    const submitBtn   = document.getElementById('modal-submit-btn');
-
-    function openEnterModal() {
-      formState.style.display = '';
-      successState.style.display = 'none';
-      charInput.value = '';
-      modalError.textContent = '';
-      charInput.classList.remove('input-error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit';
-      enterModal.style.display = 'flex';
-      setTimeout(() => charInput.focus(), 50);
-    }
-
-    function closeEnterModal() { enterModal.style.display = 'none'; }
-
-    document.getElementById('enter-btn').addEventListener('click', openEnterModal);
-    document.getElementById('modal-close-btn').addEventListener('click', closeEnterModal);
-    document.getElementById('modal-cancel-btn').addEventListener('click', closeEnterModal);
-    document.getElementById('success-close-btn').addEventListener('click', closeEnterModal);
-    enterModal.addEventListener('click', e => { if (e.target === enterModal) closeEnterModal(); });
-    charInput.addEventListener('input', () => { charInput.classList.remove('input-error'); modalError.textContent = ''; });
-    charInput.addEventListener('keydown', e => { if (e.key === 'Enter') submitBtn.click(); });
-
-    submitBtn.addEventListener('click', async () => {
-      if (drawingAt && drawingAt.getTime() <= Date.now()) {
-        closeEnterModal();
-        return;
-      }
-
-      const name = charInput.value.trim();
-      if (!name) {
-        charInput.classList.add('input-error');
-        modalError.textContent = 'Please enter a character name.';
-        charInput.focus();
-        return;
-      }
-
-      if (entrants.some(e => e.name.toLowerCase() === name.toLowerCase())) {
-        charInput.classList.add('input-error');
-        modalError.textContent = `${name} has already entered the raffle.`;
-        charInput.focus();
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = '…';
-
-      try {
-        let assignedNumber;
-        let duplicate = false;
-
-        await runTransaction(db, async tx => {
-          const [entrySnap, counterSnap] = await Promise.all([
-            tx.get(entriesRef),
-            tx.get(counterRef),
-          ]);
-
-          const existing = entrySnap.exists() ? (entrySnap.data().entries || []) : [];
-          if (existing.some(e => e.nameLower === name.toLowerCase())) {
-            duplicate = true;
-            return;
-          }
-
-          const nextNum = counterSnap.exists() ? (counterSnap.data().next || 1) : 1;
-          assignedNumber = nextNum;
-          tx.set(counterRef, { next: nextNum + 1 });
-          tx.set(entriesRef, { entries: [...existing, {
-            name, nameLower: name.toLowerCase(),
-            number: assignedNumber,
-            enteredAt: Timestamp.now(),
-          }] });
-        });
-
-        if (duplicate) {
-          charInput.classList.add('input-error');
-          modalError.textContent = `${name} has already entered the raffle.`;
-          charInput.focus();
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit';
-          return;
-        }
-
-        if (!entrants.some(e => e.number === assignedNumber)) {
-          entrants = [...entrants, { id: '_pending', name, number: assignedNumber }]
-            .sort((a, b) => a.number - b.number);
-          renderGrid();
-        }
-
-        document.getElementById('success-name').textContent = name;
-        document.getElementById('success-num').textContent  = `#${assignedNumber}`;
-        formState.style.display    = 'none';
-        successState.style.display = '';
-      } catch (err) {
-        console.error('Entry failed:', err);
-        modalError.textContent = 'Something went wrong. Please try again.';
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit';
-      }
-    });
-
     // ── Countdown ──────────────────────────────────────────────
     function nextFriday9pmEST() {
       const now = new Date();
@@ -1013,16 +864,120 @@
       const dateStr = drawingAt.toLocaleDateString('en-US', opts);
 
       const expired = raw <= 0;
-      const enterBtn = document.getElementById('enter-btn');
-      enterBtn.disabled = expired;
-      enterBtn.title = expired ? 'Entries are closed until the next drawing is scheduled.' : '';
-
       document.getElementById('cd-next-label').textContent =
         expired ? `Drawing was on ${dateStr} at 9:00 PM EST` : `Drawing on ${dateStr} at 9:00 PM EST`;
     }
 
     tickCountdown();
     setInterval(tickCountdown, 1000);
+
+    // ── Import Roster ──────────────────────────────────────────
+    const rosterFileInput = document.getElementById('roster-file-input');
+    const importErrEl     = document.getElementById('import-roster-error');
+
+    document.getElementById('import-roster-btn').addEventListener('click', () => {
+      importErrEl.textContent = '';
+      rosterFileInput.value = '';
+      rosterFileInput.click();
+    });
+
+    rosterFileInput.addEventListener('change', async () => {
+      const file = rosterFileInput.files[0];
+      if (!file) return;
+
+      const btn = document.getElementById('import-roster-btn');
+      btn.disabled = true;
+      importErrEl.textContent = '';
+
+      try {
+        const text    = await file.text();
+        const players = parseGuildDump(text);
+
+        if (players.length === 0) {
+          importErrEl.textContent = 'No eligible players found in roster file.';
+          return;
+        }
+
+        let added = 0;
+        let skipped = 0;
+
+        await runTransaction(db, async tx => {
+          const [entrySnap, counterSnap] = await Promise.all([
+            tx.get(entriesRef),
+            tx.get(counterRef),
+          ]);
+
+          const existing = entrySnap.exists() ? (entrySnap.data().entries || []) : [];
+          const existingLower = new Set(existing.map(e => e.nameLower));
+          let nextNum = counterSnap.exists() ? (counterSnap.data().next || 1) : 1;
+
+          const toAdd = [];
+          for (const name of players) {
+            if (existingLower.has(name.toLowerCase())) { skipped++; continue; }
+            toAdd.push({ name, nameLower: name.toLowerCase(), number: nextNum++, enteredAt: Timestamp.now() });
+            added++;
+          }
+
+          if (toAdd.length > 0) {
+            tx.set(counterRef, { next: nextNum });
+            tx.set(entriesRef, { entries: [...existing, ...toAdd] });
+          }
+        });
+
+        const parts = [];
+        if (added > 0)   parts.push(`${added} player${added !== 1 ? 's' : ''} added`);
+        if (skipped > 0) parts.push(`${skipped} already entered`);
+        importErrEl.style.color = added > 0 ? 'var(--accent)' : '';
+        importErrEl.textContent = parts.join(', ') + '.';
+        setTimeout(() => { importErrEl.textContent = ''; importErrEl.style.color = ''; }, 5000);
+      } catch (err) {
+        console.error('Import roster error:', err);
+        importErrEl.style.color = '';
+        importErrEl.textContent = 'Import failed: ' + (err.message || 'Unknown error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    function parseGuildDump(text) {
+      const excludedRanks = new Set(['fnf', 'alt']);
+      const prevFriday = getPreviousFriday();
+      const results = [];
+
+      for (const line of text.split('\n')) {
+        const fields = line.split('\t');
+        if (fields.length < 6) continue;
+        const playerName = fields[0].trim();
+        const rank       = fields[3].trim().toLowerCase();
+        const lastOnStr  = fields[5].trim();
+        if (!playerName) continue;
+        if (excludedRanks.has(rank)) continue;
+        const lastOn = parseEQDate(lastOnStr);
+        if (!lastOn || lastOn < prevFriday) continue;
+        results.push(playerName);
+      }
+
+      return results;
+    }
+
+    function parseEQDate(str) {
+      // MM/DD/YY
+      const m = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
+      if (!m) return null;
+      const [, month, day, yr] = m.map(Number);
+      const fullYear = yr < 50 ? 2000 + yr : 1900 + yr;
+      return new Date(fullYear, month - 1, day);
+    }
+
+    function getPreviousFriday() {
+      const now = new Date();
+      const day = now.getDay(); // 0=Sun ... 5=Fri, 6=Sat
+      const daysBack = (day - 5 + 7) % 7; // 0 if today is Friday
+      const friday = new Date(now);
+      friday.setDate(now.getDate() - daysBack);
+      friday.setHours(0, 0, 0, 0);
+      return friday;
+    }
 
     // ── Util ───────────────────────────────────────────────────
     function escHtml(str) {
