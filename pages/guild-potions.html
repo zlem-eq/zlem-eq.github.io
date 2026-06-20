@@ -220,7 +220,7 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import {
       getFirestore, collection, addDoc, deleteDoc, doc, getDoc, updateDoc, setDoc,
-      onSnapshot, query, orderBy, where, getDocs, serverTimestamp,
+      onSnapshot, query, orderBy, where, getDocs, limit, serverTimestamp,
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     // ── Firebase init ──────────────────────────────────────────
@@ -602,7 +602,9 @@
       });
     }
 
-    function openMakersModal() {
+    async function openMakersModal() {
+      const snap = await getDocs(query(collection(db, 'makers'), orderBy('name')));
+      allMakers = snap.docs.map(d => ({ id: d.id, name: d.data().name }));
       buildMakersModal();
       document.getElementById('makers-modal').style.display = 'flex';
     }
@@ -683,7 +685,9 @@
       });
     }
 
-    function openOfficersModal() {
+    async function openOfficersModal() {
+      const snap = await getDocs(query(collection(db, 'officers'), orderBy('name')));
+      allOfficers = snap.docs.map(d => ({ id: d.id, name: d.data().name }));
       buildOfficersModal();
       document.getElementById('officers-modal').style.display = 'flex';
     }
@@ -700,7 +704,7 @@
 
     // ── Firestore: orders ──────────────────────────────────────
     onSnapshot(
-      query(collection(db, 'orders'), orderBy('orderedAt', 'desc')),
+      query(collection(db, 'orders'), orderBy('orderedAt', 'desc'), limit(500)),
       snapshot => {
         allOrders = snapshot.docs.map(d => {
           const data = d.data();
@@ -727,23 +731,7 @@
       }
     );
 
-    // ── Firestore: makers ──────────────────────────────────────
-    onSnapshot(
-      query(collection(db, 'makers'), orderBy('name')),
-      snapshot => {
-        allMakers = snapshot.docs.map(d => ({ id: d.id, name: d.data().name }));
-        if (document.getElementById('makers-modal').style.display === 'flex') buildMakersModal();
-      }
-    );
-
-    // ── Firestore: officers ────────────────────────────────────
-    onSnapshot(
-      query(collection(db, 'officers'), orderBy('name')),
-      snapshot => {
-        allOfficers = snapshot.docs.map(d => ({ id: d.id, name: d.data().name }));
-        if (document.getElementById('officers-modal').style.display === 'flex') buildOfficersModal();
-      }
-    );
+    // makers and officers are fetched on-demand when their modals open
 
     // ── New Order modal ────────────────────────────────────────
     const orderCounts = {};
@@ -836,15 +824,13 @@
       return 5;
     }
 
-    async function fetchRecentPlayerOrders(playerName) {
+    function fetchRecentPlayerOrders(playerName) {
       const cutoff = new Date();
       cutoff.setDate(cutoff.getDate() - ORDER_COOLDOWN_DAYS);
-      const snap = await getDocs(
-        query(collection(db, 'orders'), where('orderedAt', '>=', cutoff))
-      );
-      return snap.docs
-        .map(d => d.data())
-        .filter(d => d.playerName?.trim().toLowerCase() === playerName.trim().toLowerCase());
+      const lc = playerName.trim().toLowerCase();
+      return allOrders
+        .filter(o => o.player?.trim().toLowerCase() === lc && o.orderDate >= cutoff)
+        .map(o => ({ playerName: o.player, potions: o.potions, orderedAt: o.orderDate }));
     }
 
     function applyLimits(potions, recentOrders) {

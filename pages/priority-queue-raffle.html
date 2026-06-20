@@ -165,16 +165,15 @@
       letter-spacing: 0.08em;
     }
     .manage-input-row { display: flex; gap: 0.5rem; }
-    .manage-input-row input[type="number"] {
-      width: 6rem;
+    .manage-input-row input {
       padding: 0.55rem 0.75rem;
       border: 1px solid var(--border);
       border-radius: 0.5rem;
       background: var(--bg);
       color: var(--text);
       font-size: 0.95rem;
-      text-align: center;
     }
+    .manage-input-row input[type="number"] { width: 6rem; text-align: center; }
     .manage-input-row input:focus { outline: none; border-color: var(--accent); }
     .manage-input-row input.input-error { border-color: #e55; }
 
@@ -390,6 +389,14 @@
           <label>&nbsp;</label>
           <button class="btn-reset-raffle" id="clear-entries-btn">&#128465; Clear Entries</button>
         </div>
+        <div class="manage-field">
+          <label for="new-pw-input">Set New Password</label>
+          <div class="manage-input-row">
+            <input type="password" id="new-pw-input" placeholder="New password" autocomplete="new-password" style="width:auto;flex:1;" />
+            <button class="btn-set-winner" id="set-pw-btn">Save</button>
+          </div>
+          <div class="manage-set-error" id="set-pw-error"></div>
+        </div>
       </div>
     </div>
 
@@ -544,15 +551,11 @@
       return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // ── Auth init: store hashed default password on first run ──
-    // The plaintext is used only to compute the initial hash; it is never persisted.
-    async function initAuthIfNeeded() {
+    // ── Auth: fetch stored password hash from Firestore ───────
+    async function getStoredPasswordHash() {
       const snap = await getDoc(authRef);
-      if (!snap.exists()) {
-        await setDoc(authRef, { passwordHash: await sha256('JwiestRaffle1!') });
-      }
+      return snap.exists() ? (snap.data().passwordHash ?? null) : null;
     }
-    initAuthIfNeeded().catch(console.error);
 
     // ── Settings init: store next drawing date if none exists ──
     async function initSettingsIfNeeded() {
@@ -564,9 +567,11 @@
     initSettingsIfNeeded().catch(console.error);
 
     // ── Entrant list ───────────────────────────────────────────
+    let latestEntriesSnap = null;
     onSnapshot(
       query(collection(db, 'pq_raffle_entries'), orderBy('number', 'asc')),
       snap => {
+        latestEntriesSnap = snap;
         entrants = snap.docs.map(d => ({ id: d.id, ...d.data() }));
         renderGrid();
       },
@@ -694,8 +699,7 @@
       btn.textContent = '…';
 
       try {
-        const [entered, snap] = await Promise.all([sha256(pw), getDoc(authRef)]);
-        const stored = snap.exists() ? snap.data().passwordHash : null;
+        const [entered, stored] = await Promise.all([sha256(pw), getStoredPasswordHash()]);
 
         if (!stored || entered !== stored) {
           document.getElementById('manage-pw-input').classList.add('input-error');
@@ -821,7 +825,7 @@
       const btn = document.getElementById('clear-entries-btn');
       btn.disabled = true;
       try {
-        const snap = await getDocs(collection(db, 'pq_raffle_entries'));
+        const snap = latestEntriesSnap ?? await getDocs(collection(db, 'pq_raffle_entries'));
         const batch = writeBatch(db);
         snap.docs.forEach(d => batch.delete(d.ref));
         batch.set(counterRef, { next: 1 });
@@ -834,6 +838,42 @@
         alert('Failed to clear entries: ' + (err.message || 'Unknown error'));
       } finally {
         btn.disabled = false;
+      }
+    });
+
+    // ── Manage: set new password ───────────────────────────────
+    document.getElementById('set-pw-btn').addEventListener('click', async () => {
+      const input  = document.getElementById('new-pw-input');
+      const errEl  = document.getElementById('set-pw-error');
+      const btn    = document.getElementById('set-pw-btn');
+      const pw     = input.value;
+
+      errEl.textContent = '';
+      if (!pw) {
+        errEl.textContent = 'Enter a new password.';
+        input.focus();
+        return;
+      }
+      if (pw.length < 8) {
+        errEl.textContent = 'Password must be at least 8 characters.';
+        input.focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '…';
+      try {
+        await setDoc(authRef, { passwordHash: await sha256(pw) });
+        input.value = '';
+        errEl.style.color = 'var(--accent)';
+        errEl.textContent = 'Password updated.';
+        setTimeout(() => { errEl.textContent = ''; errEl.style.color = ''; }, 3000);
+      } catch (err) {
+        console.error('Set password error:', err);
+        errEl.textContent = 'Failed to save password. Please try again.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Save';
       }
     });
 

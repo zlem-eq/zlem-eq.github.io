@@ -255,7 +255,7 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import {
       getFirestore, collection, addDoc, deleteDoc, doc, updateDoc,
-      onSnapshot, query, orderBy, runTransaction, increment, serverTimestamp,
+      onSnapshot, query, orderBy, limit, runTransaction, increment, serverTimestamp,
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     // ── Firebase init ──────────────────────────────────────────
@@ -425,7 +425,7 @@
 
     // ── Firestore: claims ──────────────────────────────────────
     onSnapshot(
-      query(collection(db, 'gsb_claims'), orderBy('claimedAt', 'desc')),
+      query(collection(db, 'gsb_claims'), orderBy('claimedAt', 'desc'), limit(100)),
       snapshot => {
         claims = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
         renderClaims();
