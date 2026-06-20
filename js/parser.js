@@ -32,6 +32,7 @@
   const splitSections         = document.getElementById('split-sections');
   const primarySectionHeader  = document.getElementById('primary-section-header');
   const raidLootFilter        = document.getElementById('raid-loot-filter');
+  const hideSpellsFilter      = document.getElementById('hide-spells-filter');
 
   // Mob list state — keys are "splitIdx|displayName"
   let currentMobs  = new Map(); // "splitIdx|displayName" → {entries, rawEntries, displayName, splitIdx}
@@ -115,6 +116,7 @@
     setActivePill('all');
     customRange.classList.add('hidden');
     raidLootFilter.checked = true;
+    hideSpellsFilter.checked = true;
   });
 
   extractLogsBtn.addEventListener('click', function () {
@@ -221,6 +223,7 @@
   rangeFrom.addEventListener('input', applyFilter);
   rangeTo.addEventListener('input', applyFilter);
   raidLootFilter.addEventListener('change', applyFilter);
+  hideSpellsFilter.addEventListener('change', applyFilter);
 
   function setActivePill(filter) {
     document.querySelectorAll('.filter-pill').forEach(function (p) {
@@ -380,6 +383,12 @@
     if (raidLootOnly && window.RaidLootItems) {
       primaryFiltered = primaryFiltered.filter(function (e) {
         return window.RaidLootItems.has(e.item.toLowerCase());
+      });
+    }
+    if (hideSpellsFilter.checked) {
+      primaryFiltered = primaryFiltered.filter(function (e) {
+        return !e.item.startsWith('Spell: ') && !e.item.startsWith('Song: ') &&
+               !e.item.startsWith('Tome of ') && !e.item.startsWith('Ancient: ');
       });
     }
     var totalBeforeTargetFilter = primaryFiltered.length;
