@@ -254,8 +254,8 @@
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
     import {
-      getFirestore, collection, addDoc, deleteDoc, doc, updateDoc,
-      onSnapshot, query, orderBy, limit, runTransaction, increment, serverTimestamp,
+      getFirestore, doc, getDoc, setDoc, updateDoc, deleteField,
+      onSnapshot, runTransaction, increment,
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     // ── Firebase init ──────────────────────────────────────────
@@ -268,6 +268,19 @@
       appId: '1:63090909940:web:64a03f0f76970beeae74a1',
     });
     const db = getFirestore(app);
+
+    // ── Refs ───────────────────────────────────────────────────
+    const spellsRef = doc(db, 'gsb_spells', 'data');
+    const claimsRef = doc(db, 'gsb_claims', 'data');
+
+    // Ensure both documents exist so updateDoc never fails on first write
+    (async () => {
+      const [ss, cs] = await Promise.all([getDoc(spellsRef), getDoc(claimsRef)]);
+      await Promise.all([
+        ss.exists() ? null : setDoc(spellsRef, {}),
+        cs.exists() ? null : setDoc(claimsRef, {}),
+      ].filter(Boolean));
+    })().catch(console.error);
 
     // ── State ──────────────────────────────────────────────────
     let spells = [];   // [{ id, name, count }]
@@ -411,9 +424,12 @@
 
     // ── Firestore: spells ──────────────────────────────────────
     onSnapshot(
-      query(collection(db, 'gsb_spells'), orderBy('name')),
-      snapshot => {
-        spells = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      spellsRef,
+      snap => {
+        const data = snap.exists() ? snap.data() : {};
+        spells = Object.entries(data)
+          .map(([id, s]) => ({ id, ...s }))
+          .sort((a, b) => a.name.localeCompare(b.name));
         renderAvailable();
       },
       err => {
@@ -425,9 +441,12 @@
 
     // ── Firestore: claims ──────────────────────────────────────
     onSnapshot(
-      query(collection(db, 'gsb_claims'), orderBy('claimedAt', 'desc'), limit(100)),
-      snapshot => {
-        claims = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      claimsRef,
+      snap => {
+        const data = snap.exists() ? snap.data() : {};
+        claims = Object.entries(data)
+          .map(([id, c]) => ({ id, ...c }))
+          .sort((a, b) => (b.claimedAt || 0) - (a.claimedAt || 0));
         renderClaims();
       },
       err => {
@@ -442,31 +461,31 @@
       const spell = spells.find(s => s.id === id);
       if (!spell) return;
       const next = Math.max(0, spell.count + delta);
-      await updateDoc(doc(db, 'gsb_spells', id), { count: next });
+      await updateDoc(spellsRef, { [`${id}.count`]: next });
     }
 
     async function deleteSpell(id) {
-      await deleteDoc(doc(db, 'gsb_spells', id));
+      await updateDoc(spellsRef, { [id]: deleteField() });
     }
 
     async function markDelivered(id) {
-      await updateDoc(doc(db, 'gsb_claims', id), { status: 'delivered' });
+      await updateDoc(claimsRef, { [`${id}.status`]: 'delivered' });
     }
 
     async function unmarkDelivered(id) {
-      await updateDoc(doc(db, 'gsb_claims', id), { status: 'claimed' });
+      await updateDoc(claimsRef, { [`${id}.status`]: 'claimed' });
     }
 
     async function denyClaim(id, spellName) {
       const spell = spells.find(s => s.name === spellName);
       await runTransaction(db, async tx => {
-        tx.update(doc(db, 'gsb_claims', id), { status: 'denied' });
-        if (spell) tx.update(doc(db, 'gsb_spells', spell.id), { count: increment(1) });
+        tx.update(claimsRef, { [`${id}.status`]: 'denied' });
+        if (spell) tx.update(spellsRef, { [`${spell.id}.count`]: increment(1) });
       });
     }
 
     async function deleteClaim(id) {
-      await deleteDoc(doc(db, 'gsb_claims', id));
+      await updateDoc(claimsRef, { [id]: deleteField() });
     }
 
     // ── Spell search dropdown ──────────────────────────────────
@@ -564,7 +583,8 @@
       hideSuggestions();
       spellInput.value = '';
       spellInput.focus();
-      await addDoc(collection(db, 'gsb_spells'), { name, count: 1, createdAt: serverTimestamp() });
+      const id = crypto.randomUUID();
+      await updateDoc(spellsRef, { [id]: { name, count: 1, createdAt: Date.now() } });
     }
 
     // ── Claim Modal ────────────────────────────────────────────
@@ -609,18 +629,17 @@
       submitBtn.textContent = '…';
 
       const type     = document.getElementById('claim-type-select').value;
-      const spellRef = doc(db, 'gsb_spells', pendingClaimSpellId);
       const spellName = spells.find(s => s.id === pendingClaimSpellId)?.name ?? '';
+      const claimId  = crypto.randomUUID();
 
       try {
         await runTransaction(db, async tx => {
-          const snap = await tx.get(spellRef);
-          if (!snap.exists() || snap.data().count <= 0)
+          const snap = await tx.get(spellsRef);
+          const spellData = snap.exists() ? snap.data()[pendingClaimSpellId] : null;
+          if (!spellData || spellData.count <= 0)
             throw new Error('Spell no longer available.');
-          tx.update(spellRef, { count: increment(-1) });
-          tx.set(doc(collection(db, 'gsb_claims')), {
-            spellName, player, type, status: 'claimed', claimedAt: serverTimestamp(),
-          });
+          tx.update(spellsRef, { [`${pendingClaimSpellId}.count`]: increment(-1) });
+          tx.update(claimsRef, { [claimId]: { spellName, player, type, status: 'claimed', claimedAt: Date.now() } });
         });
         closeClaimModal();
       } catch (err) {
@@ -667,14 +686,16 @@
     document.getElementById('remove-all-spells-btn').addEventListener('click', async () => {
       if (!spells.length) return;
       if (!confirm(`Delete all ${spells.length} spell${spells.length !== 1 ? 's' : ''} from the bank? This cannot be undone.`)) return;
-      await Promise.all(spells.map(s => deleteDoc(doc(db, 'gsb_spells', s.id))));
+      await setDoc(spellsRef, {});
     });
 
     document.getElementById('remove-delivered-btn').addEventListener('click', async () => {
       const resolved = claims.filter(c => c.status === 'delivered' || c.status === 'denied');
       if (!resolved.length) return;
       if (!confirm(`Remove ${resolved.length} delivered/denied claim${resolved.length !== 1 ? 's' : ''}? This cannot be undone.`)) return;
-      await Promise.all(resolved.map(c => deleteDoc(doc(db, 'gsb_claims', c.id))));
+      const updates = {};
+      resolved.forEach(c => { updates[c.id] = deleteField(); });
+      await updateDoc(claimsRef, updates);
     });
 
     // ── Spell Unavailable Modal ────────────────────────────────
@@ -1269,6 +1290,7 @@
 
       const updatedClaims = [];
       try {
+        const updates = {};
         for (const { player, spellName } of selected) {
           const match = claims.find(c =>
             c.status === 'claimed' &&
@@ -1276,10 +1298,11 @@
             c.player.toLowerCase() === player.toLowerCase()
           );
           if (match) {
-            await updateDoc(doc(db, 'gsb_claims', match.id), { status: 'delivered' });
+            updates[`${match.id}.status`] = 'delivered';
             updatedClaims.push({ ...match, status: 'delivered' });
           }
         }
+        if (Object.keys(updates).length) await updateDoc(claimsRef, updates);
 
         closeLogReviewModal();
 
@@ -1317,16 +1340,19 @@
       submitBtn.textContent = '…';
 
       try {
+        const updates = {};
         for (const cb of checked) {
           const loc   = orderedLocations[parseInt(cb.dataset.li, 10)];
           const spell = locationMap[loc][parseInt(cb.dataset.si, 10)];
           const existing = spells.find(s => s.name === spell.name);
           if (existing) {
-            await updateDoc(doc(db, 'gsb_spells', existing.id), { count: existing.count + spell.count });
+            updates[`${existing.id}.count`] = increment(spell.count);
           } else {
-            await addDoc(collection(db, 'gsb_spells'), { name: spell.name, count: spell.count, createdAt: serverTimestamp() });
+            const id = crypto.randomUUID();
+            updates[id] = { name: spell.name, count: spell.count, createdAt: Date.now() };
           }
         }
+        await updateDoc(spellsRef, updates);
         closeInventoryModal();
       } catch (err) {
         console.error('Import failed:', err);
