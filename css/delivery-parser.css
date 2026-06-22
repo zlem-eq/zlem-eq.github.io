@@ -36,10 +36,12 @@
 }
 
 .delivery-table .col-check {
-  width: 2rem;
+  width: 2.75rem;
   text-align: center;
   padding-left: 0.75rem;
-  padding-right: 0;
+  padding-right: 0.5rem;
+  position: relative;
+  border-right: 1px solid var(--border);
 }
 
 .date-divider-row td {

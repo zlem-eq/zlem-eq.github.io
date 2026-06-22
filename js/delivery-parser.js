@@ -310,7 +310,11 @@
         else            checkedSet.delete(globalIdx);
         updateSummary();
       });
-      tdCb.appendChild(cb);
+      // Wrap in a label so the whole checkbox cell is a click target.
+      var checkZone = document.createElement('label');
+      checkZone.className = 'loot-check-zone';
+      checkZone.appendChild(cb);
+      tdCb.appendChild(checkZone);
 
       var tdType = document.createElement('td');
       tdType.className = 'col-type';

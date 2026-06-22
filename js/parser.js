@@ -714,7 +714,13 @@
     chevron.className = 'mob-chevron';
     chevron.textContent = '▶';
 
-    header.appendChild(cb);
+    // Wrap the checkbox in a label so the whole zone is a large click target,
+    // visually separated from the name by a divider.
+    const checkZone = document.createElement('label');
+    checkZone.className = 'mob-check-zone';
+    checkZone.appendChild(cb);
+
+    header.appendChild(checkZone);
     header.appendChild(nameEl);
     header.appendChild(sessionEl);
     header.appendChild(countEl);
@@ -722,7 +728,8 @@
 
     if (openMobs.has(key)) li.classList.add('open');
     header.addEventListener('click', function (e) {
-      if (e.target === cb) return;
+      // Clicks inside the checkbox zone toggle selection, not expand/collapse.
+      if (e.target.closest('.mob-check-zone')) return;
       li.classList.toggle('open');
       if (li.classList.contains('open')) openMobs.add(key);
       else openMobs.delete(key);
@@ -803,7 +810,11 @@
         }
         syncHeaderCb();
       });
-      tdCheck.appendChild(rowCb);
+      // Wrap in a label so the whole checkbox cell is a click target.
+      const checkZone = document.createElement('label');
+      checkZone.className = 'loot-check-zone';
+      checkZone.appendChild(rowCb);
+      tdCheck.appendChild(checkZone);
 
       const tdItem = document.createElement('td');
       tdItem.textContent = entry.item;
