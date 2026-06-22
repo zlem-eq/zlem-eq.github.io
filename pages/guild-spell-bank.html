@@ -68,8 +68,14 @@
     <!-- Right panel: Claimed / Delivered -->
     <div class="spell-panel">
       <div class="spell-panel-header">
-        <span>Claimed &amp; Delivered</span>
+        <div class="claims-tabs">
+          <button id="tab-claimed" class="claims-tab active" data-tab="claimed">Claimed</button>
+          <button id="tab-delivered" class="claims-tab" data-tab="delivered">Delivered</button>
+        </div>
         <button id="remove-delivered-btn" class="panel-danger-btn" style="display:none;">Remove All Delivered</button>
+        <select id="claims-player-filter" class="class-filter-select">
+          <option value="">All Players</option>
+        </select>
       </div>
       <div id="claims-action-row" class="claims-action-row" style="display:none;">
         <button id="delivery-list-btn" class="panel-action-btn">Generate Delivery List</button>
@@ -288,6 +294,8 @@
     let logEntries   = [];        // entries from last parsed log file
     let logCheckedSet = new Set(); // indices of checked entries
     let mode        = 'claim';
+    let claimsTab    = 'claimed';   // 'claimed' | 'delivered'
+    let playerFilter = '';          // selected player name in claims tabs
     let classFilter = '';
     let pendingClaimSpellId = null;
 
@@ -372,6 +380,19 @@
       });
     }
 
+    // Populate the player filter dropdown from the current tab's claims.
+    function renderPlayerFilter(tabClaims) {
+      const sel = document.getElementById('claims-player-filter');
+      const players = [...new Set(tabClaims.map(c => c.player))]
+        .sort((a, b) => a.localeCompare(b));
+
+      // Drop the current selection if that player is no longer present.
+      if (playerFilter && !players.includes(playerFilter)) playerFilter = '';
+
+      sel.innerHTML = '<option value="">All Players</option>' +
+        players.map(p => `<option value="${escHtml(p)}"${p === playerFilter ? ' selected' : ''}>${escHtml(p)}</option>`).join('');
+    }
+
     // ── Render: Claims ─────────────────────────────────────────
     function renderClaims() {
       const list = document.getElementById('claims-list');
@@ -380,12 +401,25 @@
         ? `<div class="claim-col-header mgr"><span>Spell</span><span>Player</span><span>Type</span><span>Status</span><span></span><span></span><span></span></div>`
         : `<div class="claim-col-header"><span>Spell</span><span>Player</span><span>Type</span><span>Status</span></div>`;
 
-      if (claims.length === 0) {
-        list.innerHTML = claimHeader + '<div class="spell-empty">No claims yet.</div>';
+      const tabClaims = claimsTab === 'delivered'
+        ? claims.filter(c => c.status === 'delivered' || c.status === 'denied')
+        : claims.filter(c => c.status === 'claimed');
+
+      renderPlayerFilter(tabClaims);
+
+      const visibleClaims = playerFilter
+        ? tabClaims.filter(c => c.player === playerFilter)
+        : tabClaims;
+
+      if (visibleClaims.length === 0) {
+        const emptyMsg = playerFilter
+          ? `No ${claimsTab === 'delivered' ? 'delivered or denied' : 'claimed'} spells for ${escHtml(playerFilter)}.`
+          : claimsTab === 'delivered' ? 'No delivered or denied spells.' : 'No claimed spells.';
+        list.innerHTML = claimHeader + `<div class="spell-empty">${emptyMsg}</div>`;
         return;
       }
 
-      list.innerHTML = claimHeader + claims.map(claim => {
+      list.innerHTML = claimHeader + visibleClaims.map(claim => {
         const statusClass = claim.status === 'delivered' ? 'delivered' : claim.status === 'denied' ? 'denied' : 'claimed';
         const statusLabel = claim.status === 'delivered' ? 'Delivered' : claim.status === 'denied' ? 'Denied' : 'Claimed';
         const typeLabel   = claim.type === 'raid alt' ? 'Raid Alt'
@@ -421,6 +455,29 @@
     }
 
     function render() { renderAvailable(); renderClaims(); }
+
+    // Only managers, and only on the Delivered tab, can remove delivered claims.
+    function updateRemoveDeliveredBtn() {
+      document.getElementById('remove-delivered-btn').style.display =
+        (mode === 'manager' && claimsTab === 'delivered') ? '' : 'none';
+    }
+
+    // ── Claims tabs ────────────────────────────────────────────
+    document.querySelectorAll('.claims-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        claimsTab = tab.dataset.tab;
+        playerFilter = '';   // reset filter; dropdown repopulates for the new tab
+        document.querySelectorAll('.claims-tab').forEach(t =>
+          t.classList.toggle('active', t === tab));
+        updateRemoveDeliveredBtn();
+        renderClaims();
+      });
+    });
+
+    document.getElementById('claims-player-filter').addEventListener('change', e => {
+      playerFilter = e.target.value;
+      renderClaims();
+    });
 
     // ── Firestore: spells ──────────────────────────────────────
     onSnapshot(
@@ -677,7 +734,7 @@
         document.getElementById('add-spell-row').style.display = 'none';
       }
       document.getElementById('remove-all-spells-btn').style.display = isMgr ? '' : 'none';
-      document.getElementById('remove-delivered-btn').style.display  = isMgr ? '' : 'none';
+      updateRemoveDeliveredBtn();
       document.getElementById('claims-action-row').style.display     = isMgr ? '' : 'none';
 
       render();

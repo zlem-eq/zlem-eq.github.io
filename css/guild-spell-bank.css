@@ -54,6 +54,47 @@
 
 .spell-panel-header > span:first-child { flex: 1; }
 
+/* ── Claims tabs ────────────────────────────────────────────── */
+.claims-tabs {
+  flex: 1;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-end;
+  gap: 0.3rem;
+  /* Cancel the header's vertical padding so tabs reach its edges */
+  margin: -0.6rem 0 -0.6rem;
+}
+
+.claims-tab {
+  position: relative;
+  min-width: 7rem;
+  /* Pull down 1px so the active tab can overlap the header's bottom border */
+  margin-bottom: -1px;
+  padding: 0.45rem 1.4rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  /* Folder-tab shape: rounded top corners only */
+  border-radius: 8px 8px 0 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.claims-tab:hover { color: var(--text); }
+
+.claims-tab.active {
+  /* Match the panel body so the tab reads as connected to the content below */
+  background: var(--surface);
+  border-color: var(--border);
+  /* Open the bottom edge so it merges into the content area */
+  border-bottom-color: var(--surface);
+  color: var(--accent, #5b8fe8);
+  z-index: 1;
+}
+
 .panel-danger-btn {
   padding: 0.2rem 0.6rem;
   background: none;
