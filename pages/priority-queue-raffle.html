@@ -224,6 +224,23 @@
     .entrant-tile.is-winner { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
     .entrant-num { font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; }
     .entrant-name { font-size: 0.82rem; font-weight: 500; color: var(--text); text-align: center; word-break: break-word; }
+    .entrant-tile { position: relative; }
+    .entrant-delete {
+      position: absolute;
+      top: 0.25rem;
+      right: 0.25rem;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1;
+      padding: 0.15rem;
+      cursor: pointer;
+      border-radius: 0.3rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .entrant-delete:hover { background: color-mix(in srgb, #e55 18%, transparent); color: #e55; }
+    .entrant-delete:disabled { opacity: 0.4; cursor: default; }
     .entrants-empty { text-align: center; padding: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem; }
 
     /* ── Countdown ───────────────────────────────────────────── */
@@ -354,7 +371,7 @@
     <div class="countdown-section">
       <!-- Winner display -->
       <div class="winner-display" id="winner-display" style="display:none;">
-        <div class="winner-label">This Week&rsquo;s Winner</div>
+        <div class="winner-label">This Week&rsquo;s Winner(s)</div>
         <div class="winner-name" id="winner-name-display"></div>
       </div>
 
@@ -382,9 +399,9 @@
       </div>
       <div class="manage-controls">
         <div class="manage-field">
-          <label for="winner-num-input">Set Winning Raffle Number</label>
+          <label for="winner-num-input">Set Winning Raffle Number(s)</label>
           <div class="manage-input-row">
-            <input type="number" id="winner-num-input" min="1" placeholder="#" />
+            <input type="text" id="winner-num-input" inputmode="numeric" placeholder="e.g. 3, 7, 12" style="width:auto;flex:1;text-align:left;" />
             <button class="btn-set-winner" id="set-winner-btn">Set Winner</button>
           </div>
           <div class="manage-set-error" id="manage-set-error"></div>
@@ -502,7 +519,7 @@
     // ── State ──────────────────────────────────────────────────
     let entrants    = [];
     let drawingAt   = null;   // Date | null
-    let winnerName  = null;   // string | null
+    let winnerNames = [];     // string[]
     let isManage    = false;
 
     // ── Crypto util ────────────────────────────────────────────
@@ -548,7 +565,15 @@
 
     // ── Winner listener ────────────────────────────────────────
     onSnapshot(winnerRef, snap => {
-      winnerName = snap.exists() ? (snap.data().name || null) : null;
+      if (snap.exists()) {
+        const d = snap.data();
+        // Support new multi-winner `names` array and the legacy single `name` field.
+        winnerNames = Array.isArray(d.names) ? d.names.filter(Boolean)
+                    : d.name ? [d.name]
+                    : [];
+      } else {
+        winnerNames = [];
+      }
       renderWinner();
       renderGrid();
     });
@@ -568,20 +593,31 @@
       }
 
       grid.innerHTML = entrants.map(e => {
-        const isWinner = winnerName && e.name.toLowerCase() === winnerName.toLowerCase();
+        const isWinner = winnerNames.some(w => w.toLowerCase() === e.name.toLowerCase());
+        const delBtn = isManage
+          ? `<button class="entrant-delete" data-number="${e.number}" title="Remove entry" aria-label="Remove ${escHtml(e.name)}">&#128465;&#65039;</button>`
+          : '';
         return `<div class="entrant-tile${isWinner ? ' is-winner' : ''}">
+          ${delBtn}
           <span class="entrant-num">#${e.number}</span>
           <span class="entrant-name">${escHtml(e.name)}</span>
         </div>`;
       }).join('');
+
+      if (isManage) {
+        grid.querySelectorAll('.entrant-delete').forEach(btn => {
+          btn.addEventListener('click', () => deleteEntry(Number(btn.dataset.number), btn));
+        });
+      }
     }
 
     // ── Render: winner display ─────────────────────────────────
     function renderWinner() {
       const el   = document.getElementById('winner-display');
       const name = document.getElementById('winner-name-display');
-      if (winnerName) {
-        name.innerHTML = `&#127881; ${escHtml(winnerName)} &#127880;`;
+      if (winnerNames.length) {
+        const joined = winnerNames.map(escHtml).join(' &ndash; ');
+        name.innerHTML = `&#127881; ${joined} &#127880;`;
         el.style.display = '';
       } else {
         el.style.display = 'none';
@@ -595,6 +631,7 @@
       document.getElementById('public-rules').style.display  = 'none';
       document.getElementById('manage-panel').style.display  = '';
       document.getElementById('manage-btn').textContent = '✓ Manage Mode';
+      renderGrid();
     }
 
     function exitManageMode() {
@@ -605,6 +642,7 @@
       document.getElementById('manage-btn').textContent = '⚙️ Manage Raffle';
       document.getElementById('winner-num-input').value = '';
       document.getElementById('manage-set-error').textContent = '';
+      renderGrid();
     }
 
     document.getElementById('logout-btn').addEventListener('click', exitManageMode);
@@ -678,30 +716,49 @@
       const input  = document.getElementById('winner-num-input');
       const errEl  = document.getElementById('manage-set-error');
       const btn    = document.getElementById('set-winner-btn');
-      const num    = parseInt(input.value, 10);
 
       errEl.textContent = '';
       input.classList.remove('input-error');
 
-      if (!num || num < 1) {
+      // Parse a comma-separated list of raffle numbers (dedup, preserve order).
+      const tokens = input.value.split(',').map(t => t.trim()).filter(t => t !== '');
+      if (tokens.length === 0) {
         input.classList.add('input-error');
-        errEl.textContent = 'Enter a valid raffle number.';
+        errEl.textContent = 'Enter one or more raffle numbers, separated by commas.';
         input.focus();
         return;
       }
 
-      const entrant = entrants.find(e => e.number === num);
-      if (!entrant) {
+      const nums = [];
+      for (const tok of tokens) {
+        if (!/^\d+$/.test(tok) || parseInt(tok, 10) < 1) {
+          input.classList.add('input-error');
+          errEl.textContent = `"${tok}" is not a valid raffle number.`;
+          input.focus();
+          return;
+        }
+        const n = parseInt(tok, 10);
+        if (!nums.includes(n)) nums.push(n);
+      }
+
+      const missing = nums.filter(n => !entrants.some(e => e.number === n));
+      if (missing.length) {
         input.classList.add('input-error');
-        errEl.textContent = `No entrant found with raffle number #${num}.`;
+        errEl.textContent = `No entrant found with raffle number${missing.length > 1 ? 's' : ''} #${missing.join(', #')}.`;
         input.focus();
         return;
       }
+
+      const winners = nums.map(n => entrants.find(e => e.number === n));
 
       btn.disabled = true;
       btn.textContent = '…';
       try {
-        await setDoc(winnerRef, { name: entrant.name, number: entrant.number, setAt: serverTimestamp() });
+        await setDoc(winnerRef, {
+          names: winners.map(w => w.name),
+          numbers: winners.map(w => w.number),
+          setAt: serverTimestamp(),
+        });
         input.value = '';
       } catch (err) {
         console.error('Set winner error:', err);
@@ -792,6 +849,28 @@
         btn.disabled = false;
       }
     });
+
+    // ── Manage: delete a single entry ──────────────────────────
+    async function deleteEntry(number, btn) {
+      const entry = entrants.find(e => e.number === number);
+      if (!entry) return;
+      if (!confirm(`Remove entry #${number} (${entry.name})? This cannot be undone.`)) return;
+      if (btn) btn.disabled = true;
+      try {
+        await runTransaction(db, async tx => {
+          const snap = await tx.get(entriesRef);
+          const existing = snap.exists() ? (snap.data().entries || []) : [];
+          tx.set(entriesRef, { entries: existing.filter(e => e.number !== number) });
+        });
+        // onSnapshot will refresh the grid; update local state optimistically too.
+        entrants = entrants.filter(e => e.number !== number);
+        renderGrid();
+      } catch (err) {
+        console.error('Delete entry error:', err);
+        alert('Failed to remove entry: ' + (err.message || 'Unknown error'));
+        if (btn) btn.disabled = false;
+      }
+    }
 
     // ── Manage: set new password ───────────────────────────────
     document.getElementById('set-pw-btn').addEventListener('click', async () => {
