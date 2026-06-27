@@ -1397,16 +1397,22 @@
       submitBtn.textContent = '…';
 
       try {
-        const updates = {};
+        // Combine multiple selected entries of the same spell into a single total
+        const totals = new Map();
         for (const cb of checked) {
           const loc   = orderedLocations[parseInt(cb.dataset.li, 10)];
           const spell = locationMap[loc][parseInt(cb.dataset.si, 10)];
-          const existing = spells.find(s => s.name === spell.name);
+          totals.set(spell.name, (totals.get(spell.name) || 0) + spell.count);
+        }
+
+        const updates = {};
+        for (const [name, count] of totals) {
+          const existing = spells.find(s => s.name === name);
           if (existing) {
-            updates[`${existing.id}.count`] = increment(spell.count);
+            updates[`${existing.id}.count`] = increment(count);
           } else {
             const id = crypto.randomUUID();
-            updates[id] = { name: spell.name, count: spell.count, createdAt: Date.now() };
+            updates[id] = { name, count, createdAt: Date.now() };
           }
         }
         await updateDoc(spellsRef, updates);
