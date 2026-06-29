@@ -685,9 +685,13 @@
       });
     }
 
-    async function openOfficersModal() {
+    async function loadOfficers() {
       const snap = await getDocs(query(collection(db, 'officers'), orderBy('name')));
       allOfficers = snap.docs.map(d => ({ id: d.id, name: d.data().name }));
+    }
+
+    async function openOfficersModal() {
+      await loadOfficers();
       buildOfficersModal();
       document.getElementById('officers-modal').style.display = 'flex';
     }
@@ -731,7 +735,9 @@
       }
     );
 
-    // makers and officers are fetched on-demand when their modals open
+    // makers are fetched on-demand when their modal opens;
+    // officers are loaded up front so the order officer checkbox can verify names immediately
+    loadOfficers();
 
     // ── New Order modal ────────────────────────────────────────
     const orderCounts = {};
