@@ -2,6 +2,7 @@
   const uploadZone          = document.getElementById('upload-zone');
   const processingOverlay   = document.getElementById('processing-overlay');
   const fileInput           = document.getElementById('file-input');
+  const fullScanToggle      = document.getElementById('full-scan-toggle');
   const splitFileInput      = document.getElementById('split-file-input');
   const resultsSection      = document.getElementById('results-section');
   const emptyState          = document.getElementById('empty-state');
@@ -243,6 +244,7 @@
   function processFiles(fileList) {
     const files = Array.from(fileList);
     const playerName = extractPlayerName(files[0].name);
+    const tailDays = fullScanToggle.checked ? null : 7;
 
     uploadZone.classList.add('hidden');
     resultsSection.classList.add('hidden');
@@ -307,7 +309,7 @@
         console.error('Parse worker error:', err);
       };
 
-      worker.postMessage({ file: file, playerName: pn });
+      worker.postMessage({ file: file, playerName: pn, tailDays: tailDays });
     });
   }
 
