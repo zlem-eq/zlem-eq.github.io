@@ -1,16 +1,47 @@
 // Web Worker — extracts loot entries from an EverQuest log file.
-// Receives:  { file: File, playerName: string, tailDays: number|null }
+// Receives:  { file: File, handle: FileSystemFileHandle|null, playerName: string, tailDays: number|null }
 //              tailDays > 0  → read only the tail of the file back `tailDays` days
 //              tailDays falsy → read the entire file front-to-back
+//              handle         → optional; lets us re-open the file if it changes mid-read
 // Posts:     { type: 'progress', pct: 0-100 }  (periodic)
 //            { type: 'done',     entries: Array }
+//            { type: 'error',    name: string, message: string }
 
 var LOOT_RE = /^(?:--)?(.+?) (?:has|have) looted (\d+ )?(.+?) from (.+?)'s corpse\.(?:--)?$/;
 var LINE_RE  = /^\[(\w{3} \w{3} \d{1,2} \d{2}:\d{2}:\d{2} \d{4})\] (.+)$/;
 var MONTHS   = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
 
-var TAIL_CHUNK = 4 * 1024 * 1024; // 4 MB per backward read
-var MS_PER_DAY = 24 * 60 * 60 * 1000;
+var TAIL_CHUNK    = 4 * 1024 * 1024; // 4 MB per backward read
+var MS_PER_DAY    = 24 * 60 * 60 * 1000;
+var MAX_ATTEMPTS  = 6;   // read attempts before giving up on a changing file
+var RETRY_DELAY   = 150; // ms to let the writer settle before re-reading
+
+function sleep(ms) {
+  return new Promise(function (resolve) { setTimeout(resolve, ms); });
+}
+
+// EverQuest keeps the log open and appends to it, so the File snapshot handed to
+// this worker can go stale (size/lastModified drift), causing reads to throw
+// NotReadableError. When a FileSystemFileHandle is available we can call getFile()
+// to obtain a fresh snapshot and retry; the log is append-only, so byte offsets
+// stay valid and re-reading the same range yields the same bytes (no duplicates).
+function isTransientReadError(err) {
+  return err && (err.name === 'NotReadableError' || err.name === 'NotFoundError');
+}
+
+async function readSliceText(ctx, start, end) {
+  for (var attempt = 1; ; attempt++) {
+    try {
+      return await ctx.file.slice(start, end).text();
+    } catch (err) {
+      if (!isTransientReadError(err) || attempt >= MAX_ATTEMPTS) throw err;
+      await sleep(RETRY_DELAY);
+      if (ctx.handle) {
+        try { ctx.file = await ctx.handle.getFile(); } catch (e) { /* keep old snapshot */ }
+      }
+    }
+  }
+}
 
 function parseEQDate(raw) {
   var p = raw.split(' ');
@@ -48,27 +79,19 @@ function parseLootLine(line, playerName) {
   return buildEntry(lineMatch, lootMatch, playerName, parseEQDate(lineMatch[1]));
 }
 
-// Full scan — stream the whole file line-by-line so large files don't exhaust memory.
-async function parseFull(file, playerName) {
+// Full scan — read the whole file in forward chunks. Fixed byte offsets mean a
+// stale snapshot can be refreshed and the read resumed without re-reading data.
+async function parseFull(ctx, playerName) {
+  var fileSize  = ctx.file.size;
   var entries   = [];
-  var fileSize  = file.size;
-  var bytesRead = 0;
   var remainder = '';
+  var offset    = 0;
   var lastPct   = 0;
 
-  var reader = file.stream().pipeThrough(new TextDecoderStream()).getReader();
-
-  while (true) {
-    var chunk = await reader.read();
-    if (chunk.done) break;
-
-    var text = chunk.value;
-    bytesRead += (new TextEncoder().encode(text)).length;
-    var pct = Math.min(99, Math.round(bytesRead / fileSize * 100));
-    if (pct !== lastPct) {
-      self.postMessage({ type: 'progress', pct: pct });
-      lastPct = pct;
-    }
+  while (offset < fileSize) {
+    var end  = Math.min(fileSize, offset + TAIL_CHUNK);
+    var text = await readSliceText(ctx, offset, end);
+    offset   = end;
 
     var combined = remainder + text;
     var lines    = combined.split(/\r?\n/);
@@ -78,6 +101,12 @@ async function parseFull(file, playerName) {
       var entry = parseLootLine(lines[i], playerName);
       if (entry) entries.push(entry);
     }
+
+    var pct = Math.min(99, Math.round(offset / fileSize * 100));
+    if (pct !== lastPct) {
+      self.postMessage({ type: 'progress', pct: pct });
+      lastPct = pct;
+    }
   }
 
   if (remainder) {
@@ -85,15 +114,15 @@ async function parseFull(file, playerName) {
     if (last) entries.push(last);
   }
 
-  self.postMessage({ type: 'done', entries: entries });
+  return entries;
 }
 
 // Tail scan — read fixed-size chunks backward from EOF, stopping once a chunk
 // reaches past the cutoff. EQ logs are append-only and chronological, so once a
 // line older than the cutoff is seen, everything before it is older too.
-async function parseTail(file, playerName, tailDays) {
+async function parseTail(ctx, playerName, tailDays) {
   var cutoff   = Date.now() - tailDays * MS_PER_DAY;
-  var fileSize = file.size;
+  var fileSize = ctx.file.size;
   var entries  = [];
   var carry    = ''; // partial first line of the previously-read (newer) chunk
   var chunkEnd = fileSize;
@@ -103,7 +132,7 @@ async function parseTail(file, playerName, tailDays) {
     var chunkStart = Math.max(0, chunkEnd - TAIL_CHUNK);
     // Reattach the fragment from the newer chunk to the end of this chunk's text,
     // reconstructing the line that straddled the byte boundary.
-    var text  = (await file.slice(chunkStart, chunkEnd).text()) + carry;
+    var text  = (await readSliceText(ctx, chunkStart, chunkEnd)) + carry;
     var lines = text.split(/\r?\n/);
 
     // The first line is partial whenever there is older data still to read.
@@ -127,17 +156,24 @@ async function parseTail(file, playerName, tailDays) {
     chunkEnd = chunkStart;
   }
 
-  self.postMessage({ type: 'done', entries: entries });
+  return entries;
 }
 
 self.onmessage = async function (e) {
-  var file       = e.data.file;
+  var ctx        = { file: e.data.file, handle: e.data.handle || null };
   var playerName = e.data.playerName;
   var tailDays   = e.data.tailDays;
 
-  if (tailDays) {
-    await parseTail(file, playerName, tailDays);
-  } else {
-    await parseFull(file, playerName);
+  try {
+    var entries = tailDays
+      ? await parseTail(ctx, playerName, tailDays)
+      : await parseFull(ctx, playerName);
+    self.postMessage({ type: 'done', entries: entries });
+  } catch (err) {
+    self.postMessage({
+      type: 'error',
+      name: (err && err.name) || 'Error',
+      message: (err && err.message) || String(err)
+    });
   }
 };

@@ -45,15 +45,58 @@
   let excludedItems = new Set(); // normalised item names excluded by user
   let uncheckedLoot = new Map(); // mobKey → Set<"item\x00looter"> of unchecked rows
 
+  // ── File selection ───────────────────────────────────────────────────────────
+  // Prefer the File System Access API when available: its handles let the worker
+  // re-open the file if EverQuest appends to it mid-read (see parse-worker.js).
+  const SUPPORTS_FS_ACCESS = typeof window.showOpenFilePicker === 'function';
+
+  // Wrap a plain File (no handle) as the { file, handle } shape the worker expects.
+  function itemsFromFiles(fileList) {
+    return Array.from(fileList).map(function (f) { return { file: f, handle: null }; });
+  }
+
+  async function pickFilesViaApi(multiple) {
+    const handles = await window.showOpenFilePicker({
+      multiple: !!multiple,
+      types: [{ description: 'EverQuest log', accept: { 'text/plain': ['.txt'] } }]
+    });
+    return Promise.all(handles.map(async function (h) {
+      return { file: await h.getFile(), handle: h };
+    }));
+  }
+
+  // Extract { file, handle } items from a drop, capturing FileSystemFileHandles when
+  // the browser supports them. getAsFileSystemHandle()/getAsFile() must be called
+  // synchronously while the DataTransfer is still alive, so gather them up front.
+  async function itemsFromDataTransfer(dt) {
+    const canHandle = SUPPORTS_FS_ACCESS && dt.items && dt.items.length &&
+      typeof dt.items[0].getAsFileSystemHandle === 'function';
+    if (!canHandle) return itemsFromFiles(dt.files);
+
+    const pending = [];
+    for (let i = 0; i < dt.items.length; i++) {
+      const it = dt.items[i];
+      if (it.kind === 'file') pending.push({ handleP: it.getAsFileSystemHandle(), file: it.getAsFile() });
+    }
+    const items = [];
+    for (let k = 0; k < pending.length; k++) {
+      let handle = null;
+      try { handle = await pending[k].handleP; } catch (e) { handle = null; }
+      if (handle && handle.kind === 'file') items.push({ file: await handle.getFile(), handle: handle });
+      else if (pending[k].file) items.push({ file: pending[k].file, handle: null });
+    }
+    return items;
+  }
+
   // ── Drag-and-drop ──────────────────────────────────────────────────────────
   document.addEventListener('dragover', function (e) { e.preventDefault(); });
   document.addEventListener('drop', function (e) {
     e.preventDefault();
     uploadZone.classList.remove('drag-over');
-    const files = e.dataTransfer.files;
-    if (files.length > 0 && !uploadZone.classList.contains('hidden')) {
-      processFiles(files);
-    }
+    if (uploadZone.classList.contains('hidden')) return;
+    itemsFromDataTransfer(e.dataTransfer).then(function (items) {
+      if (items.length > 0) processItems(items);
+    });
   });
 
   uploadZone.addEventListener('dragover', function (e) {
@@ -64,17 +107,37 @@
     uploadZone.classList.remove('drag-over');
   });
 
+  // When the File System Access API is available, intercept the click on the hidden
+  // <input> overlay and use the picker instead so we obtain a refreshable handle.
+  fileInput.addEventListener('click', function (e) {
+    if (!SUPPORTS_FS_ACCESS) return;
+    e.preventDefault();
+    pickFilesViaApi(true).then(function (items) {
+      if (items && items.length) processItems(items);
+    }).catch(function (err) {
+      if (err && err.name !== 'AbortError') console.error('File picker error:', err);
+    });
+  });
+
   fileInput.addEventListener('change', function () {
-    if (fileInput.files.length > 0) processFiles(fileInput.files);
+    if (fileInput.files.length > 0) processItems(itemsFromFiles(fileInput.files));
   });
 
   splitFileInput.addEventListener('change', function () {
-    if (splitFileInput.files[0]) addSplitFile(splitFileInput.files[0]);
+    if (splitFileInput.files[0]) addSplitFile(splitFileInput.files[0], null);
     splitFileInput.value = '';
   });
 
   addSplitBtn.addEventListener('click', function () {
-    splitFileInput.click();
+    if (SUPPORTS_FS_ACCESS) {
+      pickFilesViaApi(false).then(function (items) {
+        if (items && items[0]) addSplitFile(items[0].file, items[0].handle);
+      }).catch(function (err) {
+        if (err && err.name !== 'AbortError') console.error('File picker error:', err);
+      });
+    } else {
+      splitFileInput.click();
+    }
   });
 
   expandAllBtn.addEventListener('click', function () {
@@ -241,8 +304,8 @@
     return m ? m[1] : 'You';
   }
 
-  function processFiles(fileList) {
-    const files = Array.from(fileList);
+  function processItems(items) {
+    const files = items.map(function (it) { return it.file; });
     const playerName = extractPlayerName(files[0].name);
     const tailDays = fullScanToggle.checked ? null : 7;
 
@@ -267,7 +330,8 @@
     var results = new Array(files.length); // preserve file order
     var remaining = files.length;
 
-    files.forEach(function (file, idx) {
+    items.forEach(function (item, idx) {
+      const file = item.file;
       const worker = new Worker('../js/parse-worker.js');
       activeWorkers.push(worker);
       const pn = extractPlayerName(file.name);
@@ -279,6 +343,7 @@
           }
           return;
         }
+        if (e.data.type === 'error') { handleParseError(e.data); return; }
         results[idx] = e.data.entries.map(function (entry) {
           entry.date = new Date(entry.date); return entry;
         });
@@ -304,17 +369,32 @@
       };
 
       worker.onerror = function (err) {
-        processingOverlay.classList.add('hidden');
-        uploadZone.classList.remove('hidden');
+        handleParseError({ name: 'Error', message: (err && err.message) || 'Worker error' });
         console.error('Parse worker error:', err);
       };
 
-      worker.postMessage({ file: file, playerName: pn, tailDays: tailDays });
+      worker.postMessage({ file: file, handle: item.handle, playerName: pn, tailDays: tailDays });
     });
   }
 
+  // Abort the in-progress load and tell the user what to do. NotReadableError almost
+  // always means EverQuest changed the log mid-read.
+  function handleParseError(info) {
+    activeWorkers.forEach(function (w) { w.terminate(); });
+    activeWorkers = [];
+    processingOverlay.classList.add('hidden');
+    uploadZone.classList.remove('hidden');
+    if (info && info.name === 'NotReadableError') {
+      alert('Could not read the log file because it changed while loading — EverQuest is still writing to it.\n\n' +
+            'Please try selecting the file again' +
+            (SUPPORTS_FS_ACCESS ? '.' : ', or type /log off in-game (or close EverQuest) first.'));
+    } else {
+      alert('Failed to parse the log file: ' + ((info && info.message) || 'unknown error'));
+    }
+  }
+
   // ── Add split log file ─────────────────────────────────────────────────────
-  function addSplitFile(file) {
+  function addSplitFile(file, handle) {
     const playerName = extractPlayerName(file.name);
     processingLabel.textContent = 'Parsing split log…';
     resultsSection.classList.add('hidden');
@@ -322,11 +402,20 @@
 
     const splitWorker = new Worker('../js/parse-worker.js');
 
+    function failSplit(info) {
+      processingOverlay.classList.add('hidden');
+      resultsSection.classList.remove('hidden');
+      if (info && info.name === 'NotReadableError') {
+        alert('Could not read the split log because it changed while loading — EverQuest is still writing to it. Please try again.');
+      }
+    }
+
     splitWorker.onmessage = function (e) {
       if (e.data.type === 'progress') {
         processingLabel.textContent = 'Parsing split log… ' + e.data.pct + '%';
         return;
       }
+      if (e.data.type === 'error') { failSplit(e.data); console.error('Split parse failed:', e.data.message); return; }
       const entries = e.data.entries.map(function (entry) {
         entry.date = new Date(entry.date); return entry;
       });
@@ -337,12 +426,12 @@
     };
 
     splitWorker.onerror = function (err) {
-      processingOverlay.classList.add('hidden');
-      resultsSection.classList.remove('hidden');
+      failSplit({ name: 'Error', message: (err && err.message) || 'Worker error' });
       console.error('Split-log worker error:', err);
     };
 
-    splitWorker.postMessage({ file: file, playerName: playerName });
+    // Split logs are read in full (they're small extracted snippets, not live logs).
+    splitWorker.postMessage({ file: file, handle: handle || null, playerName: playerName, tailDays: null });
   }
 
   function recomputeLatestDate() {
