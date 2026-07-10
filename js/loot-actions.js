@@ -723,7 +723,9 @@
 
     if (deliverers.length > 0) {
       deliverers.forEach(function (deliverer) {
-        var items = byDeliverer[deliverer];
+        var items = byDeliverer[deliverer].slice().sort(function (a, b) {
+          return a.entry.winner.toLowerCase().localeCompare(b.entry.winner.toLowerCase());
+        });
         var label = items.length === 1 ? '1 delivery' : items.length + ' deliveries';
         matchedLines.push('**' + discordEscape(deliverer) + '** — ' + label);
         items.forEach(function (m) {
