@@ -32,7 +32,8 @@
     "Mazrien", "Nir`Tan", "Quellod Earthspirit", "Vukuz",
     "Vyldin Flamereaver", "Wel`Wnas", "Yrrindor Emerald Claw", "Zyerek Onyxblood",
     "Casalen", "Essedera", "Grozzmel", "Krigara",
-    "Lepethida", "Midayor", "Tavekalem", "Ymmeln", "Aaryonar"
+    "Lepethida", "Midayor", "Tavekalem", "Ymmeln", "Aaryonar",
+    "Hoshkar", "Silverwing", "Nexona ","Druushk", "Xygoz", "Phara Dar"
   ];
 
 
