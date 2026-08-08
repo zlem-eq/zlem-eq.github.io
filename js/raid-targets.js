@@ -33,7 +33,18 @@
     "Vyldin Flamereaver", "Wel`Wnas", "Yrrindor Emerald Claw", "Zyerek Onyxblood",
     "Casalen", "Essedera", "Grozzmel", "Krigara",
     "Lepethida", "Midayor", "Tavekalem", "Ymmeln", "Aaryonar",
-    "Hoshkar", "Silverwing", "Nexona ","Druushk", "Xygoz", "Phara Dar"
+    "Hoshkar", "Silverwing", "Nexona ","Druushk", "Xygoz", "Phara Dar",
+    "Va Xi Aten Ha Ra","Aten Ha Ra","Diabo Xi Xin Thall","Diabo Xi Va Temariel",
+    "Blood of Ssraeshza","Vyzh`Dra the Exiled","a burrower parasite",
+    "Thall Xundraux Diabo","Kaas Thox Xi Aten ha Ra","Thall Va Xakra",
+    "Thall Va Kelun","Kaas Thox Xi Ans Dyek","Diabo Xi Va","Diabo Xi Xin",
+    "An Evolved Burrower","The Va`Dyn","Servitor of Luclin","Lcea Katta",
+    "a glyph covered serpent","Rhag`Zhezum","Rhag`Mozdezh",
+    "Thought Horror Overfiend","Sheleric Vis","General Jared Blaystich",
+    "Praetorian Myral","Nathyn Illuminious","Praesertum Bikun",
+    "Praesertum Matpa","Praesertum Rhugol","Praesertum Vantorus",
+    "Spirit of Radir","Spirit of Tawro","Zelnithak","Netherbian Swarmlord",
+    "a spiritual arcanist","Warder of Life","Warder of Death"
   ];
 
 
