@@ -255,8 +255,9 @@
     fetch('https://api.opendkp.com/clients/' + getOpenDkpClient() + '/raids?count=20')
       .then(function (res) { return res.json(); })
       .then(function (data) {
+        var raids = Array.isArray(data) ? data : (data.Raids || data.raids);
+        if (!Array.isArray(raids)) throw new Error('Unexpected raids response shape.');
         openDkpRaidsLoaded = true;
-        var raids = Array.isArray(data) ? data : (data.raids || []);
         openDkpRaidSelect.innerHTML = '<option value="">— Select a raid —</option>';
         raids.forEach(function (raid) {
           var opt = document.createElement('option');
@@ -500,8 +501,9 @@
     fetch('https://api.opendkp.com/clients/' + getOpenDkpClient() + '/raids?count=20')
       .then(function (res) { return res.json(); })
       .then(function (data) {
+        var raids = Array.isArray(data) ? data : (data.Raids || data.raids);
+        if (!Array.isArray(raids)) throw new Error('Unexpected raids response shape.');
         raidsLoaded = true;
-        var raids = Array.isArray(data) ? data : (data.raids || []);
         deliveryRaidRefresh.disabled = false;
         deliveryRaidRefresh.textContent = '↻';
         deliveryRaidSelect.innerHTML = '<option value="">— Select a raid (optional) —</option>';
