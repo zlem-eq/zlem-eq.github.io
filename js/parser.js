@@ -479,7 +479,7 @@
     if (hideSpellsFilter.checked) {
       primaryFiltered = primaryFiltered.filter(function (e) {
         return !e.item.startsWith('Spell: ') && !e.item.startsWith('Song: ') &&
-               !e.item.startsWith('Tome of ') && !e.item.startsWith('Ancient: ');
+                !e.item.startsWith('Ancient: ');
       });
     }
     var totalBeforeTargetFilter = primaryFiltered.length;
