@@ -478,8 +478,7 @@
     }
     if (hideSpellsFilter.checked) {
       primaryFiltered = primaryFiltered.filter(function (e) {
-        return !e.item.startsWith('Spell: ') && !e.item.startsWith('Song: ') &&
-                !e.item.startsWith('Ancient: ');
+        return !e.item.startsWith('Spell: ') && !e.item.startsWith('Song: ') && !e.item.startsWith('Ancient: ');
       });
     }
     var totalBeforeTargetFilter = primaryFiltered.length;
