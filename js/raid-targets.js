@@ -14,7 +14,7 @@
     "Manaetic Behemoth","Rydda`Dar","Saryrn","Arlyxir","Jiva","Rizlona",
     "The Protector of Dresolik","Xuzl","Tallon Zek","Terris Thule",
     "The Seventh Hammer","Vallon Zek","Lord Inquisitor Seru",
-    "Emperor Ssraeshza","Vyzh\\`dra the Cursed","Xerkizh The Creator",
+    "Emperor Ssraeshza ","Vyzh\\`dra the Cursed","Xerkizh The Creator",
     "Innoruuk","Bristlebane","Agnarr the Storm Lord","Bertoxxulous",
     "Mithaniel Marr","Rallos Zek","Solusek Ro","Hraashna the Warder",
     "Kerafyrm","Nanzata the Warder","Ventani the Warder","The Progenitor",
