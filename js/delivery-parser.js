@@ -4,6 +4,7 @@
   var processingOverlay = document.getElementById('processing-overlay');
   var processingLabel   = processingOverlay.querySelector('.processing-label');
   var fileInput         = document.getElementById('file-input');
+  var fullScanToggle    = document.getElementById('full-scan-toggle');
   var resultsSection    = document.getElementById('results-section');
   var emptyState        = document.getElementById('empty-state');
   var resultsSummary    = document.getElementById('results-summary');
@@ -161,6 +162,7 @@
 
   // ── File processing ────────────────────────────────────────────────────────
   function processFile(file) {
+    var tailDays = fullScanToggle.checked ? null : 7;
     uploadZone.classList.add('hidden');
     resultsSection.classList.add('hidden');
     emptyState.classList.add('hidden');
@@ -176,6 +178,7 @@
         processingLabel.textContent = 'Parsing log file… ' + e.data.pct + '%';
         return;
       }
+      if (e.data.type === 'error') { handleParseError(e.data); return; }
       allEntries = e.data.entries.map(function (entry) {
         entry.date = new Date(entry.date); return entry;
       });
@@ -189,12 +192,27 @@
       applyFilter();
     };
 
-    parseWorker.onerror = function () {
-      processingOverlay.classList.add('hidden');
-      uploadZone.classList.remove('hidden');
+    parseWorker.onerror = function (err) {
+      handleParseError({ name: 'Error', message: (err && err.message) || 'Worker error' });
+      console.error('Delivery parse worker error:', err);
     };
 
-    parseWorker.postMessage({ file: file });
+    parseWorker.postMessage({ file: file, handle: null, tailDays: tailDays });
+  }
+
+  // Abort the in-progress load and tell the user what to do. NotReadableError almost
+  // always means EverQuest changed the log mid-read.
+  function handleParseError(info) {
+    if (parseWorker) { parseWorker.terminate(); parseWorker = null; }
+    processingOverlay.classList.add('hidden');
+    uploadZone.classList.remove('hidden');
+    fileInput.value = '';
+    if (info && info.name === 'NotReadableError') {
+      alert('Could not read the log file because it changed while loading — EverQuest is still writing to it.\n\n' +
+            'Please try selecting the file again, or type /log off in-game (or close EverQuest) first.');
+    } else {
+      alert('Failed to parse the log file: ' + ((info && info.message) || 'unknown error'));
+    }
   }
 
   // ── Filter ─────────────────────────────────────────────────────────────────
