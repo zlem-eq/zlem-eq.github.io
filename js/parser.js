@@ -485,7 +485,7 @@
     var totalBeforeTargetFilter = primaryFiltered.length;
     if (targetSet) {
       primaryFiltered = primaryFiltered.filter(function (e) {
-        return targetSet[e.mob.toLowerCase()];
+        return targetSet[window.RaidTargets.normalize(e.mob)];
       });
     }
     var primaryGrouped = groupByMob(primaryFiltered);
@@ -505,7 +505,7 @@
       }
       if (targetSet) {
         filtered = filtered.filter(function (e) {
-          return targetSet[e.mob.toLowerCase()];
+          return targetSet[window.RaidTargets.normalize(e.mob)];
         });
       }
       return { label: split.label, mobs: groupByMob(filtered), playerName: split.playerName, splitIdx: i + 1 };

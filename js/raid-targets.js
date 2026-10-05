@@ -14,7 +14,7 @@
     "Manaetic Behemoth","Rydda`Dar","Saryrn","Arlyxir","Jiva","Rizlona",
     "The Protector of Dresolik","Xuzl","Tallon Zek","Terris Thule",
     "The Seventh Hammer","Vallon Zek","Lord Inquisitor Seru",
-    "Emperor Ssraeshza ","Vyzh\\`dra the Cursed","Xerkizh The Creator",
+    "Emperor Ssraeshza ","Vyzh`dra the Cursed","Xerkizh The Creator",
     "Innoruuk","Bristlebane","Agnarr the Storm Lord","Bertoxxulous",
     "Mithaniel Marr","Rallos Zek","Solusek Ro","Hraashna the Warder",
     "Kerafyrm","Nanzata the Warder","Ventani the Warder","The Progenitor",
@@ -35,7 +35,7 @@
     "Lepethida", "Midayor", "Tavekalem", "Ymmeln", "Aaryonar",
     "Hoshkar", "Silverwing", "Nexona ","Druushk", "Xygoz", "Phara Dar",
     "Va Xi Aten Ha Ra","Aten Ha Ra","Diabo Xi Xin Thall","Diabo Xi Va Temariel",
-    "Blood of Ssraeshza","Vyzh\\`Dra the Exiled","a burrower parasite",
+    "Blood of Ssraeshza","Vyzh`Dra the Exiled","a burrower parasite",
     "Thall Xundraux Diabo","Kaas Thox Xi Aten ha Ra","Thall Va Xakra",
     "Thall Va Kelun","Kaas Thox Xi Ans Dyek","Diabo Xi Va","Diabo Xi Xin",
     "An Evolved Burrower","The Va`Dyn","Servitor of Luclin","Lcea Katta",
@@ -48,18 +48,31 @@
   ];
 
 
+  // Canonical form for comparing mob names. EQ logs and user-typed names don't
+  // always agree on the backtick in names like Kelorek`Dar (it may appear as an
+  // apostrophe, a curly quote, or U+FFFD when a Windows-1252 log byte is decoded
+  // as UTF-8), and stray whitespace would otherwise prevent a match.
+  function normalizeTargetName(name) {
+    return String(name)
+      .replace(/[`'\u2018\u2019\u00B4\uFFFD]/g, '`')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase();
+  }
+
   // ── Public API ─────────────────────────────────────────────────────────────
-  // Returns current targets as a Set of lowercase strings for fast lookup
+  // getSet() returns current targets as an object keyed by normalized name
   window.RaidTargets = {
+    normalize: normalizeTargetName,
     getList: function () {
       var stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         var parsed = JSON.parse(stored);
         if (parsed.length === 0) return DEFAULT_TARGETS.slice();
         // Append any default targets that aren't already in the stored list
-        var storedLower = parsed.map(function (t) { return t.toLowerCase(); });
+        var storedNorm = parsed.map(normalizeTargetName);
         DEFAULT_TARGETS.forEach(function (t) {
-          if (storedLower.indexOf(t.toLowerCase()) === -1) parsed.push(t);
+          if (storedNorm.indexOf(normalizeTargetName(t)) === -1) parsed.push(t);
         });
         return parsed;
       }
@@ -68,7 +81,7 @@
     getSet: function () {
       var list = window.RaidTargets.getList();
       var set = {};
-      list.forEach(function (t) { set[t.toLowerCase()] = true; });
+      list.forEach(function (t) { set[normalizeTargetName(t)] = true; });
       return set;
     },
     save: function (list) {
