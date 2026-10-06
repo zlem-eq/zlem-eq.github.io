@@ -511,6 +511,7 @@
           var opt = document.createElement('option');
           opt.value = raid.RaidId || raid.Id || '';
           var name = raid.Name || raid.RaidName || ('Raid ' + opt.value);
+          opt.dataset.raidName = name;
           var dateStr = '';
           if (raid.Timestamp) {
             var d = new Date(raid.Timestamp);
@@ -721,6 +722,13 @@
 
     matchedLines.push('📦 **LOOT DELIVERY LIST**');
     matchedLines.push(timestamp);
+
+    // Raid name (from the selected OpenDKP raid) and the selected raid targets
+    var raidOpt  = deliveryRaidSelect.value ? deliveryRaidSelect.options[deliveryRaidSelect.selectedIndex] : null;
+    var raidName = raidOpt ? (raidOpt.dataset.raidName || raidOpt.textContent) : '';
+    if (raidName) matchedLines.push('**' + discordEscape(raidName) + '**');
+    var targets = window.getSelectedTargets ? window.getSelectedTargets() : [];
+    if (targets.length > 0) matchedLines.push(discordEscape(targets.join(', ')));
     matchedLines.push('');
 
     if (deliverers.length > 0) {

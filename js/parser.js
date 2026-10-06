@@ -555,6 +555,20 @@
     return results;
   };
 
+  // Returns the unique display names of the selected raid targets, in list order.
+  window.getSelectedTargets = function () {
+    var seen = new Set();
+    var names = [];
+    currentMobs.forEach(function (data, key) {
+      if (!selectedMobs.has(key)) return;
+      var norm = window.RaidTargets ? window.RaidTargets.normalize(data.displayName) : data.displayName.toLowerCase();
+      if (seen.has(norm)) return;
+      seen.add(norm);
+      names.push(data.displayName.trim());
+    });
+    return names;
+  };
+
   const SESSION_GAP_MS = 15 * 60 * 1000;
 
   function groupByMob(entries) {
