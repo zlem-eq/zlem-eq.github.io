@@ -485,8 +485,22 @@
     }
 
     // ── Assign Maker modal ─────────────────────────────────────
-    function openAssignModal() {
+    async function loadMakers() {
+      const snap = await getDocs(query(collection(db, 'makers'), orderBy('name')));
+      allMakers = snap.docs.map(d => ({ id: d.id, name: d.data().name }));
+    }
+
+    async function openAssignModal() {
       const body = document.getElementById('assign-modal-body');
+      body.innerHTML = '<div class="order-empty">Loading makers…</div>';
+      document.getElementById('assign-modal').style.display = 'flex';
+      try {
+        await loadMakers();
+      } catch (err) {
+        console.error('Failed to load makers:', err);
+        body.innerHTML = '<div class="order-empty">Failed to load makers.</div>';
+        return;
+      }
       if (allMakers.length === 0) {
         body.innerHTML = '<div class="order-empty">No makers added yet.</div>';
       } else {
@@ -511,7 +525,6 @@
           });
         });
       }
-      document.getElementById('assign-modal').style.display = 'flex';
     }
 
     function closeAssignModal() {
@@ -603,8 +616,7 @@
     }
 
     async function openMakersModal() {
-      const snap = await getDocs(query(collection(db, 'makers'), orderBy('name')));
-      allMakers = snap.docs.map(d => ({ id: d.id, name: d.data().name }));
+      await loadMakers();
       buildMakersModal();
       document.getElementById('makers-modal').style.display = 'flex';
     }
