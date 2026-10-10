@@ -1224,3 +1224,152 @@
     font-size: 0.7rem;
   }
 }
+
+/* ── Potion List view toggle + Calculator view ── */
+#potion-list-modal .modal-header {
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+#potion-list-modal-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pl-view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.pl-view-btn {
+  padding: 0.3rem 0.85rem;
+  border: none;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.pl-view-btn + .pl-view-btn {
+  border-left: 1px solid var(--border);
+}
+
+.pl-view-btn:hover {
+  color: var(--text);
+}
+
+.pl-view-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.modal.modal--wide {
+  max-width: 980px;
+}
+
+.calc-view {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.calc-panel {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  min-width: 0;
+}
+
+.calc-panel h3 {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+.calc-panel details summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.calc-table-wrap {
+  overflow-x: auto;
+}
+
+.calc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.calc-table th,
+.calc-table td {
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.calc-table th {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.calc-table th.num,
+.calc-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.calc-mats td.num {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.calc-table a {
+  color: var(--accent);
+}
+
+.calc-note,
+.calc-msg {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+.calc-warn {
+  color: #b45309;
+  font-size: 0.8rem;
+}
+
+[data-theme="dark"] .calc-warn {
+  color: #fbbf24;
+}
+
+@media (max-width: 760px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-view {
+    padding: 0.75rem;
+  }
+}

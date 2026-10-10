@@ -123,6 +123,10 @@
     <div class="modal">
       <div class="modal-header">
         <span id="potion-list-modal-title">Potion List</span>
+        <div class="pl-view-toggle" role="group" aria-label="Potion list view">
+          <button type="button" class="pl-view-btn active" data-view="simple" aria-pressed="true">Simple List View</button>
+          <button type="button" class="pl-view-btn" data-view="calc" aria-pressed="false">Calculator View</button>
+        </div>
         <button class="modal-close" id="potion-list-modal-close">&#10005;</button>
       </div>
       <div class="modal-body" id="potion-list-modal-body"></div>
@@ -1011,6 +1015,59 @@
     });
 
     // ── Potion List modal ──────────────────────────────────────
+    // Recipes keyed by the potion name used on the order board.
+    // yield = potions per combine; mats = quantity of each material per combine.
+    const POTION_RECIPES = {
+      'Heat Awareness 3':      { item: 'Heat Awareness III', id: 55891, yield: 1, mats: { 'Briar Thistle': 1, 'Figwort': 1, 'Lucerne': 1 } },
+      'Cold Awareness 3':      { item: 'Cold Awareness III', id: 55827, yield: 1, mats: { 'Benzoin': 1, 'Briar Thistle': 1, 'Figwort': 1 } },
+      'Poison Awareness 3':    { item: 'Poison Awareness III', id: 55927, yield: 1, mats: { 'Briar Thistle': 1, 'Figwort': 1, 'Night Shade': 1 } },
+      'Benefit Awareness 3':   { item: 'Benefit Awareness III', id: 55807, yield: 1, mats: { 'Briar Thistle': 1, 'Figwort': 1, 'Sage Leaf': 1 } },
+      'Magic Awareness 3':     { item: 'Magic Awareness III', id: 55911, yield: 1, mats: { 'Briar Thistle': 1, 'Figwort': 1, 'Mandrake Root': 1 } },
+      'Disease Awareness 3':   { item: 'Disease Awareness III', id: 55843, yield: 1, mats: { 'Birthwort': 1, 'Briar Thistle': 1, 'Figwort': 1 } },
+
+      'Minor Potion of Cold (Fire)':        { item: 'Minor Potion of Cold', id: 54353, yield: 1, mats: { 'Allspice': 1, 'Birthwort': 1 } },
+      'Minor Potion of Heat (Cold)':        { item: 'Minor Potion of Heat', id: 54365, yield: 1, mats: { 'Benzoin': 1, 'Sage Leaf': 1 } },
+      'Minor Null Potion (Magic)':          { item: 'Minor Null Potion', id: 54517, yield: 1, mats: { 'Fenugreek': 1, 'Mandrake Root': 1 } },
+      'Minor Potion of Antibody (Disease)': { item: 'Minor Potion of Antibody', id: 54317, yield: 1, mats: { 'Maidenhair Fern': 1, 'Mullein': 1 } },
+      'Minor Potion of Purity (Poison)':    { item: 'Minor Potion of Purity', id: 54393, yield: 1, mats: { 'Lucerne': 1, 'Night Shade': 1 } },
+      "Kithar's Disease Treatment (Cure)":  { item: "Kithar's Disease Treatment", id: 54441, yield: 1, mats: { 'Echinacea': 1, "Lady's Mantle": 1 } },
+      "Ethira's Poison Antidote (Cure)":    { item: "Ethira's Poison Antidote", id: 54437, yield: 1, mats: { 'Hyssop': 1, "Lady's Mantle": 1 } },
+      'Elixir of Divine Endurance (10allres)': { item: 'Elixir of Divine Endurance', id: 54497, yield: 1, mats: { 'Betherium Bark': 1, 'Blade Leaf': 1 } },
+
+      'Potion of Power (STR/DEX)':       { item: 'Potion of Power', id: 54385, yield: 1, mats: { 'Blue Vervain Bulb': 1, 'Fenugreek': 1, 'Lucerne': 1 } },
+      'Potion of Vigor (STR/AGI)':       { item: 'Potion of Vigor', id: 54409, yield: 1, mats: { 'Birthwort': 1, 'Blue Vervain Bulb': 1, 'Lucerne': 1 } },
+      'Potion of Stability (STR/STAM)':  { item: 'Potion of Stability', id: 54537, yield: 1, mats: { 'Blue Vervain Bulb': 1, 'Lucerne': 1, 'Sage Leaf': 1 } },
+      'Potion of Cohesion (DEX/STAM)':   { item: 'Potion of Cohesion', id: 54337, yield: 1, mats: { 'Blue Vervain Bulb': 1, 'Fenugreek': 1, 'Sage Leaf': 1 } },
+      'Potion of Accuracy (DEX/AGI)':    { item: 'Potion of Accuracy', id: 54345, yield: 1, mats: { 'Birthwort': 1, 'Blue Vervain Bulb': 1, 'Fenugreek': 1 } },
+      'Potion of Adroitness (STAM/AGI)': { item: 'Potion of Adroitness', id: 54341, yield: 1, mats: { 'Birthwort': 1, 'Blue Vervain Bulb': 1, 'Sage Leaf': 1 } },
+
+      'Gate Potion':                         { item: 'Gate Potion', id: 54277, yield: 1, mats: { 'Heliotrope': 3 } },
+      'Potion of the Swamp - Innothule Sw.': { item: 'Potion of the Swamp', id: 54477, yield: 1, mats: { 'Bladderwrack': 1, 'Heliotrope': 1 } },
+      'Potion of Twilight Mists (Luclin)':   { item: 'Potion of Twilight Mists', id: 56616, yield: 1, mats: { 'Heliotrope': 1, 'Star Reach Clover': 1 } },
+
+      'Celestial Healing Distillate':        { item: 'Distillate of Celestial Healing IX', id: 20721, yield: 5, mats: { 'Comfrey': 1, 'Deepwater Ink': 1, 'Gerti Blossom': 1, 'Small Vial': 5 } },
+      'Divine Healing Distillate':           { item: 'Distillate of Divine Healing IX', id: 20731, yield: 5, mats: { 'Comfrey': 1, 'Deepwater Ink': 1, 'Tregrum': 1, 'Small Vial': 5 } },
+      'Distillate of Clarity':               { item: 'Distillate of Clarity IX', id: 20701, yield: 5, mats: { 'Comfrey': 1, 'Deepwater Ink': 1, 'Katuka Bark': 1, 'Small Vial': 5 } },
+      'Distillate of Alacrity - Haste':      { item: 'Distillate of Alacrity IX', id: 20691, yield: 5, mats: { 'Arnworth': 1, 'Comfrey': 1, 'Deepwater Ink': 1, 'Small Vial': 5 } },
+      'Distillate of Spirituality (Luclin)': { item: 'Distillate of Spirituality IX', id: 30048, yield: 5, mats: { 'Comfrey': 1, 'Deepwater Ink': 1, 'Methysticum': 1, 'Small Vial': 5 } },
+
+      'Greater Concentration Potion':      { item: 'Elixir of Greater Concentration', id: 54493, yield: 1, mats: { 'Duskglow Vine': 1, 'Violet Tri-Tube Sap': 1 } },
+      'Blood of the Wolf (SoW)':           { item: 'Blood of the Wolf', id: 54257, yield: 1, mats: { 'Birthwort': 1, 'Fenugreek': 1, 'Wolf Blood': 1 } },
+      'Potion of Unlife Awareness (IVU)':  { item: 'Potion of Unlife Awareness', id: 54261, yield: 1, mats: { 'Elderberry': 1, 'Fennel': 1 } },
+      "Kilva's Skin of Flame (DS)":        { item: "Kilva's Skin of Flame", id: 54433, yield: 1, mats: { 'Clover': 1, 'Clubmoss': 1, 'Jatamasi': 1 } },
+      "Ant's Potion (Shrink)":             { item: "Ant's Potion", id: 54453, yield: 1, mats: { 'Celandine Herb': 1, 'Sumbul': 1 } },
+      'Army Ant Potion (GroupShrink)':     { item: 'Army Ant Potion', id: 56139, yield: 1, mats: { 'Celandine Herb': 1, 'Feverfew': 1, 'Sumbul': 1, 'Valerian Root': 1 } },
+      'Potion of Antiweight (Levitate)':   { item: 'Potion of Antiweight', id: 54425, yield: 1, mats: { 'Hydrangea': 1, 'Sumbul': 1 } },
+      'Potion of Greater Rejuvenation':    { item: 'Potion of Greater Rejuvenation', id: 54417, yield: 1, mats: { 'Agrimony': 1, 'Lucerne': 1, 'Sage Leaf': 1 } },
+    };
+
+    // Distillates stack to 20; potions and elixirs stack to 10.
+    const recipeStackSize = r => r.item.startsWith('Distillate') ? 20 : 10;
+    const escHtml = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    let potionListView = 'simple';   // 'simple' | 'calc'
+    let potionListTotals = new Map(); // potion name -> stacks, from the filtered orders
+
     function openPotionListModal() {
       const orders = filtered();
       const totals = new Map();
@@ -1019,8 +1076,117 @@
           totals.set(p.name, (totals.get(p.name) ?? 0) + p.stacks);
         });
       });
+      potionListTotals = totals;
 
+      const orderWord = orders.length === 1 ? 'order' : 'orders';
+      document.getElementById('potion-list-modal-title').textContent =
+        `Potion List — ${orders.length} ${orderWord}`;
+
+      setPotionListView('simple');
+      document.getElementById('potion-list-modal').style.display = 'flex';
+    }
+
+    function setPotionListView(view) {
+      potionListView = view;
+      document.querySelectorAll('#potion-list-modal .pl-view-btn').forEach(btn => {
+        const on = btn.dataset.view === view;
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      document.querySelector('#potion-list-modal .modal').classList.toggle('modal--wide', view === 'calc');
       const body = document.getElementById('potion-list-modal-body');
+      body.scrollTop = 0;
+      if (view === 'calc') renderPotionCalculator(body, potionListTotals);
+      else renderPotionSimpleList(body, potionListTotals);
+    }
+
+    // Potion names with stacks > 0, in catalog order, then any not in the catalog.
+    function orderedPotionNames(totals) {
+      const seen = new Set();
+      const names = [];
+      potionCatalog.forEach(cat => {
+        cat.potions.forEach(p => {
+          const n = typeof p === 'string' ? p : p.name;
+          if ((totals.get(n) ?? 0) > 0 && !seen.has(n)) { seen.add(n); names.push(n); }
+        });
+      });
+      [...totals.keys()].sort((a, b) => a.localeCompare(b)).forEach(n => {
+        if ((totals.get(n) ?? 0) > 0 && !seen.has(n)) { seen.add(n); names.push(n); }
+      });
+      return names;
+    }
+
+    function renderPotionCalculator(body, totals) {
+      const names = orderedPotionNames(totals);
+      if (names.length === 0) {
+        body.innerHTML = '<div class="order-empty">No potions in the current filtered orders.</div>';
+        return;
+      }
+
+      const mats = new Map();
+      const unknown = [];
+      const used = [];
+      const potionRows = names.map(name => {
+        const stacks = totals.get(name);
+        const r = POTION_RECIPES[name];
+        if (!r) {
+          unknown.push(name);
+          return `<tr><td>${escHtml(name)} <span class="calc-warn">— no recipe</span></td><td class="num">${stacks}</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>`;
+        }
+        used.push(name);
+        const size = recipeStackSize(r);
+        const count = stacks * size;
+        const combines = Math.ceil(count / r.yield);
+        for (const [m, q] of Object.entries(r.mats)) mats.set(m, (mats.get(m) ?? 0) + q * combines);
+        return `<tr><td>${escHtml(name)}</td><td class="num">${stacks}</td><td class="num">${size}</td><td class="num">${count.toLocaleString()}</td><td class="num">${combines.toLocaleString()}</td></tr>`;
+      });
+
+      const matRows = [...mats.entries()].sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([m, q]) => `<tr><td>${escHtml(m)}</td><td class="num">${q.toLocaleString()}</td></tr>`);
+
+      const recipeRows = used.map(name => {
+        const r = POTION_RECIPES[name];
+        const perCombine = Object.entries(r.mats).map(([m, q]) => q > 1 ? `${escHtml(m)} ×${q}` : escHtml(m)).join(', ');
+        return `<tr><td>${escHtml(name)}</td>
+          <td><a href="https://www.eqtraders.com/items/show_item.php?item=${r.id}" target="_blank" rel="noopener">${escHtml(r.item)}</a></td>
+          <td class="num">${recipeStackSize(r)}</td><td class="num">${r.yield}</td><td>${perCombine}</td></tr>`;
+      });
+
+      body.innerHTML = `
+        <div class="calc-view">
+          <div class="calc-grid">
+            <section class="calc-panel">
+              <h3>Materials needed</h3>
+              <div class="calc-table-wrap">
+                ${matRows.length
+                  ? `<table class="calc-table calc-mats"><thead><tr><th>Material</th><th class="num">Qty</th></tr></thead><tbody>${matRows.join('')}</tbody></table>`
+                  : '<div class="calc-msg">No known recipes in this list.</div>'}
+              </div>
+              ${unknown.length ? `<p class="calc-warn">No recipe for: ${unknown.map(escHtml).join(', ')}. Not counted.</p>` : ''}
+            </section>
+            <section class="calc-panel">
+              <h3>Potions to make</h3>
+              <div class="calc-table-wrap">
+                <table class="calc-table"><thead><tr><th>Potion</th><th class="num">Stacks</th><th class="num">Per stack</th><th class="num">Potions</th><th class="num">Combines</th></tr></thead>
+                <tbody>${potionRows.join('')}</tbody></table>
+              </div>
+            </section>
+          </div>
+          <section class="calc-panel">
+            <details>
+              <summary>Recipes used</summary>
+              <p class="calc-note">From EQ Traders Corner. Distillates use the IX version and stack to 20; all potions and elixirs stack to 10. "Greater Concentration Potion" uses Elixir of Greater Concentration.</p>
+              <div class="calc-table-wrap">
+                ${recipeRows.length
+                  ? `<table class="calc-table"><thead><tr><th>Order name</th><th>Item</th><th class="num">Per stack</th><th class="num">Yield</th><th>Per combine</th></tr></thead><tbody>${recipeRows.join('')}</tbody></table>`
+                  : '<div class="calc-msg">No known recipes in this list.</div>'}
+              </div>
+            </details>
+          </section>
+        </div>`;
+    }
+
+    function renderPotionSimpleList(body, totals) {
       body.innerHTML = '';
       let anyPotion = false;
 
@@ -1055,13 +1221,13 @@
       if (!anyPotion) {
         body.innerHTML = '<div class="order-empty">No potions in the current filtered orders.</div>';
       }
-
-      const orderWord = orders.length === 1 ? 'order' : 'orders';
-      document.getElementById('potion-list-modal-title').textContent =
-        `Potion List — ${orders.length} ${orderWord}`;
-
-      document.getElementById('potion-list-modal').style.display = 'flex';
     }
+
+    document.querySelectorAll('#potion-list-modal .pl-view-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.view !== potionListView) setPotionListView(btn.dataset.view);
+      });
+    });
 
     function closePotionListModal() {
       document.getElementById('potion-list-modal').style.display = 'none';
