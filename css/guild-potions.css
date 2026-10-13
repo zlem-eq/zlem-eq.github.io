@@ -1373,3 +1373,131 @@
     padding: 0.75rem;
   }
 }
+
+/* ── MQ2 Potion Maker Script button + modal ── */
+.order-list-above {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.modal.mq2-modal {
+  max-width: 760px;
+}
+
+.mq2-download-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.mq2-download-link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.mq2-download-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.mq2-readme {
+  padding: 0.5rem 1.25rem 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.mq2-readme h2 {
+  font-size: 1.05rem;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.mq2-readme h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 1.4rem 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.mq2-readme p {
+  margin: 0.5rem 0;
+}
+
+.mq2-readme ul,
+.mq2-readme ol {
+  margin: 0.4rem 0;
+  padding-left: 1.4rem;
+}
+
+.mq2-readme li {
+  margin: 0.25rem 0;
+}
+
+.mq2-readme a {
+  color: var(--accent);
+  word-break: break-word;
+}
+
+.mq2-readme code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05rem 0.3rem;
+}
+
+.mq2-readme pre {
+  margin: 0.4rem 0;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.mq2-readme pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  white-space: pre;
+}
+
+.mq2-defs {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0.5rem 0;
+}
+
+.mq2-defs dt {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mq2-defs dd {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .order-list-above {
+    flex-direction: column;
+  }
+
+  .mq2-defs {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  .mq2-defs dd {
+    margin-bottom: 0.5rem;
+  }
+}

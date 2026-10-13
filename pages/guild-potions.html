@@ -60,6 +60,7 @@
     </div>
 
     <div class="order-list-above">
+      <button id="mq2-script-btn" class="gen-potion-list-btn" style="display:none;">Download MQ2 Potion Maker Script</button>
       <button id="gen-potion-list-btn" class="gen-potion-list-btn" style="display:none;">Generate Potion List</button>
     </div>
 
@@ -130,6 +131,21 @@
         <button class="modal-close" id="potion-list-modal-close">&#10005;</button>
       </div>
       <div class="modal-body" id="potion-list-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- MQ2 Potion Maker Script Modal -->
+  <div id="mq2-script-modal" class="modal-overlay" style="display:none;">
+    <div class="modal mq2-modal">
+      <div class="modal-header">
+        <span>MQ2 Potion Maker Script</span>
+        <button class="modal-close" id="mq2-script-modal-close">&#10005;</button>
+      </div>
+      <div class="mq2-download-bar">
+        <a class="modal-place-btn mq2-download-link" href="../GuildPotions.zip" download="GuildPotions.zip">&#11015; Download GuildPotions.zip</a>
+        <span class="mq2-download-note">Unzip into your MacroQuest <code>lua</code> folder. Setup steps are below.</span>
+      </div>
+      <div class="modal-body mq2-readme" id="mq2-script-modal-body"></div>
     </div>
   </div>
 
@@ -1234,6 +1250,108 @@
     }
 
     document.getElementById('gen-potion-list-btn').addEventListener('click', openPotionListModal);
+
+    // ── MQ2 Potion Maker Script modal ──────────────────────────
+    const MQ2_README_URL = '../GuildPotions/README.txt';
+
+    // Inline formatting: escape, then link URLs and mark in-game commands as code.
+    function readmeInline(text) {
+      return escHtml(text)
+        .replace(/https?:\/\/[^\s<]+[^\s<.,;:)]/g, url => `<a href="${url}" target="_blank" rel="noopener">${url}</a>`)
+        .replace(/(^|\s)(\/lua\s+\w+(?:\s+[a-z]\w*)?)/g, '$1<code>$2</code>');
+    }
+
+    // Renders the plain-text README: lines underlined with === / --- become
+    // headings, "- " and "1. " lines become lists, "Label   - text" lines become
+    // a definition table, deeper-indented commands/paths become code lines.
+    function renderReadme(text) {
+      const lines = text.replace(/\r\n?/g, '\n').split('\n');
+      const out = [];
+      let list = null;   // { type: 'ul'|'ol'|'dl', items: [{ head, text, code: [] }] }
+      let para = null;   // string[]
+
+      const flushPara = () => {
+        if (para) out.push(`<p>${readmeInline(para.join(' '))}</p>`);
+        para = null;
+      };
+      const flushList = () => {
+        if (!list) return;
+        const body = it => readmeInline(it.text)
+          + (it.code.length ? `<pre><code>${it.code.map(escHtml).join('\n')}</code></pre>` : '');
+        if (list.type === 'dl') {
+          out.push(`<dl class="mq2-defs">${list.items.map(it =>
+            `<dt>${escHtml(it.head)}</dt><dd>${body(it)}</dd>`).join('')}</dl>`);
+        } else {
+          out.push(`<${list.type}>${list.items.map(it => `<li>${body(it)}</li>`).join('')}</${list.type}>`);
+        }
+        list = null;
+      };
+      const startItem = (type, item) => {
+        flushPara();
+        if (!list || list.type !== type) { flushList(); list = { type, items: [] }; }
+        list.items.push({ code: [], ...item });
+      };
+      const isCodeLike = s => /^(\/|\.\.\.|[A-Za-z]:\\)/.test(s) || s.includes('\\');
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const next = lines[i + 1] ?? '';
+        const trimmed = line.trim();
+
+        if (trimmed && /^=+$/.test(next.trim())) { flushPara(); flushList(); out.push(`<h2>${readmeInline(trimmed)}</h2>`); i++; continue; }
+        if (trimmed && /^-{3,}$/.test(next.trim())) { flushPara(); flushList(); out.push(`<h3>${readmeInline(trimmed)}</h3>`); i++; continue; }
+        if (!trimmed) { flushPara(); flushList(); continue; }
+
+        let m;
+        if ((m = line.match(/^- (.*)$/))) { startItem('ul', { text: m[1] }); continue; }
+        if ((m = line.match(/^(\d+)\. (.*)$/))) { startItem('ol', { text: m[2] }); continue; }
+        if ((m = line.match(/^(\S.*?)\s{2,}-\s+(.*)$/))) { startItem('dl', { head: m[1], text: m[2] }); continue; }
+
+        if (/^\s/.test(line) && list) {
+          const item = list.items[list.items.length - 1];
+          if (isCodeLike(trimmed)) item.code.push(trimmed);
+          else item.text += ' ' + trimmed;
+          continue;
+        }
+
+        flushList();
+        (para ??= []).push(trimmed);
+      }
+      flushPara();
+      flushList();
+      return out.join('\n');
+    }
+
+    let mq2ReadmeHtml = null;
+
+    async function openMq2ScriptModal() {
+      const body = document.getElementById('mq2-script-modal-body');
+      document.getElementById('mq2-script-modal').style.display = 'flex';
+      body.scrollTop = 0;
+      if (mq2ReadmeHtml) { body.innerHTML = mq2ReadmeHtml; return; }
+
+      body.innerHTML = '<div class="order-empty">Loading instructions…</div>';
+      try {
+        const res = await fetch(MQ2_README_URL, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        mq2ReadmeHtml = renderReadme(await res.text());
+        body.innerHTML = mq2ReadmeHtml;
+      } catch (err) {
+        console.error('Failed to load README:', err);
+        body.innerHTML = `<div class="order-empty">Couldn't load the instructions.
+          <a href="${MQ2_README_URL}" target="_blank" rel="noopener">Open README.txt</a></div>`;
+      }
+    }
+
+    function closeMq2ScriptModal() {
+      document.getElementById('mq2-script-modal').style.display = 'none';
+    }
+
+    document.getElementById('mq2-script-btn').addEventListener('click', openMq2ScriptModal);
+    document.getElementById('mq2-script-modal-close').addEventListener('click', closeMq2ScriptModal);
+    document.getElementById('mq2-script-modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeMq2ScriptModal();
+    });
     document.getElementById('potion-list-modal-close').addEventListener('click', closePotionListModal);
     document.getElementById('potion-list-modal').addEventListener('click', e => {
       if (e.target === e.currentTarget) closePotionListModal();
@@ -1529,6 +1647,7 @@
       document.getElementById('add-maker-btn').style.display = isBuyer ? '' : 'none';
       document.getElementById('add-officer-btn').style.display = isBuyer ? '' : 'none';
       document.getElementById('gen-potion-list-btn').style.display = isBuyer ? '' : 'none';
+      document.getElementById('mq2-script-btn').style.display = isBuyer ? '' : 'none';
       renderOrders();
     });
   </script>
