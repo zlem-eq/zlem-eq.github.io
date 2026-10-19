@@ -310,10 +310,17 @@
 
     onSnapshot(
       query(collection(db, 'potionGroups'), orderBy('order')),
+      // Metadata changes are needed so we hear when an empty cached result is confirmed by the server.
+      { includeMetadataChanges: true },
       async snap => {
         if (snap.empty) {
+          // An empty result served from cache only means the server hasn't answered yet
+          // (slow or blocked connection). Seeding then duplicated every group, so only
+          // seed once the server confirms there are none, and use fixed IDs so two
+          // browsers seeding at the same time write the same documents.
+          if (snap.metadata.fromCache) return;
           await Promise.all(DEFAULT_CATALOG.map((cat, i) =>
-            addDoc(collection(db, 'potionGroups'), {
+            setDoc(doc(db, 'potionGroups', `default-${i}`), {
               ...cat,
               potions: cat.potions.map(p =>
                 typeof p === 'string'
@@ -325,6 +332,9 @@
           ));
           return;
         }
+        // Skip metadata-only updates (e.g. a save being confirmed) so an open
+        // Edit Potions modal isn't rebuilt mid-edit when nothing changed.
+        if (potionCatalog.length && snap.docChanges().length === 0) return;
         potionCatalog = snap.docs.map(d => {
           const data = d.data();
           return {
