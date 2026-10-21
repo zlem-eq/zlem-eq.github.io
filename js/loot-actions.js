@@ -120,6 +120,17 @@
   var openDkpWebClientId   = null;
   var openDkpClientInput   = document.getElementById('opendkp-client-input');
 
+  // FFA mode reuses this same modal, but fills the item list from auctions on the
+  // selected OpenDKP raid that received fewer bids than items, instead of from the
+  // checked raid targets.
+  var genOpenDkpFfaBtn     = document.getElementById('gen-opendkp-ffa-btn');
+  var openDkpModalTitle    = document.getElementById('opendkp-modal-title');
+  var OPENDKP_TITLE        = openDkpModalTitle.textContent;
+  var OPENDKP_FFA_TITLE    = 'OpenDKP FFA Loot String';
+  var FFA_PLACEHOLDER      = '(Select a raid above to load items that were not bid on.)';
+  var ffaMode              = false;
+  var ffaRequestId         = 0; // ignores responses for a raid that is no longer selected
+
   function buildAuctionItemsList(lootString) {
     var counts = {};
     var order  = [];
@@ -166,7 +177,7 @@
   }
 
   auctionSelectNextBtn.addEventListener('click', function () {
-    // Deselect all first, then check the next 10 available (not disabled, not already auctioned)
+    // Deselect all first, then check the next 25 available (not disabled, not already auctioned)
     var available = Array.from(auctionItemsList.querySelectorAll('li')).filter(function (li) {
       var cb = li.querySelector('.auction-item-cb');
       return cb && !cb.disabled;
@@ -174,7 +185,7 @@
     available.forEach(function (li) {
       li.querySelector('.auction-item-cb').checked = false;
     });
-    available.slice(0, 10).forEach(function (li) {
+    available.slice(0, 25).forEach(function (li) {
       li.querySelector('.auction-item-cb').checked = true;
     });
     syncSelectAll();
@@ -188,6 +199,7 @@
   });
 
   genOpenDkpBtn.addEventListener('click', function () {
+    setFfaMode(false);
     var items = getCheckedItems();
     if (items.length === 0) {
       openDkpText.textContent = '(No checked items found — select at least one mob and item.)';
@@ -203,6 +215,134 @@
     }
     buildAuctionItemsList(openDkpText.textContent);
     openModal(openDkpModal);
+  });
+
+  // ── FFA loot list ──────────────────────────────────────────────────────────
+  function setFfaMode(on) {
+    ffaMode = on;
+    ffaRequestId++; // drop any FFA load still in flight
+    openDkpModalTitle.textContent = on ? OPENDKP_FFA_TITLE : OPENDKP_TITLE;
+  }
+
+  function setLootString(parts) {
+    openDkpText.textContent = parts.join('|');
+    openDkpTextLabel.textContent = parts.length + ' item' + (parts.length !== 1 ? 's' : '');
+    buildAuctionItemsList(openDkpText.textContent);
+  }
+
+  function resetFfaList(message) {
+    openDkpText.textContent = message || FFA_PLACEHOLDER;
+    openDkpTextLabel.textContent = '';
+    buildAuctionItemsList('');
+  }
+
+  function expandAuctionsPanel() {
+    auctionsToggle.setAttribute('aria-expanded', 'true');
+    auctionsBody.classList.remove('hidden');
+    if (!openDkpRaidsLoaded) fetchOpenDkpRaids();
+    if (!openDkpWebClientId) fetchWebClientId().catch(function () { /* retried on Create */ });
+  }
+
+  // All auctions for one raid. The endpoint is paged newest-first across every
+  // raid, so stop once we've found the raid's auctions and then hit a page
+  // without any (the raid's auctions are contiguous).
+  function fetchAllAuctionsForRaid(raidId) {
+    function fetchPage(page, accumulated) {
+      return fetch('https://api.opendkp.com/clients/' + getOpenDkpClient() + '/auctions?page=' + page)
+        .then(function (res) {
+          if (!res.ok) throw new Error('Get auctions failed (' + res.status + ')');
+          return res.json();
+        })
+        .then(function (data) {
+          var results = (data.BidResults || []).filter(function (a) {
+            return String(a.RaidId) === String(raidId);
+          });
+          if (accumulated.length > 0 && results.length === 0) return accumulated;
+          accumulated = accumulated.concat(results);
+          if (data.TotalPages && page < data.TotalPages) return fetchPage(page + 1, accumulated);
+          return accumulated;
+        });
+    }
+    return fetchPage(1, []);
+  }
+
+  // Item names repeated once per unit that got no bid. Auctions still running
+  // are skipped so items aren't re-auctioned before bidding closes.
+  function unbidItemsFromAuctions(auctions) {
+    var now = Date.now();
+    var parts = [];
+    var running = 0;
+    auctions.forEach(function (auction) {
+      if (auction.EndTimestamp && new Date(auction.EndTimestamp).getTime() > now) { running++; return; }
+      var name = auction.Item && auction.Item.Name;
+      if (!name) return;
+      var qty    = parseInt(auction.ItemQuantity, 10) || 1;
+      var bids   = (auction.Bids || []).length;
+      var unbid  = qty - bids;
+      for (var i = 0; i < unbid; i++) parts.push(name);
+    });
+    return { parts: parts, running: running };
+  }
+
+  function loadFfaItems(raidId) {
+    var requestId = ++ffaRequestId;
+    resetFfaList('Loading auctions for this raid…');
+    createAuctionsBtn.disabled = true;
+    setAuctionStatus('Loading auctions…', '');
+
+    fetchAllAuctionsForRaid(raidId)
+      .then(function (auctions) {
+        if (requestId !== ffaRequestId) return;
+        createAuctionsBtn.disabled = false;
+        if (auctions.length === 0) {
+          resetFfaList('(No auctions found for this raid.)');
+          setAuctionStatus('', '');
+          return;
+        }
+        var result = unbidItemsFromAuctions(auctions);
+        var runningNote = result.running
+          ? ' ' + result.running + ' auction' + (result.running !== 1 ? 's are' : ' is') + ' still running and ' + (result.running !== 1 ? 'were' : 'was') + ' skipped.'
+          : '';
+        if (result.parts.length === 0) {
+          resetFfaList(result.running === auctions.length
+            ? '(All of this raid\'s auctions are still running.)'
+            : '(Every item in this raid\'s finished auctions received a bid.)');
+          setAuctionStatus(runningNote.trim(), '');
+          return;
+        }
+        setLootString(result.parts);
+        setAuctionStatus('Found ' + result.parts.length + ' item' + (result.parts.length !== 1 ? 's' : '') +
+          ' with no bids in ' + auctions.length + ' auction' + (auctions.length !== 1 ? 's' : '') + '.' + runningNote, '');
+      })
+      .catch(function (err) {
+        if (requestId !== ffaRequestId) return;
+        createAuctionsBtn.disabled = false;
+        resetFfaList('(Failed to load auctions for this raid.)');
+        setAuctionStatus(err.message || 'Failed to load auctions.', 'error');
+      });
+  }
+
+  genOpenDkpFfaBtn.addEventListener('click', function () {
+    setFfaMode(true);
+    resetFfaList();
+    openDkpRaidSelect.value = '';
+    setAuctionStatus('', '');
+    createAuctionsBtn.disabled = false;
+    expandAuctionsPanel();
+    openModal(openDkpModal);
+  });
+
+  openDkpRaidSelect.addEventListener('change', function () {
+    if (!ffaMode) return;
+    var raidId = openDkpRaidSelect.value;
+    if (!raidId) {
+      ffaRequestId++;
+      createAuctionsBtn.disabled = false;
+      setAuctionStatus('', '');
+      resetFfaList();
+      return;
+    }
+    loadFfaItems(raidId);
   });
 
   openDkpModalClose.addEventListener('click',  function () { closeModal(openDkpModal); });
@@ -475,6 +615,12 @@
   openDkpClientInput.addEventListener('input', function () {
     syncClientInputs(openDkpClientInput, deliveryClientInput);
     openDkpRaidSelect.innerHTML = '<option value="">— Select a raid —</option>';
+    if (ffaMode) {
+      ffaRequestId++;
+      createAuctionsBtn.disabled = false;
+      setAuctionStatus('', '');
+      resetFfaList();
+    }
   });
 
   var deliveryOutputModal    = document.getElementById('delivery-output-modal');
